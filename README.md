@@ -19,7 +19,7 @@ This collection provides **120 Markdown document specifications** across governa
 
 This package guides agents that write final, project-specific Markdown documents. Select a document type by its purpose and use boundary in [INDEX.md](INDEX.md), the complete catalog of document types. Read the selected specification in full, obtain the required project facts and actual evidence from the supplied project data, write the document, and check its content and quality against that specification.
 
-## Terms
+## Authoring conventions
 
 - **Specification:** Instructions for authoring one document type, including its use boundary, content obligations, and quality criteria. Apply those instructions to the project's established facts and evidence when writing the finished document.
 - **Format:** The representation of content, such as Markdown prose, a table, a diagram, or YAML frontmatter. A format alone does not define a document's purpose or required content.
