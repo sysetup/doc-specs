@@ -1,0 +1,31 @@
+# SYSETUP document specifications
+
+> A collection of 120 Markdown document authoring specifications for governance, processes, plans, technical specifications, control records, and evidence. Each defines a document's purpose, use boundary, content obligations, and quality criteria.
+
+The collection supports engineering, operations, security, and project documentation. Its files are authoring contracts rather than completed project documents, executable procedures, or evidence of approval or conformity.
+
+Use INDEX.md as the complete catalog. Select a type by purpose and use boundary, then read its linked specification in full. Each specification identifies authoring inputs, treatment of unresolved facts, the finished-document contract, content definitions, and quality criteria. Ground finished documents in authorized project facts and actual evidence; place them in their owning project's authorized documentation location.
+
+AGENTS.md supplies production instructions for hosts that install this collection, including document selection and the separation of current host guidance from pending changes. Reading it does not authorize access or operational execution. The doc-operations/ and doc-operations-update/ directories in this publication contain only placeholders; they are not sources of current host configuration or pending operational changes.
+
+Links are relative to this repository revision so the file can accompany clones and publications on different providers. For remote retrieval, resolve them against the provider's raw-file base URL for the same revision. The specification links below are representative examples; INDEX.md lists all 120 types.
+
+## Start here
+
+- [Public overview](README.md): Purpose, audience, directory organization, usage, and documentation architecture.
+- [Complete document catalog](INDEX.md): Type names, purposes, use boundaries, and links to every authoring specification.
+- [Production documentation instructions](AGENTS.md): Specification selection, documentation authority, proposal preparation, and common authoring and verification rules.
+
+## Specification families
+
+- [Governance: internal standard](00-governance/standard--core.spec.md): Authorized mandatory criteria for a defined practice or artifact; the catalog also includes policies and an engineering guide.
+- [Processes: systems engineering lifecycle](01-processes/lifecycle-process--systems-engineering.spec.md): Recurring system lifecycle coordination; the catalog also includes software and control processes, runbooks, playbooks, and work instructions.
+- [Plans: systems engineering management](02-plans/semp--core.spec.md): One project's lifecycle tailoring, responsibilities, resources, and technical gates; other plans address assurance, continuity, operations, and maintenance.
+- [Technical specifications: software requirements](03-specifications/software-requirements--core.spec.md): Traceable software obligations and verification bases; other types address needs, architecture, design, interfaces, tests, and product documentation.
+- [Control records: requirements traceability matrix](04-control/requirements-traceability-matrix--core.spec.md): Directed relationships and gaps between requirements and their related sources, decisions, activities, and evidence; other types include registers, requests, and decisions.
+- [Evidence: verification evidence record](05-evidence/verification-evidence--core.spec.md): Observed technical conformity for an assessed configuration; other types cover reviews, execution, validation, audits, releases, and handoffs.
+
+## Optional
+
+- [Changelog](CHANGELOG.md): Notable changes and changes awaiting release.
+- [License](LICENSE): Terms governing use of the collection.
