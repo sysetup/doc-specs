@@ -13,7 +13,9 @@
 
 ## Overview
 
-This collection provides **120 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Each specification defines a document's purpose, use boundary, content obligations, and quality criteria.
+This collection provides **143 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Each specification defines a document's purpose, use boundary, content obligations, and quality criteria.
+
+Current collection release: [2026-10-06](CHANGELOG.md#release-2026-10-06). It includes all 143 catalog specifications, the authoring standard 2.0.0, both authoring templates, and the family registry. The authoring standard is released, adopted, and effective from this collection release.
 
 The collection helps engineers, project owners, operators, and reviewers develop documentation grounded in their project's facts and evidence. It supports manual and automated authoring.
 
@@ -29,14 +31,23 @@ A specification describes what a document needs to accomplish and contain. The f
 | `03-specifications/` | Requirements, architecture, design, interfaces, test specifications, and product documentation. |
 | `04-control/` | Registers, matrices, requests, decisions, and other control records. |
 | `05-evidence/` | Reviews, execution records, assessment evidence, reports, releases, and handoffs. |
+| `authoring/` | Family registry, structured request template, and specification template for maintaining the collection. |
 
-The [document catalog](INDEX.md) lists each type's purpose, use boundary, and specification. The numbered directories contain authoring specifications rather than completed documents of those types.
+The [document catalog](INDEX.md) lists each type's purpose, use boundary, and specification. The numbered directories contain authoring specifications rather than completed documents. The table above describes current contents; [authoring/families.json](authoring/families.json) alone defines family responsibilities, boundaries, and order for classification, request validation, placement, and counting. The six existing families remain defaults; extension requires a sourced mission and the controlled procedure in CONTRIBUTING.md.
+
+[llms.txt](llms.txt) provides an entrypoint for automated readers. [CHANGELOG.md](CHANGELOG.md) records releases and pending changes. The collection is distributed under the [MIT License](LICENSE).
+
+## Adding document specifications
+
+[CONTRIBUTING.md](CONTRIBUTING.md), released version 2.0.0, requires mission and source discovery before classification, task-to-content-to-case coverage, type-specific frontmatter and projection rules, and representative finished-instance evaluation before deterministic composition. Use its [structured request template](authoring/request.template.json) and [specification template](authoring/specification.template.md) after reading the method. Required information may share proportionate paragraphs, lists, or sections.
+
+The `authoring/` directory contains those templates and the family registry, outside the catalog count. No installed renderer or validator is supplied. Version 2.0.0 changes the request interface for new contributions and explicitly requested revisions; existing specifications and historical 1.0.0 requests retain their original contracts. Do not recompose historical evidence with current rules or retrospectively migrate unaffected files.
 
 ## Using the collection
 
 1. Find the document type in [INDEX.md](INDEX.md) that matches the purpose and scope of your work.
 2. Read its specification to understand the required inputs, document structure, content obligations, and quality criteria.
-3. Prepare the document using established project facts and actual evidence, then review it against the specification. Missing information remains visible according to that specification.
+3. Prepare the document using established project facts and actual evidence, then review its content and declared reader tasks. Apply only its defined metadata and projection policy; preserve native authority. Missing information remains visible according to that specification. Do not infer mission fitness, execution, or human usability from a structural check.
 
 For example, [software requirements](03-specifications/software-requirements--core.spec.md) describe obligations allocated to a software item, while [software design](03-specifications/software-design-description--software.spec.md) describes its realization. Selection depends on the document's purpose and use boundary, rather than its filename alone.
 
@@ -51,20 +62,10 @@ Finished documents belong with their owning project or in its authorized documen
 
 The document body uses GitHub Flavored Markdown. YAML frontmatter is a separate convention whose applicability and fields are defined by the selected specification. A format, such as a table or diagram, does not itself determine a document's purpose or content obligations.
 
-## Operational documentation architecture
+## Documentation scope
 
-The collection can participate in an environment that separates three documentation roles:
+This repository maintains reusable document specifications, their catalog, and the authoring resources listed above. It can be read directly from a checkout; it supplies no installation scripts, renderer, or automated validator.
 
-| Role | Responsibility |
-|---|---|
-| Document specifications | Authoring contracts, read-only for consumers. This repository is their maintained source. |
-| Current operations documentation | Published guidance describing the host and its shared services. |
-| Proposed operations documentation | Pending additions and changes awaiting publication by the designated responsible entity. |
+Finished project, host, and service documentation belongs in the owning project's or environment's authorized documentation location. Use that owner's established review and publication workflow for changes. The collection prescribes neither fixed paths under a home directory nor a separate directory for proposed documentation.
 
-`doc-operations/` and `doc-operations-update/` are representative directories in this repository. Each contains only an empty `.gitkeep` file so Git preserves the directory. They contain no current guidance or pending proposals and are not active operational stores.
-
-Actual documentation roots are configured by the adopting environment. One installation convention places the three trees at `$HOME/.agents/doc-specs/`, `$HOME/.agents/doc-operations/`, and `$HOME/.agents/doc-operations-update/` as siblings. Using the specifications independently does not require installing the operational trees.
-
-Project documentation stays with its owning project. Host-wide documentation changes are prepared in the configured proposal tree and remain pending until the designated responsible entity publishes them. This repository does not install those trees or publish operational changes.
-
-[AGENTS.md](AGENTS.md) provides the production instructions for using the specifications and managing documentation. The host's agent harness determines where the file is installed and how it is loaded; it contains no installation automation.
+The owning environment supplies operational agent instructions and determines how its harness loads them. [CONTRIBUTING.md](CONTRIBUTING.md) governs maintenance of this specification library; operational authorization comes from the responsible project or environment.

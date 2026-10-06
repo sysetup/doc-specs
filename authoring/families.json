@@ -1,0 +1,35 @@
+{
+  "registry_version": "1.0.0",
+  "families": [
+    {
+      "directory": "00-governance",
+      "responsibility": "Issue reusable organizational direction, binding criteria, or nonbinding advice.",
+      "boundary": "A policy or standard governs a population; a guide recommends a practice."
+    },
+    {
+      "directory": "01-processes",
+      "responsibility": "Define how recurring work is performed or how a response is routed.",
+      "boundary": "Roles, steps, checks, branches, and handoffs are the work product."
+    },
+    {
+      "directory": "02-plans",
+      "responsibility": "Arrange a bounded future effort.",
+      "boundary": "Scope, strategy, resources, sequencing, readiness, and expected evidence are planned."
+    },
+    {
+      "directory": "03-specifications",
+      "responsibility": "Define needs, requirements, structure, design, interfaces, detailed test definitions, or product information.",
+      "boundary": "The content defines a subject or product; detailed test cases and procedures stay in this established family."
+    },
+    {
+      "directory": "04-control",
+      "responsibility": "Maintain current identities, relationships, allocations, states, issues, proposals, or decisions.",
+      "boundary": "The record supports ongoing control; a decision or trade study remains here even when its analysis is complete."
+    },
+    {
+      "directory": "05-evidence",
+      "responsibility": "Preserve what was performed, observed, examined, concluded, handed over, or released.",
+      "boundary": "Claims are tied to an actual activity, assessed configuration, or recorded event."
+    }
+  ]
+}

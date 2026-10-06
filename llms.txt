@@ -1,29 +1,38 @@
 # SYSETUP document specifications
 
-> A collection of 120 Markdown document authoring specifications for governance, processes, plans, technical specifications, control records, and evidence. Each defines a document's purpose, use boundary, content obligations, and quality criteria.
+> A collection of 143 Markdown document authoring specifications for governance, processes, plans, technical specifications, control records, and evidence. Each defines a document's purpose, use boundary, content obligations, and quality criteria.
+
+Current collection release: [2026-10-06](CHANGELOG.md#release-2026-10-06). All 143 catalog specifications, the authoring standard 2.0.0, both authoring templates, and the family registry are included. The authoring standard is released, adopted, and effective from this collection release.
 
 The collection supports engineering, operations, security, and project documentation. Its files are authoring contracts rather than completed project documents, executable procedures, or evidence of approval or conformity.
 
 Use INDEX.md as the complete catalog. Select a type by purpose and use boundary, then read its linked specification in full. Each specification identifies authoring inputs, treatment of unresolved facts, the finished-document contract, content definitions, and quality criteria. Ground finished documents in authorized project facts and actual evidence; place them in their owning project's authorized documentation location.
 
-AGENTS.md supplies production instructions for hosts that install this collection, including document selection and the separation of current host guidance from pending changes. Reading it does not authorize access or operational execution. The doc-operations/ and doc-operations-update/ directories in this publication contain only placeholders; they are not sources of current host configuration or pending operational changes.
+For specification maintenance, read released CONTRIBUTING.md version 2.0.0 in full. Establish reader tasks, subject boundaries, sources, exclusions, unknowns, and observable cases before classification and literal composition. The family registry alone defines responsibilities and order for validation, placement, and counts; six families remain defaults with controlled extension. The request declares type-specific frontmatter, standalone/native projections, proportionate presentation, and controlled supporting content. Evaluate ordinary, incomplete, and boundary finished instances before readiness. Exact rendering follows settled design. Existing contracts and historical 1.0.0 requests are not retrospectively migrated. Templates and registry are maintenance material outside the catalog; no installed renderer or validator is supplied. The owning project or environment defines operational agent instructions, finished-document locations, and review and publication workflows. The collection prescribes neither fixed installation paths nor a separate directory for proposed documentation.
 
-Links are relative to this repository revision so the file can accompany clones and publications on different providers. For remote retrieval, resolve them against the provider's raw-file base URL for the same revision. The specification links below are representative examples; INDEX.md lists all 120 types.
+Links are relative to this repository revision so the file can accompany clones and publications on different providers. For remote retrieval, resolve them against the provider's raw-file base URL for the same revision. The specification links below are representative examples; INDEX.md lists all 143 specifications, including variants.
 
 ## Start here
 
-- [Public overview](README.md): Purpose, audience, directory organization, usage, and documentation architecture.
+- [Public overview](README.md): Purpose, audience, directory organization, usage, and documentation scope.
 - [Complete document catalog](INDEX.md): Type names, purposes, use boundaries, and links to every authoring specification.
-- [Production documentation instructions](AGENTS.md): Specification selection, documentation authority, proposal preparation, and common authoring and verification rules.
+- [Specification authoring standard](CONTRIBUTING.md): Released and adopted rules for adding new types and variants with deterministic composition and explicit acceptance gates.
+- [Authoritative family registry](authoring/families.json): Shared family definitions and order; extension requires the standard's controlled decision and transition.
+- [Structured request template](authoring/request.template.json): Version 2.0.0 mission design, source bindings, coverage, evaluated cases, representation decisions, and literal wording.
+- [Specification template](authoring/specification.template.md): Five-section spine with per-type metadata, projection, presentation, and controlled supporting blocks under version 2.0.0.
 
 ## Specification families
 
 - [Governance: internal standard](00-governance/standard--core.spec.md): Authorized mandatory criteria for a defined practice or artifact; the catalog also includes policies and an engineering guide.
 - [Processes: systems engineering lifecycle](01-processes/lifecycle-process--systems-engineering.spec.md): Recurring system lifecycle coordination; the catalog also includes software and control processes, runbooks, playbooks, and work instructions.
 - [Plans: systems engineering management](02-plans/semp--core.spec.md): One project's lifecycle tailoring, responsibilities, resources, and technical gates; other plans address assurance, continuity, operations, and maintenance.
+- [Discovery planning](02-plans/user-research-plan--core.spec.md): Unknown user needs and contexts, recruitment, instruments, permissions, and interpretation limits.
 - [Technical specifications: software requirements](03-specifications/software-requirements--core.spec.md): Traceable software obligations and verification bases; other types address needs, architecture, design, interfaces, tests, and product documentation.
+- [Consumer lookup and learning](03-specifications/technical-reference--core.spec.md): Version-bound API, SDK, CLI, and configuration lookup; [tutorials](03-specifications/tutorial--core.spec.md) define supported practice progression.
 - [Control records: requirements traceability matrix](04-control/requirements-traceability-matrix--core.spec.md): Directed relationships and gaps between requirements and their related sources, decisions, activities, and evidence; other types include registers, requests, and decisions.
+- [Product and collaboration control](04-control/product-backlog--core.spec.md): Ordered emergent work; the catalog also defines feedback intake, review requests, debt, commercial commitments, period status, and [cumulative change history](04-control/changelog--core.spec.md).
 - [Evidence: verification evidence record](05-evidence/verification-evidence--core.spec.md): Observed technical conformity for an assessed configuration; other types cover reviews, execution, validation, audits, releases, and handoffs.
+- [Discovery evidence](05-evidence/user-research-findings--core.spec.md): Supported user/context findings, separate from raw elicitation sources, consumed effort, and ordinary meeting records.
 
 ## Optional
 
