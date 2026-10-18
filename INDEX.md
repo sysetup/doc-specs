@@ -1,12 +1,10 @@
 # Document specification index
 
-This index lists 143 document specifications.
-
-All catalog entries are included in collection release [2026-10-06](CHANGELOG.md#release-2026-10-06).
+This index lists 144 document specifications.
 
 Use an entry's purpose and use boundary to choose the document type, then read its linked specification. Each row gives the type name, purpose, use boundary, and relative link.
 
-For additions and explicitly requested revisions, follow [the released 2.0.0 authoring standard](CONTRIBUTING.md), adopted and effective from collection release 2026-10-06: design the mission and evaluate finished instances before literal composition. [The family registry](authoring/families.json) controls classification, placement, and counting. Templates, registry, and evaluation fixtures are outside this catalog; existing contracts retain their obligations until an authorized revision.
+[The family registry](authoring/families.json) controls classification, placement, and counting.
 
 | Type | Purpose | Use boundary | Specification |
 |---|---|---|---|
@@ -97,6 +95,7 @@ For additions and explicitly requested revisions, follow [the released 2.0.0 aut
 | Observed IT inventory (`INVENTORY@it`) | Record observed IT components, attributes, and reconciliation. | Dated observations within a stated boundary. | [Read](04-control/inventory--it.spec.md) |
 | IT asset registry (`ASSET-REGISTRY@it`) | Maintain asset identity, classification, ownership, custody, and lifecycle. | Governed managed assets within an established authority scope. | [Read](04-control/asset-registry--it.spec.md) |
 | Action item register (`ACTION-ITEM-REGISTER@core`) | Track follow-up owners, states, due dates, dependencies, and closure evidence. | Discrete actions, including unresolved assignments. | [Read](04-control/action-item-register--core.spec.md) |
+| Task execution plan (`TASK-EXECUTION-PLAN@core`) | Maintain current task steps, decisions, evidence, blockers, and continuation. | Living state for one bounded task needing durable tracking, recovery, or handoff; exclude formal record masters and grants of authority. | [Read](04-control/task-execution-plan--core.spec.md) |
 | Assumption and dependency register (`ASSUMPTION-DEPENDENCY-REGISTER@core`) | Track assumptions, dependencies, constraints, owners, impact, and resolution. | Material effects on engineering, plans, risks, schedules, or operations. | [Read](04-control/assumption-dependency-register--core.spec.md) |
 | Decision registry (`DECISION-REGISTRY@core`) | Index decision master records, status, scope, and supersession. | Controlled decisions with status bound to cited master revisions. | [Read](04-control/decision-registry--core.spec.md) |
 | Change request (`CHANGE-REQUEST@core`) | Track proposed change, impact, authorization, implementation, rollback, and closure. | One controlled product, service, or baseline change. | [Read](04-control/change-request--core.spec.md) |
