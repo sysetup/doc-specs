@@ -7,6 +7,10 @@ Collection releases are identified by date; the authoring standard has its own v
 
 ## Unreleased
 
+### Added
+
+- `DOCUMENT-AUTHORING-PROFILE@host`: Maintain a host's declared authoring values, actor assignments, authority boundaries, conventions, and provenance. Distinguish the profile's own edition and state from target-document decisions; preserve shared-role assignments and historical attribution without prescribing a publication or skill workflow.
+
 ### Changed
 
 - Updated `README.md` to describe the actual repository contents, link automated-reader and license resources, and remove the obsolete three-tree installation convention and dedicated operational proposal-directory workflow.
