@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PRODUCT-ROADMAP@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Communicate evolving product direction, intended outcomes, and dependencies across planning horizons.
 - **Intended readers:** Product owners, product managers, engineering leads, stakeholders, and investment decision makers.
 - **Decision or action supported:** Align priorities and revisit future direction while distinguishing forecasts from established commitments.

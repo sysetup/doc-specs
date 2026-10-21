@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TUTORIAL@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Guide a learner through a bounded practice exercise with a learning objective and observable checkpoints.
 - **Intended readers:** Learners and instructors responsible for the stated prerequisites and practice environment.
 - **Decision or action supported:** Complete a supported learning progression and recognize its practice outcome.

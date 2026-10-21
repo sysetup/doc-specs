@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-DESIGN-SPECIFICATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Translate a bounded test basis into test conditions, a justified design approach, planned cases, and assessable coverage.
 - **Intended readers:** Test designers, implementers of cases and procedures, test leads, product or system owners, and reviewers of coverage.
 - **Decision or action supported:** Select the cases and test conditions to develop, identify the environment and data they need, and decide whether the proposed design covers its stated basis and risks.

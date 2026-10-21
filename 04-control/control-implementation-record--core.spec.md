@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CONTROL-IMPLEMENTATION-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record each explicitly selected control's scoped implementation claim, parameters, evidence, assessment state, exceptions, and residual or open items.
 - **Intended readers:** Control owners, security or privacy engineers, assessors, and reviewers who need to see what was selected and what the current implementation claim can support.
 - **Decision or action supported:** Determine, for a defined boundary, which controls were selected, how each is implemented or not, which evidence supports that claim, and what remains unresolved.

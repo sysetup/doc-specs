@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POLICY@engineering`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory engineering direction for lifecycle responsibility, requirements, interfaces, and the quality of technical decisions.
 - **Intended readers:** Engineering roles, project and technical decision authorities, and people who depend on engineering outputs across lifecycle boundaries.
 - **Decision or action supported:** Readers can identify who owns technical work and decisions, how requirements and interfaces are governed, and what basis is needed before a technical conclusion or change is accepted.

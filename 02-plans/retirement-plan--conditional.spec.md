@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RETIREMENT-PLAN@conditional`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan the controlled withdrawal of a defined system, service, product, or asset from its current role, including dependent capability, data, access, support, records, and disposition.
 - **Intended readers:** System and service owners, operators, asset and configuration managers, data and records owners, security and safety roles, receiving parties, suppliers, and retirement decision makers.
 - **Decision or action supported:** Determine what may be withdrawn, under whose authority, in what order, with which retained obligations and proof needed for closure.

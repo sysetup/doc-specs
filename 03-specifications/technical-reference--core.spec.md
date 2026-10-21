@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-REFERENCE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Provide version-bound lookup information for technical interfaces, symbols, commands, or settings.
 - **Intended readers:** Developers, integrators, operators, and consumers looking up precise technical behavior.
 - **Decision or action supported:** Find an item's syntax, constraints, behavior, errors, and applicability without reconstructing a task narrative.

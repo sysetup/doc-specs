@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POLICY@configuration-management`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory direction for identifying controlled configuration items, governing baselines and changes, and maintaining configuration integrity.
 - **Intended readers:** People who create, change, release, use, or oversee controlled configurations, and the authority that issues the policy.
 - **Decision or action supported:** Readers can determine what must be controlled, who can establish or change an approved baseline, and how unauthorized or exceptional changes are handled.

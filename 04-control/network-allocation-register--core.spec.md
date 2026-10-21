@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `NETWORK-ALLOCATION-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State the current assignment of prefixes, VLAN identifiers, names, and owners.
 - **Intended readers:** Network operators and the owners of assigned prefixes, VLAN identifiers, and names, who must use the assignment now in force.
 - **Decision or action supported:** Determine which prefix, VLAN identifier, or name is assigned now, to whom, and which intended design value is not the assignment in force.

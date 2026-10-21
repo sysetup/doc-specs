@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-DATA-SPECIFICATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define reproducible test inputs or datasets, their expected properties, provenance, allowed use, protection, and lifecycle for a bounded set of tests.
 - **Intended readers:** Test designers and operators, data owners and stewards, environment owners, security or privacy reviewers, and people interpreting test results.
 - **Decision or action supported:** Select or generate suitable data, prepare it safely for the intended tests, verify its properties, and identify limitations that affect coverage or result interpretation.

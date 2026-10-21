@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `QUALITY-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan project- or product-specific quality objectives, assurance work, resources, measures, and nonconformity decisions against an established quality basis.
 - **Intended readers:** Project and product leads, quality and assurance roles, engineers, suppliers, operations or service owners, and release or acceptance decision makers.
 - **Decision or action supported:** Decide what quality work must be performed, what evidence will be reviewed, and how a deficient output is contained and dispositioned before delivery or continued use.

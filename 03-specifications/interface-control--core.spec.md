@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INTERFACE-CONTROL@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define and control a versioned interface realization and the cross-party decisions needed to keep its two sides compatible.
 - **Intended readers:** Responsible organizations on both sides, interface and integration engineers, implementers, configuration managers, and verification personnel.
 - **Decision or action supported:** Each party can implement the same interface edition, identify who controls each side, and determine whether a proposed change or version combination is permitted.

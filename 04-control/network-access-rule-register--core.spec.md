@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `NETWORK-ACCESS-RULE-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record ACL, firewall, or zone rules with owner, intent, and status.
 - **Intended readers:** Rule owners, network and security engineers, and reviewers who must see which access rule is in force and why it exists.
 - **Decision or action supported:** Determine the rule base now recorded, who owns each rule, what it is for, and whether it is proposed, in force, disabled, or superseded.

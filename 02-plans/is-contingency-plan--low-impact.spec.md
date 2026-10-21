@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `IS-CONTINGENCY-PLAN@low-impact`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define how one classified low-impact information system will activate contingency arrangements, recover service and data, return to routine operation, exercise the approach, and keep the plan usable.
 - **Intended readers:** System owner, contingency coordinator, recovery personnel, supporting providers, and authorities who decide activation or return to service.
 - **Decision or action supported:** Those roles can recognize a disruption, decide whether to activate the plan, carry out a bounded recovery, and assess readiness against established recovery objectives.

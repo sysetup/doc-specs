@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PROBLEM-DEFECT-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Control one observed defect, problem, or nonconformance from its description through analysis, disposition, any correction, effectiveness check, and closure.
 - **Intended readers:** The owner who must disposition the departure, the people who investigate or correct it, and anyone who must confirm that closure is supported.
 - **Decision or action supported:** Decide whether the departure remains open, which disposition applies, and whether closure has authority and, when a correction was implemented, an effectiveness check.

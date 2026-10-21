@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `BUSINESS-CONTINUITY-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how prioritized business or service capabilities continue or are restored through disruption, including impact, dependencies, authority, strategies, return, and exercise.
 - **Intended readers:** Continuity owners, business and service owners, recovery teams, suppliers, communications roles, and the authorities for activation and return to normal operation.
 - **Decision or action supported:** Decide which capabilities take priority, how they will be sustained, who may activate and stand down continuity response, and when normal operation may resume.

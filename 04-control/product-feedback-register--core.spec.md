@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PRODUCT-FEEDBACK-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain sourced discovery inputs and feedback through triage and routing to authoritative downstream records.
 - **Intended readers:** Researchers, analysts, product owners, support personnel, and requirements or defect stewards.
 - **Decision or action supported:** Identify untriaged inputs, duplicates, themes, and disposition without treating feedback as approved work.

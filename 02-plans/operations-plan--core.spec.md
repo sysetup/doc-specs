@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `OPERATIONS-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan routine operation and support of a defined service or system, including ownership, observability, capacity, data protection, upkeep, and escalation interfaces.
 - **Intended readers:** Service owners, operators, support teams, security and change roles, suppliers, and managers responsible for service readiness.
 - **Decision or action supported:** Establish how the service will be operated, monitored, supported, and kept within its agreed operating boundaries.

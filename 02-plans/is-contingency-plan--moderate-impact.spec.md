@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `IS-CONTINGENCY-PLAN@moderate-impact`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define coordinated activation, recovery, reconstitution, exercise, and maintenance for one classified moderate-impact information system, including the selected offsite data and alternate processing arrangements.
 - **Intended readers:** System and mission owners, contingency coordinator, recovery teams, storage and processing providers, and authorities responsible for activation and return to service.
 - **Decision or action supported:** Those roles can choose the recovery route, restore prioritized functions and data within established objectives, coordinate dependencies, and decide when normal operation may resume.

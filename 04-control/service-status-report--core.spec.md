@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SERVICE-STATUS-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a bounded view of observed service-period results, data coverage, trends, and follow-up decisions.
 - **Intended readers:** Service owners, operators, support leads, security roles, and service decision makers.
 - **Decision or action supported:** Assess current service results and request follow-up without treating missing telemetry as healthy operation.

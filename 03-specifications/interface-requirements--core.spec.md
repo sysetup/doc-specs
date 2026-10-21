@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INTERFACE-REQUIREMENTS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State assessable obligations and limiting conditions at identified interfaces between system elements, external systems, people, or organizations.
 - **Intended readers:** Owners of both sides of each interface, systems and interface engineers, integrators, verification planners, and authorities that control interface requirements.
 - **Decision or action supported:** Each party can determine what it must provide or tolerate at the boundary, under which conditions, and what a later conformity check would have to observe.

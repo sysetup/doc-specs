@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ERROR-HANDLING-SPECIFICATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define required detection, propagation, response, recovery, and observable behavior for technical faults in a bounded system or software scope.
 - **Intended readers:** Implementers, interface owners, operators, security and safety reviewers, testers, and maintainers.
 - **Decision or action supported:** Implement consistent fault behavior, coordinate what callers and operators can expect, and assess whether failure responses meet the project's stated reliability, security, safety, and interface obligations.

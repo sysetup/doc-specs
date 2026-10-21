@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POLICY@quality`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory direction for product or service quality, impartial assurance, and the control of nonconforming outputs.
 - **Intended readers:** People who create, assess, release, deliver, or oversee the covered products or services, and the policy's issuing authority.
 - **Decision or action supported:** Readers can determine the quality obligations that apply, who may make assurance and disposition decisions, and how a suspected nonconforming output is controlled and escalated.

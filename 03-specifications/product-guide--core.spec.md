@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PRODUCT-GUIDE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Explain how to install, configure, and use the delivered product.
 - **Intended readers:** The people who install, configure, or use that product, and the role that keeps the guide aligned with the delivered behavior.
 - **Decision or action supported:** A reader can install, configure, and use the product within the conditions the guide actually states.

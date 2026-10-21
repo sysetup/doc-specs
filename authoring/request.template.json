@@ -44,6 +44,7 @@
       "identity": {
         "type": "{{TYPE}}",
         "variant": "{{VARIANT}}",
+        "edition": "1.0",
         "catalog_name": "{{HUMAN_DOCUMENT_TYPE_NAME}}",
         "purpose": "{{PURPOSE_SENTENCE}}",
         "readers": "{{READER_ROLES}}",

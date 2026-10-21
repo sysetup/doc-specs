@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VALIDATION-MATRIX@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Account for how in-scope stakeholder, business or mission, or intended-use needs map to validation scenarios, criteria, methods, evidence, and current outcomes.
 - **Intended readers:** Validation leads, stakeholder or user representatives, need owners, and reviewers judging whether fitness-for-use claims are supported.
 - **Decision or action supported:** See which needs have a credible validation path, what has actually been assessed under which conditions, and which needs remain uncovered, failed, or inconclusive.

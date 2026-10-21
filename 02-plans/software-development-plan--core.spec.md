@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-DEVELOPMENT-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan the work, resources, controls, and evidence needed to develop and deliver defined software, including secure development practices.
 - **Intended readers:** Software and system leads, developers, security and quality roles, configuration managers, suppliers, release decision makers, and receiving maintainers.
 - **Decision or action supported:** Coordinate project-specific development increments and determine what must be ready for a controlled software release and support handoff.

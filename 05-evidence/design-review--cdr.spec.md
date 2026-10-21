@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@cdr`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one Critical Design Review that was actually held, including whether the board judges the detailed design mature enough for fabrication, assembly, integration, and test, and whether the technical effort is on track to meet the functional and performance requirements within the cost, schedule, and risk constraints the review applied.
 - **Intended readers:** The review chair, reviewers, design leads, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed detailed design is mature enough for the fabrication, assembly, integration, and test the review considered, under the requirements and constraints the review applied, and what the review authority decided.

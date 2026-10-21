@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `HANDOFF@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual transfer of responsibility, custody, work, knowledge, configuration, or access between identified parties, including what moved, what remains open, and the receiving party's actual response.
 - **Intended readers:** Delivering and receiving owners, operations and support roles, project leads, and authorities responsible for unresolved obligations.
 - **Decision or action supported:** Determine who has which responsibility or custody now, what the receiver can use, what is pending, and whether further acceptance, access, training, or closure action is needed.

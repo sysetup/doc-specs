@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-ENVIRONMENT-SPECIFICATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the conditions and readiness criteria of an environment used for a bounded test effort, including test-specific interfaces, instrumentation, data, fidelity, and reset needs.
 - **Intended readers:** Test designers and operators, environment owners, integrators, data and security stewards, and people who decide whether testing may begin or continue.
 - **Decision or action supported:** Build or select a suitable test environment, assess it against explicit criteria, and determine which tests and conclusions its limitations permit.

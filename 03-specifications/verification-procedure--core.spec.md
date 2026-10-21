@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VERIFICATION-PROCEDURE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable method and decision criteria for assessing whether a bounded item conforms to identified technical requirements or specifications.
 - **Intended readers:** Verification engineers and operators, requirement owners, technical reviewers, and people deciding how conformance evidence will be assessed.
 - **Decision or action supported:** Select and prepare an appropriate inspection, analysis, test, or demonstration; perform it repeatably; and determine what observations could support or limit a conformance conclusion.

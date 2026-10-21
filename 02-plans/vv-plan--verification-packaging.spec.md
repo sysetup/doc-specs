@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VV-PLAN@verification-packaging`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a bounded item will be assessed for conformity to specified technical requirements, with traceable methods, criteria, and expected evidence.
 - **Intended readers:** Verification leads and performers, requirement owners, technical reviewers, assurance roles, and recipients of a verification evidence package.
 - **Decision or action supported:** Agree the conformance basis, coverage, resources, readiness, evidence package, and review route before verification work begins.

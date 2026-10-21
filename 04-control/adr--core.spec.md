@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ADR@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one architecture or technical decision, including its question, context, alternatives, rationale, state, consequences, and follow-through.
 - **Intended readers:** The decision authority, the architects and implementers who must apply the choice, and later readers who need to know whether it still stands.
 - **Decision or action supported:** See whether an option has been selected, why the other considered options were set aside, what the choice requires, and when it must be reconsidered.

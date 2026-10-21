@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RUNTIME-ENVIRONMENT-SPECIFICATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the required state and readiness criteria for a bounded development, integration, staging, or production enabling environment.
 - **Intended readers:** Environment owners, software and system engineers, operators, security and data stewards, integrators, and readiness reviewers.
 - **Decision or action supported:** Configure or procure the intended environment, check whether a particular instance meets its requirements, and identify gaps that prevent its intended use.

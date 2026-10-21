@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-DEBT-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Track known engineering compromises, their carrying effects, treatment choices, and reassessment.
 - **Intended readers:** Architects, developers, maintainers, product owners, and engineering investment decision makers.
 - **Decision or action supported:** Prioritize or defer treatment of known maintainability compromises using sourced consequences and explicit decision state.

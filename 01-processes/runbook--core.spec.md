@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RUNBOOK@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Give operators a repeatable sequence for a specific service or system operation, troubleshooting task, maintenance action, or recovery task.
 - **Intended readers:** Authorized operators and the people who review or support the operation, including anyone the procedure names as a later handoff recipient.
 - **Decision or action supported:** An operator can decide whether the runbook applies, prepare safely, follow the steps, respond to deviations, and check the final state.

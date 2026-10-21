@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `THIRD-PARTY-NOTICES@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Assemble sourced third-party notices and attribution accompanying an identified distributed artifact.
 - **Intended readers:** Distribution recipients, release maintainers, component stewards, and authorized intellectual-property reviewers.
 - **Decision or action supported:** Locate faithfully preserved upstream notices and unresolved distribution obligations for the actual package.

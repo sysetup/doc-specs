@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PRODUCT-BACKLOG@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain an emergent, ordered inventory of possible product work and its refinement basis.
 - **Intended readers:** Product owners, developers, designers, stakeholders, and those coordinating product delivery.
 - **Decision or action supported:** Order and refine possible work against the product goal and select work without confusing it with approved requirements.

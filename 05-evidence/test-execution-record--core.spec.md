@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-EXECUTION-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record what happened during one bounded, actually initiated test run, including the tested configuration, attempted cases, observations, deviations, and results.
 - **Intended readers:** Test operators, test leads, defect investigators, reviewers, and people who use actual results in a later verification or completion decision.
 - **Decision or action supported:** Readers can reconstruct the run, judge each reported outcome against its expected result, identify anomalies and missing evidence, and decide what needs investigation or retest.

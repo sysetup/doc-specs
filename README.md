@@ -55,6 +55,8 @@ Finished documents belong with their owning project or in its authorized documen
 
 ## Reading a specification
 
+Read `Specification edition` in the identity block and the catalog; the current edition is `1.0` for every specification. Cite this edition as the source specification edition, independently of the authoring standard, family registry, and finished document versions.
+
 - **Required** content appears in every document of that type.
 - **Conditional** content applies when the stated condition is met.
 - **Optional** content can help explain the subject without obscuring required content.

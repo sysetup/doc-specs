@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DEVIATION-WAIVER-REQUEST@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Request a bounded departure from an identified project requirement, baseline, process, or criterion while that obligation stays in force, and track justification, impact, effectivity, authority, and closure.
 - **Intended readers:** The requester, the assessors of impact and residual exposure, the authority who can grant or refuse the departure, and the role that closes or restores compliance.
 - **Decision or action supported:** Grant, refuse, bound, expire, or close one requested departure without changing the underlying obligation.

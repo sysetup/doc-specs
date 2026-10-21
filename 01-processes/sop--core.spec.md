@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SOP@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable organizational or operational procedure that coordinates roles, inputs, decisions, controls, handoffs, and required records.
 - **Intended readers:** Process participants, the process owner, supervisors, and people responsible for a hold, escalation, or receiving handoff.
 - **Decision or action supported:** A participant can decide whether the procedure applies, perform their assigned activities in order, obtain required release decisions, and route abnormal work.

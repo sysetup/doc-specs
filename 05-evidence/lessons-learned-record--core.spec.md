@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `LESSONS-LEARNED-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Retain evidence-based lessons from non-incident engineering, delivery, operations, maintenance, or project work, including the observation, its interpretation, the reusable recommendation, and any improvement action actually derived from it.
 - **Intended readers:** People who may repeat the work, practice or process owners, and anyone deciding whether to adopt a recommended practice or improvement.
 - **Decision or action supported:** See what was observed, how far the interpretation goes, where the lesson is believed to apply, and which follow-up actions were proposed or taken. Decide whether a separate controlled change is needed.

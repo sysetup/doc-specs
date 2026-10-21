@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RELEASE-NOTES@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State the changes in one release that a recipient must know.
 - **Intended readers:** Recipients of that release, and the people who support them, who need its changes and their recipient effects.
 - **Decision or action supported:** A recipient can tell what changed, what action the change requires, and which limits still apply.

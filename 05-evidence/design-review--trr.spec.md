@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@trr`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one Test Readiness Review that was actually held for a specified test or series of tests, including whether the test article, test facility or environment, support personnel, and test procedures are ready for testing and for the data acquisition, reduction, and control that test requires.
 - **Intended readers:** The review chair, reviewers, test lead, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed test or series was ready to start under the objectives, controls, resources, and authority the review applied, and what the review authority decided.

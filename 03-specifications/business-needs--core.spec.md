@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `BUSINESS-NEEDS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish a sourced account of a business or mission problem or opportunity, the affected stakeholders, and the outcomes sought before solution obligations are fixed.
 - **Intended readers:** The business or mission sponsor, affected stakeholder representatives, analysts, and decision makers who will decide whether and how to address the need.
 - **Decision or action supported:** Readers can judge the need's basis, importance, and boundaries, decide what remains to be learned, and use the established outcomes to frame later requirements or option analysis.

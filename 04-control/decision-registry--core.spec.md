@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DECISION-REGISTRY@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Provide one index of controlled decisions so a reader can find each decision's master record, the status and supersession stated there, and the scope that master affects.
 - **Intended readers:** The registry steward, decision authorities, and consumers who need to know which decisions are current without reading every master.
 - **Decision or action supported:** Locate the authoritative decision record, see the status and review point carried by its cited revision, and detect conflicts or missing masters.

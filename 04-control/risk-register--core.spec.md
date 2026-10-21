@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RISK-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain the current assessment, ownership, treatment, and monitoring of uncertain events or conditions that may adversely affect stated objectives.
 - **Intended readers:** Risk owners, project or operational decision makers, treatment action owners, and reviewers of the affected objectives.
 - **Decision or action supported:** Readers can prioritize exposure, assign or escalate treatment, watch for triggers, and see which residual-risk decisions remain open.

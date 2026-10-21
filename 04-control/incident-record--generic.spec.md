@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INCIDENT-RECORD@generic`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record the facts, chronology, impact, response actions, evidence handling, current status, and closure of one suspected or confirmed operational incident that is not being handled as a cybersecurity incident.
 - **Intended readers:** The incident lead, authorized responders, affected service owners, and anyone who must act on the current account or preserve it for later review.
 - **Decision or action supported:** Direct the response, see what is contained or restored, and decide whether the incident remains open, using a chronology that can be corrected without rewriting history.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RESEARCH-PARTICIPANT-INFORMATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Explain a planned study and its participation and data arrangements to prospective participants.
 - **Intended readers:** Prospective research participants and any representatives established for the study.
 - **Decision or action supported:** Decide whether to participate and how to ask questions, decline, or exercise established withdrawal options.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INTEGRATION-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how identified components, subsystems, or increments will be combined into a defined assembly or system and checked at each integration boundary.
 - **Intended readers:** Integration leads and performers, component and interface owners, configuration and assurance roles, test leads, suppliers, and gate decision makers.
 - **Decision or action supported:** Coordinate the integration sequence, prerequisites, responsibilities, environment, checks, and the response when a step does not meet its criterion or is unsafe, before work begins.

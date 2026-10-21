@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ENGINEERING-EFFORT-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record engineering effort actually consumed and its attribution, units, source, and correction basis.
 - **Intended readers:** Performers, engineering coordinators, project leads, and authorized cost or planning reviewers.
 - **Decision or action supported:** Reconcile consumed effort for planning or authorized accounting without inferring work completion or worker productivity.

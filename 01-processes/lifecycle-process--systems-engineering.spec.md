@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@systems-engineering`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable system-level technical process from stakeholder need through requirements, architecture, integration, verification, validation, transition, and technical decisions.
 - **Intended readers:** Systems engineers, discipline leads, technical and review authorities, integrators, and transition recipients.
 - **Decision or action supported:** Teams can coordinate technical work across disciplines and know what information and criteria are needed before a lifecycle decision or handoff.

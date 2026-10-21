@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ASSET-REGISTRY@it`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain the governed identity, classification, ownership, custody, and lifecycle state of managed assets, together with the authority for that identity.
 - **Intended readers:** Asset owners, custodians, configuration managers, and the inventory, maintenance, financial, or retirement processes that consume asset identity.
 - **Decision or action supported:** Determine which assets the organization governs, who owns and holds each one, which lifecycle state has been set, and which configuration items are related without treating those identities as the same object.

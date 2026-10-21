@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INVENTORY@it`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record IT components or asset instances actually observed in a stated boundary, including the discovered attributes and the reconciliation status of that observation.
 - **Intended readers:** Operators, support staff, security analysts, and configuration managers who need to know what was seen, when, and how it differs from a governed identity or approved baseline.
 - **Decision or action supported:** Determine which components were observed or expected, what the collection could show, which owners or versions are still unknown, and which observations remain unreconciled.

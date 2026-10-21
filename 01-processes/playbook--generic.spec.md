@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PLAYBOOK@generic`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Coordinate a branching response to a bounded operational or business situation.
 - **Intended readers:** Response leads, participating teams, escalation authorities, and people receiving a transition or handoff.
 - **Decision or action supported:** A responder can decide when to activate the playbook, assess the situation, select an authorized response path, and decide when to halt, escalate, or transition.

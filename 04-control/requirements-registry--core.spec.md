@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `REQUIREMENTS-REGISTRY@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a current index of requirement identity, authoritative source, content state, and ownership across controlled requirement sets without creating a second statement master.
 - **Intended readers:** Requirements stewards, change authorities, requirement owners, and people reconciling source sets or consuming their IDs.
 - **Decision or action supported:** Locate the controlling requirement, identify its applicable edition and owner, detect source or state conflicts, and route changes to the proper authority.

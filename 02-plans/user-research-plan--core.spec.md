@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `USER-RESEARCH-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan exploratory research into unknown user needs, behavior, and operating contexts.
 - **Intended readers:** Researchers, analysts, product owners, designers, research operations, and privacy or ethics reviewers.
 - **Decision or action supported:** Decide which questions to investigate, how to recruit and collect information, and whether a research round is ready.

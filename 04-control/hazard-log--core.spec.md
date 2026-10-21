@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `HAZARD-LOG@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a stable identity for each system hazard across development and operation, including its mishap, controls, verification status, residual exposure, and disposition.
 - **Intended readers:** Safety analysts, control owners, people assessing verification, and the authority that reviews closure or residual exposure.
 - **Decision or action supported:** Readers can see which hazards are open, which controls are credited, which verification is still planned or missing, and which residual exposure has not been accepted.

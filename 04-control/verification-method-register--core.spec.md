@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VERIFICATION-METHOD-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Control the project methods available or proposed for checking technical requirements, including their applicability, capability limits, decision state, and links to actual planned activities.
 - **Intended readers:** Verification planners, method owners, requirement owners, performers, and reviewers choosing or maintaining an assessment approach.
 - **Decision or action supported:** Select an adequate method for an obligation and level, identify the authority and conditions for its use, and find the procedures or events that apply it.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CHANGE-REQUEST@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Propose one change to a controlled product, service, or baseline and track its reason, impact, risk, affected configuration, implementation and rollback intent, authorization, implementation, and closure.
 - **Intended readers:** The requester, impact assessors, the change authority, implementers, and the role that verifies closure.
 - **Decision or action supported:** Decide whether the stated change should proceed and, after an actual decision, see whether implementation, baseline update, and verified closure have occurred.

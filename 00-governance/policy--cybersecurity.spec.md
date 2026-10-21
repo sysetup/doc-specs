@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POLICY@cybersecurity`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory security direction for protection objectives, secure development, incident response, and supply-chain security within an authorized scope.
 - **Intended readers:** People who design, build, acquire, operate, or oversee the covered systems and information, and the policy's issuing authority.
 - **Decision or action supported:** Readers can identify the security duties that apply, where to report or escalate a security concern, and who may decide a policy exception.

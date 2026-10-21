@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DOCUMENT-AUTHORING-PROFILE@host`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a host's declared document-authoring values, actor assignments, authority boundaries, conventions, and provenance.
 - **Intended readers:** Host document authors, accountable maintainers, reviewers, and the authorities responsible for the declared assignments.
 - **Decision or action supported:** Determine which declared values and responsible actors apply to authoring for one host and which decisions remain specific to each document.

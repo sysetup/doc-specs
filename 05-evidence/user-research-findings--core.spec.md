@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `USER-RESEARCH-FINDINGS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Report supported discovery observations, interpretations, disagreements, and implications from research actually performed.
 - **Intended readers:** Researchers, analysts, product owners, designers, requirements stewards, and authorized stakeholder readers.
 - **Decision or action supported:** Use discovery evidence to revisit needs or product work while retaining sample, context, and interpretation limits.

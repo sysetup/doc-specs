@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-COMPLETION-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Summarize one test campaign or phase that has ended: the scope actually covered, the reconciled results, anomalies, coverage, limitations, and what remains unresolved.
 - **Intended readers:** The test lead, the people who adopted the completion criteria, and anyone who must decide what testing, if any, happens next.
 - **Decision or action supported:** Judge the ended campaign against its completion criteria, see which criteria remain incomplete, and identify the further testing supported by the evidence.

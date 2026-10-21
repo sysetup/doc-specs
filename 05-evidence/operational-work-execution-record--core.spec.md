@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `OPERATIONAL-WORK-EXECUTION-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record operational or maintenance work that was actually performed or attempted on a target, including the method and revision used, authorization, as-found state, actions, observed results, and return-to-service disposition when that disposition applies.
 - **Intended readers:** Operators, maintainers, supervisors, asset or service owners, and investigators who need to know what was done to the target and the state in which it was left.
 - **Decision or action supported:** Determine what work occurred, whether it stayed inside its authorization and method, what was observed before and after the actions, and whether the target was returned to service.

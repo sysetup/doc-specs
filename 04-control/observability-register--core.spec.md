@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `OBSERVABILITY-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record the watched signals, their thresholds, their owners, and the response each signal calls for.
 - **Intended readers:** The owners of those signals and the people who must know which signal is watched, at what threshold, and what response applies.
 - **Decision or action supported:** Determine the controlled list of watched signals and the threshold, owner, and response for each.

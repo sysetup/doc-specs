@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SUPPORT-GUIDE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Direct recipients to established help, defect, improvement, and security-reporting routes.
 - **Intended readers:** Supported users, integrators, contributors, and support recipients.
 - **Decision or action supported:** Choose the correct request channel and provide useful information within privacy and support boundaries.

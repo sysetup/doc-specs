@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ASSET-MAINTENANCE-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan upkeep of identified systems, products, or assets through selected maintenance strategies, triggers, resources, work controls, and return-to-service criteria.
 - **Intended readers:** Asset owners, maintainers, operators, engineering and safety roles, suppliers, stores or logistics teams, and return-to-service decision makers.
 - **Decision or action supported:** Decide when and how maintenance is initiated, resourced, controlled, assessed, and escalated over the asset's useful life.

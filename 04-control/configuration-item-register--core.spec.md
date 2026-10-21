@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CONFIGURATION-ITEM-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Account for the identity, ownership, configuration-control state, controlled revisions, and relationships of real candidate, controlled, and retained former configuration items.
 - **Intended readers:** Configuration managers, item owners, change authorities, and consumers who must locate a controlled item and determine its actual control state and revision effectivity.
 - **Decision or action supported:** Determine which items are controlled, who owns each one, which revisions are under control and for what effectivity, and how an item relates to its parents or to a real baseline.

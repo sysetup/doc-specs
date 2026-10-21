@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CERTIFICATE-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record certificate identity, scope, custodian, expiry, and installed location.
 - **Intended readers:** Certificate custodians and the operators who must know where a certificate is installed and when it expires.
 - **Decision or action supported:** Determine which certificate is in scope, who keeps it, when it expires, and where it is installed.

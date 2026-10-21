@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PULL-REQUEST-DESCRIPTION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Present an identified change for review and integration with its rationale, validation, risks, and pending decisions.
 - **Intended readers:** Change authors, reviewers, integrators, maintainers, and relevant release or operations roles.
 - **Decision or action supported:** Assess the requested diff and decide which review, integration, or readiness questions remain.

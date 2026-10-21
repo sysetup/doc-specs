@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-MAINTENANCE-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan support and controlled modification of delivered software, from intake and analysis through change, regression, release, and end-of-support coordination.
 - **Intended readers:** Maintainers, support and operations roles, development and security teams, suppliers, configuration managers, release decision makers, and the receiving organization.
 - **Decision or action supported:** Route a reported problem or proposed enhancement to the right maintenance treatment, resources, assessment, and release or support decision.

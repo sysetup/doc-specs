@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-ANALYSIS-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record a technical analysis that was performed, so its question, inputs, method, assumptions, results, uncertainty, limitations, and conclusions can be reviewed and traced.
 - **Intended readers:** The analyst, a reviewer of the analysis, and anyone who may rely on the result when making a later decision.
 - **Decision or action supported:** See what question was asked, what work was done, what was observed, how uncertain the result is, and which conclusions or recommendations the recorded work supports.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-PROCEDURE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable, bounded test execution sequence with prerequisites, actions, expected checkpoints, evidence capture, failure branches, and restoration.
 - **Intended readers:** Test operators and automation implementers, environment owners, test leads, and reviewers of execution readiness and reproducibility.
 - **Decision or action supported:** Prepare an authorized run, follow the correct sequence, stop or recover safely when conditions fail, and capture evidence sufficient to interpret the result.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INTERFACE-REGISTRY@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a controlled index of interface identities, participating parties, owners, registration status, criticality, definition references, and change relationships.
 - **Intended readers:** Interface stewards, parties on each side of a boundary, integration and verification planners, configuration managers, and suppliers who need to locate interfaces and their definition records.
 - **Decision or action supported:** Determine which interfaces are in scope, who owns each side, where a definition is controlled, and which consumers or changes are identified.

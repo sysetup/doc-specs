@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POST-INCIDENT-REVIEW@cybersecurity`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Review one stabilized cybersecurity incident for supported causes, control outcomes, response effectiveness, dwell time, eradication confirmation, notification handling, and improvements.
 - **Intended readers:** Security responders, affected resource and control owners, and the roles responsible for disclosure decisions and improvement follow-through.
 - **Decision or action supported:** Assess what failed or worked, what remains uncertain, and what corrective work or further investigation is justified.

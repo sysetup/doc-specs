@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `AUDIT-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one audit or assessment that was performed, including its authority, scope, criteria, evidence examined, findings, limitations, and conclusions.
 - **Intended readers:** The audit client, the auditee, the audit team, and anyone who later relies on what was examined and what the evidence supports.
 - **Decision or action supported:** See which criteria were applied, which evidence supports each finding, what remains outside the conclusion, and which follow-up exists.

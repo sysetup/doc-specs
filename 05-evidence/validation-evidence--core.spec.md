@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VALIDATION-EVIDENCE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record actual observations showing whether a system or outcome was fit for identified stakeholder, user, business, or intended-use needs in the context that was assessed.
 - **Intended readers:** Validation leads, need owners, user representatives, reviewers, and anyone who later relies on a fitness result.
 - **Decision or action supported:** See which needs or intended-use conditions were observed, in which context, what the comparison showed, and which facets of fitness remain undemonstrated.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `{{TYPE}}@{{VARIANT}}`.
+- **Specification edition:** `{{EDITION}}`.
 - **Purpose:** {{PURPOSE}}
 - **Intended readers:** {{READERS}}
 - **Decision or action supported:** {{DECISION}}

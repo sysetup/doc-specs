@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SYSTEM-DESIGN-DESCRIPTION@system`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define how a bounded system or subsystem is to be realized and integrated at the design maturity claimed, including elements, allocations, behavior, interfaces, physical or deployment constraints, and rationale.
 - **Intended readers:** System and subsystem designers, hardware and software leads, interface and integration engineers, implementers, maintainers, and technical reviewers.
 - **Decision or action supported:** Implement or refine the system design, coordinate element and interface ownership, and assess whether the proposed realization carries its allocated project requirements and constraints.

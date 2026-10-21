@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one technical or lifecycle review that was actually held under criteria the project defined for that review, including the question decided, the evidence examined, the findings and actions, and the review authority's disposition.
 - **Intended readers:** The review chair, reviewers, technical authority, project leads, and anyone who later relies on what this review examined and decided.
 - **Decision or action supported:** Readers can tell whether the reviewed subject met the criteria this review adopted and what the review authority decided: proceed, proceed with conditions, repeat the review, stop, or leave the matter undecided.

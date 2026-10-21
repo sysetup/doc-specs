@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-ANOMALY-REFERENCE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Provide a controlled linking view of the test anomalies in one stated test scope, including each anomaly's observation source, any authoritative problem record, test impact, derived disposition, and any retest or closure evidence.
 - **Intended readers:** The test lead and anyone who must see which runs, problem records, retests, and testing constraints belong together.
 - **Decision or action supported:** See which anomalies affect this test scope, which testing is blocked or selected for retest, and whether each linked disposition is authorized in its problem record.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-REQUIREMENTS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State the obligations allocated to a defined software item, including its behavior, interfaces, data, quality, operation, and justified constraints.
 - **Intended readers:** Software engineers, affected system and interface owners, testers, reviewers, and the authority that controls the software requirements.
 - **Decision or action supported:** Readers can determine what the software must do under which conditions, why each obligation exists, and how conformity can be assessed.

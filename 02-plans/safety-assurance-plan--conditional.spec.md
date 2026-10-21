@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SAFETY-ASSURANCE-PLAN@conditional`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a project will identify and control safety hazards, establish safety obligations, obtain assurance evidence, review residual exposure, and sustain safety controls across its applicable lifecycle.
 - **Intended readers:** Project and safety leads, engineering and operations teams, affected suppliers, assurance reviewers, and the actual authorities for safety decisions.
 - **Decision or action supported:** Assign and coordinate safety analyses, controls, verification, reviews, and decision gates before work or operation continues under an applicable safety obligation.

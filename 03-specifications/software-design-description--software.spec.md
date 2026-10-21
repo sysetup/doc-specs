@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-DESIGN-DESCRIPTION@software`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the design of a bounded software item so implementers can realize its responsibilities, interfaces, data, behavior, deployment, and failure handling against its allocated project obligations.
 - **Intended readers:** Software designers and implementers, integration and operations engineers, security and test reviewers, and maintainers.
 - **Decision or action supported:** Implement or review the software item, coordinate module and interface contracts, and assess design coverage and change impact.

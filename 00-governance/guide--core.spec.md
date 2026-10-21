@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `GUIDE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Give practitioners reusable, nonbinding recommendations or conventions, with reasons and limits that help them choose how to work.
 - **Intended readers:** Practitioners deciding whether and how to apply the advice, and the role that maintains it.
 - **Decision or action supported:** A reader can choose a suitable practice, adapt it to the stated context, or identify when it should not be used.

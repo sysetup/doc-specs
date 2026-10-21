@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `BUSINESS-REQUIREMENTS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State the business-level obligations and constraints needed to achieve authorized business or mission outcomes, with their basis, applicability, and assessment conditions.
 - **Intended readers:** Business authorities, stakeholder representatives, analysts, project leads, and reviewers who derive, authorize, implement, or assess business requirements.
 - **Decision or action supported:** Readers can determine what the business must achieve or observe, why each obligation exists, which obligations are authorized, and what evidence would support assessment.

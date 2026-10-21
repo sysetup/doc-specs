@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POST-INCIDENT-REVIEW@generic`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Review one stabilized operational incident for supported causes, contributing conditions, response and recovery effectiveness, lessons, and improvement actions.
 - **Intended readers:** Incident responders, affected service or operational owners, and people responsible for deciding and tracking improvements.
 - **Decision or action supported:** Understand what the incident reveals and decide what should change, with evidence and limits visible.

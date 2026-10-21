@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the scope, objectives, strategy, resources, control points, and evidence for a bounded test effort before its execution.
 - **Intended readers:** Test lead and team, product or system owners, reviewers, and people who decide readiness or completion.
 - **Decision or action supported:** Stakeholders can agree what will be tested, why and how, what resources are needed, and what evidence will support readiness and completion decisions.

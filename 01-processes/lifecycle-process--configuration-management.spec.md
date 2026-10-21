@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@configuration-management`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable process for identifying controlled configurations, establishing and changing baselines, accounting for status, checking integrity, and retaining configuration history.
 - **Intended readers:** Configuration managers, change and baseline authorities, item owners, auditors, and teams that create or use controlled items.
 - **Decision or action supported:** A team can route an item or proposed change through the right controls and determine which state and record are authoritative.

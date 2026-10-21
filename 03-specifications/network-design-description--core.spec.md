@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `NETWORK-DESIGN-DESCRIPTION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State the required topology, segmentation, routing, intended addressing, wireless design, and network services for one enterprise or data-center network.
 - **Intended readers:** Network designers, systems engineers who allocate the network as a system element, implementers, and reviewers who must see what the network is required to be.
 - **Decision or action supported:** Realize the network from a controlled design with explicit intended configuration, design choices, and unresolved decisions.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ARCHITECTURE-DESCRIPTION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Explain the organizing structure, behavior, relationships, and governing choices of a system or software entity from the views needed to address stakeholder concerns.
 - **Intended readers:** Stakeholders with architecture concerns, architects, system and software designers, integrators, technical reviewers, and change authorities.
 - **Decision or action supported:** Evaluate whether the proposed architecture addresses its drivers, coordinate detailed design across boundaries, and understand the impact of architectural change.

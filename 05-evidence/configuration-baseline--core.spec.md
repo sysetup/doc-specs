@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CONFIGURATION-BASELINE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Identify one actually established, controlled configuration snapshot and the exact item revisions and effectivity it fixes.
 - **Intended readers:** Configuration managers, item owners, change and release authorities, builders, operators, and reviewers who need to know the controlled configuration.
 - **Decision or action supported:** Reproduce, compare with, change, or release the exact controlled definition for its established effectivity.

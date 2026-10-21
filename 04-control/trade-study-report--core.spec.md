@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TRADE-STUDY-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Compare credible alternatives against mandatory gates and explicit criteria, and record the assumptions, evidence, sensitivity, risks, and recommendation or decision handoff.
 - **Intended readers:** The analyst, the decision authority, and later readers who need to see whether the comparison can support a choice.
 - **Decision or action supported:** Judge which alternatives remain viable and whether the stated recommendation is robust enough to take to the decision authority.

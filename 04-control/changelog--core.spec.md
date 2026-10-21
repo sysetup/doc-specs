@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CHANGELOG@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a meaningful history of changes across established versions and separately identified pending work.
 - **Intended readers:** Product recipients, developers, maintainers, release coordinators, and readers comparing versions.
 - **Decision or action supported:** Identify what changed across versions, what remains pending, and which material effects need further guidance.

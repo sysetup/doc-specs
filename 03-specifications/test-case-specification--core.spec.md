@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-CASE-SPECIFICATION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define one or more independently assessable tests, with their basis, conditions, actions, expected observations, and result criteria before execution.
 - **Intended readers:** Test designers and operators, implementers, test leads, and reviewers who must understand what each case will establish.
 - **Decision or action supported:** Prepare and select executable cases, identify missing prerequisites or uncertain oracles, and compare later observations with defined expectations.

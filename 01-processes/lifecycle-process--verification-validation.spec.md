@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@verification-validation`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable process for planning, performing, controlling, and reporting verification and validation while keeping their different assessment questions explicit.
 - **Intended readers:** V&V leads and performers, requirements and stakeholder representatives, assurance roles, technical authorities, and recipients of assessment results.
 - **Decision or action supported:** A team can select the right assessment basis and method, protect evidence and independence where needed, and apply anomaly and reporting rules without conflating conformity with fitness for use.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CODE-REVIEW-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual review of a source revision, including the criteria applied, the findings and their dispositions, the re-review state, and the review evidence retained.
 - **Intended readers:** The reviewers, the author of the change, and anyone who later needs to know which snapshot was reviewed and what remained open.
 - **Decision or action supported:** See whether the identified snapshot was reviewed, what was found, how each finding was disposed, and whether the recorded project review conditions require another review.

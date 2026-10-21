@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PLAYBOOK@cyber-incident`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Coordinate conditional response to a suspected or confirmed cybersecurity incident under the organization's actual incident-response authority.
 - **Intended readers:** Incident lead, security and operations responders, service owners, communications and legal roles when applicable, and receiving recovery teams.
 - **Decision or action supported:** Responders can triage a report, determine escalation and response authority, choose containment and recovery paths, protect evidence, and decide when to transition or close response work.

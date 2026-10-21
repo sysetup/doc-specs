@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `REPOSITORY-OVERVIEW@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Provide a concise entrypoint to a development repository and its authoritative documentation.
 - **Intended readers:** Prospective users, contributors, maintainers, integrators, and automated readers discovering the repository.
 - **Decision or action supported:** Identify the repository's purpose, maturity, starting route, and actual collaboration and support resources.

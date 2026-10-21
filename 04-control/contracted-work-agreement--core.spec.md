@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CONTRACTED-WORK-AGREEMENT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Control the terms, parties, revisions, and decision state of contracted study, development, or maintenance commitments.
 - **Intended readers:** Authorized client and supplier representatives, contractual and legal reviewers, project leads, and receiving maintainers.
 - **Decision or action supported:** Determine which work, commercial terms, receiving criteria, and change rights are proposed or actually agreed.

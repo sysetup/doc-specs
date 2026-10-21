@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `APPROVAL-ACCEPTANCE-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual authorized decision about a defined subject and revision, preserving the kind of decision, authority, basis, outcome, conditions, and effectivity.
 - **Intended readers:** The deciding authority, affected owner or recipient, configuration and release roles, and anyone who must rely on or challenge the decision.
 - **Decision or action supported:** Determine precisely what was approved, accepted, authorized, rejected, conditionally decided, or withdrawn and whether the decision applies to the present subject and time.

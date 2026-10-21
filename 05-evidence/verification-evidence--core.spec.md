@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VERIFICATION-EVIDENCE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record actual observations showing whether identified technical requirements or specifications were met at a stated configuration.
 - **Intended readers:** Verification leads, requirement owners, reviewers, and anyone who later relies on a conformance result.
 - **Decision or action supported:** See which conformance subjects were observed, under which configuration and method, what the comparison showed, and which facets remain undemonstrated.

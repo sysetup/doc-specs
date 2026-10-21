@@ -6,7 +6,7 @@ Current collection release: [2026-10-06](CHANGELOG.md#release-2026-10-06). All 1
 
 The collection supports engineering, operations, security, and project documentation. Its files are authoring contracts rather than completed project documents, executable procedures, or evidence of approval or conformity.
 
-Use INDEX.md as the complete catalog. Select a type by purpose and use boundary, then read its linked specification in full. Each specification identifies authoring inputs, treatment of unresolved facts, the finished-document contract, content definitions, and quality criteria. Ground finished documents in authorized project facts and actual evidence; place them in their owning project's authorized documentation location.
+Use INDEX.md as the complete catalog. Select a type by purpose and use boundary, then read its linked specification in full. Use its declared `Specification edition` for source attribution; every current specification is at `1.0`. Each specification identifies authoring inputs, treatment of unresolved facts, the finished-document contract, content definitions, and quality criteria. Ground finished documents in authorized project facts and actual evidence; place them in their owning project's authorized documentation location.
 
 For specification maintenance, read released CONTRIBUTING.md version 2.0.0 in full. Establish reader tasks, subject boundaries, sources, exclusions, unknowns, and observable cases before classification and literal composition. The family registry alone defines responsibilities and order for validation, placement, and counts; six families remain defaults with controlled extension. The request declares type-specific frontmatter, standalone/native projections, proportionate presentation, and controlled supporting content. Evaluate ordinary, incomplete, and boundary finished instances before readiness. Exact rendering follows settled design. Existing contracts and historical 1.0.0 requests are not retrospectively migrated. Templates and registry are maintenance material outside the catalog; no installed renderer or validator is supplied. The owning project or environment defines operational agent instructions, finished-document locations, and review and publication workflows. The collection prescribes neither fixed installation paths nor a separate directory for proposed documentation.
 
@@ -15,7 +15,7 @@ Links are relative to this repository revision so the file can accompany clones 
 ## Start here
 
 - [Public overview](README.md): Purpose, audience, directory organization, usage, and documentation scope.
-- [Complete document catalog](INDEX.md): Type names, purposes, use boundaries, and links to every authoring specification.
+- [Complete document catalog](INDEX.md): Type names, purposes, use boundaries, specification editions, and links to every authoring specification.
 - [Specification authoring standard](CONTRIBUTING.md): Released and adopted rules for adding new types and variants with deterministic composition and explicit acceptance gates.
 - [Authoritative family registry](authoring/families.json): Shared family definitions and order; extension requires the standard's controlled decision and transition.
 - [Structured request template](authoring/request.template.json): Version 2.0.0 mission design, source bindings, coverage, evaluated cases, representation decisions, and literal wording.

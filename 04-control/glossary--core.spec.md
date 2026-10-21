@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `GLOSSARY@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Control the shared meanings of project or domain concepts, including each concept's preferred designations, permitted and deprecated aliases, sources, and distinctions.
 - **Intended readers:** Authors and reviewers who must use the same meanings across project documents, and the role that stewards the vocabulary.
 - **Decision or action supported:** A reader can tell which designation to use, what the concept means in this subject field, which designations are deprecated, and whether the definition was adopted, adapted, or written for the project.

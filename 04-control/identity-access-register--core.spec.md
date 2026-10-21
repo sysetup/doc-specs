@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `IDENTITY-ACCESS-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record accounts, groups, and privileges for one directory or host set.
 - **Intended readers:** The directory or host-set owner, account administrators, and reviewers who must see who holds which privilege.
 - **Decision or action supported:** Determine which accounts and groups exist in the stated directory or host set, and which privileges they hold.

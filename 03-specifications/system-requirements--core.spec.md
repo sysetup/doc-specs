@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SYSTEM-REQUIREMENTS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State assessable technical obligations of a defined system of interest, including its behavior, performance, external interactions, qualities, lifecycle support, and imposed constraints.
 - **Intended readers:** System owners, architects, element and interface owners, safety and security specialists, verification planners, and authorities that control the system requirements.
 - **Decision or action supported:** Readers can determine what the whole system must satisfy, under which conditions, why each obligation exists, and how conformity will be assessed before allocating lower-level work.

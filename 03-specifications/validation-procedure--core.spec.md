@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VALIDATION-PROCEDURE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable assessment of whether a bounded solution is fit for identified stakeholder needs or intended use under representative conditions.
 - **Intended readers:** Validation designers and facilitators, users or stakeholder representatives, operators, product owners, and reviewers of intended-use evidence.
 - **Decision or action supported:** Prepare a credible use scenario, conduct the planned assessment, capture relevant observations, and judge what the event can or cannot show about stakeholder need satisfaction.

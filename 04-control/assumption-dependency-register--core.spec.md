@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ASSUMPTION-DEPENDENCY-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Control assumptions, dependencies, and constraints that materially affect requirements, architecture, plans, risk, schedule, or operations, including their owners, validation or resolution, impact, and disposition.
 - **Intended readers:** Owners of those statements, planners and architects who rely on them, and reviewers who decide whether one must become a risk, issue, change, or decision.
 - **Decision or action supported:** Determine which relied-upon statements are still open, what follows if an assumption is false or a dependency is unavailable, and what evidence or escalation their disposition requires.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INCIDENT-RESPONSE-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define, before a cybersecurity incident, the response governance, roles, severity and escalation, communications, evidence handling, recovery interfaces, and exercise of that capability.
 - **Intended readers:** Incident-response owners, security and operations leads, service owners, legal and communications roles when they apply, and teams that receive recovery or continuity handoffs.
 - **Decision or action supported:** Establish who may declare and direct response, how events are classified and escalated, which capabilities must be ready, and how response coordinates with detailed methods, system recovery, and business continuity.

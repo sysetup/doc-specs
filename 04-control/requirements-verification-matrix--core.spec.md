@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `REQUIREMENTS-VERIFICATION-MATRIX@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Account for planned methods, assessable criteria, activities, evidence, and current verification coverage of controlled technical requirements.
 - **Intended readers:** Verification leads and performers, requirement owners, technical reviewers, and authorities reviewing unresolved conformance work.
 - **Decision or action supported:** Identify how each applicable requirement will be checked, what has actually been assessed, and which facets or configurations remain unverified.

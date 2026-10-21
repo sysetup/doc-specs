@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `STANDARD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish authorized, mandatory, assessable criteria for a defined organizational or project practice or artifact.
 - **Intended readers:** People and teams subject to the criteria, assessors who check them, exception decision makers, and the standard's maintainer.
 - **Decision or action supported:** A reader can determine which criteria apply, how conformity is assessed, and how an exception or revision is handled.

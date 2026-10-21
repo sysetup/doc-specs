@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SUPPLIER-ASSURANCE-PLAN@conditional`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how an acquirer or receiving organization will evaluate, govern, assess, receive, and transition specified supplier work against actual agreements and technical acceptance criteria.
 - **Intended readers:** Acquisition and technical leads, contracting and supplier managers, quality and specialist assurance roles, receiving or operations teams, and the actual acceptance authority.
 - **Decision or action supported:** Coordinate supplier selection or onboarding when pending, requirement flow-down, oversight, issue escalation, delivery assessment, and receiving-party decisions for the supplied scope.

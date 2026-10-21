@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `IS-CONTINGENCY-PLAN@high-impact`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define how one classified high-impact information system sustains or recovers critical functions, controls failover and data integrity, reconstitutes normal service, exercises the selected strategy, and keeps the plan ready.
 - **Intended readers:** Mission and system owners, contingency and recovery leaders, data and infrastructure teams, external providers, and authorities for activation, restriction, and return to service.
 - **Decision or action supported:** Those roles can invoke a coordinated recovery, control parallel or alternate processing if selected, reconcile data and transactions, and decide whether protected normal operation may resume.

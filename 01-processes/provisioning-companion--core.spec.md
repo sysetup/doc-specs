@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `PROVISIONING-COMPANION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the governance and operational controls around an authoritative provisioning codebase or machine artifact, without restating its executable desired state.
 - **Intended readers:** Provisioning maintainers, deployment operators, reviewers, security and change authorities, and people responsible for recovery or deprovisioning.
 - **Decision or action supported:** A reader can identify the authoritative source and permitted targets, assess readiness and approvals, follow controlled provisioning stages, verify intended outcomes, and route drift or failure.

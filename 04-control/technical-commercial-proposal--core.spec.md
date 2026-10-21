@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-COMMERCIAL-PROPOSAL@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Present a bounded engineering offer with scope, deliverables, estimates, price, and proposed terms.
 - **Intended readers:** Prospective clients, technical and commercial leads, procurement reviewers, and authorized negotiators.
 - **Decision or action supported:** Assess or negotiate an engineering offer before an agreement establishes commitments.

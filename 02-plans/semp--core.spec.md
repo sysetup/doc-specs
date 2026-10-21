@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SEMP@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how one project will organize, tailor, resource, and control systems engineering across the system lifecycle.
 - **Intended readers:** Project and systems engineering leads, discipline and supplier leads, technical authorities, assurance roles, and people preparing or deciding technical reviews.
 - **Decision or action supported:** Coordinate cross-discipline technical work and determine the planned basis, responsibility, and evidence for technical decisions and lifecycle gates.

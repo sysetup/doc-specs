@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ENGINEERING-STATUS-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Report bounded engineering delivery progress, impediments, resource facts, and forecast.
 - **Intended readers:** Project leads, engineering coordinators, product owners, delivery decision makers, and receiving stakeholders.
 - **Decision or action supported:** Replan delivery or resolve impediments using sourced progress and explicit forecast assumptions.

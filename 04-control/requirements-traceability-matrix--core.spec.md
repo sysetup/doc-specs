@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `REQUIREMENTS-TRACEABILITY-MATRIX@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record directed relationships among needs, requirements, design or interface records, decisions, assessment activities, and evidence within a declared scope, and show where a required relationship is missing.
 - **Intended readers:** Requirements and design owners, V&V leads, change analysts, and reviewers who need to navigate origins and downstream records.
 - **Decision or action supported:** Find the origins and downstream records of an in-scope item, identify a missing or disputed relationship, and see which relationships a change affects.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CONFIGURATION-MANAGEMENT-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan project-specific identification, baselining, change control, status accounting, integrity checks, and retention of controlled configurations.
 - **Intended readers:** Configuration and engineering leads, item and change owners, suppliers, quality or audit roles, project managers, and release authorities.
 - **Decision or action supported:** Determine which project items and states require control, how a later change or discrepancy will be decided and recorded, and which criteria and decision roles control later use or release of a baseline.

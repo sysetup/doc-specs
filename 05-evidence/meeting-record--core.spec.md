@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `MEETING-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Preserve an ordinary meeting's actual subjects, discussion, decisions, open questions, and assigned follow-up.
 - **Intended readers:** Participants, coordinating roles, affected owners, and authorized readers needing the meeting context.
 - **Decision or action supported:** Recover what was discussed and assigned without inferring technical-review disposition or approval.

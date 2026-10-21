@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-COMPOSITION-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record the components of one software item, with version, origin, and license.
 - **Intended readers:** The owner of that software item and anyone who must know which components, versions, origins, and licenses it contains.
 - **Decision or action supported:** Determine the components of one software item at a stated version, where each component came from, and which license applies when that license is known.

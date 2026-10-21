@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POLICY@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define authorized, mandatory, high-level direction for an organization's or project's stated general policy subject and scope.
 - **Intended readers:** People bound by the policy, managers who apply it, and the authority that issues and maintains it.
 - **Decision or action supported:** Readers can determine what direction applies to them, who owns it, and how an exception or change is handled.

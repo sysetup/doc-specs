@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VV-PLAN@combined`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Coordinate verification of specified technical obligations and validation of stakeholder or intended-use needs in one bounded project plan, while preserving separate assessment bases, criteria, and conclusions.
 - **Intended readers:** V&V leads and performers, technical and stakeholder representatives, assurance reviewers, and people deciding readiness, disposition, or receipt of results.
 - **Decision or action supported:** Agree what will be assessed on each path, with which configuration, methods, resources, criteria, and evidence, and how the two paths will be coordinated and reported.

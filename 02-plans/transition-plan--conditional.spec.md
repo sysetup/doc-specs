@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TRANSITION-PLAN@conditional`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan the controlled movement of a defined capability from a source or pre-service state into a receiving operating environment, including deployment, migration, handover, and stabilization.
 - **Intended readers:** Transition and release leads, operators, receiving service owners, change and security roles, data owners, support teams, affected stakeholder representatives, and decision authorities.
 - **Decision or action supported:** Determine whether the receiving environment and parties are ready, how cutover will be sequenced, how later outcomes will be checked, and what happens if transition cannot continue safely.

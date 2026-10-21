@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `STAKEHOLDER-REQUIREMENTS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** State the stakeholder-visible outcomes, capabilities, use conditions, and constraints required of a defined system of interest, so later validation can judge fitness for intended use before technical obligations are allocated.
 - **Intended readers:** Stakeholder representatives, business and mission authorities, systems engineers, and reviewers who agree the expected result or derive system requirements.
 - **Decision or action supported:** Readers can judge whose need each stakeholder requirement serves, what outcome is expected under which conditions, whether stakeholders have agreed to the wording, and what technical derivation must address.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `FMEA@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record how a bounded item or process can fail to perform its functions, with effects, causes, existing controls, and priority under one declared method, so treatment can be chosen and incomplete assessment stays visible.
 - **Intended readers:** Analysts, design or process owners, treatment owners, and reviewers of the analysis.
 - **Decision or action supported:** Readers can see which failure modes need treatment, which priorities rest on missing data, and which residual rankings are projections rather than observed results.

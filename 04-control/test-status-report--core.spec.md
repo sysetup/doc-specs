@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `TEST-STATUS-REPORT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Report one period of an active test effort: actual progress, results to date, coverage, anomalies, blockers, risks, and forecast.
 - **Intended readers:** The test lead and the people who decide what the effort does next.
 - **Decision or action supported:** See what progressed in the period, what is blocked now, what is only a forecast, and which decisions are still needed.

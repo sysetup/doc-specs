@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@orr`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one Operational Readiness Review that was actually held, including whether the system and its support elements reflect the deployed state under review and are operationally ready. Support elements include the hardware, software, personnel, procedures, supporting capabilities, and user documentation the operation requires.
 - **Intended readers:** The review chair, reviewers, operations leads, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed system and its support organization were operationally ready under the constraints and residual risk the review applied, and what the review authority decided.

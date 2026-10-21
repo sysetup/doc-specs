@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ACTION-ITEM-REGISTER@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Account for discrete follow-up actions, including the owner, status, due date, dependencies, and closure evidence of each action.
 - **Intended readers:** Action owners, the role that assigns or closes actions, and consumers who need the current follow-up load.
 - **Decision or action supported:** Determine what must be delivered, by whom and when, what is blocked, and whether closure rests on checked evidence.

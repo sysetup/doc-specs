@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CABLING-SCHEDULE@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Identify each cable, panel, port, and the endpoints it connects, whether the row is planned or as built.
 - **Intended readers:** The people who design, install, or maintain the cabling plant, and anyone who must find which port a cable uses.
 - **Decision or action supported:** Determine the planned or as-built path of a cable from panel and port to its endpoints.

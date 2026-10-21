@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@srr`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one System Requirements Review that was actually held, including whether the system of interest's functional and performance requirements, and the planned technical work needed to satisfy them, are credible enough to proceed.
 - **Intended readers:** The review chair, reviewers, requirements authors, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed requirements are responsive to the project's needs and parent requirements, reflect the intended use, and are credible within the project scope, and what the review authority decided.

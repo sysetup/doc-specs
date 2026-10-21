@@ -71,7 +71,7 @@ The registry is UTF-8 JSON with exactly `registry_version` (version string) and 
 | Exclusion | `id`, `information`, `reason`: strings; `source_ids`: array of source IDs. Explain the bounded rationale; do not exclude required task information. |
 | Trace | `task_ids`, `obligation_ids`, `content`, `exclusion_ids`, `case_ids`: arrays of references, possibly empty individually. Each row names at least one task or obligation and at least one case; it maps to content or a justified exclusion, never both. Tasks map to content. Every task and obligation has a trace; every exclusion is used. |
 | Case | `id`: string; `kind`: `ordinary`, `incomplete`, or `boundary`; `fixture`, `procedure`, `expected`, `evidence`: strings with actual locations or an explicit not-run gap; `result`: `pass`, `fail`, `inconclusive`, or `not-run`. Ready requires checked passing cases of all three kinds, not merely filled fields. |
-| Identity | `type`, `variant`, `catalog_name`, `purpose`, `readers`, `decision`, `use_when`, `scope`: strings. Type and variant follow SEL-04. `catalog_name` is the human document-type name without the trailing word `specification`. |
+| Identity | `type`, `variant`, `edition`, `catalog_name`, `purpose`, `readers`, `decision`, `use_when`, `scope`: strings. `edition` identifies the specification revision; initialize it at `1.0`. Type and variant follow SEL-04. `catalog_name` is the human document-type name without the trailing word `specification`. |
 | Comparison | `id`: a real existing specification ID, or another proposed ID in this batch; `difference`: string explaining the inspected difference in responsibility, applicability, or obligations. |
 | Authoring | `inputs`, `unresolved`: strings; each is one complete paragraph. |
 | Contract | `title`, `order`, `presentation`: strings; `frontmatter`: frontmatter object; `projections`: array of projection objects; `sections`: array of section objects in semantic dependency order. |
@@ -107,7 +107,7 @@ The sole multiline exception is `supporting.content`: settled literal GFM with L
 
 Do not add frontmatter, additional H1/H2 headings, appendices, generated instance IDs, or generic document-control blocks to the specification. Controlled H3 supporting definitions/examples appear only in `Content definitions and forms` under STR-10. The five-section spine does not prescribe five sections for a finished document.
 
-**STR-02 — Identity block.** Emit exactly six labeled bullets: `Specification ID`, `Purpose`, `Intended readers`, `Decision or action supported`, `Use when`, and `Scope boundaries`, in that order. `Scope boundaries` is mandatory for new specifications. State the included responsibility and material exclusions; keep the type reusable across projects. Intended readers are roles, not invented named people. A purpose identifies the work product; the supported decision explains what a reader can decide or do with it.
+**STR-02 — Identity block.** Emit exactly seven labeled bullets: `Specification ID`, `Specification edition`, `Purpose`, `Intended readers`, `Decision or action supported`, `Use when`, and `Scope boundaries`, in that order. `Specification edition` is required in every specification; the current collection starts at `1.0`. Copy `identity.edition`; keep it independent of standard, registry, and finished-document versions. `Scope boundaries` is mandatory for new specifications. State the included responsibility and material exclusions; keep the type reusable across projects. Intended readers are roles, not invented named people. A purpose identifies the work product; the supported decision explains what a reader can decide or do with it.
 
 **STR-03 — Inputs and gaps.** Emit the `inputs` paragraph, then the `unresolved` paragraph. Inputs identify the facts, records, editions, observations, and actual decision rights a future author needs. The gap rule states how to expose a missing fact, its consequence, resolving action, and actual owner if assigned. It identifies which unresolved authority, criterion, configuration, or safety condition prevents a favorable state or operational use when relevant. It distinguishes unknown, inapplicable, proposed, and observed facts without inventing owners, dates, evidence, thresholds, or approval.
 
@@ -147,7 +147,7 @@ The client rule applies independently of role status and projection. Integrate i
 |---|---|
 | 1 | `# ` + catalog name + ` specification` |
 | 2 | `## Identity and selection` |
-| 3 | Six identity bullets under STR-02; the ID bullet is ``- **Specification ID:** `TYPE@variant`.``; every other bullet is `- **Label:** ` + the corresponding string. |
+| 3 | Seven identity bullets under STR-02; the ID bullet is ``- **Specification ID:** `TYPE@variant`.``; the edition bullet is ``- **Specification edition:** `EDITION`.`` from `identity.edition`; every other bullet is `- **Label:** ` + the corresponding string. |
 | 4 | `## Authoring inputs and unresolved facts` |
 | 5–6 | Inputs paragraph; unresolved-facts paragraph. |
 | 7 | `## Finished-document contract` |
@@ -166,9 +166,9 @@ This is a composition specification, rather than an installed renderer. The same
 
 ## Catalog integration
 
-**CAT-01 — Exact row.** Emit one `INDEX.md` row per addition as `| ` + catalog name + ` (` + backtick + ID + backtick + `) | ` + purpose + ` | ` + scope + ` | [Read](` + derived path + `) |`. Copy the request's purpose and scope exactly. The catalog does not independently redefine applicability.
+**CAT-01 — Exact row.** Emit one `INDEX.md` row per addition as `| ` + catalog name + ` (` + backtick + ID + backtick + `) | ` + purpose + ` | ` + scope + ` | [Read](` + derived path + `) | ` + identity.edition + ` |`. Copy the request's purpose and scope exactly. The catalog does not independently redefine applicability.
 
-**CAT-02 — Stable placement.** Preserve existing row order. Insert new rows after the last row of the same registered family, in ascending ASCII ID order within the batch. For an empty family, use the preceding family in registry array order, or the table delimiter when none precedes it. A revision retains its row location and identity unless an authorized transition explicitly changes them. Keep one four-column table. Templates, fixtures, supporting maintenance records, and examples remain outside the live index.
+**CAT-02 — Stable placement.** Preserve existing row order. Insert new rows after the last row of the same registered family, in ascending ASCII ID order within the batch. For an empty family, use the preceding family in registry array order, or the table delimiter when none precedes it. A revision retains its row location and identity unless an authorized transition explicitly changes them. Keep one five-column table: `Type`, `Purpose`, `Use boundary`, `Specification`, `Edition`. Templates, fixtures, supporting maintenance records, and examples remain outside the live index.
 
 **CAT-03 — Counts and entrypoints.** Read registered directories from families.json; count actual `*.spec.md` files directly in them. Detect unregistered specification directories and stop integration instead of silently excluding their files. Require exact file/row/ID/path agreement and root-contained resolved paths. Update counts in INDEX.md, README.md, and llms.txt, including repeats. Counts include variants. Record additions under Changelog Unreleased Added, revisions and method changes under Changed. Update discovery links and directory descriptions when an authorized registry change requires it; do not duplicate its authoritative definitions.
 

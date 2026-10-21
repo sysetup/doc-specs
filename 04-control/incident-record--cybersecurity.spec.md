@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `INCIDENT-RECORD@cybersecurity`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual or suspected cybersecurity incident: its detection, affected resources, indicators, containment, eradication, and notification duties, together with its chronology, evidence handling, recovery status, and closure.
 - **Intended readers:** The incident lead, security responders, affected resource owners, and the roles that decide containment, eradication, notification, and closure.
 - **Decision or action supported:** Direct containment and eradication, account for notification duties, and decide whether the incident remains open using its actual response history and evidence.

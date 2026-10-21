@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ELICITATION-INSTRUMENT@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the questions, prompts, observation cues, and capture rules used to collect information.
 - **Intended readers:** Researchers, requirements analysts, facilitators, observers, and reviewers of collection methods.
 - **Decision or action supported:** Prepare and consistently administer a questionnaire, interview guide, or observation guide within its declared scope.

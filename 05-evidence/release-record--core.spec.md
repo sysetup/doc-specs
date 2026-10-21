@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `RELEASE-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual release attempt or event, including the exact configuration targeted and any part offered, authority, distribution or deployment actions, observed checks, exceptions, and resulting state.
 - **Intended readers:** Release and configuration managers, operators, support teams, recipients, and authorities who must determine what was made available and under what conditions.
 - **Decision or action supported:** Identify the target configuration and any bytes or items actually made available, establish what happened at each channel or recipient, and decide whether further delivery, recovery, notification, or investigation is needed.

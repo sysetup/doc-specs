@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `ELICITATION-RECORD@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Preserve actual elicitation statements, observations, and raw-source provenance before interpretation.
 - **Intended readers:** Researchers, requirements analysts, authorized evidence custodians, and reviewers tracing findings to sources.
 - **Decision or action supported:** Recover what was actually collected, under which instrument and permissions, and distinguish it from later interpretation.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `AVAILABILITY-PLAN@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a defined service's availability will be measured, sustained, degraded safely, and improved against established objectives.
 - **Intended readers:** Service and product owners, availability and reliability engineers, operators, support and incident roles, suppliers, and objective owners.
 - **Decision or action supported:** Choose defensible availability provisions, measurement, response thresholds, and review actions for the service's actual operating context.

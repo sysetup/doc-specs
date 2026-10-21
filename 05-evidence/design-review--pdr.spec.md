@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@pdr`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Record one Preliminary Design Review that was actually held, including whether the board judges the preliminary design consistent with the system of interest requirements at preliminary-design maturity, with the risk and constraints the project applies, and whether that design is an adequate basis for detailed design.
 - **Intended readers:** The review chair, reviewers, design leads, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed preliminary design is a sufficient basis to proceed into detailed design, under the requirements, risk, and constraints the review applied, and what the review authority decided.

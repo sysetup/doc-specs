@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `VV-PLAN@validation-packaging`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a bounded solution will be assessed for fitness against stakeholder needs or intended use in representative conditions, with traceable scenarios, criteria, and expected evidence.
 - **Intended readers:** Validation leads and facilitators, stakeholder and user representatives, operators, product owners, assurance reviewers, and recipients of validation evidence.
 - **Decision or action supported:** Agree which needs and use conditions will be examined, by whom and how, what observations will matter, and what the assessment can support.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SECURITY-ENGINEERING-PLAN@conditional`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Plan a project's technical security work from protection needs and threat or risk analysis through requirements, design, implementation, assessment, vulnerability handling, and operational handoff.
 - **Intended readers:** Security and system engineers, developers, operators, supplier and assurance roles, project decision makers, and any actual security authorization authority.
 - **Decision or action supported:** Coordinate security design and assessment against an established protection basis and assign work, evidence, and risk-decision interfaces through the project lifecycle.

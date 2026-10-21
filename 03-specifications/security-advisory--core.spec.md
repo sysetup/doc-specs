@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `SECURITY-ADVISORY@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Communicate supported vulnerability applicability and recipient actions across affected and fixed product versions.
 - **Intended readers:** Affected recipients, administrators, integrators, support teams, and release or security coordinators.
 - **Decision or action supported:** Determine whether the published issue applies and what established update or mitigation to take.

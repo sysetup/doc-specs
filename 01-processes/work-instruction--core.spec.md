@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `WORK-INSTRUCTION@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Give a qualified worker an executable method for one bounded, repeatable task, including controls, checks, and the required output.
 - **Intended readers:** Workers who perform the task, supervisors or checkers who release hold points, and the next process recipient.
 - **Decision or action supported:** A worker can confirm the task applies, prepare the right item and resources, perform the method, identify nonconforming work, and hand off the expected result.

@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `CONOPS@core`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Explain how an envisioned system will be used and supported to achieve a stated mission or stakeholder outcome across relevant operating conditions.
 - **Intended readers:** Stakeholders, users, operators, maintainers, system engineers, and people deciding whether the proposed operational concept meets their needs.
 - **Decision or action supported:** Agree on the intended operating model, expose gaps and constraints, and develop or assess subsequent requirements and architecture.

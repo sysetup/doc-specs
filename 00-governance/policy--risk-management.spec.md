@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `POLICY@risk-management`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory direction for assessing, owning, treating, accepting, and reviewing risks to stated objectives.
 - **Intended readers:** People who identify or own risks, decide treatment or acceptance, oversee affected objectives, and issue or maintain the policy.
 - **Decision or action supported:** Readers can determine which risk criteria and authorities apply, when a risk requires escalation or treatment, and what constitutes an authorized acceptance decision.

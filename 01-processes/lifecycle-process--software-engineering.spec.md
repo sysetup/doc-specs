@@ -3,6 +3,7 @@
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@software-engineering`.
+- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable process by which software work is developed, integrated, assured, controlled, released, and maintained.
 - **Intended readers:** Software engineers, technical leads, assurance and configuration roles, release authorities, and maintainers who use or govern the process.
 - **Decision or action supported:** A team can identify the required software workflow, work products, decision gates, evidence expectations, and handoffs for a software change or release.
