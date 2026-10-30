@@ -9,10 +9,11 @@ Collection releases are identified by date; the authoring standard has its own v
 
 ### Added
 
-- `DOCUMENT-AUTHORING-PROFILE@host`: Maintain a host's declared authoring values, actor assignments, authority boundaries, conventions, and provenance. Distinguish the profile's own edition and state from target-document decisions; preserve shared-role assignments and historical attribution without prescribing a publication or skill workflow.
+- `DOCUMENT-AUTHORING-PROFILE@host`: Declare reusable host authoring items for inclusion in other documents, with an independent profile identity and edition.
 
 ### Changed
 
+- Simplified `DOCUMENT-AUTHORING-PROFILE@host` to remove internal lifecycle, verification, and history records and profile references in consuming documents; new profile editions retain the profile ID and increment their own edition independently of the specification.
 - Updated `README.md` to describe the actual repository contents, link automated-reader and license resources, and remove the obsolete three-tree installation convention and dedicated operational proposal-directory workflow.
 - Aligned `llms.txt` with the repository's documentation scope and ownership of finished documents and operational instructions.
 - Corrected the editorial reference in authoring standard 2.0.0 to removed `A01–A23` supporting material. Authoring rules, request and template interfaces, specification contracts, catalog identities, and counts are unchanged.
