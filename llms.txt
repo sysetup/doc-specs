@@ -2,7 +2,7 @@
 
 > A collection of 145 Markdown document authoring specifications for governance, processes, plans, technical specifications, control records, and evidence. Each defines a document's purpose, use boundary, content obligations, and quality criteria.
 
-Current collection release: [2026-10-06](CHANGELOG.md#release-2026-10-06). All 143 catalog specifications, the authoring standard 2.0.0, both authoring templates, and the family registry are included. The authoring standard is released, adopted, and effective from this collection release.
+Current collection release: [2026-10-06](CHANGELOG.md#release-2026-10-06). The current collection includes all 145 catalog specifications, the authoring standard 2.0.0, both authoring templates, and the family registry. The authoring standard is released, adopted, and effective from this collection release.
 
 The collection supports engineering, operations, security, and project documentation. Its files are authoring contracts rather than completed project documents, executable procedures, or evidence of approval or conformity.
 
