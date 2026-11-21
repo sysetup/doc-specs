@@ -20,7 +20,7 @@ If a boundary, responsible side, project origin or deciding role, quantitative l
 
 - **Title:** Identify the interface or bounded group of interfaces and the document as its interface requirements document; include edition or scope where needed to distinguish it.
 - **Frontmatter:** None. Begin with the GFM title. Interface authority, precedence, and requirement state are body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope, decision roles, and project basis first; identify each boundary and responsibility before its requirements; place coverage, unresolved decisions, and change information after the obligations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

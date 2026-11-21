@@ -20,7 +20,7 @@ For unknown facts, identify the gap, effect, resolving action, and owner if assi
 
 - **Title:** Name the software engineering lifecycle process and applicable software or organization scope.
 - **Frontmatter:** None. Begin with the GFM title; process edition and applicability are body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and authority before the activity flow, then cross-cutting controls and process evolution. Headings may use local wording.
 
 | Section role | Status and inclusion condition | Content obligation |

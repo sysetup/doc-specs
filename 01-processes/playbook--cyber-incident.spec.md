@@ -20,7 +20,7 @@ If facts are unknown or not established, state the gap, its operational conseque
 
 - **Title:** Identify the covered incident scenario or incident class, such as “Cybersecurity incident playbook: [scenario].”
 - **Frontmatter:** None. Begin with the GFM title; classification, scope, and authority rules belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put scope and activation before investigative or disruptive actions; put recovery and closure criteria after response branches. Heading wording may vary. 
 
 | Section role | Status and inclusion condition | Content obligation |

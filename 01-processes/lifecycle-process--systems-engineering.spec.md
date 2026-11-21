@@ -20,7 +20,7 @@ For an unknown fact, state what is missing, why it matters, the resolving action
 
 - **Title:** Name the systems engineering lifecycle process and its system or organizational scope.
 - **Frontmatter:** None. Begin with the GFM title; applicability and process edition belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the system boundary and authority before the lifecycle flow; place gate rules after the work that supplies their inputs; end with transition and process feedback. Exact heading wording is flexible.
 
 | Section role | Status and inclusion condition | Content obligation |

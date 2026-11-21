@@ -20,7 +20,7 @@ When a fact is unknown or not established, keep it unknown, state its consequenc
 
 - **Title:** Name the decision question and identify the document as the trade study for that question.
 - **Frontmatter:** None. Begin with the GFM title. The subject, criteria, results, and recommendation belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the question and the gates before the measures. State the measures and method before the results. State screened and compared alternatives before the recommendation. Place the selection rule with the recommendation. Place the decision handoff after the recommendation. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

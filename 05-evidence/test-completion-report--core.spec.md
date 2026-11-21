@@ -20,7 +20,7 @@ The campaign must have ended. If a criterion, count, run, tested configuration, 
 
 - **Title:** Name the test campaign or phase and identify the document as its test completion report.
 - **Frontmatter:** None. Begin with the GFM title. Scope, results, and the recommendation belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the ended campaign and its sources before the results. State unresolved items before the recommendation. Place archive and disposition last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

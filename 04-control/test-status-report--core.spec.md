@@ -20,7 +20,7 @@ If a count, baseline, plan, master, owner, or decision is unknown, state the gap
 
 - **Title:** Name the test effort and the reporting period, and identify the document as its test status report.
 - **Frontmatter:** None. Begin with the GFM title. Period, progress, and forecast belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the period and sources before the counts. Place anomalies and blockers before forecast. Place the next period last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

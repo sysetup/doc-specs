@@ -20,7 +20,7 @@ If a function, mode, effect, cause, scale, ranking, rate, owner, or reassessment
 
 - **Title:** Identify the item or process and name the document an FMEA or an FMECA according to the method actually used.
 - **Frontmatter:** None. Begin with the GFM title. The method, worksheet, and review belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope, method, and scales before the rows. Present review and maintenance with or after the rows. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

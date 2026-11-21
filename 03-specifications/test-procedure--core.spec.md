@@ -20,7 +20,7 @@ If a target, authority, prerequisite, script edition, expected checkpoint, failu
 
 - **Title:** Identify the test item or effort and name the document as its test procedure; distinguish the procedure edition when later runs must cite it.
 - **Frontmatter:** None. Begin with the GFM title. Target, revision, and execution limits belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope and prerequisites before the ordered sequence; put recording and restoration rules after the actions they govern, with critical stop rules visible at the point of use. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

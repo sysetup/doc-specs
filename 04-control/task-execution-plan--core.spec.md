@@ -20,13 +20,13 @@ For a missing fact, record the gap, its consequence, the resolving action, and t
 
 - **Title:** Identify the bounded task and name its execution plan.
 - **Frontmatter:** None. Begin with a GFM title; keep metadata in the body. Governing source: this specification's standalone Markdown contract.
-- **Client or receiving party:** Identify an established external client or receiving organization in scope, or state that there is no external client. Do not invent one.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present the five content groups below in order; heading wording may vary.
 - **Presentation:** Use short paragraphs, lists, or a compact step table. An explicit `none` is sufficient for assessed absence; do not add sample entries or empty templates.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
 |---|---|---|
-| Workspace plan (standalone) | One task-specific H1. In Objective and scope, identify source specification and edition, local edition, maintenance responsibility, and currency. | GFM at workspace `PLAN.md` unless an existing project record is selected. Task instructions and cited source records remain authoritative; the plan neither grants access nor guarantees runtime loading or retention. |
+| Workspace plan (standalone) | One task-specific H1. In Objective and scope, identify source specification and edition, local edition (or controlling corpus/VCS revision when governed at corpus level), maintenance responsibility (or declared catalog/corpus default), and currency. | GFM at workspace `PLAN.md` unless an existing project record is selected. Task instructions and cited source records remain authoritative; the plan neither grants access nor guarantees runtime loading or retention. |
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
@@ -40,7 +40,7 @@ For a missing fact, record the gap, its consequence, the resolving action, and t
 
 | Element | Meaning and cardinality | Constraint |
 |---|---|---|
-| Maintenance and currency | One accountable role and one last-reviewed indicator for the task state. | Use a date or timestamp with timezone when needed, tied to the reviewed workspace revision or relevant source snapshot. Update after material changes; local edition identifies the plan, while currency identifies the state reviewed. Neither proves unchanged external state. |
+| Maintenance and currency | One accountable role (or declared catalog/corpus default) and one last-reviewed indicator for the task state. | Use a date or timestamp with timezone when needed, tied to the reviewed workspace revision or relevant source snapshot. Update after material changes; local edition or controlling corpus/VCS revision identifies the plan, while currency identifies the state reviewed. Neither proves unchanged external state. |
 | Authorization provenance | One account of the controlling request or decision, its scope, limits, and current gaps. | Use a retrievable locator or concise description when no stable identifier exists. Distinguish user authorization from runtime permissions. A past grant, plan entry, completion claim, or passing check does not expand authority. |
 | Step | One or more stable identifiers with an observable outcome and dependencies. | Do not reuse an identifier for different work. Identify unresolved predecessors and reject self-dependencies or cycles. |
 | Step state | Exactly one of `in_progress`, `completed`, `canceled`, or `deferred` per step, following host `AGENTS.md` Task Planning. | `in_progress` identifies active work. `completed` requires the stated outcome and a cited completion basis. `canceled` gives the reason and decision provenance for abandoned work. `deferred` covers unstarted, postponed, or held work and gives a reason and resumption condition, including an unmet predecessor or blocker. Do not introduce `pending` or `blocked` as step states. |

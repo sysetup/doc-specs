@@ -20,7 +20,7 @@ If an objective, measurement definition, dependency behavior, or decision author
 
 - **Title:** Identify the service or system and name its availability plan.
 - **Frontmatter:** None. Begin with the GFM title; objectives and scope belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define the service and measurement basis before failure analysis and provisions; place assessment and improvement after the planned operating method. Exact heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

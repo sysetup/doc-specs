@@ -20,7 +20,7 @@ If a failure condition, severity, detection threshold, ownership, outward behavi
 
 - **Title:** Identify the bounded product or service and document as its error handling specification; include an applicable edition or configuration when needed.
 - **Frontmatter:** None. Begin with the GFM title. Error semantics, applicability, and decisions are body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope, boundaries, and shared classification before individual fault contracts; place assessment and compatibility rules after the behavior they cover. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

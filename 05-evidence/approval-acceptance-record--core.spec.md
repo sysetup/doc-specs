@@ -20,7 +20,7 @@ If the decision has not happened, do not write a finished decision record. If a 
 
 - **Title:** Name the subject and decision kind, and identify the document as a decision record.
 - **Frontmatter:** None. Begin with the GFM title. The decision and its authority are body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the subject and authority before the assessed basis; state the decision after that basis, followed by effectivity and obligations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

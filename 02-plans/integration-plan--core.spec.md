@@ -20,7 +20,7 @@ For an unavailable item, unresolved interface, unselected configuration, or unco
 
 - **Title:** Identify the target system or assembly and name its integration plan.
 - **Frontmatter:** None. Begin with the GFM title; configurations, locations, and gate authority belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and configuration basis before the sequence; give each stage's readiness, activities, checks, and response route before final handoff. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

@@ -7,17 +7,28 @@ Collection releases are identified by date; the authoring standard has its own v
 
 ## Unreleased
 
+No unreleased changes.
+
+## Release 2026-11-21
+
+This declared release includes all 144 catalog specifications, authoring standard 2.1.0, both authoring templates, and the family registry. Authoring standard 2.1.0 is released, adopted, and effective from this collection release.
+
 ### Added
 
-- `DOCUMENT-AUTHORING-PROFILE@host`: Declare reusable host authoring items for inclusion in other documents, with an independent profile identity and edition.
 - `TASK-EXECUTION-PLAN@core`: Maintain the current state of one bounded task for durable tracking, recovery, and handoff.
 
 ### Changed
 
-- Simplified `DOCUMENT-AUTHORING-PROFILE@host` to remove internal lifecycle, verification, and history records and profile references in consuming documents; new profile editions retain the profile ID and increment their own edition independently of the specification.
-- Updated `README.md` to describe the actual repository contents, link automated-reader and license resources, and remove the obsolete three-tree installation convention and dedicated operational proposal-directory workflow.
-- Aligned `llms.txt` with the repository's documentation scope and ownership of finished documents and operational instructions.
-- Corrected the editorial reference in authoring standard 2.0.0 to removed `A01–A23` supporting material. Authoring rules, request and template interfaces, specification contracts, catalog identities, and counts are unchanged.
+- Released and adopted specification authoring standard 2.1.0 (`CONTRIBUTING.md`, `authoring/specification.template.md`, `authoring/request.template.json`) as a backward-compatible minor update over 2.0.0: made the shared `Client or receiving party` clause strictly conditional (omit for internal documents unless a specific project policy requires explicit negative attestation) and recognized corpus-level versioning (`CHANGELOG.md` plus Git revision) and declared catalog/corpus default maintainers for unified operational corpora.
+- Updated all 144 catalog specifications (including aligning `TASK-EXECUTION-PLAN@core` with the shared literal contract) to apply the strictly conditional `Client or receiving party` rule while retaining `Specification edition` `1.0` for compatibility with installed operational documents.
+- Clarified corpus-level version and catalog/corpus default maintainer inheritance in core governance, process, interface, and task-plan specifications (`STANDARD@core`, `POLICY@core`, `POLICY@configuration-management`, `POLICY@cybersecurity`, `POLICY@engineering`, `POLICY@quality`, `POLICY@risk-management`, `GUIDE@core`, `SOP@core`, `RUNBOOK@core`, `WORK-INSTRUCTION@core`, `INTERFACE-CONTROL@core`, and `TASK-EXECUTION-PLAN@core`).
+- Updated `README.md` to describe the actual repository contents, link automated-reader and license resources, reflect Release 2026-11-21 and authoring standard 2.1.0, and remove the obsolete three-tree installation convention and dedicated operational proposal-directory workflow.
+- Aligned `llms.txt` with Release 2026-11-21, authoring standard 2.1.0, and the repository's documentation scope and ownership of finished documents and operational instructions.
+- Corrected the editorial reference in authoring standard 2.0.0 to removed `A01–A23` supporting material.
+
+### Removed
+
+- Retired the previously unreleased `DOCUMENT-AUTHORING-PROFILE@host` specification (`04-control/document-authoring-profile--host.spec.md`) prior to release and removed its catalog entry; centralized host authoring defaults are governed through `STANDARD@core` or owning project standards.
 
 ## Release 2026-10-06
 

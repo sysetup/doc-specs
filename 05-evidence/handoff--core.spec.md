@@ -20,7 +20,7 @@ If a receiver, item revision, receipt, authority, or handoff response is unknown
 
 - **Title:** Identify the transferred subject and the parties or boundary, and call the document a handoff or transfer record.
 - **Frontmatter:** None. Begin with the GFM title. Transfer scope, parties, and response belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define transfer scope and parties before the transferred items and actions; put receipt, response, responsibility effect, and closure after those actions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

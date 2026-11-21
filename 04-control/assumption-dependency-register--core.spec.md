@@ -19,7 +19,7 @@ If the owner, impact, provider, or review date is unknown, keep the entry visibl
 
 - **Title:** Identify the project or system boundary and name the document as its assumption and dependency register.
 - **Frontmatter:** None. Begin with the GFM title. Rules, statements, and dispositions belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State selection and disposition rules before entries; place escalation gaps after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

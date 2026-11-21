@@ -20,7 +20,7 @@ Mark missing evidence as unknown and undecided planning choices as not establish
 
 - **Title:** Identify the test effort and the document as its test plan; “Test Plan” alone is insufficient when several efforts may exist.
 - **Frontmatter:** None. Begin with the GFM title. Test scope and decision rules are substantive body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before strategy; define resources and controls before evidence and reporting. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

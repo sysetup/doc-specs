@@ -20,7 +20,7 @@ If a required target parameter, threshold, dependency, access rule, or readiness
 
 - **Title:** Identify the target environment and its class as a runtime environment specification; include an edition or configuration identifier when needed to distinguish the target.
 - **Frontmatter:** None. Begin with the GFM title. Environment class, target configuration, and any actual readiness state are body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope and intended use before required state; place readiness criteria after the requirements and any actual assessment after its criteria. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

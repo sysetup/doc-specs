@@ -13,9 +13,9 @@
 
 ## Overview
 
-This collection provides **145 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Each specification defines a document's purpose, use boundary, content obligations, and quality criteria.
+This collection provides **144 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Each specification defines a document's purpose, use boundary, content obligations, and quality criteria.
 
-The latest declared collection release, [2026-10-06](CHANGELOG.md#release-2026-10-06), included 143 specifications, authoring standard 2.0.0, both authoring templates, and the family registry. Authoring standard 2.0.0 was adopted and took effect with that release. The current catalog also includes two [unreleased specifications](CHANGELOG.md#unreleased).
+The latest declared collection release, [2026-11-21](CHANGELOG.md#release-2026-11-21), includes all 144 specifications, authoring standard 2.1.0, both authoring templates, and the family registry. Authoring standard 2.1.0 was adopted and took effect with that release.
 
 The collection helps engineers, project owners, operators, and reviewers develop documentation grounded in their project's facts and evidence. It supports manual and automated authoring.
 
@@ -39,9 +39,9 @@ The [document catalog](INDEX.md) lists each type's purpose, use boundary, and sp
 
 ## Adding document specifications
 
-[CONTRIBUTING.md](CONTRIBUTING.md), released version 2.0.0, requires mission and source discovery before classification, task-to-content-to-case coverage, type-specific frontmatter and projection rules, and representative finished-instance evaluation before deterministic composition. Use its [structured request template](authoring/request.template.json) and [specification template](authoring/specification.template.md) after reading the method. Required information may share proportionate paragraphs, lists, or sections.
+[CONTRIBUTING.md](CONTRIBUTING.md), released version 2.1.0, requires mission and source discovery before classification, task-to-content-to-case coverage, type-specific frontmatter and projection rules, and representative finished-instance evaluation before deterministic composition. Use its [structured request template](authoring/request.template.json) and [specification template](authoring/specification.template.md) after reading the method. Required information may share proportionate paragraphs, lists, or sections.
 
-The `authoring/` directory contains those templates and the family registry, outside the catalog count. No installed renderer or validator is supplied. Version 2.0.0 changes the request interface for new contributions and explicitly requested revisions; existing specifications and historical 1.0.0 requests retain their original contracts. Do not recompose historical evidence with current rules or retrospectively migrate unaffected files.
+The `authoring/` directory contains those templates and the family registry, outside the catalog count. No installed renderer or validator is supplied. Version 2.1.0 is a backward-compatible minor update over 2.0.0 that makes the client element strictly conditional and recognizes corpus-level versioning and catalog/corpus default maintainers for unified operational corpora; existing specifications and historical 1.0.0 or 2.0.0 requests retain their original contracts. Do not recompose historical evidence with current rules or retrospectively migrate unaffected files.
 
 ## Using the collection
 

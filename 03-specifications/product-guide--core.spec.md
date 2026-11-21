@@ -20,7 +20,7 @@ If a step, setting, supported environment, or limit is unknown, say so and do no
 
 - **Title:** Identify the product and name the document as its product guide.
 - **Frontmatter:** None. Begin with the GFM title. Product identity and the guide's covered version belong in the body.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the product and audience before installation, configuration, and use. State limits and unresolved items after the procedures. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |

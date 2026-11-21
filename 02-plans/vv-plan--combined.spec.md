@@ -20,7 +20,7 @@ Mark an unavailable fact as unknown and an unmade choice as not established. For
 
 - **Title:** Identify the system or project scope and name the document as its verification and validation plan.
 - **Frontmatter:** None. Begin with the GFM title. Scope, editions, and decision rules are substantive body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish subject and both assessment bases before methods; place resources and sequence before evidence and result interfaces. Heading wording may vary. Keep the two mappings visibly distinct even when logistics are shared.
 
 | Section role | Status and inclusion condition | Content obligation |

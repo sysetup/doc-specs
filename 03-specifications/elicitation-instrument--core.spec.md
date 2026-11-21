@@ -20,7 +20,7 @@ Expose unresolved wording, answerability, population, response representation, r
 
 - **Title:** Identify the elicitation subject and instrument kind.
 - **Frontmatter:** None. Begin with the GFM title. Identity, scope, edition, and readiness belong in the body. Governing source: Type-owned policy in ELICITATION-INSTRUMENT@core; no external metadata schema is selected.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity and collection purpose before administration; make prerequisites and the readiness disposition visible before use, put items in administration order, then explain capture and review. Heading wording may vary.
 - **Presentation:** Combine semantic roles in short prose, item lists, or routing tables when every prompt, choice, prerequisite, and readiness limit remains retrievable; headings need not repeat every role.
 

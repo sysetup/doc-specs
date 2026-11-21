@@ -1,5 +1,5 @@
 {
-  "standard_version": "2.0.0",
+  "standard_version": "2.1.0",
   "base_revision": "{{FULL_CURRENT_HEAD}}",
   "state": "draft",
   "registry_version": "1.0.0",

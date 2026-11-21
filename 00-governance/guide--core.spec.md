@@ -19,17 +19,17 @@ If a recommendation lacks an established basis, qualify it as reasoned advice an
 
 - **Title:** Name the subject or practice and identify the document as a guide; “Engineering Guide” alone is insufficient.
 - **Frontmatter:** None. Begin with the GFM title. Context and nonbinding status are substantive body content.
-- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. When no external party exists, state that the document has no external client. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
+- **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish audience, purpose, and applicability before the advice; place maintenance information after the advice. Define a relevant term or project constraint before the advice it qualifies, or identify it at that point. Headings may use project wording if their semantic roles remain clear.
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Purpose, audience, and boundaries | Required | State the practice or problem, intended readers, contexts in which the advice helps, material exclusions, and that the guide itself is nonbinding. Identify the current edition or draft state when the project controls it. |
+| Purpose, audience, and boundaries | Required | State the practice or problem, intended readers, contexts in which the advice helps, material exclusions, and that the guide itself is nonbinding. Identify the current edition or draft state when the project controls it (which may be satisfied by a unified corpus version in `CHANGELOG.md` plus Git revision). |
 | Recommendations and reasons | Required | Give one or more separately identifiable recommendations or conventions. Explain why each helps, when it applies, and its material limitations, tradeoffs, or alternatives. Express recommended actions as nonbinding choices even when imperative wording is used. |
 | Application cues | Conditional when context changes the recommended choice | Give decision cues, adaptation guidance, or a short flow showing which advice fits which situation. Do not turn advice into a mandatory execution procedure. |
 | Illustrations | Conditional when an example, diagram, or worked case is needed to prevent material ambiguity | Explain what the illustration demonstrates and its limits. Mark synthetic or proposed examples as such; identify the observation, locator, and scope of an actual case. Limit claims about observed outcomes to what the case evidence establishes. |
 | Recommendation basis and project constraints | Conditional when a recommendation relies on project observations or its suitability depends on a project constraint | Identify the supporting observations and locators, state the constraint explicitly, and explain its effect on the recommended choice. Distinguish observed support from reasoned advice. |
-| Maintenance | Required | Identify the role that maintains the guide, triggers or cadence for review, and how material changes are made visible to readers. State an unassigned maintainer as an unresolved gap rather than inventing one. |
+| Maintenance | Required | Identify the role that maintains the guide (or inherit an explicit default maintainer declared at the corpus/catalog level when recorded in the root catalog and not overridden), triggers or cadence for review, and how material changes are made visible to readers. State an unassigned maintainer as an unresolved gap rather than inventing one. |
 
 ## Content definitions and forms
 
