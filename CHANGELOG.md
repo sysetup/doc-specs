@@ -10,6 +10,7 @@ Collection releases are identified by date; the authoring standard has its own v
 ### Added
 
 - `DOCUMENT-AUTHORING-PROFILE@host`: Declare reusable host authoring items for inclusion in other documents, with an independent profile identity and edition.
+- `TASK-EXECUTION-PLAN@core`: Maintain the current state of one bounded task for durable tracking, recovery, and handoff.
 
 ### Changed
 

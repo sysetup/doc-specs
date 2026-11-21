@@ -15,7 +15,7 @@
 
 This collection provides **145 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Each specification defines a document's purpose, use boundary, content obligations, and quality criteria.
 
-Current collection release: [2026-10-06](CHANGELOG.md#release-2026-10-06). The current collection includes all 145 catalog specifications, the authoring standard 2.0.0, both authoring templates, and the family registry. The authoring standard is released, adopted, and effective from this collection release.
+The latest declared collection release, [2026-10-06](CHANGELOG.md#release-2026-10-06), included 143 specifications, authoring standard 2.0.0, both authoring templates, and the family registry. Authoring standard 2.0.0 was adopted and took effect with that release. The current catalog also includes two [unreleased specifications](CHANGELOG.md#unreleased).
 
 The collection helps engineers, project owners, operators, and reviewers develop documentation grounded in their project's facts and evidence. It supports manual and automated authoring.
 
