@@ -25,7 +25,7 @@ If a signal, threshold, owner, or response is unknown, record the gap. Do not in
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the service or system and the as-of point. Include the client or receiving-party element from this contract. Identify established assignment or response-instruction records when they explain signal ownership or response. |
+| Identity and scope | Required | Identify the service or system and the as-of point. Include the client or receiving-party element from this contract when applicable. Identify established assignment or response-instruction records when they explain signal ownership or response. |
 | Watched signals | Required | For each watched signal, state the signal, the threshold, the owner, and the response. If no signal is watched, say so instead of adding a placeholder signal. |
 | Gaps | Required | Identify missing thresholds, owners, or responses, and the next action. A missing threshold is not a silent default. |
 

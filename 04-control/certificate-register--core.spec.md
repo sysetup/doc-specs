@@ -25,7 +25,7 @@ If identity, scope, custodian, expiry, or installed location is unknown, record 
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the systems or services covered and the as-of point. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the systems or services covered and the as-of point. Include the client or receiving-party element from this contract when applicable. |
 | Certificates | Required | For each certificate, record its identity, scope, custodian, expiry, and installed location when those facts are known. If none are in scope, say so instead of adding a placeholder certificate. |
 | Gaps | Required | Identify missing custodians, expiry, scope, or installed locations, and the next action. |
 

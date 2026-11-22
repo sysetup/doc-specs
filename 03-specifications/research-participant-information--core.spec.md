@@ -30,7 +30,7 @@ Expose missing activity, contact, recording, data-use, retention, withdrawal, ac
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Study identity and purpose | Required | Explain the study, responsible organization or role, purpose, who is invited, intended use of findings, and client or receiving-party element in language the prospective participant can understand. Integrate the client relationship or no-external-client statement into ordinary study context. |
+| Study identity and purpose | Required | Explain the study, responsible organization or role, purpose, who is invited, intended use of findings, and the client or receiving-party element when applicable in language the prospective participant can understand. Integrate any applicable client or receiving-party relationship into ordinary study context. |
 | Activities, recording, and effects | Required | Describe what participation involves, location or medium, expected duration, tasks or questions, recordings and optional choices, known discomfort or risks and expected benefits without promises. State compensation only when offered under established terms. |
 | Voluntary choice and stopping | Required | Explain how to accept or decline, skip where permitted, stop participation, and raise concerns. State any established consequences of declining; do not imply that reading this information or attending establishes consent. |
 | Data use, sharing, and retention | Required | Describe collected data, identifiers, recording uses, who can access material, permitted sharing or publication, confidentiality limits, protection, retention and deletion arrangements, and re-use only where actually arranged. |

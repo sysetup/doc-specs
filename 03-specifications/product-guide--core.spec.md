@@ -25,7 +25,7 @@ If a step, setting, supported environment, or limit is unknown, say so and do no
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the product, the version or version range this guide covers, the audience, the supported environment, and what the guide does not cover. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the product, the version or version range this guide covers, the audience, the supported environment, and what the guide does not cover. Include the client or receiving-party element from this contract when applicable. |
 | Installation | Conditional: the product is installed by the reader | Give the prerequisites, the installation sequence, and the check that shows installation completed. If the product is not installed by the reader, omit the procedure and state that reason in identity and scope. |
 | Configuration | Conditional: the reader must set product configuration | State each setting the reader must choose, the effect of the choice, and the value or rule when one is established. An unknown setting stays unresolved. Do not invent a default and present it as required. |
 | Use | Required | Explain the ordinary use the product provides, the inputs the reader supplies, the result the reader should see, and the conditions under which that use applies. |

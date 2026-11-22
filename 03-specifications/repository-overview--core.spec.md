@@ -25,7 +25,7 @@ Expose unknown setup, platform support, maturity, resource, or license with its 
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Purpose, audience, and state | Required | Identify the repository, problem or capability, intended audiences, actual maturity or proposal state, scope exclusions, and client or receiving-party element. |
+| Purpose, audience, and state | Required | Identify the repository, problem or capability, intended audiences, actual maturity or proposal state, scope exclusions, and the client or receiving-party element when applicable. |
 | Starting route | Required | Give the supported first action and prerequisites for each relevant audience, linking an actual maintained setup or use guide when available. If direct quick-start commands are included, verify them against the stated revision and distinguish expected outcomes from performed checks. State unsupported or unknown paths. |
 | Layout and documentation map | Required | Describe material repository directories or components and link actual canonical requirements, architecture, design, reference, guides, or project records that help navigation. Omit invented or irrelevant sections and distinguish source documents from generated views. |
 | Collaboration and recipient routes | Required | Point to established contribution, support, security-reporting, release-history, and license resources when applicable; state unavailable or unresolved routes. Binding obligations remain with their actual authority, and sensitive reports use only established private channels. |

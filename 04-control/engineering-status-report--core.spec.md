@@ -25,7 +25,7 @@ Expose unknown baseline, count, completion criterion, source, forecast premise, 
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Period, scope, and sources | Required | Identify delivery scope, period and cutoff, baseline or plan edition, changes to the counting scope, units, actual sources and their as-of times, and client or receiving-party element. |
+| Period, scope, and sources | Required | Identify delivery scope, period and cutoff, baseline or plan edition, changes to the counting scope, units, actual sources and their as-of times, and the client or receiving-party element when applicable. |
 | Planned and actual delivery | Required | Compare planned work with observed work in progress and established completed outputs. Cite completion criteria and evidence, preserve unfinished or cancelled scope, and explain denominators, overlap, and measurement limits for counts or percentages. |
 | Resources, blockers, and dependencies | Required | Record sourced effort, cost, or capacity facts only when used; distinguish resource forecasts from observations. Identify current impediments and their impact, known dependency and risk masters, owner or gap, and assessed absence where applicable. |
 | Forecast, decisions, and next work | Required | State remaining-work forecast, changed assumptions, confidence limits, schedule and scope scenarios when used, requested decisions, and planned next-period actions. Link actual action masters; do not invent decisions or claim planned work occurred. |

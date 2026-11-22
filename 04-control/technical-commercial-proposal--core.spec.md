@@ -25,7 +25,7 @@ Expose unresolved scope, authority, estimate, currency, tax treatment, validity,
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Offer identity and decision context | Required | Identify proposer, named recipient and relationship, subject, offer revision, date or gap, current offer state, offering authority or gap, and the problem the offer addresses. Include the client or receiving-party element. |
+| Offer identity and decision context | Required | Identify proposer, named recipient and relationship, subject, offer revision, date or gap, current offer state, offering authority or gap, and the problem the offer addresses. Include the client or receiving-party element when applicable. |
 | Scope, deliverables, and approach | Required | State included and excluded work, deliverables, technical approach, supplied inputs, responsibilities, and proposed assessable completion or receiving criteria. Identify dependencies and assumptions rather than promising unsupported feasibility. |
 | Milestones and estimate basis | Required | Give milestones, dependencies, resource and effort assumptions, estimate method and uncertainty, client inputs, and schedule basis. Distinguish forecast from proposed commitment and consumed effort from estimated work. |
 | Quotation and proposed conditions | Required | State pricing model, priced scope, amounts or explicit unresolved quotation, currency, units, inclusions, exclusions, tax and payment disposition, validity, and change assumptions when established. Reconcile line items and total; reference approved source terms without inventing rights or obligations. |

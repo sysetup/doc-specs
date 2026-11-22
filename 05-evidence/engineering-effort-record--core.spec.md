@@ -25,7 +25,7 @@ Expose unknown duration, source, activity, attribution, overlap, or correction w
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Scope, purpose, and counting rules | Required | State effort purpose, period, as-of point, audience, units, precision, inclusion and overlap rules, access, retention, and client or receiving-party element. Use only permitted performer detail. |
+| Scope, purpose, and counting rules | Required | State effort purpose, period, as-of point, audience, units, precision, inclusion and overlap rules, access, retention, and the client or receiving-party element when applicable. Use only permitted performer detail. |
 | Actual effort entries | Required | Record each actual activity entry with stable identity, work reference or description, permitted performer attribution, activity period or duration, unit, source, and observation or self-report basis. State assessed-empty scope explicitly; missing entries remain gaps. |
 | Totals and reconciliation | Required | Sum effort under the stated overlap and attribution rules, distinguish incomplete coverage from zero, and identify double counts, inconsistent units, and unresolved entries. Distinguish consumed effort, elapsed calendar time, remaining estimate, and completion evidence. |
 | Corrections, review, and use limits | Required | Preserve original entries and correction source, reason, date precision, and reviewer when a review occurred. State actual review or accounting status and limits on using totals for billing, forecast, or performance interpretations. |

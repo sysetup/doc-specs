@@ -25,7 +25,7 @@ If an owner, intent, match, or status is unknown, record the gap. Do not invent 
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the enforcement boundary, the as-of point, the rule classes included, and the meaning of each status used. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the enforcement boundary, the as-of point, the rule classes included, and the meaning of each status used. Include the client or receiving-party element from this contract when applicable. |
 | Rules | Required | Record each rule with its identity, match, action, owner, intent, and status. If no rule is established, say so instead of adding a placeholder rule. |
 | Gaps | Required | Identify missing owners, intents, or statuses, and any rule whose match is unresolved. State the next action. |
 

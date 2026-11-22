@@ -25,7 +25,7 @@ If an assignment, owner, or identifier is unknown, record the gap. Do not invent
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the network or allocation domain, the as-of point, the classes covered, and any class that has no assignment in force. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the network or allocation domain, the as-of point, the classes covered, and any class that has no assignment in force. Include the client or receiving-party element from this contract when applicable. |
 | Assignments in force | Required | Record each prefix, VLAN identifier, and name that is assigned now, with its owner. If a covered class has no assignment, say so instead of adding a placeholder row. |
 | Conflicts and gaps | Required | Identify any difference from the intended plan, any unknown owner or identifier, and the next action. |
 

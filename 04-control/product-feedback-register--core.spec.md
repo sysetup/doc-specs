@@ -25,7 +25,7 @@ Expose unknown source, time, context, owner, classification, or disposition with
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Intake boundary and handling | Required | Identify scope, channels, as-of point, steward or assignment gap, triage rules, access, retention, redaction, and client or receiving-party element. Explain excluded request classes and their actual routes. |
+| Intake boundary and handling | Required | Identify scope, channels, as-of point, steward or assignment gap, triage rules, access, retention, redaction, and the client or receiving-party element when applicable. Explain excluded request classes and their actual routes. |
 | Input entries | Required | Give every in-scope input a stable key, source or permitted locator, received time or gap, minimized description, context and version when known, uncertainty, and assigned triage owner or gap. An assessed-empty scope has an explicit no-inputs statement. |
 | Triage and disposition | Required | Record classification, duplicates or themes, current triage state, decision basis, and authoritative downstream destination when established. Preserve original input meaning and conflicting interpretations. Routed feedback is not delivered functionality or a closed defect. |
 | Reconciliation and upkeep | Required | Identify stale triage, missing source or destination, duplicate mistakes, and unresolved ownership; give next resolving actions, review triggers, and history for changed dispositions. State whether no discrepancies were identified after assessment. |

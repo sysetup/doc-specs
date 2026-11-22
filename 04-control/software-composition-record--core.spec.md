@@ -25,7 +25,7 @@ If a component, version, origin, or license is unknown, record the gap. Do not i
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the one software item, the version this record covers, and the as-of point. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the one software item, the version this record covers, and the as-of point. Include the client or receiving-party element from this contract when applicable. |
 | Components | Required | For each component, state its name, version, origin, and license when those facts are known. If no component is established, say so instead of adding a placeholder component. |
 | Gaps | Required | Identify missing versions, origins, and licenses, and the next action. An unknown license stays unknown. |
 

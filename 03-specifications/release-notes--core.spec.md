@@ -25,7 +25,7 @@ If a change, its recipient effect, or the release identity is unknown, say so. D
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the product or system, the one release these notes cover, the recipients, and any actual release-event record cited. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the product or system, the one release these notes cover, the recipients, and any actual release-event record cited. Include the client or receiving-party element from this contract when applicable. |
 | Changes the recipient must know | Required | For each change the recipient must know, state what changed and why it matters to that recipient. If no such change is established, say so rather than filling the section with an unowned commit list. |
 | Actions, compatibility, and known limits | Required | State the action a recipient must take, any compatibility or upgrade effect, and any known limit that changes how the release should be taken. An unknown effect stays unresolved. |
 | Unresolved items | Conditional: a change or its recipient effect is not established | State the gap, its consequence for the recipient, and the next resolving action. Omit this section only when no such gap exists. |

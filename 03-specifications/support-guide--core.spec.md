@@ -25,7 +25,7 @@ Expose unknown supported versions, channel, response expectation, privacy condit
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Supported scope and audience | Required | Identify product or service, supported versions and recipients or explicit gaps, support boundary, actual hours or language coverage when established, exclusions, and client or receiving-party element. |
+| Supported scope and audience | Required | Identify product or service, supported versions and recipients or explicit gaps, support boundary, actual hours or language coverage when established, exclusions, and the client or receiving-party element when applicable. |
 | Request classification and routes | Required | Explain how to distinguish ordinary help, suspected defects, improvement or feedback, and security matters. Give established channels or visible gaps, actual self-help resources, and escalation route when supplied; sensitive security reports require an established private route. |
 | Useful intake information | Required | State the context, version, observed versus expected behavior, reproducible details, and requested outcome useful for each applicable route. Instruct readers to redact credentials, personal data, and private infrastructure details and to use permitted attachments or secure sharing only when established. |
 | Response expectations and limits | Required | State actual response or support commitments with source and scope, or that no guarantee is established. Distinguish acknowledgment, triage, treatment, and resolution; provide status or follow-up routes only when real. |

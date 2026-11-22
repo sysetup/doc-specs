@@ -25,7 +25,7 @@ Expose unknown need, outcome measure, horizon, dependency, authority, or commitm
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Product direction and basis | Required | Identify product, audience, strategic goal and decision state, source needs, as-of point, planning scope and exclusions, and client or receiving-party element. |
+| Product direction and basis | Required | Identify product, audience, strategic goal and decision state, source needs, as-of point, planning scope and exclusions, and the client or receiving-party element when applicable. |
 | Themes, outcomes, and horizons | Required | Map each initiative or theme to a sourced problem and intended outcome, an observable outcome basis or gap, and a stated horizon. Show ordering rationale and confidence; solution features remain candidates unless actually chosen. |
 | Dependencies and feasibility assumptions | Required | Identify material capacity, supplier, technical, regulatory, learning, or market dependencies only when grounded in actual inputs. State uncertainty, feasibility gaps, and conditions that would change the proposed direction. |
 | Forecasts, commitments, and review | Required | Distinguish aspirational direction, forecast, and actual committed scope using their sources and decision rights. Identify review ownership, update triggers, changed or withdrawn directions, and links to real backlog or delivery plans without duplicating them. |

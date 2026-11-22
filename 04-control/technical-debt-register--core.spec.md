@@ -25,7 +25,7 @@ Expose unknown location, effect, cause, effort estimate, owner, or disposition w
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Scope and assessment rules | Required | Identify boundary, as-of point, steward and decision rights or gaps, prioritization vocabulary and basis, master records, exclusions, and client or receiving-party element. |
+| Scope and assessment rules | Required | Identify boundary, as-of point, steward and decision rights or gaps, prioritization vocabulary and basis, master records, exclusions, and the client or receiving-party element when applicable. |
 | Known compromise entries | Required | Record each compromise's stable key, concrete location and version, observation source, context, and rationale or unknown origin. State assessed-empty scope explicitly; a general suspicion without a known compromise remains a research or risk question. |
 | Carrying effects and treatment options | Required | State observed maintenance cost, complexity, coupling, support limits, or other consequences with evidence and units where used. Separate estimates from measured effects. Identify treatment alternatives, dependencies, effort basis, and real related defect or risk records. |
 | Disposition and reassessment | Required | Record owner or gap, priority rationale, proposed or selected treatment, deferral basis and revisit trigger, actual implementation and checking when present, and current state. Preserve superseded entries and failed treatments; closure does not prove unrelated risks or defects are closed. |

@@ -25,7 +25,7 @@ Expose each unknown population, permission, data arrangement, method, or decisio
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Purpose, scope, and questions | Required | Identify the subject, intended decision, lifecycle phase, setting, known basis, exclusions, and separately identifiable research questions. Include the client or receiving-party element. Distinguish exploratory questions from a solution's acceptance criteria. |
+| Purpose, scope, and questions | Required | Identify the subject, intended decision, lifecycle phase, setting, known basis, exclusions, and separately identifiable research questions. Include the client or receiving-party element when applicable. Distinguish exploratory questions from a solution's acceptance criteria. |
 | Population and recruitment | Required | Define included groups or source corpus, selection rationale, exclusions, recruitment route, planned sample or stopping rationale, representativeness limits, and accessibility needs. Identify missing perspectives without inventing representation. |
 | Methods and instruments | Required | Map each question to collection method, instrument edition or instrument-development gap, planned context, capture route, and responsible role. Explain why the method can answer the question; planned outputs have no observations or results. |
 | Access, ethics, and data handling | Required | State permission and ethics review applicability, consent and withdrawal arrangements for human participation, recording choices, minimization, access, sharing, retention and deletion rules, sensitive-data handling, and suspension conditions. Link actual participant information when available. |

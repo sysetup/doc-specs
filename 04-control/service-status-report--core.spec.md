@@ -25,7 +25,7 @@ Expose unknown objective, denominator, telemetry interval, source, version, or d
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Service, period, and objective basis | Required | Identify service, environments and configuration range, operating and measurement windows, period and cutoff, actual objective editions and agreement state or gaps, exclusions, and client or receiving-party element. |
+| Service, period, and objective basis | Required | Identify service, environments and configuration range, operating and measurement windows, period and cutoff, actual objective editions and agreement state or gaps, exclusions, and the client or receiving-party element when applicable. |
 | Sources and data coverage | Required | Identify queries, telemetry and support sources, capture times, units, sampling, covered and missing intervals, denominator rules, and data-quality issues. Preserve unavailable or stale signals and permission limits. |
 | Observed results | Required | Report sourced reliability, availability, performance, capacity, support, and security facts relevant to the service. Compare against objectives only when definition, scope, coverage, and measurement basis support comparison; otherwise state that it cannot be concluded. |
 | Incidents, changes, and maintenance | Required | Summarize real incident, change, and maintenance facts with source links and bounded impact. A no-incidents statement identifies the assessed source scope and its limits; do not create an incident record for a healthy period. |

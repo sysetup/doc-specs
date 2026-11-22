@@ -25,7 +25,7 @@ Expose unknown selection, participation, context, method edition, observation, o
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Questions, round, and evidence boundary | Required | Identify questions, actual round and setting, decision use, as-of point, exclusions, and client or receiving-party element. Cite the plan when used and state what actually occurred. |
+| Questions, round, and evidence boundary | Required | Identify questions, actual round and setting, decision use, as-of point, exclusions, and the client or receiving-party element when applicable. Cite the plan when used and state what actually occurred. |
 | Method and participation actually used | Required | Describe actual collection, instrument editions, selection and recruitment, achieved participant or corpus coverage, accessibility and proxy limits, analysis procedure, deviations, and missing perspectives. Use minimized participant descriptions. |
 | Observations and source support | Required | State supported observations with permitted source locators, context, and contradictory or exceptional observations. Identify actual counts only with units and denominators; no usable observations requires an explicit statement and capture-failure account. |
 | Interpretation and implications | Required | Separate themes and interpretations from observations and analyst hypotheses. Link each interpretation to its supporting and contrary evidence; describe implications for needs, design, or possible work as recommendations unless an actual decision is cited. |

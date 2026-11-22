@@ -25,7 +25,7 @@ If a cable, panel, port, or endpoint is unknown, record the gap. Do not invent a
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the site or plant, the as-of point, the space the schedule covers, and what it excludes. Include the client or receiving-party element from this contract. |
+| Identity and scope | Required | Identify the site or plant, the as-of point, the space the schedule covers, and what it excludes. Include the client or receiving-party element from this contract when applicable. |
 | Cable rows | Required | For each cable in scope, identify the cable, the panel, the port, and the endpoints, and label the row planned or as built. If no cable is yet identified, say so instead of adding a placeholder row. |
 | Gaps | Required | Identify missing ports, endpoints, or labels, and any row whose planned or as-built state is not established. State the next action. |
 

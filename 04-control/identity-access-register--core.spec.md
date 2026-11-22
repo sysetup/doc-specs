@@ -25,7 +25,7 @@ If an account, group, membership, or privilege is unknown, record the gap. Do no
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Identity and scope | Required | Identify the one directory or host set, the as-of point, and the owner of that set when assigned. Include the client or receiving-party element from this contract. Limit account entries to identities in that set, excluding equipment and certificate artifacts. |
+| Identity and scope | Required | Identify the one directory or host set, the as-of point, and the owner of that set when assigned. Include the client or receiving-party element from this contract when applicable. Limit account entries to identities in that set, excluding equipment and certificate artifacts. |
 | Accounts, groups, and privileges | Required | Record each account and group in scope, the membership that is known, and the privileges held. If none are established, say so instead of adding a placeholder account. |
 | Gaps | Required | Identify unknown memberships, unknown privileges, and unassigned owners. State the next action. |
 

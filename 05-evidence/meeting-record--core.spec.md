@@ -25,7 +25,7 @@ Expose missing time, participants, source, decision authority, owner, or due dat
 
 | Section role | Status and inclusion condition | Content obligation |
 |---|---|---|
-| Held meeting and evidence basis | Required | Identify purpose, actual date or session dates and precision, meeting scope, participants or participation gap, note or recording basis, audience limits, and client or receiving-party element. |
+| Held meeting and evidence basis | Required | Identify purpose, actual date or session dates and precision, meeting scope, participants or participation gap, note or recording basis, audience limits, and the client or receiving-party element when applicable. |
 | Subjects and factual discussion | Required | Summarize actual subjects and material factual discussion, distinguishing speaker positions, observations, proposals, and uncertainty. Preserve recorded disagreement; do not turn an unused agenda item into discussion. |
 | Decisions and open questions | Required | State actual decisions with deciding role, scope, and authority basis when established, or that none were recorded. Identify unresolved questions, rejected proposals where actually decided, and existing decision masters; a proposal has no decision status. |
 | Follow-up and record limitations | Required | State actions actually assigned, deliverable, owner or gap, due date or scheduling disposition, and actual action links. Include source, capture, confidentiality, correction, and confirmation limits and any actual review of the minutes without implying institutional approval. |
