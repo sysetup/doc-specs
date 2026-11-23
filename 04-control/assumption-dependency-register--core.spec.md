@@ -1,3 +1,24 @@
+---
+title: "Assumption and dependency register specification"
+description: >-
+  Defines the authoring contract for registers controlling assumptions, dependencies, and constraints that materially affect engineering requirements, architecture, project plans, risks, schedules, or operations. Covers selection and disposition rules, controlled statements with source provenance, owners, explicit lifecycle status, impact if false or unavailable, concrete validation or resolution actions, review timing, links to related records, and escalation gaps whenever an invalid assumption or unavailable dependency must escalate into a risk, issue, change, or decision.
+topics:
+  - "assumption-register"
+  - "dependency-register"
+  - "project-constraints"
+  - "assumption-validation"
+  - "dependency-impact"
+  - "escalation-control"
+use_when:
+  - "Material assumptions, external dependencies, or constraints affect plans, architecture, schedules, or operations and require ongoing control."
+  - "A project lead or architect is assigning owners, validation actions, review timing, and failure impacts to relied-upon statements."
+  - "A reviewer is checking whether unvalidated assumptions or slipping dependencies trigger formal risk or change escalation."
+not_for:
+  - "Tracking broader uncertain adverse events with likelihood and severity ratings, which belongs in a risk register."
+  - "Tracking discrete assigned follow-up tasks unrelated to validation of relied-upon assumptions, which belongs in an action item register."
+  - "Authoring formal approved system requirements, which belongs in requirements specifications."
+---
+
 # Assumption and dependency register specification
 
 ## Identity and selection
@@ -18,12 +39,12 @@ If the owner, impact, provider, or review date is unknown, keep the entry visibl
 ## Finished-document contract
 
 - **Title:** Identify the project or system boundary and name the document as its assumption and dependency register.
-- **Frontmatter:** None. Begin with the GFM title. Rules, statements, and dispositions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Rules, statements, and dispositions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State selection and disposition rules before entries; place escalation gaps after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Selection and disposition rules | Required | State what makes a statement material enough to control, the register's currency date, the review cadence or triggering events, the conditions that require a risk, issue, change, or decision record, and the evidence or authority required before an entry is confirmed, satisfied, invalidated, superseded, or closed. |
 | Controlled entries | Required | Include every in-scope assumption, dependency, and constraint, or an explicit assessed-empty statement. For each entry, give its stable identity, kind, statement, source, status, owner or assignment gap, impact if false or unavailable, validation or resolution action, review timing, and related records that actually exist. |
 | Escalation gaps | Required | Identify entries whose escalation condition is met while the required risk, issue, change, or decision record does not exist, and entries whose status claims evidence the closure rule requires but the entry does not cite. Give the consequence and route, or state that the assessed scope showed none. |
@@ -31,7 +52,7 @@ If the owner, impact, provider, or review date is unknown, keep the entry visibl
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Controlled statement | One assumption, dependency, or constraint; zero only when the scope was assessed and no statement qualifies. | Use one immutable identifier and exactly one kind: `assumption`, `dependency`, or `constraint`. Do not reuse the identifier for another statement. |
 | Statement | One intelligible claim per entry. | An assumption states a condition treated as true although it is not yet an established project fact. A dependency states reliance on a provider, product, decision, or event outside the relying party's direct control and names that provider, or states that the provider is not established. A constraint states a limit on the work. |
 | Source | One origin per entry. | Identify the person, record, observation, or rationale from which the statement came. Unknown origin stays unresolved. |

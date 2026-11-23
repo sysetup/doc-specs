@@ -1,3 +1,24 @@
+---
+title: "Selected control implementation record specification"
+description: >-
+  Defines the authoring contract for control implementation records documenting each explicitly selected security, privacy, or compliance control within a declared boundary. Covers control-set edition, selected control parameters, scoped implementation claims, responsibility and origination (inherited, shared, or system-specific), related project obligations, current implementation status including planned, partial, or inapplicable states, linked evidence and assessment status, exceptions or dispositions, and explicit limitations without implying whole-system effectiveness.
+topics:
+  - "control-implementation"
+  - "security-controls"
+  - "privacy-controls"
+  - "control-parameters"
+  - "compliance-evidence"
+  - "control-status"
+use_when:
+  - "A project or system boundary must maintain per-control implementation claims, parameters, evidence links, and assessment status."
+  - "A security or compliance engineer is tracking planned, partial, implemented, inherited, and inapplicable controls transparently."
+  - "An assessor is verifying which evidence supports each control claim and which exceptions or limitations remain open."
+not_for:
+  - "Planning broader security engineering work and threat analysis across a lifecycle, which belongs in a security engineering plan."
+  - "Reporting findings from a completed formal audit examination, which belongs in an audit report."
+  - "Tracking individual discovered software vulnerabilities through patching, which belongs in a vulnerability record."
+---
+
 # Selected control implementation record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If the selected control-set revision, statement text, parameter, responsible rol
 ## Finished-document contract
 
 - **Title:** Identify the boundary and name the document as its selected control implementation record.
-- **Frontmatter:** None. Begin with the GFM title. The control-set edition, implementation claims, and status belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The control-set edition, implementation claims, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the boundary, control set, and status rules before individual controls; place open items after the claims. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Boundary, control set, and status rules | Required | Identify the system, service, or organizational boundary and as-of point; the project's selected control set and its revision; included and excluded control groups and additional selections; status meanings; and the role accountable for this record. State that selection of a control is not evidence that it is implemented or effective. |
 | Selected controls and implementation claims | Required | Include every explicitly selected control, or an explicit statement that none were selected in the assessed scope. For each control, give its identifier, complete statement and parts in scope, project-record locator when available, separately selected enhancements, applicability, parameters, where in the boundary the claim applies, the mechanism or process and version, and one truthful status. Cite evidence and assessment records only when they exist. |
 | Exceptions, limits, and open items | Required | For each control, state unimplemented parts, stale evidence, unset parameters, and residual exposure, or state that the stated scope was assessed and none of those limits were identified. Record tailoring, exception, or residual acceptance only with the actual decision. State how a control-set change or a boundary change reopens affected claims. |
@@ -32,7 +53,7 @@ If the selected control-set revision, statement text, parameter, responsible rol
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Selected control | One entry for each explicitly selected control or enhancement; zero only when the scope was assessed and no control was selected. | Give the exact identifier, selected project control-set revision, complete statement and subparts in scope, and project-record locator when available. A group name or example identifier does not select a control. Select each enhancement separately from its base control and include its statement. |
 | Control-set edition | One identified revision for the project's selected control set used by this record. | State the actual project set identity and revision or edition, with its selection decision when recorded. The record includes the complete selected statements and parameter definitions needed to assess each claim. |
 | Parameters | Required to address for each selected control. | For each parameter in the supplied statement, state its meaning, allowed values or range, assigned organization-defined value and assigning internal role, or state that the statement defines none. Unset parameters that change the required behavior block `implemented` and `verified`. |

@@ -1,3 +1,24 @@
+---
+title: "System, product, or asset maintenance plan specification"
+description: >-
+  Defines the authoring contract for maintenance plans organizing upkeep of identified systems, products, or physical and infrastructure assets over their useful life. Covers asset scope and maintenance basis, selected preventive or corrective maintenance strategies, task programs, triggers, logistics and spares support, work initiation and safety controls, post-maintenance assessment, return-to-service criteria, performance review, and end-of-life coordination while excluding software modification campaigns.
+topics:
+  - "asset-maintenance"
+  - "maintenance-planning"
+  - "return-to-service"
+  - "preventive-maintenance"
+  - "logistics-support"
+  - "work-controls"
+use_when:
+  - "An owner needs to plan maintenance strategies, triggers, spares, and return-to-service criteria for physical, infrastructure, or system assets."
+  - "A planner is defining work controls and assessment gates before recurring servicing or repair begins."
+  - "A reviewer is checking whether an asset maintenance plan separates asset upkeep from software change management."
+not_for:
+  - "Planning post-delivery software fixes, enhancements, regression testing, and releases, which belong in a software maintenance plan."
+  - "Planning decommissioning, disposal, or withdrawal of an asset, which belongs in a retirement and disposal plan."
+  - "Recording an actual maintenance action performed on an asset, which belongs in an operational work execution record."
+---
+
 # System, product, or asset maintenance plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown interval, asset state, hazard, support right, return-to-service c
 ## Finished-document contract
 
 - **Title:** Identify the maintained system, product, asset, or asset class and name its maintenance plan.
-- **Frontmatter:** None. Begin with the GFM title; asset identity and plan scope belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Asset identity and plan scope belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish asset scope and obligations before strategy and tasks; give work controls before return-to-service and lifecycle review. Exact heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Asset scope and maintenance basis | Required | Identify covered assets or asset classes, configuration or selection rule, operating context, lifecycle period, exclusions, owner, project performance and safety requirements with their established basis, origin, edition, and limits of maintenance instructions, and relevant failure or condition history. |
 | Strategy and task program | Required | Explain the basis and tradeoffs for preventive, condition-based, corrective, or other selected approaches. For each maintained asset or class, define inspections or interventions, trigger or interval and its source, action at planning depth, service effect, task owner, and route for an abnormal finding. Do not force every strategy onto every asset. |
 | Support and logistics | Required | Identify needed competence, staffing, facilities, access, technical data, tools, calibration where material, spares or replacement supply, supplier dependencies, and constraints that could prevent timely work. |
@@ -35,7 +56,7 @@ For an unknown interval, asset state, hazard, support right, return-to-service c
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Maintained item | One or more identified assets or justified asset classes. | Bind each to an operating context and configuration or selection rule; distinguish planned coverage from established asset identity and condition. |
 | Maintenance approach | At least one selected approach per item or class. | Name the failure or condition addressed, selection basis, limitations, and response when the approach cannot be executed. A corrective-only approach needs a detection and response route. |
 | Maintenance activity | Each recurring or condition-triggered activity needed by the selected approach. | State task purpose, trigger or interval with source, responsible role, access or outage needs, work-instruction reference if real, and expected record. Do not invent time-based intervals. |

@@ -1,3 +1,24 @@
+---
+title: "Systems engineering management plan specification"
+description: >-
+  Defines the authoring contract for a project's systems engineering management plan organizing lifecycle tailoring, cross-discipline responsibilities, technical interfaces, resources, risk, configuration, and evidence controls, technology insertion, specialty engineering, unresolved decisions, and planned technical review gates. Coordinates how one bounded project executes systems engineering from stakeholder needs through requirements, architecture, interfaces, integration, verification, validation, transition, and support or retirement interfaces across participating disciplines and suppliers.
+topics:
+  - "systems-engineering-management"
+  - "lifecycle-tailoring"
+  - "technical-gates"
+  - "specialty-engineering"
+  - "cross-discipline-planning"
+  - "technical-management"
+use_when:
+  - "A bounded project needs a master technical management plan tailoring systems engineering processes, authority, resources, and review gates."
+  - "A systems engineering lead is coordinating multiple technical disciplines, suppliers, specialty engineering, and lifecycle handoffs."
+  - "A reviewer is checking whether project tailoring decisions, technical interfaces, and gate evidence expectations are coherent."
+not_for:
+  - "Defining an organization's reusable cross-project workflow without project specifics, which belongs in a systems engineering lifecycle process."
+  - "Planning software-only delivery increments and build infrastructure, which belongs in a software development plan."
+  - "Recording actual outcomes of held technical reviews, which belong in design review evidence records."
+---
+
 # Systems engineering management plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Identify unknown facts and unmade decisions with their consequence, resolving ac
 ## Finished-document contract
 
 - **Title:** Identify the project or system and name its systems engineering management plan.
-- **Frontmatter:** None. Begin with the GFM title; system scope, plan responsibility, and project planning basis belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). System scope, plan responsibility, and project planning basis belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the system and project obligations before tailoring and work assignment; present the technical work before review, resource, and change controls. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | System, purpose, and lifecycle boundary | Required | Identify the system of interest, mission or intended outcome, external context and interfaces, lifecycle stages covered, exclusions, key performance or support constraints, and the current or proposed technical baseline. Name the project role responsible for maintaining this plan. |
 | Project basis and tailoring | Required | State established project obligations and criteria, their supporting needs, allocations, decisions, or supplied agreement scope, and project-record IDs and versions; distinguish established obligations from proposals and resolve or expose conflicts. State the chosen lifecycle and development approach, why its engineering depth fits project scale and risk, each material tailoring choice, and the actual project authority that may authorize a change to an established obligation. Identify proposed tailoring and existing tailoring decisions by their actual state and record. |
 | Organization and technical interfaces | Required | Assign systems engineering leadership, technical and decision authority, discipline and supplier responsibilities, and cross-boundary handoffs. Explain how technical work coordinates with project management, configuration, quality, safety, security, logistics, operations, and support where applicable. A plan cannot grant rights absent from the actual project arrangement. |
@@ -38,7 +59,7 @@ Identify unknown facts and unmade decisions with their consequence, resolving ac
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | System and lifecycle scope | One bounded project/system scope, with all included lifecycle stages identified. | Distinguish the system from its enabling and external systems; mark candidate versus approved baselines and excluded stages. |
 | Project obligation | One or more established obligations for the project. | State the obligation and explicit criterion, supporting need, allocation, decision, or supplied agreement scope, project-record ID and version, affected scope, and priority or conflict where material. |
 | Tailoring decision | One per material deviation from an otherwise applicable engineering obligation. | State affected obligation or method, rationale, consequence, and actual authority or unresolved disposition; do not treat a proposed exception as authorized. |

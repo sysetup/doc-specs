@@ -1,3 +1,24 @@
+---
+title: "Ordered product backlog specification"
+description: >-
+  Defines the authoring contract for ordered product backlogs maintaining an emergent, prioritized inventory of candidate product work and its refinement basis across standalone Markdown or native board surfaces. Covers product goal and control rules, immutable item identities, relative ordering and rationale, refinement readiness, mission-selected sizing dimensions, authoritative native work states preserved alongside optional versioned normalization mappings, dependencies, and clear separation among selection, supported completion, commitment, and acceptance.
+topics:
+  - "product-backlog"
+  - "work-prioritization"
+  - "backlog-refinement"
+  - "native-work-states"
+  - "sizing-dimensions"
+  - "product-delivery"
+use_when:
+  - "A product team needs an ordered, emergent inventory of candidate work items with explicit refinement states, sizing, and dependencies."
+  - "A product owner is documenting native board work states and optional normalized views without conflating selection with commitment."
+  - "A reviewer is checking whether backlog items preserve separate authoritative masters for requirements and formal delivery acceptance."
+not_for:
+  - "Communicating high-level multi-horizon strategic themes and outcomes, which belongs in a product roadmap."
+  - "Authoring approved, traceable requirement statements, which belongs in requirements specifications."
+  - "Triaging raw customer feedback and discovery notes before product-work creation, which belongs in a product feedback register."
+---
+
 # Ordered product backlog specification
 
 ## Identity and selection
@@ -19,18 +40,18 @@ Expose unknown goal, value, order, native state, mapping, sizing, dependency, ow
 ## Finished-document contract
 
 - **Title:** Identify the product and name its ordered product backlog; a standalone document owns its H1, while a native board view follows the declared host title rule.
-- **Frontmatter:** None. Omit YAML frontmatter on both surfaces. Begin standalone GFM with its H1; a native view follows the host title rule. Put product scope, as-of basis, and client context in the body, with host-owned facts referenced rather than copied as a second master. Governing source: This type's body and projection policy; no external metadata schema is prescribed.
+- **Frontmatter:** Required on standalone GFM documents; omitted on native board views whose host manages metadata externally. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), complying with Rule 13 (no internal IDs, versions, hashes, paths, build metadata, or unresolved template delimiters), followed by the H1 title. A native board view follows the host title and metadata rules without injecting YAML frontmatter. Put product scope, as-of basis, and client context in the body, with host-owned facts referenced rather than copied as a second master. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0) and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State product goal, controlling source, state and sizing rules before the ordered inventory; follow it with selection, completion, disposition, refinement gaps, and upkeep. Heading wording may vary.
 - **Presentation:** Use a compact control account and an ordered table, item blocks, or linked board view sized to the actual inventory. Required roles may share paragraphs or sections; native states, mapping limits, gaps, and source locators must remain retrievable without duplicate editable masters.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Standalone GFM (standalone) | The document supplies one product-backlog H1. The body states scope, as-of point, source snapshot, and client context. | Use GFM prose, ordered rows, or item blocks. Name the controlling record and inspected edition or immutable snapshot. A read-only export preserves identities, order, and native values; source changes require reconciliation before using its derived planning or completion account. |
+| --- | --- | --- |
+| Standalone GFM (standalone) | The document begins with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one product-backlog H1. The body states scope, as-of point, source snapshot, and client context. | Use GFM prose, ordered rows, or item blocks. Name the controlling record and inspected edition or immutable snapshot. A read-only export preserves identities, order, and native values; source changes require reconciliation before using its derived planning or completion account. |
 | Native board view (native) | The identified host owns the board title; do not add a redundant H1 where that surface excludes it. The host owns its item identities, order, native states, and current snapshot; body context identifies their inspected locators and ownership. | Use the selected board surface's actual syntax and inspected edition; this contract prescribes no provider schema or machine export. The board remains controlling. State native transition rules and any separately chosen normalization, mapping edition, conditions, and information loss; unknown or unmapped states remain visible and cannot authorize a derived transition. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Product goal and control rules | Required | Identify product scope, goal and its decision state, as-of point, ordering and update roles, authoritative board or record and snapshot, native work-state and transition meanings, refinement and completion rules, exclusions, and the client or receiving-party element when applicable. State whether normalization and sizing are used, which mission requires them, and their governing rules or gaps. |
 | Ordered work inventory | Required | List each item with stable identity, sourced problem or expected value, relative order and rationale for active work, refinement readiness or gaps, actual native state or state gap, dependencies, and applicable sizing attributes with units and basis or explicit gaps. Preserve native values alongside any derived normalized view. Link actual requirements and acceptance criteria without creating a second master. State an assessed-empty inventory explicitly. |
 | Selection, completion, and disposition | Required | Record actual selection, progress, completion, reopening, and removal under the declared native rules and evidence; do not force native values into five states. When normalization is selected, show its mapping and mapped, unmapped, or unknown disposition independently. Distinguish selection from delivery commitment and acceptance, and completion claims from completion supported by the declared basis. Preserve prior completion evidence and removed-item reasons; order and estimates do not create promises. |
@@ -39,7 +60,7 @@ Expose unknown goal, value, order, native state, mapping, sizing, dependency, ow
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Product goal | Exactly one current goal or explicit goal gap in Product goal and control rules. | Identify proposed or established state; a desired outcome is not an achieved result. |
 | Backlog item | Zero or more possible-work items in Ordered work inventory. | Each has an immutable identity and sourced problem or value; assessed-empty is explicit and requirements or feedback keep separate masters. |
 | Order and refinement | One order position and one refinement account per active item in Ordered work inventory. | Define ties and active-item membership using the actual rules. Preserve known prior order for disposed items when relevant. Readiness identifies criteria and dependency knowledge or gaps; it is not assurance or acceptance. |

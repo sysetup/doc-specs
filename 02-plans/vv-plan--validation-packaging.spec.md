@@ -1,3 +1,24 @@
+---
+title: "Validation plan specification"
+description: >-
+  Defines the authoring contract for standalone validation plans organizing how a bounded solution will be assessed for fitness against stakeholder, user, mission, or intended-use needs under representative operating conditions. Covers validation scope and need basis, use context and validation strategy, need-to-scenario traceability mappings, evaluation criteria, representative participant or actor roles, execution resources and readiness, evidence packaging, anomaly interpretation, and acceptance or certification interfaces.
+topics:
+  - "validation-plan"
+  - "intended-use-fitness"
+  - "representative-scenarios"
+  - "stakeholder-needs"
+  - "validation-evidence"
+  - "acceptance-interface"
+use_when:
+  - "A project needs a dedicated plan for assessing whether a solution satisfies stakeholder needs in representative use conditions."
+  - "A validation lead is mapping stakeholder needs to scenarios, evaluation criteria, representative actors, and expected evidence."
+  - "A reviewer is verifying that every planned validation activity traces to a real stakeholder or intended-use need."
+not_for:
+  - "Assessing conformity to specified technical requirements, which belongs in a verification plan."
+  - "Coordinating both verification and validation together in one document, which belongs in a combined V&V plan."
+  - "Recording actual observed validation outcomes, which belongs in a validation evidence record."
+---
+
 # Validation plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown need, operating condition, representative actor, configuration, c
 ## Finished-document contract
 
 - **Title:** Identify the solution or intended-use scope and name the document as its validation plan.
-- **Frontmatter:** None. Begin with the GFM title. Need basis, context, and decision rules belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Need basis, context, and decision rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State needs and intended use before scenarios and criteria; place resources and readiness before evidence and decision interfaces. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, scope, and need basis | Required | Identify the solution and planned configuration, lifecycle and project boundary, established project stakeholder or intended-use needs with origins, editions and locators, objectives, material exclusions, and project scope decisions. State the fitness-in-use questions to be assessed and any unresolved conflicts among needs or scope decisions. |
 | Use context and validation strategy | Required | For each need question whose context is established, describe representative tasks, actors or justified proxies, operating conditions, interfaces, environments, scenarios, and why they can answer that question. State simulation, sampling, and fidelity limits. Leave an unanswered question as an explicit gap. Select applicable end-item, integrated-system, or program-level scope only where it serves the use question. |
 | Need and scenario mapping | Required | For each in-scope need or distinct use question, give scenario, participant or actor, configuration, conditions, method, observable evaluation criterion, responsible role, planned event, and expected evidence when those facts are established. Show an uncovered need or exclusion and its consequence. Do not invent a missing scenario, actor, or criterion, and do not enter a result. |
@@ -36,7 +57,7 @@ For an unknown need, operating condition, representative actor, configuration, c
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Validation subject | One bounded solution or set of configurations and a selection rule for assessment. | Actual events must later identify what was evaluated; a planned configuration is not an observation. |
 | Need or use question | One or more project stakeholder needs or intended-use questions when they are established; otherwise one explicit source gap. | Give the supplied project need record, edition, and locator when needed. If stated locally, identify its real origin. A technical requirement ID alone is insufficient, and a missing need is not invented. |
 | Representative scenario | One scenario for each distinct use question that has an established scenario; none when that scenario is still a gap. | When established, specify actor or proxy, task, conditions, relevant interfaces and data, and why the scenario represents intended use; state omitted or simulated conditions. An in-scope question without a credible scenario stays visible as a gap. Do not invent the actor, conditions, or criterion. |

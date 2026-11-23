@@ -1,3 +1,24 @@
+---
+title: "Interface registry specification"
+description: >-
+  Defines the authoring contract for interface registries maintaining one controlled inventory of interface identities, participating endpoints and owners, criticality classifications, registration states, pointers to authoritative interface requirement or control records, known consumers, change relationships, and open discrepancies. Keeps the registry strictly as metadata and authoritative pointers while excluding duplicated requirement wording, controlled protocol parameters, directed traceability graphs, and verification execution results.
+topics:
+  - "interface-registry"
+  - "interface-inventory"
+  - "endpoint-ownership"
+  - "interface-criticality"
+  - "boundary-catalog"
+  - "configuration-control"
+use_when:
+  - "A system or program with multiple internal and external interfaces needs one controlled index of interface identities and owners."
+  - "An interface steward is tracking registration status, criticality, known consumers, discrepancies, and pointers to controlling documents."
+  - "An engineer needs to locate which parties own an interface and where its authoritative specification resides."
+not_for:
+  - "Stating detailed boundary obligations or controlled protocol parameters, which belong in interface requirements or interface control documents."
+  - "Mapping end-to-end bidirectional trace edges across requirements, design, and tests, which belongs in a requirements traceability matrix."
+  - "Documenting API syntax and CLI lookup tables for consumers, which belongs in a technical lookup reference."
+---
+
 # Interface registry specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an endpoint, owner, definition, agreement, criticality, or change relationshi
 ## Finished-document contract
 
 - **Title:** Identify the boundary and name the document as its interface registry.
-- **Frontmatter:** None. Begin with the GFM title. Scope, authority, and status belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, authority, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State registration rules before the index; place unresolved identities, definitions, and change conflicts after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Registration scope and authority | Required | Identify the boundary, interface categories, registration and exclusion criteria, steward, identifier rules, and who may change a registration or a cross-party relationship recorded in this index. State how updates are triggered and how the index stays aligned with baselines and with design or integration work. State the criticality criteria before any ranked criticality is used. State that registration status, interface-requirement content state, and realization agreement are different facts. |
 | Interface index | Required | Include every interface that meets the criteria, or an explicit assessed-empty statement. For each interface, give one immutable identifier, the known endpoints and side ownership, criticality, registration status and its dated source, and the definition references that actually exist. Where a referenced record states a content or agreement state, cite that state separately for the requirements record and the control record. State the consumers and change relationships, or state that none were identified. |
 | Discrepancies and open items | Required | Identify missing endpoints, duplicate identities, definitions that are absent or in conflict, a registration status not supported by a decision, and unresolved change impact. State the consequence and the resolving route, or state that the assessed scope showed none of these gaps. Do not resolve a conflict by copying requirement wording or realization parameters into the index. |
@@ -32,7 +53,7 @@ If an endpoint, owner, definition, agreement, criticality, or change relationshi
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Interface identifier | One stable identifier per registered interface. | Keep it immutable within this index and do not reuse it for a different interface. If an established project interface identity already exists, use that identity. A local row key is allowed only when the existing interface identity cannot itself identify the row, and it MUST NOT be presented as a second interface. |
 | Endpoints and ownership | At least the sides known for that interface. | Name each participating party or endpoint and which role owns that side's inputs to the definition. An unknown side remains unresolved. Naming an owner does not state the obligation or the realization. Do not substitute a person's name for decision authority. |
 | Criticality | One value per interface, required to address. | Use `unassessed` until the stated project criteria have been applied. A ranked value requires those criteria and an actual assessment. Do not treat criticality as agreement, requirement approval, or verification. |

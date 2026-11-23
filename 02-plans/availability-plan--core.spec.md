@@ -1,3 +1,24 @@
+---
+title: "Service or system availability plan specification"
+description: >-
+  Defines the authoring contract for availability plans specifying how a service or system measures, sustains, safely degrades, and improves availability against established service objectives. Covers availability scope and objectives, measurement methods and exclusions, dependency and single-point-of-failure analysis, resilience provisions and degraded-operation handling, monitoring and incident interfaces, and periodic review triggers so service owners, reliability engineers, and operators choose defensible reliability investments for real operating contexts.
+topics:
+  - "availability-planning"
+  - "service-reliability"
+  - "degraded-operation"
+  - "failure-analysis"
+  - "resilience"
+  - "service-objectives"
+use_when:
+  - "A service or system needs explicit availability objectives, measurement rules, dependency failure analysis, and resilience provisions."
+  - "An architect or reliability engineer is planning degraded-operation behaviors and monitoring thresholds before sustained operation."
+  - "A reviewer is verifying that availability targets align with concrete measurement methods and realistic failure scenarios."
+not_for:
+  - "Broad day-to-day staffing, support, and routine operations models, which belong in an operations and support plan."
+  - "Enterprise-wide disruption workarounds spanning sites and business units, which belong in a business continuity plan."
+  - "Reporting actual observed availability metrics for a past period, which belongs in a service-period status report."
+---
+
 # Service or system availability plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an objective, measurement definition, dependency behavior, or decision author
 ## Finished-document contract
 
 - **Title:** Identify the service or system and name its availability plan.
-- **Frontmatter:** None. Begin with the GFM title; objectives and scope belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Objectives and scope belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define the service and measurement basis before failure analysis and provisions; place assessment and improvement after the planned operating method. Exact heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Availability scope and objectives | Required | Define the service boundary, critical functions and user perspectives, operating periods, affected dependencies, source and status of objectives, and permitted maintenance or exclusion rules. Show unresolved objective decisions without invented thresholds. |
 | Measurement method | Required | Define what counts as available, unavailable, and degraded; measurement point, time basis, calculation, sampling, data source, missing-data treatment, exclusions, reporting period, and responsibility. Keep a partial-service condition visible rather than silently counting it as full availability. |
 | Failure and dependency analysis | Required | Describe credible failure modes, single points and shared or common-cause dependencies, capacity or maintenance effects, and the expected user impact. Identify assumptions and the basis for prioritizing provisions. |
@@ -35,7 +56,7 @@ If an objective, measurement definition, dependency behavior, or decision author
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Availability scope | One bounded service or system; several critical functions may need distinct measures. | State user perspective, operating windows, environment, and dependency boundary. A component's uptime is not automatically user-visible service availability. |
 | Availability objective | One entry per established or proposed measure relevant to the scope. | State source and decision status, target and interval only when established, applicable users or functions, exclusions, and review authority. Do not invent an SLA. |
 | Measurement rule | One complete rule for each reported availability measure. | Define eligible time or requests, the criterion for counting the service available, degraded state, numerator and denominator or equivalent calculation, timezone when time-based, sampling, missing-data handling, and data source. |

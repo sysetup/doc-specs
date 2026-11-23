@@ -1,3 +1,24 @@
+---
+title: "System requirements specification"
+description: >-
+  Defines the authoring contract for system requirements specifications stating individually assessable whole-system technical obligations across functional behavior, performance, external interactions, quality attributes, lifecycle support, and imposed constraints. Covers system boundaries and operating context, origins and control authority, requirement content states, assessment and verification conditions, priority, rationale, allocation and interface relationships, deferred or conflicting concerns, and change control before allocating lower-level element obligations.
+topics:
+  - "system-requirements"
+  - "technical-obligations"
+  - "system-performance"
+  - "verification-basis"
+  - "requirement-allocation"
+  - "systems-engineering"
+use_when:
+  - "Stakeholder expectations or project decisions must be translated into controlled, assessable whole-system technical obligations."
+  - "A systems engineer is defining system behavior, performance, external interactions, and verification conditions prior to subsystem allocation."
+  - "A reviewer is checking whether system requirements avoid premature design lock-in and maintain complete traceability and authorization state."
+not_for:
+  - "Obligations allocated specifically to one software component, which belong in a software requirements specification."
+  - "Stakeholder outcomes stated in operational language prior to technical translation, which belong in a stakeholder requirements specification."
+  - "Detailed boundary protocols agreed across organizations, which belong in interface requirements or interface control documents."
+---
+
 # System requirements specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown source, threshold, mode, interface boundary, constraint, or decis
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as its system requirements specification; add edition or configuration where needed to disambiguate it.
-- **Frontmatter:** None. Begin with the GFM title. System scope, content state, and authority are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). System scope, content state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish system boundary and derivation context before the authoritative requirements; put coverage, assessment, and control information after them. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | System identity, scope, and context | Required | Identify the system, document edition or other control identity, purpose, boundary, included and excluded responsibilities, external actors and systems, operating and lifecycle conditions, assumptions, dependencies, and actual requirement-set authority or proposal state. Define material terms and distinguish the system from its elements. |
 | System requirements | Required | State one authoritative obligation per distinct system-level behavior, quality, interaction, or imposed constraint, with a stable ID, source, applicability, and assessable condition. Assess relevant functional, performance, capacity, human interaction, reliability, availability, maintainability, safety, security, physical/environmental, information, operational, sustainment, transport, and interface concerns. Include only applicable concerns; explain material gaps rather than creating empty categories. |
 | Coverage, allocation, and verification basis | Required | Relate the system obligations to inspected stakeholder outcomes, direct project decisions, modes, constraints, and external interactions. Identify real links to element allocations or controlled project interface records when established, without duplicating their detailed obligations. State what a later verification would have to observe for each active system requirement, and identify coverage gaps or conflicts. Keep assessment conditions expressed as planned observations. |
@@ -33,7 +54,7 @@ For an unknown source, threshold, mode, interface boundary, constraint, or decis
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | System boundary | One bounded system of interest and its applicable configuration or edition. | Identify what the system controls, receives, exposes, and relies on; name external interfaces and human responsibilities needed to understand the obligations. |
 | System requirement | One or more distinct obligations, each with one stable ID unique within the controlled set. | State the obligated system, required outcome or limit, and triggering/operating conditions. Use consistent normative wording. A requirement may constrain a design only when an actual project decision imposes the constraint; otherwise leave realization choices open. |
 | Source and authority | At least one inspected stakeholder expectation, project decision, or documented derivation for each requirement. | Identify title/ID, edition, and locator when needed, plus the project role that can authorize derived or disputed content. A link shows origin, not automatic approval. |

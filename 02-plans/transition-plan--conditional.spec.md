@@ -1,3 +1,24 @@
+---
+title: "Transition and deployment plan specification"
+description: >-
+  Defines the authoring contract for transition and deployment plans organizing controlled movement of a defined capability from a source or pre-service state into a receiving operating environment. Covers transition objectives, source and target states, decision authority, readiness criteria and dependencies, stakeholder communications, staged deployment or migration sequences, stop, recovery, and reversal routes, operational verification and acceptance interfaces, handover, stabilization, and closure at planning depth.
+topics:
+  - "transition-plan"
+  - "deployment-planning"
+  - "cutover-sequence"
+  - "migration-readiness"
+  - "rollback-planning"
+  - "operational-handover"
+use_when:
+  - "A capability is entering live operations through deployment, migration, cutover, or service transfer and needs coordinated readiness planning."
+  - "A transition lead is sequencing cutover stages, stop and reversal conditions, operational checks, and stabilization handover."
+  - "A reviewer is verifying that receiving-environment readiness, data migration controls, and rollback limits are explicitly planned."
+not_for:
+  - "Assembling components and bringing up interfaces before operational entry, which belongs in an integration plan."
+  - "Withdrawing or disposing of an obsolete capability, which belongs in a retirement and disposal plan."
+  - "Recording actual release events or completed responsibility transfers, which belong in release or handoff records."
+---
+
 # Transition and deployment plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Identify unknown facts, unconfirmed availability, and unmade approvals with thei
 ## Finished-document contract
 
 - **Title:** Identify the capability and receiving environment or service, and name its transition or deployment plan.
-- **Frontmatter:** None. Begin with the GFM title; source/target states and decision rights are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Source/target states and decision rights are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the source/target boundary and readiness criteria before the cutover; place planned checks of the new operating state before handover and stabilization closure. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Transition objective, states, and authority | Required | Define the current and target capability, configuration and environment, affected users and service boundaries, exclusions, transition window or timing basis, and accountable transition and receiving roles. Identify actual change, release, operational, and receiving-party decision rights separately. |
 | Readiness and dependencies | Required | Define entry criteria for the candidate, infrastructure, access, data, people, training, support arrangements, monitoring, procedures, and external dependencies as applicable. State the evidence and role for each gate, plus the planned action when a readiness item is unmet or unknown. |
 | Communications and coordination | Required | Define who needs notice, timing relative to holds or cutover, channels or routes actually available, escalation, and responsibilities during overlap or interruption. Include supplier or third-party coordination only where that party has a real role or obligation. |
@@ -36,7 +57,7 @@ Identify unknown facts, unconfirmed availability, and unmade approvals with thei
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Source and target state | One bounded transition with explicit before and intended after states. | Include configuration, environment, service responsibility, and affected data or interfaces; separate a proposed target from an existing approved baseline. |
 | Transition stage | One or more ordered stages. | State prerequisites, action at planning depth, owner, affected state, expected output, hold or stop trigger, and next-stage dependency. A schedule may use relative windows until actual dates are set. |
 | Readiness or success criterion | One or more criteria for material entry and exit decisions. | Identify the observable, threshold or decision rule, expected evidence, evaluator, and planned action when unmet or not able to be concluded. |

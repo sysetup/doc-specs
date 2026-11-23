@@ -1,3 +1,24 @@
+---
+title: "Technical debt register specification"
+description: >-
+  Defines the authoring contract for technical debt registers tracking known, observed engineering compromises, their concrete carrying effects on maintainability or delivery, candidate treatment options, explicit disposition states, accountable owners, revisit triggers, and treatment verification evidence. Keeps documented compromises grounded in observed engineering costs while explicitly excluding uncertain future risks, active defect closure workflows, and unsupported financial valuations or developer productivity inferences.
+topics:
+  - "technical-debt"
+  - "engineering-compromises"
+  - "carrying-effects"
+  - "debt-remediation"
+  - "maintainability-control"
+  - "reassessment-triggers"
+use_when:
+  - "Known engineering or architectural compromises create ongoing carrying costs that need transparent prioritization or deferred tracking."
+  - "An architect or maintainer is comparing treatment options, assigning owners, and recording revisit triggers for technical debt."
+  - "A reviewer is checking whether debt items cite observed carrying effects without fabricating dollar valuations or productivity claims."
+not_for:
+  - "Tracking uncertain adverse events that have not materialized, which belongs in a risk register."
+  - "Tracking broken functionality or specification nonconformances requiring defect closure, which belongs in a problem or defect report."
+  - "Prioritizing new customer-facing feature work, which belongs in an ordered product backlog."
+---
+
 # Technical debt register specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown location, effect, cause, effort estimate, owner, or disposition w
 ## Finished-document contract
 
 - **Title:** Identify the engineering scope and name its technical debt register.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and evaluation rules before debt entries; follow consequences with treatment, disposition, and upkeep. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and assessment rules | Required | Identify boundary, as-of point, steward and decision rights or gaps, prioritization vocabulary and basis, master records, exclusions, and the client or receiving-party element when applicable. |
 | Known compromise entries | Required | Record each compromise's stable key, concrete location and version, observation source, context, and rationale or unknown origin. State assessed-empty scope explicitly; a general suspicion without a known compromise remains a research or risk question. |
 | Carrying effects and treatment options | Required | State observed maintenance cost, complexity, coupling, support limits, or other consequences with evidence and units where used. Separate estimates from measured effects. Identify treatment alternatives, dependencies, effort basis, and real related defect or risk records. |
@@ -33,7 +54,7 @@ Expose unknown location, effect, cause, effort estimate, owner, or disposition w
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Debt item | Zero or more known compromises in Known compromise entries. | Each has one immutable identity, location, version, and observation source; no requirement breach is assumed. |
 | Carrying effect | One or more effects or an explicit effect gap per item in Carrying effects and treatment options. | Qualitative engineering constraints are permitted; numbers require a source, period, unit, and estimate or observation label. |
 | Treatment option | Zero or more in Carrying effects and treatment options. | State alternative, dependencies, effort or uncertainty, and expected effect; an expected benefit is not achieved value. |

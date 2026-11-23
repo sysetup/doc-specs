@@ -1,3 +1,24 @@
+---
+title: "Cybersecurity incident response playbook specification"
+description: >-
+  Defines the authoring contract for branching cybersecurity incident response playbooks coordinating triage, declaration thresholds, evidence preservation, containment decisions, eradication, recovery gates, stakeholder notifications, and deactivation under real incident-response authority. Covers activation readiness, disruptive-action controls, communication routing, and post-response learning handoffs while explicitly excluding routine pre-exploitation vulnerability intake. Enables security and operations responders to select authorized actions dynamically as incident indicators and blast radius evolve.
+topics:
+  - "cybersecurity-incident"
+  - "response-playbook"
+  - "incident-triage"
+  - "containment"
+  - "eradication"
+  - "evidence-preservation"
+use_when:
+  - "A security team needs a branching playbook for suspected or confirmed cybersecurity incidents requiring coordinated triage and containment."
+  - "An author is defining incident declaration thresholds, evidence preservation duties, disruptive-action approvals, and recovery gates."
+  - "A reviewer is verifying that a cybersecurity playbook covers notification decisions and deactivation criteria without inventing authority."
+not_for:
+  - "Pre-incident organizational preparedness, severity taxonomy, and exercise governance, which belong in a cybersecurity incident response plan."
+  - "Ordinary vulnerability intake and remediation without suspected exploitation, which belong in a vulnerability response playbook."
+  - "Contemporaneous incident logging or retrospective incident analysis, which belong in incident records or post-incident reviews."
+---
+
 # Cybersecurity incident response playbook specification
 
 ## Identity and selection
@@ -18,13 +39,13 @@ If facts are unknown or not established, state the gap, its operational conseque
 
 ## Finished-document contract
 
-- **Title:** Identify the covered incident scenario or incident class, such as “Cybersecurity incident playbook: [scenario].”
-- **Frontmatter:** None. Begin with the GFM title; classification, scope, and authority rules belong in the body.
+- **Title:** Identify the covered incident scenario or incident class, such as “Cybersecurity incident playbook: \[scenario\].”
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Classification, scope, and authority rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
-- **Order:** Put scope and activation before investigative or disruptive actions; put recovery and closure criteria after response branches. Heading wording may vary. 
+- **Order:** Put scope and activation before investigative or disruptive actions; put recovery and closure criteria after response branches. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, activation, and readiness | Required | State covered incident signals and assets, exclusions, declaration and severity decision route, lead and supporting roles, available response capability, secure communications, and authority needed for disruptive action. Identify the response configuration or edition when more than one is active. |
 | Triage and evidence | Required | Direct responders to assess report credibility, affected scope, impact, and uncertainty; preserve relevant observations and evidence before actions that may destroy them when feasible and safe. State escalation for suspected exploitation, incomplete visibility, or rapidly increasing impact. |
 | Containment decisions | Required | Define conditions for each containment option, responsible decision authority, expected security effect, service or safety tradeoff, evidence-preservation constraint, and when to reassess. Include a path when containment cannot safely continue. |
@@ -35,7 +56,7 @@ If facts are unknown or not established, state the gap, its operational conseque
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Activation or declaration threshold | One or more project-defined conditions for triage, escalation, and formal incident declaration where used. | Suspected and confirmed incidents MUST remain distinguishable; classification is a decision, not a fact inferred from a playbook title. |
 | Incident branch | One or more conditional response paths, with at least two explicit outcomes at a material decision point. | Label each path; state its observed condition or uncertainty, decision role, permitted action, evidence to preserve, expected result, and next decision or escalation. |
 | Disruptive action | Conditional for isolation, shutdown, credential action, restore, or another action with material effect. | State the applicable authority check, service and evidence tradeoff, and halt or reversal limit. Require the established operational permission before execution. |

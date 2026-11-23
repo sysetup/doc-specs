@@ -1,3 +1,24 @@
+---
+title: "Pull or merge request description specification"
+description: >-
+  Defines the authoring contract for pull or merge request descriptions presenting one bounded repository diff for peer review and integration across standalone Markdown or native forge surfaces. Covers diff identity and host provenance, concrete trigger and before-and-after change result, changed components and source links, checks actually performed bound to immutable snapshots with explicit not-run and coverage gaps, material risks, rollout and reversal dispositions, and focused reviewer questions while separating review requests from approval or merge evidence.
+topics:
+  - "pull-request-description"
+  - "merge-request"
+  - "diff-review"
+  - "immutable-check-snapshot"
+  - "rollout-and-reversal"
+  - "change-rationale"
+use_when:
+  - "A change author is preparing or submitting a bounded repository diff for pull-request or merge-request review."
+  - "A reviewer needs concise rationale, concrete before-and-after results, actual snapshot-bound check evidence, and rollback limits."
+  - "A maintainer is checking whether host base/head changes invalidate prior check applicability before integration."
+not_for:
+  - "Preserving performed peer-review findings, severities, and formal review verdicts, which belongs in a code review record."
+  - "Governing formal cross-team baseline change approvals across systems, which belongs in a change request."
+  - "Recording actual release distribution or deployment outcomes, which belongs in a release record."
+---
+
 # Pull or merge request description specification
 
 ## Identity and selection
@@ -19,18 +40,18 @@ Expose unknown base, head, checked snapshot, host provenance, validation, impact
 ## Finished-document contract
 
 - **Title:** Use a title stating the concrete change. A standalone GFM document begins with its own H1; a native request body uses the host-owned title and omits its H1 when the declared surface requires that.
-- **Frontmatter:** None. Omit YAML frontmatter. Only standalone GFM begins with its own H1. A native body follows the host-owned title rule without an added H1; scope, client context, and checked-snapshot provenance remain retrievable in the body or referenced host fields under the declared projection. Governing source: This type's standalone and native-request body policy; host metadata stays in the selected host.
+- **Frontmatter:** Required on standalone GFM documents; omitted on native host request bodies whose host manages metadata externally. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), complying with Rule 13 (no internal IDs, versions, hashes, paths, build metadata, or unresolved template delimiters), followed by the H1 title. A native request body follows the host-owned title rule without an added H1 or injected YAML; scope, client context, and checked-snapshot provenance remain retrievable in the body or referenced host fields under the declared projection. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0) and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Explain the concrete problem and result before diff scope; place actual validation before material risks, rollout, reversal, and requested reviewer decisions. Heading wording may vary.
 - **Presentation:** Scale the description to the diff. Small documentation or maintenance changes may combine all required roles into a few paragraphs or a short list without a heading per role. Describe the concrete document or configuration result when no runtime behavior changes; retain actual check status, reasoned risk and rollout dispositions, reversal limits, and pending decisions.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Standalone GFM (standalone) | Supply one concrete-change H1. The body identifies repository, request or draft status, current base/head or gaps, and checked snapshot with provenance. | Use GFM prose, lists, or tables. Identify the current diff and each immutable checked snapshot independently. Refer to actual source masters; later edits require applicability reassessment rather than rewriting old check identities. |
+| --- | --- | --- |
+| Standalone GFM (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one concrete-change H1. The body identifies repository, request or draft status, current base/head or gaps, and checked snapshot with provenance. | Use GFM prose, lists, or tables. Identify the current diff and each immutable checked snapshot independently. Refer to actual source masters; later edits require applicability reassessment rather than rewriting old check identities. |
 | Native request body (native) | The identified host owns the request title; omit a redundant H1 on a host body that excludes it. Host fields remain authoritative for current repository, request identity, base/head and integration status. Identify their inspected locator or snapshot and field ownership; do not maintain copied current metadata as a second master. | Use the selected host body syntax and inspected surface edition; do not inject YAML metadata or claim an unselected provider schema. Bind check records to their original immutable source or merge configuration and identify its relationship to inspected host base/head. If host metadata or diff content changes, preserve old observations, mark current applicability unresolved, and reassess before a current-readiness claim. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Request identity and change rationale | Required | Identify repository, actual request or draft identity and status, current base/head or explicit gaps, and their body or host provenance. Explain the concrete trigger, before-and-after result and intended benefit; use an observable document or configuration result when there is no runtime behavior change. Include the client or receiving-party element when applicable. |
 | Diff scope and source relationships | Required | State changed components, interfaces and affected versions, material exclusions, and source requirements, defects, changes, or decisions that actually exist. Explain material compatibility effects and distinguish this bounded diff from a larger delivery plan. Use real locators or direct facts with explicit source gaps. |
 | Validation actually performed | Required | Record each actual check's command or method, immutable checked snapshot or configuration and relationship to the current diff, observed result, and retained evidence or its absence. State checks not run with reasons, failed or inconclusive outcomes and remaining coverage limits. Preserve earlier check identities when host base/head changes; explicitly re-establish applicability or leave current validation unresolved. |
@@ -40,7 +61,7 @@ Expose unknown base, head, checked snapshot, host provenance, validation, impact
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Diff identity and host provenance | Exactly one bounded diff account in Request identity and change rationale. | Identify actual repository and current base/head or gaps with controlling body or host field locators. A mutable request identifier is not an immutable check target. Changing base, head, or relevant content invalidates assumed applicability of earlier checks until reassessed. |
 | Concrete change result | One or more observable changes in Request identity and change rationale and Diff scope and source relationships. | Connect the before-and-after result to the trigger and source without copying a requirement master. Documentation, generated artifacts, or configuration-only changes can state their concrete result and assessed runtime-effect disposition rather than inventing behavior changes. |
 | Check record | Zero or more actual checks and exactly one coverage and not-run account in Validation actually performed. | Each actual check binds method, observed result, immutable snapshot or configuration, provenance and evidence or its absence. Not-run, unknown, fail, inconclusive and pass remain distinct. A later snapshot does not inherit a pass without explicit scope and applicability evidence. |

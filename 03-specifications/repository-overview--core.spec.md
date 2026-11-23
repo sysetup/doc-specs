@@ -1,3 +1,24 @@
+---
+title: "Repository overview specification"
+description: >-
+  Defines the authoring contract for concise development repository overviews providing prospective users, contributors, maintainers, integrators, and automated readers with an accurate entrypoint to the codebase and its authoritative documentation. Covers repository purpose, audience, maturity state, audience-specific starting routes, repository layout and documentation navigation maps, direct setup examples, collaboration and support routes, and explicit limits while excluding full product manuals, contributor rulebooks, and unsupported maturity claims.
+topics:
+  - "repository-overview"
+  - "documentation-entrypoint"
+  - "repository-navigation"
+  - "quickstart"
+  - "maturity-state"
+  - "collaboration-routes"
+use_when:
+  - "A development repository needs a clear top-level overview guiding users, contributors, and automated readers to authoritative resources."
+  - "A maintainer is documenting repository scope, maturity state, directory layout, setup examples, and support entrypoints."
+  - "A reviewer is checking whether a repository overview stays concise and avoids unsupported maturity claims or installation authorization."
+not_for:
+  - "Comprehensive installation, configuration, and user task manuals for a delivered product, which belong in a product guide."
+  - "Exhaustive API, CLI, or configuration lookup tables, which belong in a technical lookup reference."
+  - "Detailed help-desk routing and security disclosure channels alone, which belong in a support and request-routing guide."
+---
+
 # Repository overview specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown setup, platform support, maturity, resource, or license with its 
 ## Finished-document contract
 
 - **Title:** Identify the repository or project as the H1; a README filename is permitted but not required.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Explain purpose and audience before starting routes; present layout before documentation and collaboration navigation; place material limits and upkeep last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, audience, and state | Required | Identify the repository, problem or capability, intended audiences, actual maturity or proposal state, scope exclusions, and the client or receiving-party element when applicable. |
 | Starting route | Required | Give the supported first action and prerequisites for each relevant audience, linking an actual maintained setup or use guide when available. If direct quick-start commands are included, verify them against the stated revision and distinguish expected outcomes from performed checks. State unsupported or unknown paths. |
 | Layout and documentation map | Required | Describe material repository directories or components and link actual canonical requirements, architecture, design, reference, guides, or project records that help navigation. Omit invented or irrelevant sections and distinguish source documents from generated views. |
@@ -34,7 +55,7 @@ Expose unknown setup, platform support, maturity, resource, or license with its 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Repository scope | Exactly one repository or explicitly bounded repository set in Purpose, audience, and state. | Identify actual subject and maturity; a future capability is not delivered behavior. |
 | Audience entry route | One or more in Starting route. | Each identifies prerequisites, supported revision or range, first action, and actual guide or explicit gap. |
 | Navigation target | Zero or more in Layout and documentation map and Collaboration and recipient routes. | Each is an actual accessible target with the correct relative or published location; a generated view identifies its authoritative source. |

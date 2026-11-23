@@ -1,3 +1,24 @@
+---
+title: "Service-period status report specification"
+description: >-
+  Defines the authoring contract for service-period status reports providing a bounded view of observed production service results across an explicit reporting window—including incident-free periods. Covers service scope and objectives, telemetry sources and data coverage limits preventing missing metrics from appearing healthy, observed reliability and performance results, summarized incidents, changes, and maintenance, trends and forecasts, and requested follow-up decisions while excluding operating plans, alert catalogs, delivery progress, and contractual compliance claims.
+topics:
+  - "service-status-report"
+  - "service-metrics"
+  - "telemetry-coverage"
+  - "operational-trends"
+  - "production-health"
+  - "service-reporting"
+use_when:
+  - "An operating production service needs a periodic or as-of report summarizing observed metrics, telemetry coverage, incidents, and trends."
+  - "A service owner is requesting operational follow-ups grounded in measured period results and explicit data-coverage limits."
+  - "A reviewer is verifying that missing monitoring data is reported transparently rather than presented as healthy service operation."
+not_for:
+  - "Reporting software or engineering project delivery milestones, which belongs in an engineering delivery status report."
+  - "Maintaining active alert definitions and thresholds, which belongs in an observability register."
+  - "Logging contemporaneous outage timelines or post-incident root-cause reviews, which belong in incident records or post-incident reviews."
+---
+
 # Service-period status report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown objective, denominator, telemetry interval, source, version, or d
 ## Finished-document contract
 
 - **Title:** Identify the service and period and name its service-period status report.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State service, period, and data coverage before results; place incidents and changes before trends, forecasts, and follow-up decisions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Service, period, and objective basis | Required | Identify service, environments and configuration range, operating and measurement windows, period and cutoff, actual objective editions and agreement state or gaps, exclusions, and the client or receiving-party element when applicable. |
 | Sources and data coverage | Required | Identify queries, telemetry and support sources, capture times, units, sampling, covered and missing intervals, denominator rules, and data-quality issues. Preserve unavailable or stale signals and permission limits. |
 | Observed results | Required | Report sourced reliability, availability, performance, capacity, support, and security facts relevant to the service. Compare against objectives only when definition, scope, coverage, and measurement basis support comparison; otherwise state that it cannot be concluded. |
@@ -34,7 +55,7 @@ Expose unknown objective, denominator, telemetry interval, source, version, or d
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Service reporting window | Exactly one bounded period and cutoff in Service, period, and objective basis. | Distinguish supported hours, observation windows, and objective measurement periods; preserve recorded time precision. |
 | Objective | Zero or more sourced objectives in Service, period, and objective basis. | State definition, unit, agreement state, conditions, and measurement window; no invented SLO or compliance conclusion. |
 | Measurement and coverage | One source and coverage account per reported measure in Sources and data coverage and Observed results. | Identify numerator and denominator where relevant, excluded periods, sampling, and missing data; unknown is not a favorable observation. |

@@ -1,3 +1,24 @@
+---
+title: "Operational readiness review record specification"
+description: >-
+  Defines the authoring contract for Operational Readiness Review records preserving one held gate evaluating whether a deployed system configuration and all required support elements—hardware, software, personnel, procedures, supporting capabilities, and user documentation—are operationally ready under applied verification results, constraints, and residual risk. Covers review authority, adopted criteria, entrance evidence, operational-readiness assessments, findings, actions, explicit disposition, conditions, and separation from independent operational authorization.
+topics:
+  - "operational-readiness-review"
+  - "ORR"
+  - "operational-readiness"
+  - "deployed-configuration"
+  - "support-elements"
+  - "lifecycle-gate"
+use_when:
+  - "An Operational Readiness Review has been held and requires a record of deployed-state readiness, support elements, findings, and disposition."
+  - "A review chair is documenting operational readiness criteria, residual risks, open conditions, and transition go-ahead decisions."
+  - "An operations leader is inspecting evidence supporting whether a deployed system and support organization were judged ready."
+not_for:
+  - "Pre-test readiness reviews for test articles and facilities, which belong in a Test Readiness Review record."
+  - "Earlier requirements or design maturity reviews such as SRR, PDR, or CDR."
+  - "Planning future cutover and handover stages before deployment, which belongs in a transition and deployment plan."
+---
+
 # Operational readiness review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ State the complete criteria supplied in the project data for this review and acc
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as an Operational Readiness Review record.
-- **Frontmatter:** None. Begin with the GFM title. Review identity, criteria, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the deployed configuration, and the authority before the criteria. Present entrance results before the operational-readiness assessment. Present the disposition after the findings. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and authority | Required | Identify one held Operational Readiness Review, the system boundary, the deployed configuration reviewed, the support organization in scope, the actual date or sessions, the chair, reviewers, and decision authority. State any independence or quorum result the project requires. |
 | Adopted criteria | Required | State every entrance and success criterion established by the project for this ORR, including its required evidence and assessment rule. Identify the project criteria record, edition, and locator. Record each authorized omission or change, its reason, and its decision maker. If no criteria were established, say so. |
 | Entrance results | Required | Give one entry for each applied entrance criterion, including the required product and revision, the evidence examined, the assessment, and the rationale. Cite operational products, procedures, training, support capability, verification status, residual-risk evidence, and a runtime-environment target when the adopted criteria require them. Explain how the examined evidence supports the assessment. |
@@ -34,7 +55,7 @@ State the complete criteria supplied in the project data for this review and acc
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review identity | One stable identity for one held ORR. | Bind it to the system, the deployed configuration, and the actual date or session. A later repeat review is a different record. |
 | Deployed configuration | One configuration the review examined for operations. | Identify the actual deployed state by title or ID, edition, and locator. Identify a proposed target or a configuration changed after the review separately, and bind each readiness assessment to the state actually examined. |
 | Support elements | The hardware, software, personnel, procedures, supporting capabilities, and user documentation in the review's operational scope. | Identify the elements examined. Flight and ground support are distinguished only when the system has that split. An element the adopted criteria require and the review did not examine stays `not-assessed`. |

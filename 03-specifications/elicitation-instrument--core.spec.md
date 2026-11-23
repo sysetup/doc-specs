@@ -1,3 +1,24 @@
+---
+title: "Elicitation instrument specification"
+description: >-
+  Defines the authoring contract for reusable, versioned information-collection instruments such as questionnaires, interview guides, and observation guides used in bounded elicitation activities. Covers instrument identity, collection purpose, readiness disposition, administration and participant safeguards, uniquely labeled literal prompts or cues, response representations, decidable branching and nonresponse routes, capture and provenance rules distinguishing observation from inference, and method- and risk-bound review or pilot evidence.
+topics:
+  - "elicitation-instrument"
+  - "questionnaire-design"
+  - "interview-guide"
+  - "observation-guide"
+  - "response-routing"
+  - "collection-readiness"
+use_when:
+  - "A researcher or analyst needs a reusable questionnaire, interview guide, or observation guide with literal prompts and capture rules."
+  - "An author is defining response vocabularies, branching and skip logic, participant safeguards, and pilot or review readiness criteria."
+  - "A reviewer is checking whether collection items avoid leading wording and separate unpiloted drafts from administration-ready instruments."
+not_for:
+  - "Study-wide sampling, ethics, and schedule planning, which belong in a user research and discovery plan."
+  - "Preserving raw responses collected during sessions, which belongs in an elicitation and source record."
+  - "Synthesizing interpreted study outcomes or advance participant consent notices, which belong in findings or participant information documents."
+---
+
 # Elicitation instrument specification
 
 ## Identity and selection
@@ -19,17 +40,17 @@ Expose unresolved wording, answerability, population, response representation, r
 ## Finished-document contract
 
 - **Title:** Identify the elicitation subject and instrument kind.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, edition, and readiness belong in the body. Governing source: Type-owned policy in ELICITATION-INSTRUMENT@core; no external metadata schema is selected.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, edition, and readiness belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity and collection purpose before administration; make prerequisites and the readiness disposition visible before use, put items in administration order, then explain capture and review. Heading wording may vary.
 - **Presentation:** Combine semantic roles in short prose, item lists, or routing tables when every prompt, choice, prerequisite, and readiness limit remains retrievable; headings need not repeat every role.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Standalone information (standalone) | The document owns one descriptive H1. Identity and edition are body facts; no YAML frontmatter is supplied. | Use GFM for the written edition. The identified item wording and edition control administration. If a native form is selected, name its controlling version and reconcile wording, response fields, and routes before use; the GFM view does not certify native conformance. Changed wording, routes, context, or source edition require an impact check and renewed affected readiness checks. |
+| --- | --- | --- |
+| Standalone information (standalone) | The document begins with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one descriptive H1. Identity and edition remain substantive body facts. | Use GFM for the written edition. The identified item wording and edition control administration. If a native form is selected, name its controlling version and reconcile wording, response fields, and routes before use; the GFM view does not certify native conformance. Changed wording, routes, context, or source edition require an impact check and renewed affected readiness checks. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity, purpose, and applicability | Required | Identify the instrument kind, edition, collection purpose and question or decision basis, intended participants or observation setting, exclusions, and the client or receiving-party element when applicable. State whether it is draft, not-ready, or ready-for-administration and the scope to which that disposition applies. |
 | Administration and participant conditions | Required | Define administrator role, literal introduction or observation setup, context, timing, accessibility, necessary permission checks, participation and skip choices where applicable, and stop or escalation conditions. Link actual notices and consent arrangements by edition when available. A readiness disposition or administration instruction does not establish consent or authorize collection. |
 | Items and routing | Required | Give each item's unique stable label, exact question or observation cue, purpose mapping, response form, and required or optional status. Define administration order, decidable branch triggers, and existing item, skip, completion, or stop destinations, including nonresponse paths. Separate open prompts and permitted neutral follow-up from fixed choices; avoid wording that presumes a conclusion. |
@@ -39,7 +60,7 @@ Expose unresolved wording, answerability, population, response representation, r
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Instrument edition | Exactly one current edition in Identity, purpose, and applicability. | Bind wording, routes, capture, and readiness evidence to this edition and context; retain the edition actually used in each collection. Changes require impact assessment, not reuse of an earlier edition's pass. |
 | Collection item | One or more items in Items and routing. | Each has unique local identity, literal prompt or cue, purpose mapping, response form, and inclusion rule. |
 | Route | Zero or more conditional routes in Items and routing. | Each has a decidable trigger and an existing item, skip, completion, or stop destination, with explicit nonresponse behavior; unsupported loops, ambiguous triggers, or dangling destinations prevent affected administration. |

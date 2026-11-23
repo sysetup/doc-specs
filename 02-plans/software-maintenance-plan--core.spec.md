@@ -1,3 +1,24 @@
+---
+title: "Software maintenance plan specification"
+description: >-
+  Defines the authoring contract for software maintenance plans governing post-delivery support and controlled modification of defined software items while treating physical assets and operating routines solely as external dependencies. Covers maintenance scope and service commitments, takeover and team organization, issue and change intake, impact analysis and authorization, corrective, adaptive, perfective, and preventive modification workflows, regression assessment, release communication, migration and end-of-support coordination, and periodic plan review.
+topics:
+  - "software-maintenance"
+  - "post-delivery-support"
+  - "modification-control"
+  - "regression-assessment"
+  - "end-of-support"
+  - "service-commitments"
+use_when:
+  - "A delivered software item requires a structured strategy for ongoing support, defect fixes, enhancements, regression testing, and re-release."
+  - "A maintainer is defining intake triage, change authorization, support commitments, and end-of-support migration routes."
+  - "A reviewer is checking whether post-delivery software modification workflows align with release and operational dependencies."
+not_for:
+  - "Initial development and pre-delivery software increments, which belong in a software development plan."
+  - "Physical or infrastructure hardware upkeep and servicing, which belong in an asset maintenance plan."
+  - "Full decommissioning and disposal execution, which belongs in a retirement and disposal plan."
+---
+
 # Software maintenance plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ State unknown support scope, rights, commitments, or decision authority with the
 ## Finished-document contract
 
 - **Title:** Identify the maintained software or service and name its software maintenance plan.
-- **Frontmatter:** None. Begin with the GFM title; support scope and plan state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Support scope and plan state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define support responsibility and enabling environment before intake and modification; present assessment and release before migration, end-of-support, and feedback. Exact headings may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Maintenance scope and commitments | Required | Name software, supported versions and users, support period and boundaries, applicable maintenance categories, established maintenance obligations and their agreement or internal project-decision basis, established response or repair commitments, exclusions, and interfaces to operations, contingency, and physical asset maintenance. Identify unagreed targets as unresolved rather than commitments. |
 | Organization and takeover | Required | Identify maintainer, developer, supplier, acquirer, support, and decision roles as applicable; how responsibility and open issues transfer; and the access, rights, repositories, tools, dependencies, environments, and knowledge needed to build and test a modified version. Distinguish planned handover from performed acceptance. |
 | Intake, analysis, and authorization | Required | Define how problems, vulnerabilities, and change requests enter the queue; how they are classified, prioritized, analyzed for cause and impact, assigned, and escalated; how affected users or interfaces are identified; and who may authorize normal or urgent work. A report alone is not change approval. |
@@ -36,7 +57,7 @@ State unknown support scope, rights, commitments, or decision authority with the
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Supported software scope | One bounded item or service, with one or more supported versions or an explicit version-selection rule. | State user, deployment, supplier, and lifecycle boundaries; identify any unsupported version or period without implying support was promised. |
 | Maintenance category | Only categories applicable to the stated scope. | Explain how corrective, adaptive, perfective, and preventive work is classified or why a category is excluded; a label alone does not set priority or authority. |
 | Service commitment | Conditional on an actual agreement or authorized internal target. | State source, affected service and period, measure, threshold, and responsible party. If no target is established, describe the decision needed without inventing one. |

@@ -1,3 +1,24 @@
+---
+title: "Operations and support plan specification"
+description: >-
+  Defines the authoring contract for operations and support plans establishing how a defined service or system is operated, monitored, supported, protected, and maintained during sustained use. Covers service boundaries and operating basis, ownership and support commitments, observability and security operations, capacity and availability interfaces, data and configuration protection, routine maintenance and controlled change, incident, problem, and continuity handoffs, and operational readiness and plan review.
+topics:
+  - "operations-plan"
+  - "service-support"
+  - "observability"
+  - "capacity-management"
+  - "operational-readiness"
+  - "service-ownership"
+use_when:
+  - "A service or system needs a coordinated operating, monitoring, support, and escalation model before or during sustained use."
+  - "A service owner is defining support commitments, data protection routines, and operational handoffs across teams and suppliers."
+  - "A reviewer is verifying that routine maintenance, change control, and continuity interfaces are aligned for ongoing service operation."
+not_for:
+  - "Detailed command sequences and rollback steps for one operational task, which belong in an operational runbook."
+  - "Staged cutover and migration into operations, which belongs in a transition and deployment plan."
+  - "Summarizing actual past service-period metrics and incidents, which belongs in a service-period status report."
+---
+
 # Operations and support plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an owner, commitment, threshold, recovery objective, retention rule, or depen
 ## Finished-document contract
 
 - **Title:** Identify the service or system and name its operations and support plan.
-- **Frontmatter:** None. Begin with the GFM title; operational scope and responsibilities belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Operational scope and responsibilities belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish service scope and responsibility before monitoring and routine controls; describe escalation and review after the operating methods. Exact heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Service scope and operating basis | Required | Define the service, included environments, users, operating windows, exclusions, important dependencies, agreed service commitments, and assumptions. Distinguish supported hours from the period over which availability is measured. |
 | Ownership and support model | Required | Identify accountable service ownership, operating and support roles, handoffs, coverage, escalation route, external support dependencies, and access or decision authority needed for routine and urgent work. State unresolved coverage or supplier commitments. |
 | Observability and security operations | Required | Plan indicators, monitoring points, alert conditions, routing, log sources and correlation, access to telemetry, sensitive-data handling, retention basis, and security event or vulnerability escalation. State who reviews noise, gaps, and false alerts. |
@@ -37,7 +58,7 @@ If an owner, commitment, threshold, recovery objective, retention rule, or depen
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Service boundary | One bounded service or system scope; identify constituent environments or tiers where their handling differs. | Name users, operating periods, dependencies, exclusions, and the owner; avoid treating a proposed service as already in production. |
 | Support commitment | One entry per distinct actual coverage or response commitment, if any. | Identify source, supported population and hours, triggering event, responsible party, and escalation. A target lacking agreement is a proposal or gap. |
 | Operational signal | One or more signals sufficient to detect material service or security conditions. | For each, give the measured condition, source, interpretation or threshold, alert route, reviewer, and limitations. An SLO is included only when established. |

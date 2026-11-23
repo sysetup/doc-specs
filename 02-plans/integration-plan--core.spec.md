@@ -1,3 +1,24 @@
+---
+title: "Integration plan specification"
+description: >-
+  Defines the authoring contract for integration plans organizing staged assembly and interface bring-up of components, subsystems, or increments into a target assembly. Covers integration objectives and boundaries, controlling configuration and interface baselines, integration strategy and sequence, per-stage prerequisites, support equipment and environments, stage verification checks, handling of missed or unsafe checks, and handoff of the integrated assembly prior to operational deployment.
+topics:
+  - "integration-plan"
+  - "staged-assembly"
+  - "interface-bring-up"
+  - "integration-gates"
+  - "configuration-selection"
+  - "systems-integration"
+use_when:
+  - "A project must coordinate staged assembly and interface bring-up across multiple components, subsystems, or software increments."
+  - "An integration lead is specifying per-stage prerequisites, support environments, readiness gates, and safe stop criteria before integration starts."
+  - "A reviewer is verifying that component configurations and failure responses are explicitly planned across integration boundaries."
+not_for:
+  - "Planning cutover, migration, and handover into a live operating environment, which belongs in a transition and deployment plan."
+  - "Planning a broader test campaign across all test levels, which belongs in a test plan."
+  - "Controlling agreed interface parameters between parties, which belongs in an interface control document."
+---
+
 # Integration plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unavailable item, unresolved interface, unselected configuration, or unco
 ## Finished-document contract
 
 - **Title:** Identify the target system or assembly and name its integration plan.
-- **Frontmatter:** None. Begin with the GFM title; configurations, locations, and gate authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Configurations, locations, and gate authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and configuration basis before the sequence; give each stage's readiness, activities, checks, and response route before final handoff. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Integration objective and boundaries | Required | Identify target assembly or system, incoming items and existing receiving assembly, lifecycle stage, included and excluded interfaces, intended integrated capability, and the role responsible for the plan. Explain the integration effort's dependencies and milestones within the larger project. |
 | Configuration, interface, and planning basis | Required | Identify component and interface identities, candidate revisions or selection rules, supplied project technical requirements and their versions, compatibility assumptions, dependencies, and configuration control. State how changes to any basis are assessed before continuing. |
 | Strategy and sequence | Required | Explain incremental build or other chosen assembly order, dependency and risk rationale, enabling products, planned locations or environments, responsible parties, and schedule or readiness windows. Show where tests or inspections influence the next stage. |
@@ -35,7 +56,7 @@ For an unavailable item, unresolved interface, unselected configuration, or unco
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Target assembly | One bounded assembly, subsystem, or system integration scope. | Identify the receiving configuration and incoming item set; integration of a single incoming item into an existing assembly still has an interface boundary. |
 | Integration stage | One or more ordered, distinct stages. | Use a stable stage label within this plan, inputs, expected output configuration, dependencies, responsible role, and planned gate. Do not reuse a label for a different stage, and do not duplicate a stage to fill a form. |
 | Component or interface selection | One or more relevant items per stage. | Tie item identity to revision or version-selection rule and compatible interface edition. A hash, serial number, or precise site is required only when the chosen control method or work needs it. |

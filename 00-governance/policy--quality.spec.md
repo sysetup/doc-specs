@@ -1,3 +1,24 @@
+---
+title: "Quality policy specification"
+description: >-
+  Defines the authoring contract for mandatory quality policies governing product or service quality expectations, impartial assurance independence, and control of nonconforming outputs across a defined scope. Specifies required coverage of issuing authority, policy ownership, applicability and quality basis, issuance state, mandatory quality directives, assurance independence and disposition decision rules, nonconforming-output containment, exception governance, and policy review. Establishes clear quality accountability for builders, assessors, and release authorities.
+topics:
+  - "quality-policy"
+  - "quality-governance"
+  - "quality-assurance"
+  - "assurance-independence"
+  - "nonconforming-outputs"
+  - "disposition-authority"
+use_when:
+  - "An issuing authority needs organization-wide or project-wide mandatory direction for product or service quality."
+  - "A governance author is defining impartial assurance independence and nonconforming-output control duties."
+  - "A reviewer is verifying that a quality policy establishes real disposition authority and review cadence."
+not_for:
+  - "Planning project-specific quality objectives, assurance checks, and measures, which belong in a project or product quality plan."
+  - "Tracking individual observed defects or nonconformances through closure, which belong in a problem or defect report."
+  - "Recording actual verification or audit outcomes, which belong in evidence records."
+---
+
 # Quality policy specification
 
 ## Identity and selection
@@ -20,12 +41,12 @@ Normally all three named quality subjects are covered. A subject may be excluded
 ## Finished-document contract
 
 - **Title:** Identify the covered organization, project, product, or service as needed and name the document as a quality policy.
-- **Frontmatter:** None. Begin with the GFM title. Authority, applicability, and policy state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish authority and applicability before quality obligations, then decision rights and exception rules, then communication and review. Headings may use local wording if these roles remain clear.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority, purpose, and applicability | Required | Identify the real issuing authority or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), unambiguous edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, covered outputs and people, organizational and lifecycle boundaries, material exclusions, and effective date only when decided. State the desired quality outcome and the established project basis for the obligations. |
 | Mandatory quality direction | Required; subject coverage follows the approved exclusions defined above | State separately identifiable obligations for **product or service quality**, **assurance independence**, and **nonconforming outputs** wherever each subject remains in scope. For those subjects, respectively govern how supplied project requirements and quality objectives are established or used before conformance or release decisions; what impartiality or independence is required for consequential assessment and approval; and how a suspected or confirmed nonconforming output is identified, controlled against unintended use or delivery, evaluated, dispositioned, and escalated. When nonconforming outputs are covered, require treatment after delivery when the scope can encounter it. |
 | Quality authority and decisions | Required | For the subjects in scope, identify who applies quality obligations, who assesses or provides assurance, who may authorize release or disposition, and how conflicts of interest or disagreements are escalated. Where assessment, concession, or release decisions are covered, define how an assurance recommendation informs the decision, who may make it, and what evidence is required to determine whether the output meets its stated requirements and quality objectives. |
@@ -35,7 +56,7 @@ Normally all three named quality subjects are covered. A subject may be excluded
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Issuing authority and policy owner | One issuing body or delegated role and one accountable maintenance role. | A proposed issuer is labeled proposed; an assurance or release role does not automatically have policy-issuing authority. |
 | Applicability and quality basis | One scoped statement of covered outputs, parties, lifecycle boundary, and material exclusions; supplied project requirements or acceptance basis identified where they govern decisions. | State how the project basis is selected or authorized. Do not invent product-specific criteria or bind an external party without real authority. |
 | Issuance state and edition | One truthful state and unambiguous edition; effective date conditional on an actual decision. | Distinguish proposed, authorized but not yet effective, effective, and withdrawn or superseded in the project's terms. |

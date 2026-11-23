@@ -1,3 +1,24 @@
+---
+title: "Lessons learned record specification"
+description: >-
+  Defines the authoring contract for lessons learned records retaining evidence-based insights from bounded non-incident engineering, delivery, operations, maintenance, or project activities. Covers activity context, examined evidence, participant or source attribution, factual observations separated cleanly from bounded interpretations, reusable recommendations labeled explicitly as retained practices or proposed controlled changes, applicability limits, derived improvement actions, target knowledge-reuse destinations, related references, and review triggers.
+topics:
+  - "lessons-learned"
+  - "retrospective-evidence"
+  - "knowledge-reuse"
+  - "improvement-actions"
+  - "practice-retention"
+  - "non-incident-learning"
+use_when:
+  - "Non-incident project, engineering, delivery, or maintenance work produced evidence-based insights worth preserving for future teams."
+  - "A team is documenting factual observations, applicability bounds, proposed improvements, and target knowledge destinations."
+  - "A reviewer is checking whether lessons stay grounded in actual evidence and distinguish proposed changes from adopted standards."
+not_for:
+  - "Retrospective root-cause and response reviews of stabilized operational or cybersecurity incidents, which belong in post-incident reviews."
+  - "Issuing binding process updates or reusable advisory conventions directly, which belong in policies, standards, or engineering guides."
+  - "Tracking discrete assigned follow-up tasks across sources, which belongs in an action item register."
+---
+
 # Lessons learned record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If evidence, an observation source, a cause, an owner, or a publication location
 ## Finished-document contract
 
 - **Title:** Identify the activity and call the document a lessons learned record.
-- **Frontmatter:** None. Begin with the GFM title. The activity, lessons, and action state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The activity, lessons, and action state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give the activity and its evidence before the lessons. Place derived actions and reuse after the lessons they depend on. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Activity and evidence context | Required | Identify one bounded non-incident activity, the period covered, the evidence examined, and the roles or sources of the observations. State gaps, conflicts, and unrecorded sources. |
 | Lessons | Required | Include at least one lesson. For each, give a stable identity, the observation and its evidence, the interpretation with its uncertainty, the recommendation, and where the lesson is believed to apply, including known limits. |
 | Improvement actions | Required | Record each action derived from a lesson in this record. When none was derived, say so after that assessment. |
@@ -33,7 +54,7 @@ If evidence, an observation source, a cause, an owner, or a publication location
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Activity | One bounded non-incident subject and one actual period or date. | State the subject specifically enough to find the underlying work. Preserve the known precision of the period and the non-incident scope. |
 | Evidence | The records, metrics, notes, or observations that support the lessons. | Every statement offered as fact traces to evidence identified in the context or in the lesson. A statement without that trace is labeled unsupported and is not written as fact. Conflicting evidence stays visible. |
 | Participant or source | Zero or more roles or sources that contributed observations. | Include identifying information only within the project's supplied disclosure permissions; use role labels or controlled locators for sensitive contributor details. When the source of an observation was not recorded, say so. An empty list is not a claim that nobody contributed. |

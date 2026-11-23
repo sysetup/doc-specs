@@ -1,3 +1,24 @@
+---
+title: "Verification and validation lifecycle process specification"
+description: >-
+  Defines the authoring contract for a reusable verification and validation lifecycle process governing how assessments are planned, designed, executed, traced, and reported across projects while keeping technical conformance strictly separate from intended-use fitness. Specifies purpose and responsibility, distinct verification and validation paths, method and independence rules, traceability links, evidence and result classification, anomaly routing, and tailoring controls so teams prevent conflating conformity with validation.
+topics:
+  - "verification-and-validation"
+  - "lifecycle-process"
+  - "conformance-assessment"
+  - "fitness-for-use"
+  - "assurance-independence"
+  - "anomaly-routing"
+use_when:
+  - "An organization needs a recurring V&V process with shared rules for methods, independence, evidence, traceability, and reporting."
+  - "A process author is establishing clear structural separation between technical verification paths and intended-use validation paths."
+  - "A reviewer is assessing whether a V&V process defines rigorous result-classification and anomaly-routing controls."
+not_for:
+  - "Planning verification or validation scope, resources, and scenarios for one bounded project, which belong in V&V plans."
+  - "Defining step-by-step execution methods for one check, which belong in verification or validation procedures."
+  - "Recording actual observed conformance or fitness outcomes, which belong in verification or validation evidence records."
+---
+
 # Verification and validation lifecycle process specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown or unestablished rule, identify the gap, consequence, resolving a
 ## Finished-document contract
 
 - **Title:** Name the verification and validation lifecycle process and its organizational or product scope.
-- **Frontmatter:** None. Begin with the GFM title; process edition and applicability belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Process edition and applicability belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State basis and authority before methods; describe performance and evidence before result reporting and feedback. Headings may use local wording.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, scope, and responsibility | Required | Define covered lifecycle stages and subjects, process owner, the project decisions establishing the V&V mandate and assessment constraints, truthful process edition or state when controlled, assessment and disposition authorities, participants, and interfaces with requirements, systems engineering, test, and acceptance. State the two distinct questions: technical conformance for verification and intended-use fitness for validation. |
 | Planning and assessment design | Required | Describe intake of the correct basis, scope and coverage decisions, method and explicit criterion selection, required resources and configuration, sequencing, independence assessment, and review of readiness. Give separate routes for requirement-based verification and need- or use-based validation. Common logistics may be shared; a shared event retains two distinct conclusions. |
 | Execution, traceability, and evidence | Required | Define how a later record identifies the subject and configuration, which method edition applies, what observations and limits it captures, how each basis stays linked to its method and later result, and how evidence provenance, integrity, retention, and review are controlled. Distinguish planned evidence from actual observations. |
@@ -34,7 +55,7 @@ For an unknown or unestablished rule, identify the gap, consequence, resolving a
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Verification path | One process path for evaluating specified technical requirements or specifications. | Define the rule that links each selected obligation to a method, criterion, subject or configuration, and the evidence and disposition a later assessment must record. A favorable fitness observation does not establish technical conformance. |
 | Validation path | One distinct path for evaluating stakeholder needs or intended use in representative conditions. | Define the rule that links each need or use scenario to evaluation criteria, context, fidelity limits, and the observations and fitness conclusion a later assessment must record. A conforming technical test alone does not establish fitness for use. |
 | Method rule | One or more rules for selecting and controlling inspection, analysis, test, demonstration, or other suitable methods. | State method suitability, limits, calibration or qualification when material, and the observations and conditions required to support a usable result. |

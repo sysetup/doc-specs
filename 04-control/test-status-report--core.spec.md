@@ -1,3 +1,24 @@
+---
+title: "Test status report specification"
+description: >-
+  Defines the authoring contract for periodic test status reports summarizing one reporting period of an active test campaign or bounded test effort. Covers reporting period and controlling sources, actual progress counts and coverage to date, active anomalies and blocking impediments, current risks, explicitly labeled prospective forecasts, pending management or technical decisions, next-period planned work, and linked action citations so stakeholders distinguish observed testing progress from forward forecasts.
+topics:
+  - "test-status-report"
+  - "test-progress"
+  - "test-blockers"
+  - "anomaly-summary"
+  - "test-forecast"
+  - "campaign-tracking"
+use_when:
+  - "An active test campaign needs a periodic progress snapshot detailing execution counts, coverage, anomalies, blockers, and forecast."
+  - "A test lead is flagging active impediments and pending decisions required to keep testing on track."
+  - "A reviewer needs current testing status without confusing in-flight forecasts with campaign completion."
+not_for:
+  - "Summarizing an ended test campaign against formal exit criteria, which belongs in a test completion report."
+  - "Recording detailed case-by-case observations from one single run, which belongs in a test execution record."
+  - "Reporting broad engineering delivery progress beyond testing, which belongs in an engineering delivery status report."
+---
+
 # Test status report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a count, baseline, plan, master, owner, or decision is unknown, state the gap
 ## Finished-document contract
 
 - **Title:** Name the test effort and the reporting period, and identify the document as its test status report.
-- **Frontmatter:** None. Begin with the GFM title. Period, progress, and forecast belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Period, progress, and forecast belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the period and sources before the counts. Place anomalies and blockers before forecast. Place the next period last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Period and sources | Required | State the test effort, the period start, and the as-of time. State the item or baseline under test, or that it is unknown. Cite a test-plan edition only when one is used. Name the source and time of every execution summary. Cite individual runs when the report depends on them. |
 | Progress and coverage | Required | Separate planned scope, work never selected into a run, and outcomes taken from cited run records or another named observed source. `pass`, `fail`, and `inconclusive` count attempts only. `not-run` counts cases selected for a run whose stimulus or result assertion was not performed, including a case blocked before the stimulus. Planned work never selected into a run is remaining scope, not `not-run`. State whether each count is cases, attempts, or runs. Bind each outcome count to actual execution and its observed source. State coverage only against a named basis, or state that coverage is not established. |
 | Anomalies and blockers | Required | Summarize departures by the named master's current state at its as-of time, or state that those counts are not established. Use `closed` only for a closure position of `closed`. Keep `resolved`, `verified`, `rejected`, and `reopened` under those states. Do not add a reopened count on top of another state count unless the report says the counts overlap. State each present blocker separately, or that the period was assessed and none was identified. A blocker is not an outcome count and does not by itself create a `not-run` count. |
@@ -33,7 +54,7 @@ If a count, baseline, plan, master, owner, or decision is unknown, state the gap
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Reporting period | One start and one as-of time for this report. | Use date-times with an explicit offset, or state that a clock time is unknown. The as-of time is the cutoff for the reported status. |
 | Summary source | One named source for the execution summary. | Identify the records, query, export, or person, and the time of that source. A numeric claim without a source is not established. An empty run list does not mean that no run occurred. |
 | Progress count | One set of counts for the stated unit. | Keep planned scope and unselected remaining scope separate from `not-run`, `pass`, `fail`, and `inconclusive`. `pass` is an attempted comparison supported by observations meeting an established criterion; `fail` is an attempted comparison with an observed miss; `inconclusive` is an attempted comparison without a usable basis for judgment. `not-run` identifies a case selected for a bounded run whose stimulus or result assertion was not performed, with the reason; it is not an attempt. Bind counts to actual execution and its observed source. Unknown is not zero. A later retest does not erase an earlier result; say whether both attempts are counted. |

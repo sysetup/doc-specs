@@ -1,3 +1,24 @@
+---
+title: "Project-defined technical review record specification"
+description: >-
+  Defines the authoring contract for records of held technical or lifecycle peer reviews conducted under criteria defined specifically by a project outside named formal milestones, code inspection, and assurance-baseline audits. Covers review identity and decision authority, examined subject revision by edition and locator, adopted criteria set, entrance and criterion assessments, findings, follow-up actions, explicit review disposition including conditional or undecided outcomes, and separation from independent formal approvals.
+topics:
+  - "technical-review"
+  - "peer-review"
+  - "review-criteria"
+  - "review-disposition"
+  - "lifecycle-review"
+  - "review-evidence"
+use_when:
+  - "A project-defined technical, design, or lifecycle peer review has been held under custom review questions and criteria."
+  - "A review chair is recording examined subject editions, criterion assessments, findings, follow-up actions, and board disposition."
+  - "A reviewer is checking whether a custom technical review preserves actual evidence and clear conditional proceed or repeat decisions."
+not_for:
+  - "Formal milestone reviews such as SRR, PDR, CDR, TRR, or ORR, which have dedicated design review specifications."
+  - "Inspecting immutable source code diffs, which belongs in a code review record."
+  - "Ordinary coordination meetings without formal assessment criteria, which belong in an engineering meeting record."
+---
+
 # Project-defined technical review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If the review was not held, do not write this record. If it was held but the cri
 ## Finished-document contract
 
 - **Title:** Name the reviewed subject and identify the document as a project-defined technical or lifecycle review record.
-- **Frontmatter:** None. Begin with the GFM title. Review identity, criteria, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review and its authority before the criteria. Present entrance results before the technical assessment. Present the disposition after the findings. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and authority | Required | Identify one held review, its subject and reviewed revision, boundary, actual date or sessions, chair, reviewers, and decision authority. State the question this review was convened to decide. Record a required independence or quorum result when the project has such a rule. |
 | Adopted criteria | Required | State every entrance and success criterion established by the project for this review, including its required evidence and assessment rule. Identify the project criteria record, edition, and locator. Record each authorized omission or change, its reason, and its decision maker. If no criteria were established, say so. |
 | Entrance results | Required | Give one entry for each entrance criterion the review applied. Record the required product and revision, the evidence actually examined, the assessment, the rationale, and any exception. A review that applied no entrance criteria states that fact here. |
@@ -34,7 +55,7 @@ If the review was not held, do not write this record. If it was held but the cri
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review identity | One stable identity for one held review. | Bind it to the subject, boundary, and actual date or session. A later repeat review is a different record. A planned meeting that did not occur has no review identity here. |
 | Reviewed revision | One subject revision the review examined. | Identify it by project ID, title, and edition or equivalent locator. Identify a revision proposed or approved after the review separately, and bind each assessment to the revision actually examined. |
 | Decision authority | One chair or deciding authority, and the reviewers who participated. | Name roles from the project. If a required independent reviewer or quorum was absent, record that defect. Do not invent a participant or an authority. |

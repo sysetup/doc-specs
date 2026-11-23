@@ -1,3 +1,24 @@
+---
+title: "Architecture description specification"
+description: >-
+  Defines the authoring contract for architecture descriptions explaining the organizing structure, behavior, interactions, allocations, and governing technical decisions of a system or software entity through explicit viewpoints tailored to stakeholder concerns. Covers entity scope and design basis, stakeholder concerns and architectural drivers, viewpoint selection, architecture views and models, cross-view correspondence and consistency checks, key decisions, and architectural limitations or change implications while keeping build-to and code-level implementation details outside architectural scope.
+topics:
+  - "architecture-description"
+  - "architectural-views"
+  - "viewpoints"
+  - "stakeholder-concerns"
+  - "cross-view-consistency"
+  - "system-architecture"
+use_when:
+  - "An architect needs to document cross-cutting structure, behavior, allocations, and tradeoffs across explicit stakeholder viewpoints."
+  - "A team is evaluating whether a proposed architecture satisfies its drivers and checking cross-view correspondence."
+  - "A reviewer is assessing architectural change impact without diving into low-level build-to or module implementation details."
+not_for:
+  - "Detailed module, data structure, algorithm, or runtime implementation design, which belongs in software or system design descriptions."
+  - "Recording a single isolated technical choice and its alternatives, which belongs in an architecture decision record."
+  - "Stating testable system or software obligations, which belong in requirements specifications."
+---
+
 # Architecture description specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a driver, boundary, allocation, relationship, or decision is unsettled, mark 
 ## Finished-document contract
 
 - **Title:** Name the entity and identify the document as its architecture description.
-- **Frontmatter:** None. Begin with the GFM title. Applicable configuration and decision state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicable configuration and decision state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the entity and drivers before presenting views; state correspondences, rationale, and unresolved issues after the views. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Entity, scope, and basis | Required | Identify the primary entity, its boundary and environment, described configuration or proposed stage, purpose and audience, actual project requirements or decisions shaping the architecture, and any applicable baseline. Cite a project requirement or decision by identity and edition when that record exists; summarize its architectural effect. State each driver's origin and established, proposed, or unresolved basis. State what the description excludes. |
 | Stakeholders, concerns, and drivers | Required | Identify the roles whose concerns shape the architecture; explain the material concerns and functional, quality, interface, operational, or lifecycle drivers. Distinguish binding constraints from design preferences. |
 | Viewpoint choices | Required | For each chosen viewpoint, state the concern it addresses, intended audience, interpretation rules and notation or modeling convention if used. Explain any material concern that the selected views do not yet address. A custom viewpoint may be described directly here. |
@@ -35,7 +56,7 @@ If a driver, boundary, allocation, relationship, or decision is unsettled, mark 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Entity of interest | One primary coherent architecture scope; related entities may appear as context or nested subjects. | Give a stable name, boundary, environment, and applicable configuration or maturity. Do not use a collection of unrelated systems as one architecture merely to fill a view. |
 | Concern and driver | Each material stakeholder question, obligation, or quality tradeoff the architecture must address. | Attribute to an actual stakeholder role, project need, requirement, or decision. State the concern and its architectural implications separately from the chosen solution. Each material concern must be covered by a view or listed as unresolved. |
 | Viewpoint | One or more conventions for constructing and reading the selected views. | Link each to its concerns, audience, and interpretation rules. Define any model-kind identifier, notation, symbols, and relationship conventions needed to interpret the view. |

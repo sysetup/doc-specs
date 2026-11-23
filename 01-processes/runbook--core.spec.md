@@ -1,3 +1,24 @@
+---
+title: "Operational runbook specification"
+description: >-
+  Defines the authoring contract for operational runbooks giving authorized operators a repeatable, ordered sequence for a specific service or system operation, troubleshooting procedure, maintenance action, or recovery task. Requires explicit invocation triggers, bounded target selectors, authority and preflight checks, execution context, ordered steps with expected observations and deviation branches, wait or retry bounds, recovery and rollback paths, completion checks, and evidence capture rules.
+topics:
+  - "operational-runbook"
+  - "service-operations"
+  - "preflight-checks"
+  - "recovery-and-rollback"
+  - "troubleshooting"
+  - "execution-safety"
+use_when:
+  - "Operators need an ordered, repeatable procedure with preflight checks, expected observations, and rollback steps for a specific service or system."
+  - "An author is documenting a maintenance, troubleshooting, or operational recovery task bound to an explicit target selector."
+  - "A reviewer is checking whether a runbook prevents wrong-target execution, unbounded retries, or unverified recovery claims."
+not_for:
+  - "Multi-role organizational workflows spanning a broad class of recurring work, which belong in a standard operating procedure."
+  - "Highly branching responses to evolving disruptions or incidents, which belong in a response playbook."
+  - "Recording actual observations and outcomes of a performed run, which belong in an operational work execution record."
+---
+
 # Operational runbook specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown or not-established fact, identify the gap, reason, resolving acti
 ## Finished-document contract
 
 - **Title:** Identify the operation and service or system, for example by the semantic form “Runbook: operation on target.”
-- **Frontmatter:** None. Begin with the GFM title. Operational target and authority rules belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Operational target and authority rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put applicability and preflight controls before any action; put recovery and completion checks after the ordered procedure. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, trigger, and limits | Required | State the desired outcome, when to start, when not to start, supported target scope, and stop conditions. Identify the runbook edition or other unambiguous method version (including a unified corpus version in `CHANGELOG.md` plus Git revision) if multiple editions can exist. |
 | Target, authority, and preflight | Required | Define how to identify and verify the intended account, tenant, environment, site, system, and resource as applicable. State each configuration, revision, or environment assumption that a command or parameter depends on, and how the operator confirms it before acting. State who may run the procedure and which authorization must be confirmed at execution time. Include a change, incident, or maintenance authorization only when that kind applies. List prerequisites, readiness checks, relevant access and tool context, and safety controls, including backup or checkpoint requirements for state-changing work when applicable. |
 | Ordered procedure | Required | Give one or more ordered actions with expected observations and a response to deviation. Define all parameters and decision branches so a qualified operator can follow them without guessing. |
@@ -34,7 +55,7 @@ For an unknown or not-established fact, identify the gap, reason, resolving acti
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Invocation trigger | One event, condition, or authorized request that starts this procedure. | Include a disqualifying condition or escalation route when the task is unsafe outside its normal scope. |
 | Target selector | One bounded way to identify the exact target for an execution. | Parameters MAY be used, but their allowed values and pre-execution confirmation MUST be explicit. An unspecified production target cannot be acted on. |
 | Authority boundary | One statement of eligible roles, required authorization checks, permitted actions, and stop limits. | Refer to the real approval route; a runbook's existence is not approval. |

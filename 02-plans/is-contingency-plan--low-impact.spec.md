@@ -1,3 +1,24 @@
+---
+title: "Low-impact information-system contingency plan specification"
+description: >-
+  Defines the authoring contract for contingency plans governing one classified low-impact information system through proportionate disruption detection, activation, bounded recovery, reconstitution, exercises, and upkeep. Covers system identity and impact classification decision, recovery objectives, contingency roles and responsibilities, activation and notification triggers, service and data recovery actions, return-to-routine checks, and conditional alternate location or storage provisions included only when selected by the strategy.
+topics:
+  - "contingency-plan"
+  - "low-impact-system"
+  - "service-recovery"
+  - "reconstitution"
+  - "disruption-activation"
+  - "contingency-exercises"
+use_when:
+  - "A responsible authority has classified an information system as low impact and requires a proportionate system-specific contingency plan."
+  - "A system owner is planning activation rules, bounded recovery steps, reconstitution checks, and plan upkeep without heavy failover overhead."
+  - "A reviewer is verifying that recovery objectives and optional alternate-storage choices match the system's low-impact classification."
+not_for:
+  - "Moderate-impact or high-impact classified systems requiring mandatory offsite/alternate dispositions or concurrent processing."
+  - "Enterprise business process continuity across non-IT operations, which belongs in a business continuity plan."
+  - "Routine preventive hardware servicing or software patching plans."
+---
+
 # Low-impact information-system contingency plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark a missing fact as unknown and an undecided strategy or objective as not est
 ## Finished-document contract
 
 - **Title:** Identify the system and the low-impact information-system contingency plan.
-- **Frontmatter:** None. Begin with the GFM title. System identity, plan edition, classification, and authority are operational content in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). System identity, plan edition, classification, and authority are operational content in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and objectives before activation; describe recovery before reconstitution; put readiness and maintenance after the operational phases. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, authority, and objectives | Required | Identify the system, plan edition or other unambiguous version, plan owner, established low-impact classification and its project decision record, supported services, scope and exclusions, operational assumptions, and recovery objectives with their decision basis. Name who may later approve the plan and activate recovery, and identify required operational permissions and their approving roles. |
 | Recovery concept and responsibilities | Required | Describe the architecture and dependencies needed for recovery, the authorized recovery configuration, required people and resources, and the activation, recovery, and reconstitution phases. Give role handoffs and a protected way to reach current contact details. Identify alternate location or storage only when the selected strategy uses it. |
 | Activation and notification | Required | Define observable activation triggers, the decision route, outage assessment, initial safety and security checks, notification sequence, alternate communication method, and the route when the usual authority or channel is unavailable. |
@@ -36,7 +57,7 @@ Mark a missing fact as unknown and an undecided strategy or objective as not est
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | System and impact decision | One bounded system and one established low-impact classification. | Identify the deciding role and project decision record; reassess the recovery scope, objectives, and strategy if classification changes. |
 | Recovery objective | One or more approved time, data currency, or service priorities that govern recovery. | State units, scope, and source. Explain any gap between an objective and the selected method; do not imply that an exercise proved it. |
 | Activation rule | One or more observable disruption conditions and a decision authority. | A rule must lead to activate, continue assessing, or escalate, including when the usual decision maker is unreachable. |

@@ -1,3 +1,24 @@
+---
+title: "Failure modes and effects analysis specification"
+description: >-
+  Defines the authoring contract for failure modes and effects analysis records—including criticality analysis when selected—examining how a bounded item or process can fail to perform declared functions. Covers analysis scope and declared method, rating scales and priority or criticality rules, structured failure-mode rows detailing effects, causes, existing controls, rankings, priority results, treatment actions, owners, projected versus observed residual rankings, links to hazard, risk, or defect records, and review upkeep.
+topics:
+  - "FMEA"
+  - "FMECA"
+  - "failure-modes"
+  - "criticality-analysis"
+  - "reliability-engineering"
+  - "failure-mitigation"
+use_when:
+  - "Engineers need a systematic failure modes and effects analysis—or FMECA with criticality ranking—for a bounded item or process."
+  - "An analyst is prioritizing failure causes, existing controls, and treatment actions while exposing missing data and projected residual rankings."
+  - "A reviewer is checking whether rankings trace strictly to one declared method and distinguish projected outcomes from re-verified results."
+not_for:
+  - "Tracking system-level safety hazards and mishap acceptance across the lifecycle, which belongs in a hazard log."
+  - "Tracking broader project or operational business risks outside functional failure analysis, which belongs in a risk register."
+  - "Defining runtime software exception propagation and caller contracts, which belongs in an error handling specification."
+---
+
 # Failure modes and effects analysis specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a function, mode, effect, cause, scale, ranking, rate, owner, or reassessment
 ## Finished-document contract
 
 - **Title:** Identify the item or process and name the document an FMEA or an FMECA according to the method actually used.
-- **Frontmatter:** None. Begin with the GFM title. The method, worksheet, and review belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The method, worksheet, and review belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope, method, and scales before the rows. Present review and maintenance with or after the rows. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and method | Required | State the boundary, lifecycle, configuration or revision, decomposition, assumptions, as-of point, and the responsible analyst or the assignment gap. Choose FMEA or FMECA. FMEA records failure modes, effects, causes, controls, and treatment priorities. FMECA additionally ranks criticality using at least consequence severity and the other importance measures declared in the method. State the complete priority or criticality rule. Declare each scale that rule uses, or state that the method is unresolved and give no invented scale. For FMECA, state the criticality basis. |
 | Failure-mode rows | Required | If the decomposition is unresolved, say so and do not invent functions or modes. Otherwise, for each declared function, record each identified mode or an explicit conclusion that no credible mode was identified, with the basis for that conclusion. Each mode states its function, mode and conditions, effects, causes or an explicit gap, existing controls or an explicit none, rankings or unresolved rankings, and a priority result or an unresolved priority. Separate recommended actions from existing controls. Give residual rankings and a residual state only as the evidence supports. Do not add a placeholder mode. |
 | Review and maintenance | Required | State coverage against the decomposition, interfaces, assumptions, high-consequence modes, and incomplete data. State what triggers an update. Cite a specific design change, test, incident, or field record as a trigger only when that record exists. State how prior rows are retained or superseded. If a controlled worksheet or database is the master, identify its revision, locator, and responsible internal role, and keep the representations consistent. Summarize rows whose cause, ranking, or residual state blocks a treatment decision. A review date belongs only to a review that occurred. |
@@ -32,7 +53,7 @@ If a function, mode, effect, cause, scale, ranking, rate, owner, or reassessment
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Scale | One per dimension the declared method uses. None while the method is unresolved. | Before a row uses a scale, give its name, allowed values, meaning, direction, and evidence expectation. State the project's method-selection decision and revision when recorded; otherwise identify the selection gap. Do not invent an approval. |
 | Priority or criticality rule | One rule for the analysis. | State the complete qualitative decision rule, criticality matrix, or risk priority number (RPN) formula used, its inputs, and any threshold actually used. Define qualitative levels, matrix cells, or arithmetic operations so each result can be reproduced from the stated inputs. A missing input stays unresolved. |
 | Criticality basis | Required when the method is FMECA; absent from the ranking when the method is FMEA. | Include failure rates, mode proportions, exposure, and their uncertainty only when the chosen criticality method uses them. Do not compute a result from inputs that were not established. |

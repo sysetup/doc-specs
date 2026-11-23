@@ -1,3 +1,24 @@
+---
+title: "High-impact information-system contingency plan specification"
+description: >-
+  Defines the authoring contract for contingency plans governing one classified high-impact information system requiring stringent continuity, failover, and data integrity protection. Covers impact classification and decision authority, critical functions and recovery objectives, recovery architecture and capacity, mandatory explicit dispositions for offsite storage and alternate processing, conditional concurrent processing when selected, activation and notification, failover and data reconciliation, reconstitution checks, and exercises and upkeep.
+topics:
+  - "contingency-plan"
+  - "high-impact-system"
+  - "failover"
+  - "data-reconciliation"
+  - "alternate-processing"
+  - "reconstitution"
+use_when:
+  - "A responsible authority has classified an information system as high impact and requires a system-specific contingency and failover plan."
+  - "A recovery planner is documenting offsite storage, alternate processing, data reconciliation, and optional concurrent processing."
+  - "A reviewer is checking whether reconstitution checks, authority limits, and exercise schedules satisfy high-impact recovery objectives."
+not_for:
+  - "Low-impact or moderate-impact classified information systems, which use dedicated lower-tier contingency plan specifications."
+  - "Organization-wide business workarounds across people, facilities, and business processes, which belong in a business continuity plan."
+  - "Step-by-step single-operation technical procedures for routine administration, which belong in an operational runbook."
+---
+
 # High-impact information-system contingency plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark missing evidence unknown and undecided design or authority not established,
 ## Finished-document contract
 
 - **Title:** Identify the system and the high-impact information-system contingency plan.
-- **Frontmatter:** None. Begin with the GFM title. Plan identity, authorities, and recovery architecture are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Plan identity, authorities, and recovery architecture are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish objectives and chosen continuity strategy before activation; recover before reconstitution; put practice and upkeep after the operational phases. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, authority, and objectives | Required | Identify the system, plan edition, owner, established high-impact classification and its project decision record, critical functions and data, scope and exclusions, material assumptions, continuity and recovery priorities, time and data objectives with units, and who may later approve the plan and activate recovery. Identify required operational permissions and their approving roles. |
 | Continuity and recovery concept | Required | Describe authorized primary and recovery configurations, critical asset and dependency map, required capacity and staffing, team handoffs, provider commitments, and protected access to contacts. Explain how critical functions continue or resume and how the strategy limits data loss and unsafe split operation. If concurrent processing is not selected, say so here without inventing a procedure. |
 | Storage and alternate processing disposition | Required | State the selected offsite data and alternate processing arrangements, separation or shared-failure concerns, accessibility, capacity, security controls, invocation, and restoration of protected copies. If an internal project decision permits tailoring of either arrangement, identify that decision, approving role, approved disposition, and viable alternative; classification alone is insufficient to establish such an exception. |
@@ -38,7 +59,7 @@ Mark missing evidence unknown and undecided design or authority not established,
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | System and impact decision | One bounded system and one established high-impact classification. | Identify the deciding role and project decision record; reassess the recovery scope, objectives, and strategy if classification changes. |
 | Critical function and objective | One or more prioritized functions with approved continuation or recovery targets. | Give units, source, dependencies, maximum interruption or data-loss limits where established, and the consequence when capability cannot meet them. |
 | Recovery configuration and capacity | One selected primary-to-recovery transition path, with alternatives only when authorized. | Define required capacity, location and connectivity assumptions, data source, security boundary, and failure route; do not equate an untested design with proven capability. |

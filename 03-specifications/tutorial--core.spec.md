@@ -1,3 +1,24 @@
+---
+title: "Learning tutorial specification"
+description: >-
+  Defines the authoring contract for hands-on learning tutorials guiding learners through a safe, bounded practice exercise toward an explicit learning objective with observable checkpoints and reflection. Covers audience prerequisites, reproducible isolated practice environments and permitted targets, version-accurate incremental steps with checkpoints and recovery routes, expected practice outcomes, bounded cleanup of exercise-created resources, and explicit draft versus learner-ready applicability backed by complete walkthrough evidence.
+topics:
+  - "learning-tutorial"
+  - "hands-on-exercise"
+  - "learning-checkpoints"
+  - "walkthrough-evidence"
+  - "isolated-environment"
+  - "learner-readiness"
+use_when:
+  - "Learners need a safe, guided, hands-on practice exercise with clear prerequisites, observable checkpoints, recovery, and cleanup."
+  - "An author is distinguishing an untested tutorial draft from a verified learner-ready exercise backed by real walkthrough evidence."
+  - "A reviewer is verifying that tutorial commands target isolated environments, preserve unrelated work during cleanup, and never overclaim competence."
+not_for:
+  - "Comprehensive API, CLI, or setting lookup without guided exercises, which belongs in a technical lookup reference."
+  - "Production operational commands or maintenance procedures, which belong in an operational runbook."
+  - "General installation, configuration, and task documentation for end users, which belongs in a product guide."
+---
+
 # Learning tutorial specification
 
 ## Identity and selection
@@ -19,17 +40,17 @@ Expose unknown version, environment, target, prerequisite, action, expected obse
 ## Finished-document contract
 
 - **Title:** Name the learning outcome and identify the product or concept when needed.
-- **Frontmatter:** None. Begin with the standalone GFM title. Put editions, scope, readiness and actual check state in the body. Governing source: Type-owned TUTORIAL@core policy; no external publication metadata schema is selected.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Put editions, scope, readiness and actual check state in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State learning goal and prerequisites before environment preparation; present practice steps and checkpoints in dependency order; put outcome reflection and cleanup last. Heading wording may vary.
 - **Presentation:** Required roles may share concise paragraphs, lists or sections when prerequisites, actions, checkpoints, gaps and readiness remain retrievable in dependency order. Use local step locators for recovery; a compact tutorial needs no separate administrative chapter per role.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Guided learning document (standalone) | The document owns an H1 identifying the bounded learning outcome and subject. Editions, environment and readiness are body content; no YAML frontmatter is used. | GFM presents the guided practice; commands and inputs preserve the stated version's actual syntax. Bind controlling technical sources and walkthrough evidence to inspected editions and usable locators, with revisions or digests where needed. A changed source, exercise or environment requires reassessment before retaining learner-ready applicability; historical evidence remains bound to its original configuration. |
+| --- | --- | --- |
+| Guided learning document (standalone) | The document begins with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by an H1 identifying the bounded learning outcome and subject. Editions, environment, and readiness remain body content. | GFM presents the guided practice; commands and inputs preserve the stated version's actual syntax. Bind controlling technical sources and walkthrough evidence to inspected editions and usable locators, with revisions or digests where needed. A changed source, exercise or environment requires reassessment before retaining learner-ready applicability; historical evidence remains bound to its original configuration. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Learning goal and audience | Required | Identify the bounded objective, learner prerequisites, product or concept and tutorial editions, scope, exclusions and the client or receiving-party element when applicable. State draft or learner-ready applicability for the declared environment; a readiness label does not establish personal achievement or professional competence. |
 | Practice environment and preparation | Required | Specify the reproducible isolated environment, exact permitted target, inputs and source editions, applicable resources and costs, permissions, prerequisite checks and safe stop conditions before dependent actions. Use placeholders for sensitive values and expose unavailable prerequisites. Commands express an exercise method and confer no operational authority. |
 | Incremental exercise and checkpoints | Required | Give ordered locally identifiable steps with purpose, exact version-applicable actions, expected observations, checkpoint criteria and recovery or safe stop. Verify command syntax and target boundaries before presenting a supported path; every failure route ends in an identified retry, recovery or stop. Keep choices bounded and link reference or explanation as support without replacing practice. Label held or untested steps and do not turn expected output into an observed result. |
@@ -39,7 +60,7 @@ Expose unknown version, environment, target, prerequisite, action, expected obse
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Learning objective | Exactly one bounded objective in Learning goal and audience. | Name a practice capability and its observable outcome; do not claim professional competence from one exercise. |
 | Practice environment | Exactly one reproducible setup in Practice environment and preparation. | Bind editions, inputs, permitted target, runtime and permissions before practice. Unsupported combinations stay untested or blocked; an unspecified production target is prohibited. |
 | Exercise step and checkpoint | One or more ordered steps, each with a checkpoint, in Incremental exercise and checkpoints. | Each names action, purpose, expected observation, comparison and locally identifiable recovery or safe stop. A supported command has checked syntax and target bounds; expected results remain distinct from actual runs. |

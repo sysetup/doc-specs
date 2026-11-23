@@ -1,3 +1,24 @@
+---
+title: "Change request specification"
+description: >-
+  Defines the authoring contract for change requests proposing and controlling one modification to a governed product, service, configuration item, or baseline. Covers request identity, change state, triggering defect or problem links, affected configurations, considered alternatives, impact and risk analysis, implementation and rollback intent, explicit authorization decision and authority, actual implementation outcome, resulting baseline reference, closure conditions, and verified closure evidence.
+topics:
+  - "change-request"
+  - "change-control"
+  - "impact-analysis"
+  - "rollback-intent"
+  - "change-authorization"
+  - "baseline-change"
+use_when:
+  - "A controlled product, service, configuration item, or baseline requires a formal proposal, impact assessment, and authorized change lifecycle."
+  - "A change coordinator is tracking authorization, implementation results, resulting baseline updates, and verified closure in one record."
+  - "A reviewer is checking whether rollback intent, impact analysis, and actual decision authority are complete before approval."
+not_for:
+  - "Requesting a temporary bounded departure while leaving the underlying obligation unchanged, which belongs in a deviation or waiver request."
+  - "Submitting an unapproved code diff for peer review in a repository, which belongs in a pull or merge request description."
+  - "Tracking a defect before a controlled baseline change is proposed, which belongs in a problem or defect report."
+---
+
 # Change request specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a fact is unknown or not yet decided, state that status, its consequence, the
 ## Finished-document contract
 
 - **Title:** Identify the controlled product or service and name the document as the change request for one stated change.
-- **Frontmatter:** None. Begin with the GFM title. Identity, proposal, impacts, and change state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, proposal, impacts, and change state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the request and proposal before impact; place authorization and implementation after impact; place verification and closure last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Request identity and proposal | Required | Give the request a stable identity and proposal revision, the current change state, the requester, date, trigger, and inspected source, the problem or opportunity, the consequence of not changing, the before-and-after and affected obligations, the expected benefit labeled as expected, the alternatives disposition, and each affected configuration object. |
 | Impact and risk | Required | Address technical impact, assurance impact, and delivery impact. For each, state the assessed impact, an assessed finding of no impact, or that it is not assessed. State the change-specific uncertainty that could make the change unsafe, ineffective, or hard to reverse, or state that risk is not assessed. Cite a risk, verification, or test record only when it exists. |
 | Authorization and implementation | Required | State whether an authorization exists and, when it does, its scope, conditions, and the proposal revision it covers. State the intended implementation and rollback or reversal approach, including when rollback is not available and what follows from that. Separate that intent from actual execution. Identify the resulting baseline only when one now contains the change. |
@@ -33,7 +54,7 @@ If a fact is unknown or not yet decided, state that status, its consequence, the
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Request identity | One identifier and one current proposal revision. | Keep the identifier stable. The proposal revision changes when the before-and-after changes. It is not an implementing commit or a baseline identifier. |
 | Change state | Exactly one of `proposed`, `assessed`, `authorized`, `rejected`, `implemented`, or `closed`. | `proposed` means the impact is not complete. `assessed` means every impact dimension and the change-specific risk have been assessed and no authorization exists. `authorized` cites an authorization that covers this proposal revision. `rejected` cites the rejecting authority and reason. `implemented` means the authorized change was carried out. `closed` means implemented work has verified closure. A requester withdrawal or deferral before authorization stays `proposed` or `assessed`, names its actor and date, and is not `rejected`. After authorization, a change to authorized scope, deferral, or withdrawal requires the change authority's disposition; implementation and closure states require their actual execution and closure evidence. Work done before authorization is recorded as unauthorized execution and does not make the state `implemented`. |
 | Affected configuration | One or more baselines, configuration items, requirements, interfaces, or other controlled product or service objects. | Use a real identifier when one exists. If none exists, name the object and state that it has no controlled identifier. Do not invent an identifier. A request that names no affected object is not ready to assess. |

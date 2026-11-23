@@ -1,3 +1,24 @@
+---
+title: "Hazard log specification"
+description: >-
+  Defines the authoring contract for safety hazard logs maintaining stable lifecycle identities for conditions capable of causing harm in a stated system configuration. Covers scope, safety assessment method, and disposition rules, individual hazard entries detailing condition basis, causes, mishap or harm, severity, likelihood or risk category, control disposition, verification disposition, residual exposure, entry state, explicit safety acceptance authority, accountability, links to related records, and review points.
+topics:
+  - "hazard-log"
+  - "system-safety"
+  - "mishap-prevention"
+  - "safety-controls"
+  - "residual-exposure"
+  - "safety-acceptance"
+use_when:
+  - "A safety-relevant system requires durable lifecycle tracking of hazards, mishaps, credited controls, verification, and residual exposure."
+  - "A safety analyst is exposing open hazards, unverified controls, and unaccepted residual safety exposure for review."
+  - "A safety authority is auditing closure evidence and control-to-verification traceability for each tracked hazard."
+not_for:
+  - "Planning program-wide safety analyses, arguments, and lifecycle gates upfront, which belongs in a safety assurance plan."
+  - "Tracking non-safety project, cost, schedule, or operational risks, which belongs in a risk register."
+  - "Ranking functional component failure modes by engineering priority alone, which belongs in failure modes and effects analysis."
+---
+
 # Hazard log specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If the project safety need or requirement, method, condition, severity, owner, c
 ## Finished-document contract
 
 - **Title:** Identify the system or bounded configuration and the document as its hazard log.
-- **Frontmatter:** None. Begin with the GFM title. Scope, hazard state, and safety decisions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, hazard state, and safety decisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope, method, and disposition rules before the entries. Present open exposure and review with or after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, method, and disposition rules | Required | State the system boundary, configuration or baseline, lifecycle coverage, and the established project safety need or requirement or its unresolved state. Define the project mishap-severity method, including category meanings, classification criteria, and method version, or an explicit unresolved method. Include likelihood or another risk category only when that method uses it, and define its meanings and criteria. State the review cadence or event trigger, the evidence and decision criteria required before closure or supersession, and the assigned decision role, conditions, and criteria for accepting residual exposure. Record an unassigned decision role as a gap. Closure and residual-exposure acceptance have separate dispositions. Name the role accountable for the log, or record the assignment gap. |
 | Hazard entries | Required | Record each identified hazard with a stable ID, the condition and its basis, cause, the mishap or harm to which severity applies, severity, control disposition, verification disposition, current state, and related records that exist. State residual exposure only where controls are credited. State acceptance only where the project acceptance rule requires it. If a real assessment found no hazards, state that assessment and its limit instead of adding a placeholder hazard. |
 | Open exposure and review | Required | Summarize hazards whose control, verification, residual assessment, owner, closure, or acceptance is unresolved. Give the latest real review when one occurred and the next review or trigger. Apply the closure rule only to hazards actually closed or superseded. Identify acceptance only where the named authority made that decision, including its scope and reference. A document lifecycle state is not closure or acceptance. |
@@ -32,7 +53,7 @@ If the project safety need or requirement, method, condition, severity, owner, c
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Hazard entry | Zero after a stated real assessment that found none; otherwise one per identified hazard. An unassessed log has no placeholder row and makes no claim that the scope is free of hazards. | Give every entry a stable ID and never reuse it for a different condition. The subject is a condition, internal or external to the system, that can cause harm in the stated configuration. |
 | Condition basis | One per entry. | State whether the condition was observed, is present in the specified design, or remains a hypothesis, and give the evidence or assumption. A project may use its own labels when their meanings are stated. Do not relabel a hypothesis as observed. |
 | Cause | One or more mechanisms, or one explicit unknown. | Separate an established mechanism from a hypothesis. State uncertainty rather than inventing a cause. |
@@ -57,4 +78,4 @@ Use a register table with meaningful ID, condition, mishap, severity, control an
 - Credited controls, recommendations, planned verification, performed verification, forecast residual exposure, observed reassessment, closure, and acceptance are distinguishable. Performed verification has an actual outcome and evidence. Closure and residual-exposure acceptance are recorded separately.
 - Each open hazard has an accountable role or a visible assignment gap, and a usable next review or escalation trigger.
 - Closure and acceptance have the evidence and authority their rules require. An empty reference list, a low severity, or a document state does not supply them.
-- An assessed-empty log states its limit and does not claim the system has no hazards beyond that assessment. 
+- An assessed-empty log states its limit and does not claim the system has no hazards beyond that assessment.

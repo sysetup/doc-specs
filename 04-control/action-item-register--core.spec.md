@@ -1,3 +1,24 @@
+---
+title: "Action item register specification"
+description: >-
+  Defines the authoring contract for action item registers tracking discrete follow-up actions across a project, team, or review effort. Covers action governance rules, uniquely identified action items, originating sources, assigned owners or explicit assignment gaps, priority, predecessor dependencies, due dates, controlled lifecycle states, explicit closure criteria, checked closure evidence, and index defects so teams monitor open follow-up load and verify closure rather than closing items on unverified claims.
+topics:
+  - "action-item-register"
+  - "follow-up-tracking"
+  - "action-ownership"
+  - "closure-evidence"
+  - "task-dependencies"
+  - "control-register"
+use_when:
+  - "Discrete follow-up actions from reviews, audits, meetings, or operations require centralized ownership, due dates, and verified closure."
+  - "A coordinator is tracking blocked predecessors, overdue items, and unresolved owner assignments in one register."
+  - "A reviewer is confirming that closed actions cite checked closure evidence matching stated closure criteria."
+not_for:
+  - "Maintaining emergent, prioritized product backlog work items, which belong in an ordered product backlog."
+  - "Tracking live execution steps and recovery state for one bounded task session, which belongs in a task execution plan."
+  - "Tracking defects or nonconformances through root-cause analysis and disposition, which belongs in a problem or defect report."
+---
+
 # Action item register specification
 
 ## Identity and selection
@@ -18,12 +39,12 @@ If an owner, date, source, or predecessor is unknown, keep the action visible an
 ## Finished-document contract
 
 - **Title:** Identify the project or team boundary and name the document as its action item register.
-- **Frontmatter:** None. Begin with the GFM title. Scope, rules, and action state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, rules, and action state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State governance before the action index; place defects in the index after the actions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Action governance | Required | State the project or team scope, the date through which status was checked, and the rules for owner assignment, the priority vocabulary, due-date changes, escalation, and closure authority. Priority expresses follow-up urgency using this register's vocabulary. |
 | Action index | Required | Include every in-scope follow-up, or an explicit assessed-empty statement. For each action, give its stable identity, source, observable outcome, owner or assignment gap, one priority or an unresolved priority, predecessors, the authorized due date or scheduling disposition, state, and closure basis. |
 | Index defects | Required | Identify dependency cycles, self-dependencies, closure or cancellation claims that lack the required authority or evidence, and blocked actions whose blocking condition is unnamed. Give the consequence and route, or state that the assessed scope showed none. |
@@ -31,7 +52,7 @@ If an owner, date, source, or predecessor is unknown, keep the action visible an
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Action | One accountable follow-up; zero only when the scope was assessed and no action qualifies. | Use one immutable identifier and do not reuse it. The outcome is a specific deliverable or observable result. A vague intention is not an action. |
 | Source | One originating event or record per action. | Identify the review, incident, risk, meeting, decision, or other real source and its locator. Describe the source when no controlled identifier exists. Do not invent one. |
 | Owner | One accountable role once assigned. | The project may also name a person. An unassigned owner stays unresolved. The owner is not, by that assignment alone, the closure authority. |

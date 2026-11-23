@@ -1,3 +1,24 @@
+---
+title: "Cybersecurity incident record specification"
+description: >-
+  Defines the authoring contract for contemporaneous cybersecurity incident records tracking one suspected or confirmed security incident from declaration through active response and closure. Covers incident command and declaration, detection details, affected resources, technical indicators, append-only or corrected chronology, containment actions and status, eradication work, notification duties, evidence handling, recovery status, and closure while excluding routine pre-exploitation vulnerability cases and retrospective causal or dwell-time analysis.
+topics:
+  - "cybersecurity-incident-record"
+  - "incident-chronology"
+  - "containment-tracking"
+  - "eradication-status"
+  - "indicators-of-compromise"
+  - "incident-evidence"
+use_when:
+  - "A suspected or confirmed cybersecurity incident is active and requires a contemporaneous factual record of detection, scope, and response."
+  - "An incident lead is tracking containment actions, eradication progress, indicators, notification duties, and evidence handling."
+  - "A responder or authority needs to decide whether a cybersecurity incident remains open or meets closure conditions."
+not_for:
+  - "Retrospective root-cause, dwell-time, control-failure, and lessons analysis after stabilization, which belongs in a cybersecurity post-incident review."
+  - "Non-cybersecurity service outages or operational disruptions, which belong in an operational incident record."
+  - "Managing unexploited software vulnerabilities, which belongs in a vulnerability record."
+---
+
 # Cybersecurity incident record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For each notification duty, use the supplied project assignment or decision that
 ## Finished-document contract
 
 - **Title:** Name the incident and identify the document as its cybersecurity incident record.
-- **Frontmatter:** None. Begin with the GFM title. Detection, scope, and status belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Detection, scope, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State declaration, then detection and affected scope, then the chronology. Place containment and eradication before notification. Place evidence handling before recovery and closure. Heading wording may vary. These roles are record content.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Declaration and command | Required | Give the incident a stable identity and the as-of time of this version. State whether it is suspected, declared, or determined not to be a cybersecurity incident, with the authority and the project's severity or category. Identify the lead, authorized responders, target environment, and permitted actions. |
 | Detection and affected scope | Required | State the detection source, describe how the incident presented or entered with its vector assessment as confirmed, hypothesized, or unresolved, and give confidence with its basis and scale. Confidence is about that characterization, not a substitute for severity. For each identified resource, state the effect as observed or suspected and the evidence, or that the evidence is unresolved. If no resource is identified, distinguish unresolved scope from an assessment finding no affected resources, with its scope and evidence. State whether indicators were not assessed, none are established, or list each observed indicator. |
 | Chronology | Required | Append observations, decisions, actions, communications, and corrections in recording order, preserving each event's occurrence time separately. A late-reported event states that delay; unknown occurrence times remain unknown. A correction identifies the earlier event and the change. Label hypotheses. For each event, state the actor and authority basis, or that the actor or authority basis is unknown, and state the impact known then, that no additional impact was established, or that impact is unknown. |
@@ -36,7 +57,7 @@ For each notification duty, use the supplied project assignment or decision that
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Incident identity | One stable identifier for this incident. | Do not reuse it for another incident. The as-of time is a date-time with an explicit offset, or the clock time is stated as unknown, with clock confidence when a time is given. |
 | Declaration | One current position: `suspected`, `declared`, or `determined-not-a-cyber-incident`. | Name the assigned declaration role. A suspected incident stays suspected until that role declares or rejects it. Reclassification states the actual decision and deciding role, with a locator to any resulting incident record that exists. Define the project severity categories used, or record the unresolved scale. |
 | Detection | One current characterization. | The source is the actual alert, report, sensor, or person, or an explicit unresolved source. Describe how the incident presented or entered, or state that this is unknown; its assessment is `confirmed`, `hypothesized`, or `unresolved`. The assessment label is not the vector itself. Confidence names its scale or says that no scale is established, and it includes the evidence basis. Do not convert uncertainty into a confirmed vector. |

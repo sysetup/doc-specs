@@ -1,3 +1,24 @@
+---
+title: "Code review record specification"
+description: >-
+  Defines the authoring contract for code review records preserving one actual inspection of an immutable source revision, including reviewers, review mechanism, focus areas, applied criteria, inspected automation outputs, classified findings with severities and dispositions, explicit review outcomes including inconclusive status when review cannot finish, re-review conditions, outcome scope limits, and retained evidence. Ensures planned checks are never reported as performed and verdicts stay bound to the reviewed snapshot.
+topics:
+  - "code-review-record"
+  - "source-inspection"
+  - "immutable-snapshot"
+  - "review-findings"
+  - "re-review-criteria"
+  - "software-assurance"
+use_when:
+  - "A code review has occurred and requires a durable record of the reviewed immutable snapshot, applied criteria, findings, and dispositions."
+  - "A reviewer is recording inspected automated checks, finding resolutions, re-review triggers, and outcome limits."
+  - "An auditor is confirming that a claimed code review actually inspected the exact revision under consideration."
+not_for:
+  - "Submitting a proposed diff with rationale and pending reviewer questions prior to review, which belongs in a pull or merge request description."
+  - "Broad project or lifecycle design reviews beyond source inspection, which belong in technical review records."
+  - "Formal compliance audits against assurance baselines, which belong in an audit report."
+---
+
 # Code review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If the snapshot, the reviewers, or the focus cannot be established, state that g
 ## Finished-document contract
 
 - **Title:** Name the component and identify the document as a code review record of the reviewed snapshot.
-- **Frontmatter:** None. Begin with the GFM title. The snapshot, findings, and outcome belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The snapshot, findings, and outcome belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the snapshot and the reviewers before the criteria. Present findings before the outcome. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and source scope | Required | Identify the repository or component, the immutable snapshot reviewed, the review mechanism, when the review occurred or that the time was not captured, and the reviewers who participated. A mutable request or branch name may be added as context and does not replace the snapshot. |
 | Criteria actually applied | Required | State the focus areas the reviewers considered and the concrete conditions they assessed. Identify the supplied project requirements or decisions establishing those conditions, with revision and locator when known; state any basis gap. Identify automation or test evidence that was inspected and the result observed, or state that none was inspected. |
 | Findings and dispositions | Required | Give one finding for each issue or review comment retained. When the review of this snapshot finished and no finding was raised, say so and include no placeholder finding. |
@@ -33,7 +54,7 @@ If the snapshot, the reviewers, or the focus cannot be established, state that g
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Snapshot | One immutable revision, commit, or change revision that was reviewed. | A branch name or an open request identifier is not sufficient while the reviewed content can still change. If only a mutable identifier is known, say that the snapshot is not established. The outcome applies only to the identified snapshot. |
 | Review mechanism | One of `peer-review`, `pull-request-review`, `formal-inspection`, `pair-review`, or `other`. | `other` names the mechanism actually used. Describe how the identified snapshot was examined and by whom or by which automation. |
 | Reviewers | The people who participated, or an explicit statement that they are not established. | Use a role or another identifier the project permits. Do not invent a participant. If no reviewer can be identified, the outcome cannot be `review-complete`. |

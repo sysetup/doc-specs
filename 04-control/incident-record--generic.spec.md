@@ -1,3 +1,24 @@
+---
+title: "Operational incident record specification"
+description: >-
+  Defines the authoring contract for contemporaneous operational incident records tracking one suspected or confirmed non-cybersecurity service or operational incident from declaration through containment, recovery, and closure—retaining the record even if later reclassified or found not to be an incident. Covers declaration and command, accountable roles, affected scope, auditable timeline events corrected without erasing history, evidence accounts, containment and recovery status, and closure while excluding cybersecurity-specific eradication and retrospective causal reviews.
+topics:
+  - "operational-incident-record"
+  - "incident-chronology"
+  - "service-disruption"
+  - "containment-and-recovery"
+  - "incident-command"
+  - "operational-control"
+use_when:
+  - "A suspected or confirmed operational outage or non-cybersecurity disruption requires a contemporaneous timeline and status record."
+  - "An incident lead is tracking command handoffs, affected scope, containment, service restoration, and reclassification history."
+  - "Responders need a factual response record preserved cleanly for later retrospective review."
+not_for:
+  - "Suspected or confirmed cybersecurity breaches involving indicators, eradication, or breach notifications, which belong in a cybersecurity incident record."
+  - "Post-stabilization root-cause and improvement analysis, which belongs in an operational post-incident review."
+  - "Tracking individual software bugs outside an active incident chronology, which belongs in a problem or defect report."
+---
+
 # Operational incident record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a fact, time, actor, authority, or impact is unknown or not established, stat
 ## Finished-document contract
 
 - **Title:** Name the incident and identify the document as its operational incident record.
-- **Frontmatter:** None. Begin with the GFM title. Incident identity, declaration, and status belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Incident identity, declaration, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State declaration and command before the chronology. Place evidence handling before current status. Place closure last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Declaration and command | Required | Give the incident a stable identity and the time this version of the record represents. State the current situation, discovery source, discovery and declaration times, and affected scope, including what is still unknown. State the severity or category, whether an authority has declared the incident, and who holds command, which responders may act, the target or environment, and which actions are permitted. |
 | Chronology | Required | Append observations, decisions, actions, communications, and corrections in recording order, preserving each event's occurrence time separately. A late-reported event states that delay; unknown occurrence times remain unknown. A correction is a later entry that identifies the earlier event and the change. For each event, state the actor and authority basis, label any hypothesis, and state the impact known then, that no additional impact was established, or that impact is unknown. |
 | Evidence handling | Required | State what was collected or that nothing was collected. Cover collection authority, provenance, integrity, custody and transfers, confidentiality, retention, and access. Retain known limitations and conflicts. Do not place secrets or unnecessary sensitive raw evidence in the record; give a locator and the handling restriction instead. |
@@ -33,7 +54,7 @@ If a fact, time, actor, authority, or impact is unknown or not established, stat
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Incident identity | One stable identifier for this incident. | Do not reuse it for another incident. It is not a document-lifecycle state. |
 | Record time | One as-of time for this version of the record. | Use a date-time with an explicit offset, or state that the clock time is unknown. State clock confidence when a time is given. A later update changes the as-of time and does not silently rewrite earlier events. |
 | Accountable role | One incident lead, or an explicit gap. | Name the role and its limit. Do not invent a person. Permitted actions are authority limits, not actions already taken. |

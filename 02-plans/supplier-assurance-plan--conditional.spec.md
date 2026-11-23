@@ -1,3 +1,24 @@
+---
+title: "Supplier assurance plan specification"
+description: >-
+  Defines the authoring contract for supplier assurance plans organizing how an acquirer or receiving organization evaluates, oversees, assesses, receives, and transitions work delivered by an external or internal supplier under actual agreements. Covers acquisition scope and oversight rights, selection or due diligence when pending, requirement flow-down and deliverable mappings, ongoing oversight and issue escalation, delivery assessment, receiving decisions, transition support, and specialist assurance interfaces.
+topics:
+  - "supplier-assurance"
+  - "acquisition-oversight"
+  - "requirement-flow-down"
+  - "delivery-acceptance"
+  - "due-diligence"
+  - "vendor-governance"
+use_when:
+  - "An acquirer needs coordinated technical oversight, deliverable flow-down, and receiving criteria for supplied items or services."
+  - "A supplier manager is planning due diligence, oversight checkpoints, issue escalation, and acceptance routes under an actual agreement."
+  - "A reviewer is checking whether supplier assurance activities stay strictly bounded by established oversight rights."
+not_for:
+  - "Negotiating commercial offers or documenting executed contract terms, which belong in proposals or contracted work agreements."
+  - "Managing internal software development without supplier acquisition oversight."
+  - "Recording actual acceptance decisions or formal transfer receipts, which belong in evidence records."
+---
+
 # Supplier assurance plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark missing facts unknown and proposed agreement terms not established, with th
 ## Finished-document contract
 
 - **Title:** Identify the acquisition or supplier scope and name its supplier assurance plan.
-- **Frontmatter:** None. Begin with the GFM title. Agreement state and assurance responsibility are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Agreement state and assurance responsibility are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and agreement state before oversight; place delivery assessment before receiving decision and transition. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Acquisition scope and authority | Required | Define supplied items or services, boundaries, criticality and affected interfaces, supplier or selection state, actual agreement and revision or proposal status, acquirer and supplier roles, decision rights, planned milestones, and material exclusions. Distinguish technical reviewers from the authority that can change terms or accept delivery. |
 | Selection and due diligence | Conditional when supplier selection, renewal, or qualification remains to be decided | State applicable evaluation criteria, evidence, evaluators and decision authority, with proportionate quality, security, safety, capacity, and supply-chain risk checks. If selection is complete, record only the established basis or known limits in the scope section. |
 | Obligations, deliverables, and flow-down | Required | Map each material supplied output or service to its actual or proposed requirements, interfaces, configuration and evidence obligations, acceptance criterion, delivery point, and responsible party. Identify which terms bind the supplier and which still require negotiation or contractual action. Include subcontractor flow-down only when applicable. |
@@ -36,7 +57,7 @@ Mark missing facts unknown and proposed agreement terms not established, with th
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Supplier scope | One bounded acquisition or supplier relationship; several suppliers may be covered only if their duties and decisions remain distinguishable. | Identify supplied item or service, technical boundary, status, and receiving organization. |
 | Agreement or project decision | One or more supplied agreements, proposals, project requirements, or authorized internal decisions. | Label each as binding, proposed, or informative; give revision, locator, and decision authority. Mark a proposed change to an agreed term as pending until the role with change authority approves it. |
 | Deliverable-to-obligation mapping | One entry for each material supplied output or service obligation. | Show requirement source, configuration or interface, due point, expected evidence, acceptance criterion, and responsible party; expose gaps rather than inventing terms. |

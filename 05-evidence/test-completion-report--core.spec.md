@@ -1,3 +1,24 @@
+---
+title: "Test completion report specification"
+description: >-
+  Defines the authoring contract for test completion reports summarizing one ended test campaign or phase—including campaigns stopped early with unmet exit criteria. Covers campaign closure and controlling source baseline, adopted completion criteria, citations to supporting execution runs, reconciled result counts, actual coverage achieved, deviations and retests, anomaly summaries, per-criterion completion assessments, residual risks and limitations, archive references, completion-review disposition, and recommendations for next testing.
+topics:
+  - "test-completion-report"
+  - "test-campaign-summary"
+  - "exit-criteria-assessment"
+  - "test-coverage"
+  - "anomaly-reconciliation"
+  - "testing-evidence"
+use_when:
+  - "A bounded test campaign or phase has ended and requires a reconciled summary against adopted exit criteria."
+  - "A test lead is aggregating run outcomes, anomalies, coverage gaps, residual risks, and recommendations for stakeholders."
+  - "A reviewer is evaluating whether campaign exit criteria were satisfied or which unmet criteria require further testing."
+not_for:
+  - "Reporting periodic mid-campaign progress and forecasts while testing is still active, which belongs in a test status report."
+  - "Recording detailed per-case observations from one single test run, which belongs in a test execution record."
+  - "Planning test scope and exit criteria before testing begins, which belongs in a test plan."
+---
+
 # Test completion report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ The campaign must have ended. If a criterion, count, run, tested configuration, 
 ## Finished-document contract
 
 - **Title:** Name the test campaign or phase and identify the document as its test completion report.
-- **Frontmatter:** None. Begin with the GFM title. Scope, results, and the recommendation belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, results, and the recommendation belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the ended campaign and its sources before the results. State unresolved items before the recommendation. Place archive and disposition last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Campaign close and source baseline | Required | Identify one ended campaign or phase, how it ended, and the period. State the test levels, items, and exclusions. Identify the configurations the cited runs actually used, or state that the tested configuration is not established. A planned version is not a tested configuration. State the adopted completion criteria and who adopted them. Identify the adopted plan edition when one exists. Cite each execution record that supports the summary, or state that the run set was assessed and name the result of that assessment. |
 | Results and completion assessment | Required | Reconcile planned scope, remaining unselected scope, and outcomes taken from cited run records. `pass`, `fail`, and `inconclusive` count attempts only. `not-run` counts cases selected for a run for which neither the stimulus nor a result assertion was performed, including a case blocked before the stimulus. Planned work never selected into a run is remaining scope, not `not-run`. A run total does not hide mixed case outcomes. If no observed source exists, mark those counts unestablished. State coverage only against a named basis. Account for deviations, retests, and anomalies without erasing an earlier result. Assess each adopted completion criterion and leave every incomplete criterion explicit. |
 | Unresolved items | Required | State the unresolved anomalies, residual risks, and limitations that remain after the campaign ended, with their actual status or uncertainty. When a class of unresolved item was assessed and none was found, say that. |
@@ -33,7 +54,7 @@ The campaign must have ended. If a criterion, count, run, tested configuration, 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Campaign identity | One ended campaign or phase. | Bind the report to its items, period, and the configurations the cited runs actually tested, or state that the tested configuration is not established. A different phase is a different report. A campaign supported by one run may still have this summary; retain citations to its supporting observations. |
 | End condition | One statement of how the campaign or phase ended. | Say whether the adopted work finished, the effort stopped, or the phase was closed. Ending is not the same as meeting every completion criterion. |
 | Completion criteria | One adopted set, or one statement that no criteria were established. | State the adopted criteria and the project role or people who adopted them. Identify any plan holding them by title or ID and edition. Do not invent a plan identifier. A report with no established criteria cannot treat the campaign as having met its exit. |

@@ -1,3 +1,24 @@
+---
+title: "Test design specification"
+description: >-
+  Defines the authoring contract for test design specifications translating a bounded test basis and risk profile into structured test conditions, justified test design techniques or models, derived planned cases or case classes, environment, data, and sequencing dependencies, and explicit coverage assessments. Bridges campaign-level test planning and detailed case authoring so teams verify basis coverage and feasibility before investing in detailed test scripts.
+topics:
+  - "test-design-specification"
+  - "test-conditions"
+  - "test-techniques"
+  - "coverage-analysis"
+  - "case-derivation"
+  - "test-engineering"
+use_when:
+  - "A bounded test basis needs explicit test conditions, justified design techniques, and planned case classes before authoring concrete cases."
+  - "A test designer is evaluating coverage completeness and surfacing data, environment, or sequencing dependencies early."
+  - "A reviewer is checking whether planned cases trace systematically to test conditions and stated risks."
+not_for:
+  - "Campaign schedules, team assignments, and entry/exit gate governance, which belong in a test plan."
+  - "Concrete input values and exact per-case pass/fail oracles, which belong in a test case specification."
+  - "Step-by-step operator execution scripts and recovery branches, which belong in a test procedure."
+---
+
 # Test design specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ When the basis, expected behavior, feasibility, or coverage decision is unknown 
 ## Finished-document contract
 
 - **Title:** Identify the test item or bounded effort and name the document as its test design specification; distinguish the applicable configuration or edition when it changes the design.
-- **Frontmatter:** None. Begin with the GFM title. Item identity, basis, and design state are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Item identity, basis, and design state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before conditions and technique; show case derivation before coverage assessment and unresolved design limits. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Design scope and basis | Required | Identify the item and target configuration the design assumes, test level or boundary, objectives, project-basis editions, relevant risks, assumptions, and material exclusions. Distinguish established test-basis obligations from proposed design choices. |
 | Test conditions and design model | Required | Enumerate distinguishable conditions or condition classes, their source and priority, applicable modes or partitions, expected behavior or oracle, and the selected techniques and rationale. Address normal, boundary, and adverse conditions that matter to the stated basis; explain omissions. If no condition or technique can yet be derived, state that gap instead of inventing one. |
 | Case derivation and dependencies | Required | Map each covered material condition to one or more planned cases or case classes with an intent and discriminating expected outcome. A material condition with no feasible case is an explicit coverage gap, not a fabricated case. Identify an actual controlled case reference when one exists; otherwise use a local design label, which does not mean a case document exists. State data, environment, instrumentation, ordering, and setup dependencies only where they affect feasibility or interpretation. |
@@ -33,7 +54,7 @@ When the basis, expected behavior, feasibility, or coverage decision is unknown 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Test item and basis | One bounded item or coherent set, with one or more real test-basis sources. | Identify the target configuration the design assumes, plus the source edition and locator where needed. A basis may be a requirement, design decision, risk, user need, or other inspectable project fact; a requirement reference is not mandatory when the test is legitimately based on something else. |
 | Test objective | One or more outcomes the design is intended to examine. | Link each to an inspected basis or explained risk and to its planned coverage. An objective is not evidence that a test passed. |
 | Test condition | Zero when no distinguishable condition can yet be derived and that gap is explicit; otherwise one or more distinct observable situations or behavior facets. | Give each a stable local or project label, source, priority or risk basis when used, expected behavior or oracle, and applicable input, mode, partition, boundary, or fault conditions. Do not collapse materially different expected outcomes into an ambiguous row. |

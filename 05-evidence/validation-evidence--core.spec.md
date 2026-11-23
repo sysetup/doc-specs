@@ -1,3 +1,24 @@
+---
+title: "Validation evidence record specification"
+description: >-
+  Defines the authoring contract for validation evidence records preserving actual observations showing whether a system or outcome demonstrated fitness for identified stakeholder, user, business, or intended-use needs within an assessed operating context. Covers evidence package boundaries, distinct planned versus acquired evidence items, subjects, contexts and participants, methods, artifact locators and integrity digests, execution identities, evidence states, pass/fail/inconclusive comparisons, review and acceptance references, coverage, and explicit sufficiency limitations.
+topics:
+  - "validation-evidence"
+  - "fitness-for-use"
+  - "observed-validation"
+  - "evidence-integrity"
+  - "stakeholder-needs"
+  - "sufficiency-limits"
+use_when:
+  - "A validation activity has acquired observations—or closed an assessed scope with none—that must be bound to stakeholder needs."
+  - "A validation lead is recording assessed contexts, criteria comparisons, artifact digests, and demonstrated versus undemonstrated fitness facets."
+  - "A reviewer is checking whether intended-use fitness claims rest on real observations rather than planned scenarios."
+not_for:
+  - "Recording technical conformity against specified engineering requirements, which belongs in a verification evidence record."
+  - "Mapping program-wide needs to planned validation activities and aggregate status, which belongs in a validation matrix."
+  - "Designing validation scenarios prior to execution, which belongs in a validation plan or validation procedure."
+---
+
 # Validation evidence record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a need, context, participant, criterion, observation, or time is unknown, sta
 ## Finished-document contract
 
 - **Title:** Name the solution or need set and identify the document as a validation evidence record.
-- **Frontmatter:** None. Begin with the GFM title. Needs, context, and results belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Needs, context, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the package boundary before the evidence items. State sufficiency and limitations after the items. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Evidence package boundary | Required | State the fitness question, the intended context, the configuration or environment the conclusions apply to, and the independence arrangement actually used or that it was not required or not established. State the established access permissions, sensitive-data handling conditions, and retention periods for the evidence, identifying any that are unknown. Separate planned evidence from acquired evidence. Keep unfavorable observations and later reassessments as separate facts. |
 | Evidence items | Required | Give one item for each distinct observation, scenario execution, or assessment attempt. When no assessment was attempted and no observation acquired, say so without fabricating an acquired item. If an attempt occurred but its observation was not captured, record the attempt and the gap as inconclusive. Include a proposed or planned item only when needed to identify expected work that did not occur; it has no result. |
 | Sufficiency and limitations | Required | State which stakeholder, user, business, or intended-use facets and conditions the acquired observations demonstrated, and which they did not. State uncertainty, sampling, unrepresentative context, configuration drift, unexamined aspects, and unresolved findings. |
@@ -32,7 +53,7 @@ If a need, context, participant, criterion, observation, or time is unknown, sta
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Package question | One fitness question for this record. | State the fitness to be assessed for identified stakeholder, user, business, or intended-use needs in an identified context. |
 | Subject | One or more subjects on each item. | Identify the need, intended-use condition, or operational scenario by title or ID, edition, and locator when that record exists. When no separate record exists, state the exact need or condition in the item. Do not invent an identifier. Identify any technical requirement cited as supporting context and state the need or intended-use condition whose fitness is assessed. |
 | Context and participants | One assessed context for each attempted item. | State the scenario or use condition actually exercised, the environment, and the participants or the proxy that stood for them. If the context or participation is unknown, the result cannot be `pass`. A laboratory condition stands for intended use only to the extent the record states that representation and its limit. |

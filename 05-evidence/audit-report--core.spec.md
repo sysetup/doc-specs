@@ -1,3 +1,24 @@
+---
+title: "Audit report specification"
+description: >-
+  Defines the authoring contract for audit reports preserving one actually performed audit or assessment, including authorization, participating parties, objectives, scope, applied criteria, examination methods, evidence actually inspected, coverage limits, classified findings tied directly to evidence, bounded conclusions, follow-up action references, and controlled distribution. Prevents presenting planned audit procedures or unexamined areas as completed assessment and keeps conclusions strictly bounded by inspected evidence.
+topics:
+  - "audit-report"
+  - "compliance-audit"
+  - "audit-findings"
+  - "examined-evidence"
+  - "coverage-limits"
+  - "assessment-evidence"
+use_when:
+  - "An audit or formal assessment has been performed and requires a factual record of criteria, inspected evidence, findings, and bounded conclusions."
+  - "An auditor is documenting coverage limitations, finding classifications, and required follow-up references without overclaiming compliance."
+  - "A reviewer is checking whether every audit conclusion traces directly to inspected evidence within declared scope boundaries."
+not_for:
+  - "Peer examination of source code diffs, which belongs in a code review record."
+  - "Lifecycle design-gate evaluations such as preliminary or critical design reviews, which belong in design review records."
+  - "Evaluating technical requirements conformity for one build, which belongs in a verification evidence record."
+---
+
 # Audit report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If authorization, a criterion, evidence, independence, or a classification defin
 ## Finished-document contract
 
 - **Title:** Name the audited subject and identify the document as an audit report.
-- **Frontmatter:** None. Begin with the GFM title. Identity, criteria, findings, and conclusions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, criteria, findings, and conclusions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State objectives and scope before the method and the evidence. State findings before conclusions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Audit identity, objectives, and scope | Required | Identify one performed audit or assessment. State who authorized it and the assigned examination scope, or that authorization is not established. Identify the client, auditee, and team, and the competence, independence, and conflict facts that are known. State the objectives, the decisions the audit was intended to inform, and the organizations, processes, sites, period, and exclusions. State the exact criteria and the project need or decision establishing their assessed scope. |
 | Method, evidence examined, and limitations | Required | State the methods, dates, and places actually used, the sampling or coverage basis, and any deviation from a plan that was followed. Identify the evidence examined, with source, date, and locator, and the integrity or access limits. State what was not examined. A completed checklist is not itself the evidence. |
 | Findings | Required | Give one finding for each classified result this audit reports. When the stated scope was assessed and no finding is reported, say so and include no placeholder finding. |
@@ -33,7 +54,7 @@ If authorization, a criterion, evidence, independence, or a classification defin
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Audit identity | One performed audit or assessment. | Bind it to the subject and the period examined. A later follow-up audit has its own identity and examination period. |
 | Authorization | One statement of the authority used, or that authority is not established. | Work without established authorization may be recorded only if the report says it was not an authorized audit. Do not invent a client or a mandate. |
 | Parties | One account of the client, auditee, team, and known competence, independence, and conflicts. | If one organization fills more than one of these roles, say so. Silence is not independence and is not a conflict clearance. |

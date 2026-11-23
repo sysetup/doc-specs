@@ -1,3 +1,24 @@
+---
+title: "Configuration item register specification"
+description: >-
+  Defines the authoring contract for configuration item registers providing controlled status accounting for candidate, actively controlled, and retained former configuration items within a product or service boundary. Covers selection and accounting rules, unique item identity, name and class, accountable owner, authoritative locator, control state and control basis, controlled revisions with effectivity, parent and baseline relationships, and open discrepancies so teams know exactly which items and revisions are under configuration control.
+topics:
+  - "configuration-item-register"
+  - "status-accounting"
+  - "controlled-revisions"
+  - "item-ownership"
+  - "baseline-links"
+  - "configuration-management"
+use_when:
+  - "A project or service needs centralized status accounting of candidate, controlled, and retained former configuration items."
+  - "A configuration manager is tracking item owners, authoritative locators, controlled revisions, parent hierarchies, and baseline links."
+  - "A reviewer is checking configuration discrepancies or verifying which revisions are currently under formal control."
+not_for:
+  - "Fixing one established multi-item snapshot for release or reproduction, which belongs in a configuration baseline record."
+  - "Tracking organizational custody and financial lifecycle of managed hardware or licenses, which belongs in an IT asset registry."
+  - "Recording point-in-time components observed by live discovery scans, which belongs in an observed IT inventory."
+---
+
 # Configuration item register specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If control selection has not been decided for a real candidate, record it as `pr
 ## Finished-document contract
 
 - **Title:** Identify the project or product boundary and name the document as its configuration item register.
-- **Frontmatter:** None. Begin with the GFM title. Selection rules, control state, and revisions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Selection rules, control state, and revisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State selection and update rules before the item index; place discrepancies after the items. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Selection and status-accounting rules | Required | State the criteria for putting an item under control, the authority for selection and decontrol, identifier rules, the system of record, update triggers, access, and consumers. State how item identities, revisions, and relationships are reconciled with actual inventory or composition observations when those are available. Define control state and effectivity so that candidate, controlled, effective, unconfirmed, and observed conditions cannot be confused. |
 | Configuration item index | Required | Include every real candidate under assessment, controlled item, and retained former item in the declared scope, or an explicit assessed-empty statement. For each item, give its immutable identity, name, class, owner or assignment gap, authoritative locator or gap, control state and basis, controlled revisions and effectivity or gaps, and parent or baseline relationships that actually exist. |
 | Discrepancies and open items | Required | Identify items with unconfirmed control state, missing owner or controlled locator, unknown revisions or effectivity, dangling parent or baseline references, and conflicts with an inventory or composition record that was actually compared. Give the consequence and route, or state that the assessed scope showed none. |
@@ -32,7 +53,7 @@ If control selection has not been decided for a real candidate, record it as `pr
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Configuration item | One governed identity; zero only when the declared scope was assessed and has no real candidate, controlled item, or retained former item. | Use one immutable identifier and do not reuse it for another item or for a new revision of the same item. A revision is not a new item identity. |
 | Name and class | One name and one class per item. | Use `hardware`, `software`, `firmware`, `document`, `data`, `service`, `model`, or `other`. For `other`, state the actual class. The class does not by itself place the item under control. |
 | Owner | One accountable role when assigned. | An unassigned owner stays unresolved. Record the actual configuration-control assignment; a custody or ownership assignment alone does not establish that role. |

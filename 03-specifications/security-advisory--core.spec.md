@@ -1,3 +1,24 @@
+---
+title: "Recipient security advisory specification"
+description: >-
+  Defines the authoring contract for recipient-facing security advisories communicating verified vulnerability applicability across affected, not-affected, and unknown product versions or configurations, separate fixed-release availability, recipient impact, independent context-bound severity assessments without composite substitutes, established update or mitigation routes, disclosure authority, revision history, and conditional bindings to checked machine-readable advisory exports. Prohibits procedural attack instructions, unverified remediation promises, and conflating advisory publication with internal vulnerability case closure.
+topics:
+  - "security-advisory"
+  - "vulnerability-disclosure"
+  - "affected-versions"
+  - "severity-assessment"
+  - "remediation-guidance"
+  - "advisory-exports"
+use_when:
+  - "A product security issue requires controlled recipient communication covering affected versions, impact, severity basis, and remediation."
+  - "A security coordinator is publishing or revising an advisory while keeping unknown applicability distinct from not-affected status."
+  - "A reviewer is checking whether independent severity assessments, disclosure authority, and optional native exports are accurately bound."
+not_for:
+  - "Tracking internal vulnerability triage, engineering fixes, and case closure, which belongs in a vulnerability record."
+  - "Coordinating internal intake and escalation workflows, which belongs in a vulnerability response playbook."
+  - "Communicating general non-security feature changes for a release, which belongs in release notes."
+---
+
 # Recipient security advisory specification
 
 ## Identity and selection
@@ -19,18 +40,18 @@ Expose unknown identity, range, fix, impact, assessment input, export check or p
 ## Finished-document contract
 
 - **Title:** Identify the product and security issue and name its recipient security advisory.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, publication state and native check status belong in the body. Governing source: Type-owned SECURITY-ADVISORY@core policy; no external publication metadata schema is selected.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, publication state and native check status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State issue identity and applicability before impact and each independent assessment. Place recipient action and limits before publication history. Place each selected native binding after the human statements it maps. Heading wording may vary.
 - **Presentation:** Required roles may share concise paragraphs, tables or lists when every range, assessment, action and selected export remains separately retrievable. Use one applicability table and one account per assessment or export. Do not add an administrative chapter for each scheme.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Human advisory (standalone) | The finished advisory owns one H1 that identifies the product, the security issue and the recipient security advisory. No YAML frontmatter is used. Edition, publication state, disclosure authority and native check status stay in the body. | GFM states applicability, assessments, actions and history. Status tokens stay exact. Bind statements to inspected evidence and actual checks. Reassess after a changed source, input, artifact or schema version. Historical claims stay attached to their edition. |
+| --- | --- | --- |
+| Human advisory (standalone) | The finished advisory begins with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one H1 identifying the product, security issue, and recipient security advisory. Edition, publication state, disclosure authority, and native check status stay in the body. | GFM states applicability, assessments, actions and history. Status tokens stay exact. Bind statements to inspected evidence and actual checks. Reassess after a changed source, input, artifact or schema version. Historical claims stay attached to their edition. |
 | Selected export (native) | A native artifact does not replace the human H1. Schema identity is carried by the selected artifact. Fields follow the selected schema version only. Missing native fields stay missing rather than being filled from prose. | Each selected schema and version controls its own syntax. Selecting no published schema does not adopt CSAF, CVSS or OSV. Validator status applies only to the checked artifact, schema version and mapping. The GFM text and any other export do not establish that result. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Advisory identity and communication scope | Required | Identify the product, issue and established advisory identifiers or gaps, audience, one current advisory edition and as-of point, draft, published, corrected or withdrawn state, disclosure limits and the client or receiving-party element when applicable. State that the advisory does not close an internal case, coordinate vulnerability response, reproduce upstream notice text or give attack instructions. A draft becomes published only after authorized issuance. Do not name an unassigned party, owner or authority. |
 | Affected and fixed applicability | Required | State affected, not-affected or unknown for every addressed version or configuration, with evidence and boundary interpretation. State fixed-version identity and actual availability separately from that status. Prerelease, backport and unsupported-line statements need an established basis. Unknown is never not-affected. |
 | Impact and assessment basis | Required | Explain recipient consequence, preconditions, known exposure limits and exploitation evidence or uncertainty, without procedural attack instructions. Repeat each independent severity assessment by product or deployment context, scheme, scheme edition, inputs, source and limits. Keep each result with that assessment. Do not replace separate assessments with a composite score or invent a missing input. |
@@ -41,7 +62,7 @@ Expose unknown identity, range, fix, impact, assessment input, export check or p
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Advisory edition | Exactly one current edition and publication-state account in Advisory identity and communication scope. | Use draft, published, corrected or withdrawn only with evidence. Later correction or withdrawal keeps the earlier history. Revision does not create case closure or disclosure permission. |
 | Applicability range | One or more product-version or configuration entries in Affected and fixed applicability. | Each entry is affected, not-affected or unknown, with its basis and boundary semantics. Fixed-release availability is a separate fact. |
 | Impact account | Exactly one impact account in Impact and assessment basis. | Bind it to evidence, preconditions and exposure limits. Keep exploitation uncertainty visible and include no procedural attack instructions. |

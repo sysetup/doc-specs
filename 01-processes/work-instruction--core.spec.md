@@ -1,3 +1,24 @@
+---
+title: "Work instruction specification"
+description: >-
+  Defines the authoring contract for work instructions giving a qualified worker an executable, detailed method for one bounded repeatable task, including required competence, work-item selection, tools, technical references, tolerances, hold points, quality checks, deviation routes, and handoff outputs. Keeps instructions tightly scoped to one task or station with explicit authority context and acceptance conditions so workers can detect nonconforming output immediately.
+topics:
+  - "work-instruction"
+  - "task-execution"
+  - "quality-checks"
+  - "hold-points"
+  - "deviation-handling"
+  - "station-method"
+use_when:
+  - "A qualified worker needs exact technique, tools, tolerances, checks, and acceptance criteria for one repeatable task."
+  - "An author is writing station-level or task-level instructions nested under a broader procedure or work order."
+  - "A reviewer is checking whether a work instruction specifies competence prerequisites, check points, and nonconforming-work routing."
+not_for:
+  - "Coordinating broader cross-role recurring workflows and organizational handoffs, which belong in a standard operating procedure."
+  - "Service-level troubleshooting and rollback operations on live infrastructure, which belong in an operational runbook."
+  - "Recording actual execution evidence of a completed task, which belongs in an operational work execution record."
+---
+
 # Work instruction specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown or not-established fact, state the gap, its consequence, the reso
 ## Finished-document contract
 
 - **Title:** Identify the single task and the item, station, or work context it applies to.
-- **Frontmatter:** None. Begin with the GFM title; task scope and authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Task scope and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put applicability, authority, and preparation before the work steps; put acceptance and handoff after them. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Task and applicability | Required | State the one task, intended output, trigger, covered item or station, limits, and any project process or work authorization that actually exists. Identify the method edition (or unified corpus version in `CHANGELOG.md` plus Git revision) when version selection matters. |
 | Authorization and preparation | Required | Define the eligible role, the work authorization required at execution time, and how the worker confirms the item or station. When the task depends on a configuration, revision, drawing edition, or equipment setup, state the check that confirms it; otherwise state that configuration selection does not change the task. List tools and materials, source drawings or parameters when they affect the task, readiness checks, and applicable hazards and controls. |
 | Detailed method | Required | Give ordered actions at the level needed to perform the task, with settings or tolerances only when established, in-process observations, and clear branch destinations. Include figures or identified details from project drawings, models, or task technical data when spatial or technical detail cannot be safely conveyed in prose. |
@@ -34,7 +55,7 @@ For an unknown or not-established fact, state the gap, its consequence, the reso
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Task boundary | One narrow, repeatable operation with a defined input and output. | Limit the method to that task; separate independent operations into individually bounded tasks. |
 | Work item selector | One way to identify the item, configuration, or station for an execution. | State how a worker confirms the correct item before changing it; never use an unspecified production target. |
 | Authority and competence | One or more eligible roles and an execution-time authorization route; checker or release role when required. | Document existence is not permission to work. Keep performer, independent checker, and release authority distinct when the real process does. |

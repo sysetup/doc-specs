@@ -1,3 +1,24 @@
+---
+title: "Operational post-incident review specification"
+description: >-
+  Defines the authoring contract for retrospective reviews of one stabilized operational incident not handled as a cybersecurity incident. Covers review scope and evidence cutoff, supported causes and contributing conditions, response and recovery effectiveness findings, evidence-bounded lessons and recommendations, concrete improvement actions with tracking references, dissemination boundaries, and review disposition so operational owners decide justified changes with clear visibility of analytical limits.
+topics:
+  - "post-incident-review"
+  - "operational-retrospective"
+  - "root-cause-analysis"
+  - "recovery-effectiveness"
+  - "incident-lessons"
+  - "service-improvement"
+use_when:
+  - "A non-cybersecurity operational incident has stabilized and a retrospective analysis of causes, response, and recovery has been performed."
+  - "A service owner is capturing contributing conditions, recovery effectiveness, and concrete improvement actions backed by evidence."
+  - "A reviewer is confirming that causal findings reflect inspected evidence and distinguish supported conclusions from speculation."
+not_for:
+  - "Contemporaneous event chronologies and live response status, which belong in an operational incident record."
+  - "Retrospective analysis of cybersecurity incidents involving dwell time or eradication, which belongs in a cybersecurity post-incident review."
+  - "Non-incident project retrospectives, which belong in a lessons learned record."
+---
+
 # Operational post-incident review specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ When a fact, cause, objective, assignment, or decision is unknown or not establi
 ## Finished-document contract
 
 - **Title:** Identify the incident and call the document an operational post-incident review.
-- **Frontmatter:** None. Begin with the GFM title; incident and review facts belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Incident and review facts belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and evidence before analysis; place lessons and follow-through after the analysis. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review scope and evidence | Required | Identify the incident, affected operation and configuration, stabilization basis, review date, participants or contributing roles, and evidence cutoff. Cite the incident record if available. Summarize only the timeline and impact needed to understand the analysis, with disputed facts and evidence limitations. |
 | Causes and contributing conditions | Required | Explain the analysis performed, supported causal factors, contributing conditions, hypotheses, and unresolved alternatives. State when no cause is established. Tie conclusions to examined evidence. |
 | Response and recovery assessment | Required | Compare actual response and recovery with established objectives. Identify strengths, failures, delays, and constraints where supported. If objectives were not established, state that limitation and identify the basis of any retrospective judgment. |
@@ -34,7 +55,7 @@ When a fact, cause, objective, assignment, or decision is unknown or not establi
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review context | One incident and one bounded review account. | Identify the reviewed incident state and evidence cutoff so later findings are not silently attributed to the earlier review. Give the actual review date and roles; do not invent meeting attendance. Stabilization does not imply full recovery or incident closure. |
 | Evidence reference | One or more inspected sources supporting the account, or an explicit evidence gap. | Identify the source and relevant revision or observation time and locator. Distinguish observations from disputed accounts and inference. Summarize the chronology relevant to the analysis. New factual conflicts identify the source entry needing reconciliation. |
 | Causal finding | Zero or more findings, with an explicit analysis result. | Each has a stable local identity, claim, supporting evidence, and classification as a supported cause, contributing condition, or hypothesis. Explain the reasoning and material alternatives or limitations. Temporal sequence alone does not establish causation. An unresolved cause stays unresolved. |

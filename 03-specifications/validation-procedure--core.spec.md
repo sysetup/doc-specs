@@ -1,3 +1,24 @@
+---
+title: "Validation procedure specification"
+description: >-
+  Defines the authoring contract for validation procedures specifying repeatable scenarios and evaluation criteria to assess whether a bounded solution is fit for identified stakeholder, user, mission, or business needs under representative operating conditions. Covers validation questions and need bases, representative use contexts, participant or actor roles, safety and readiness prerequisites, ordered validation activities, expected evidence and result interpretation rules, and acceptance relationships while bounding conclusions strictly to assessed conditions.
+topics:
+  - "validation-procedure"
+  - "intended-use-assessment"
+  - "validation-scenarios"
+  - "fitness-criteria"
+  - "representative-context"
+  - "stakeholder-validation"
+use_when:
+  - "A stakeholder, user, or mission need requires an executable validation scenario with representative actors and fitness criteria."
+  - "A validation designer is specifying scenario steps, safety prerequisites, expected observations, and result boundaries before running an event."
+  - "A reviewer is checking whether validation conclusions stay bounded to the needs and operating contexts the scenario can actually examine."
+not_for:
+  - "Assessing conformity to specified technical requirements via inspection, analysis, test, or demonstration, which belongs in a verification procedure."
+  - "Program-level validation strategy and resource scheduling, which belongs in a validation plan."
+  - "Recording actual observed validation outcomes and evidence, which belongs in a validation evidence record."
+---
+
 # Validation procedure specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a need, success criterion, representative condition, participant role, safety
 ## Finished-document contract
 
 - **Title:** Identify the solution or bounded intended-use scope and name the document as its validation procedure; distinguish the procedure or scenario edition when later results will cite it.
-- **Frontmatter:** None. Begin with the GFM title. Need basis, scenario, and evaluation criteria belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Need basis, scenario, and evaluation criteria belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the need and use context before the scenario and criteria; define prerequisites before actions and evidence and decision rules after the actions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Validation question and need basis | Required | Identify the solution and applicable configuration, one or more established project stakeholder or intended-use needs with their origins and editions, the fitness question to answer for each, scope and exclusions, and the limits of the planned conclusion. |
 | Representative use context and criteria | Required | Define the scenario, relevant user or actor roles, tasks, operating setting, interfaces, data, workload or environmental conditions, why they represent intended use, and known fidelity limits. State observable evaluation rules for each need and how qualitative judgments will be grounded in observations. Distinguish a criterion met, a criterion missed, and an unsupported comparison; an unexercised condition leaves its need unassessed. |
 | Preconditions and participants | Required | Specify starting state, required environment and data as intended conditions, participant role or proxy and its selection basis, briefing or competence needs, access or consent rules when applicable, safety and stop conditions, and checks before the event. An environment target or a data definition is not the configuration or materialized data an event used. Name actual participants only if known and appropriate to disclose; a role definition does not claim attendance. |
@@ -34,7 +55,7 @@ If a need, success criterion, representative condition, participant role, safety
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Need and validation question | One or more sourced needs, each with a bounded question about fitness for intended use. | State each need and its real project origin, with edition and locator when needed. If a technical requirement ID is used to identify a need, explain the stakeholder need it represents. |
 | Solution and context of use | One bounded solution configuration and one or more representative scenarios. | State operational roles, tasks, environment, interfaces, data, and stressors that affect fitness. Explain omitted or simulated conditions and the resulting limits on conclusions. |
 | Evaluation criterion | One or more observable rules for each material validation question. | State expected outcome, measurement or judgment method, threshold or qualitative rubric when established, and how conflicting observations will be handled. Do not invent a target or call the criterion a stakeholder acceptance decision. |

@@ -1,3 +1,24 @@
+---
+title: "Systems engineering lifecycle process specification"
+description: >-
+  Defines the authoring contract for a reusable cross-discipline systems engineering lifecycle process spanning stakeholder needs, requirements, architecture, design, integration, verification, validation, transition, and technical decision gates. Covers system boundary definition, technical authority, technical management and definition activities, realization and assessment flows, lifecycle review criteria, transition handoffs, and process feedback. Enables multi-discipline teams to coordinate technical information flows and gate readiness consistently across systems.
+topics:
+  - "systems-engineering"
+  - "lifecycle-process"
+  - "cross-discipline-coordination"
+  - "lifecycle-gates"
+  - "system-integration"
+  - "transition-handoff"
+use_when:
+  - "An organization needs a reusable cross-discipline systems engineering process covering needs through transition and technical gates."
+  - "A process engineer is defining recurring technical activities, requirement and architecture controls, and review interfaces."
+  - "A reviewer is checking whether a systems engineering process distinguishes recurring lifecycle coordination from project-specific tailoring."
+not_for:
+  - "Tailoring systems engineering roles, schedules, and gates for one specific project, which belongs in a systems engineering management plan."
+  - "Software-only development and release workflows, which belong in a software engineering lifecycle process."
+  - "Recording actual technical review outcomes or transition evidence."
+---
+
 # Systems engineering lifecycle process specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown fact, state what is missing, why it matters, the resolving action
 ## Finished-document contract
 
 - **Title:** Name the systems engineering lifecycle process and its system or organizational scope.
-- **Frontmatter:** None. Begin with the GFM title; applicability and process edition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicability and process edition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the system boundary and authority before the lifecycle flow; place gate rules after the work that supplies their inputs; end with transition and process feedback. Exact heading wording is flexible.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | System scope and technical authority | Required | Define system classes and lifecycle coverage, interfaces with disciplines and organizations, process owner, the project basis for adopted obligations and decision rights, truthful edition or state when controlled, and the authority for technical decisions and tailoring. Identify the activities, decisions, and exclusions within the process boundary. |
 | Technical management and definition | Required | Describe technical planning and control, risk and interface coordination, decision rationale, stakeholder need and requirement definition, allocation and change control, architecture development and evaluation, and the handoffs among them. State who produces and accepts each information flow and how unresolved conflicts are escalated. |
 | Realization and assessment flow | Required | Describe integration readiness and sequencing, cross-boundary interface checks, verification against specified technical obligations, validation against stakeholder or intended-use needs, anomaly disposition, and return loops. Keep verification and validation questions and evidence separate even when work is coordinated. |
@@ -34,7 +55,7 @@ For an unknown fact, state what is missing, why it matters, the resolving action
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | System boundary | One definition of the system of interest, external interfaces, lifecycle scope, and relevant exclusions. | Keep allocations to software or other disciplines explicit where they affect a handoff. |
 | Technical activity | One or more connected activities with local labels when cross-referenced. | State responsible and deciding roles, input and entry criteria, method or action, output and completion criteria, and handoff or rework route. |
 | Requirement and architecture control | One route from sourced need through system obligations, allocation, architecture decisions, and change impact. | Distinguish proposed requirements or architecture options from an authorized baseline and identify the decision needed for that transition. Retain links to affected interfaces and assessment basis. |

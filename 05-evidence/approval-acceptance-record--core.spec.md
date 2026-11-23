@@ -1,3 +1,24 @@
+---
+title: "Approval and acceptance decision record specification"
+description: >-
+  Defines the authoring contract for authoritative records preserving one actual authorized decision—approval, acceptance, authorization, rejection, conditional decision, or withdrawal—bound to a specific subject and revision. Covers decision kind, decision maker and authority basis, criteria and evidence examined, explicit outcome, decision timestamp, attached conditions or effectivity limits, independence notes, and follow-through evidence while ensuring pending requests, recommendations, attendance, or delivery alone never masquerade as an actual decision.
+topics:
+  - "approval-record"
+  - "acceptance-decision"
+  - "decision-authority"
+  - "effectivity-conditions"
+  - "formal-signoff"
+  - "decision-evidence"
+use_when:
+  - "An authorized person or governance body has made an approval, acceptance, authorization, rejection, or withdrawal decision requiring a durable record."
+  - "An author is binding a formal decision outcome, authority basis, conditions, and effectivity limits to an exact subject revision."
+  - "A reviewer is confirming whether a claimed signoff rests on real authority and evidence rather than a recommendation or delivery."
+not_for:
+  - "Recording technical architecture tradeoffs and design choices, which belong in an architecture decision record."
+  - "Indexing multiple decisions across a project without full decision authority records, which belongs in a decision registry."
+  - "Documenting technical review findings prior to separate formal acceptance, which belongs in a design review record."
+---
+
 # Approval and acceptance decision record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If the decision has not happened, do not write a finished decision record. If a 
 ## Finished-document contract
 
 - **Title:** Name the subject and decision kind, and identify the document as a decision record.
-- **Frontmatter:** None. Begin with the GFM title. The decision and its authority are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The decision and its authority are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the subject and authority before the assessed basis; state the decision after that basis, followed by effectivity and obligations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Subject and decision scope | Required | Identify exactly one decision, its kind, subject ID and immutable revision or configuration, affected parties, boundary, and the question submitted to authority. For a withdrawal, identify the prior decision being withdrawn. |
 | Authority and basis | Required | Identify the actual decision maker or body, its role, assigned or delegated decision rights, scope and validity, the concrete criteria, and the evidence it considered. State any required project independence, quorum, or delegation conditions and their observed satisfaction or gap. State any evidence or authority gap explicitly. |
 | Decision and conditions | Required | Record the actual decision wording and outcome, the decision date or time as recorded, the scope and effectivity, and any conditions, exclusions, expiry, or limits. Make the effect of an unmet condition explicit. Separate a conditional grant from a completed unconditional grant. |
@@ -33,7 +54,7 @@ If the decision has not happened, do not write a finished decision record. If a 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Decision | Exactly one actual bounded decision per record. | Do not combine unrelated subject revisions, authorities, or decisions in a single row. A later reversal or materially new decision gets its own traceable event or revision under project rules. |
 | Decision kind | One type of authority exercised. | Use the project's precise kind, such as document approval, baseline establishment, release authorization, change authorization, waiver, risk acceptance, product acceptance, review-gate disposition, operational authorization, or closure. `Other` needs a specific name and authority. These kinds do not substitute for each other. |
 | Subject | One exact entity or bounded set and immutable revision/configuration. | Identify effectivity by time, unit, location, recipient, or other relevant boundary. A mutable title or branch alone does not bind the decision. |

@@ -1,3 +1,24 @@
+---
+title: "Critical design review record specification"
+description: >-
+  Defines the authoring contract for Critical Design Review records preserving one held lifecycle gate assessing whether a detailed design is mature enough to proceed into fabrication, assembly, integration, and test within applied requirements, cost, schedule, and risk constraints. Covers review identity and authority, detailed-design editions, adopted entrance and success criteria, maturity assessments, findings, assigned actions, explicit disposition, conditions, next activities, and separation from independent formal approval.
+topics:
+  - "critical-design-review"
+  - "CDR"
+  - "detailed-design-maturity"
+  - "lifecycle-gate"
+  - "review-disposition"
+  - "systems-engineering"
+use_when:
+  - "A Critical Design Review has been held and requires an authoritative record of entrance results, detailed-design maturity assessment, and disposition."
+  - "A review chair is documenting CDR findings, action items, constraints, and conditional go-ahead rules for fabrication and integration."
+  - "A stakeholder is inspecting exact reviewed design editions and conditions decided at a held CDR gate."
+not_for:
+  - "Earlier requirements or preliminary-design gates, which belong in SRR or PDR design review records."
+  - "Test or operational readiness gates, which belong in TRR or ORR design review records."
+  - "General non-standard technical peer reviews, which belong in a project-defined technical review record."
+---
+
 # Critical design review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ State the complete criteria supplied in the project data for this review and acc
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as a Critical Design Review record.
-- **Frontmatter:** None. Begin with the GFM title. Review identity, criteria, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the detailed-design edition, and the authority before the criteria. Present entrance results before the design-maturity assessment. Present the disposition after the findings. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and authority | Required | Identify one held Critical Design Review, the system boundary, the detailed-design edition, the requirements edition used as the assessment basis, the actual date or sessions, the chair, reviewers, and decision authority. State any independence or quorum result the project requires. |
 | Adopted criteria | Required | State every entrance and success criterion established by the project for this CDR, including its required evidence and assessment rule. Identify the project criteria record, edition, and locator. Record each authorized omission or change, its reason, and its decision maker. If no criteria were established, say so. |
 | Entrance results | Required | Give one entry for each applied entrance criterion, including the required product and revision, the evidence examined, the assessment, and the rationale. Cite the detailed design when the adopted criteria require it. Cite build-to data, verification and validation products, support products, an integration plan, a runtime-environment target, and prior-review dispositions when those criteria require them. Explain how the examined evidence supports the assessment. |
@@ -34,7 +55,7 @@ State the complete criteria supplied in the project data for this review and acc
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review identity | One stable identity for one held CDR. | Bind it to the system, the detailed-design edition, and the actual date or session. A later repeat review is a different record. |
 | Detailed-design edition | One design definition the review examined. | Identify it by title or ID, edition, and locator. Name a baseline only when that is the actual status of the examined edition. Identify any proposed or subsequently changed edition separately. |
 | Requirements basis | One requirements edition against which the design was assessed. | Identify its title or ID and edition. Do not assess the design against requirements that were not in that edition unless the review records them as an explicit exception. |

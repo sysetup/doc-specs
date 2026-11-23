@@ -1,3 +1,24 @@
+---
+title: "Business or mission needs specification"
+description: >-
+  Defines the authoring contract for business or mission needs statements establishing a sourced problem or opportunity, affected stakeholder perspectives, and desired outcomes before fixing solution obligations. Covers decision framing, current conditions and sourced need statements, stakeholder groups, desired outcomes with effectiveness measures and targets, boundaries, constraints, assumptions, high-level candidate solution options with actual evaluation states, and unresolved confirmation items so sponsors decide whether and how to proceed.
+topics:
+  - "business-needs"
+  - "mission-needs"
+  - "problem-framing"
+  - "stakeholder-perspectives"
+  - "desired-outcomes"
+  - "effectiveness-measures"
+use_when:
+  - "A sponsor or analyst must establish a sourced business or mission problem and desired outcomes before committing to solution requirements."
+  - "A team is capturing stakeholder perspectives, effectiveness measures, and constraints to frame downstream option analysis."
+  - "A reviewer is checking whether a needs document separates problem framing from premature technical design choices."
+not_for:
+  - "Authorized business-level obligations and operating rules, which belong in a business requirements specification."
+  - "Stakeholder-visible system capabilities and operating concepts, which belong in stakeholder requirements or concepts of operations."
+  - "Comparing scored technical alternatives with sensitivity analysis, which belongs in a trade study report."
+---
+
 # Business or mission needs specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown baseline, stakeholder position, measure, target, source, or autho
 ## Finished-document contract
 
 - **Title:** Name the business or mission subject and identify the document as a statement of needs; a generic “Business Needs” title is insufficient.
-- **Frontmatter:** None. Begin with the GFM title. The scope, source, and decision state of the need belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The scope, source, and decision state of the need belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish purpose and current condition before desired outcomes; present any options after the needs they might address. Put unresolved decisions and confirmation state after the substantive analysis. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, scope, and decision frame | Required | State the business or mission purpose, the bounded activity or population, included and excluded concerns, the intended decision or later work this needs statement will inform, and the document's actual edition or draft state where controlled. Identify the requesting or sponsoring authority when established. |
 | Current condition and need | Required | Describe the present capability or situation, the problem or opportunity, its drivers and consequences, and the evidence or observation supporting each material claim. Distinguish observed conditions from interpretations and uncertain premises. Explain the gap between the current condition and what is sought. |
 | Stakeholders and perspectives | Required | Identify the materially affected stakeholder groups, their interests or impacts, and the real sources of those perspectives. Record disagreement or unrepresented groups that could change the need; do not imply that a group was consulted when it was not. |
@@ -36,7 +57,7 @@ For an unknown baseline, stakeholder position, measure, target, source, or autho
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Need scope | One coherent business or mission problem or opportunity area per document. | Identify the organization, mission, activity, population, and time horizon only to the extent they define applicability. Do not combine unrelated investments under a vague common heading. |
 | Need statement | One or more distinct problem, opportunity, or capability-gap statements. | Give each a stable local label or project ID, affected context, actual source, and consequence. Phrase the need without prescribing a particular system or implementation. |
 | Stakeholder group | One or more materially affected groups. | State the group's interest or impact and identify inspected evidence or an explicitly unconfirmed perspective. A list of names alone does not establish a need. |

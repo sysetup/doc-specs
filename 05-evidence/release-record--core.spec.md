@@ -1,3 +1,24 @@
+---
+title: "Release record specification"
+description: >-
+  Defines the authoring contract for release records preserving one begun or completed release attempt or distribution event—including interrupted, rolled-back, or unauthorized attempts. Covers release event identity and scope, exact targeted artifacts and baseline references, release authorization and eligibility evidence, actual distribution or deployment actions and observed checks per channel, resulting availability state, exceptions or restrictions, and recovery or retention details.
+topics:
+  - "release-record"
+  - "release-evidence"
+  - "artifact-distribution"
+  - "release-authorization"
+  - "deployment-outcome"
+  - "configuration-traceability"
+use_when:
+  - "A software, system, or documentation release attempt has started or completed and requires an accountable factual record."
+  - "A release manager is documenting exact released artifacts, baseline links, authorization evidence, channel outcomes, and restrictions."
+  - "An auditor or operator needs to determine precisely what configuration was made available and whether any interruption occurred."
+not_for:
+  - "Communicating user-facing changes and upgrade instructions to recipients, which belongs in release notes."
+  - "Maintaining a cumulative version history across multiple releases, which belongs in a cumulative changelog."
+  - "Defining a controlled item snapshot without recording distribution actions, which belongs in a configuration baseline record."
+---
+
 # Release record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a version, recipient, event result, authority, or check is unknown, state wha
 ## Finished-document contract
 
 - **Title:** Identify the release or attempted release and call the document a release record.
-- **Frontmatter:** None. Begin with the GFM title. Release identity and state are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Release identity and state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the event and exact configuration before reporting authority and checks; place the observed outcome after the actions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Event and scope | Required | Identify one bounded release event or attempt, its actual period, release identity, accountable role, intended and actual recipients or target scope, and whether the record is in progress or retrospective. Distinguish distribution, installation, activation, and use. |
 | Release target and configuration | Required | Identify each artifact or item targeted by the actual release action or attempt by stable identity, exact revision, controlled locator, and integrity or serial identifier appropriate to its form. State whether it was offered or transferred. Give baseline references only for real baselines that define part or all of the set. State material changes, compatibility limits, and known defects or deviations that apply. |
 | Authority and eligibility | Required | State the supplied project release criteria and every required authorizing decision or standing delegation, with scope, effectivity, conditions, and evidence that those conditions were met; or say why authorization is unconfirmed or absent. Identify the build, integrity, technical, security, or readiness evidence actually examined and each required check that was not completed. Release permission requires an actual decision or delegation granting it for the configuration and scope. |
@@ -34,7 +55,7 @@ If a version, recipient, event result, authority, or check is unknown, state wha
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Release event | One bounded release or attempted release. | At least one publication, transfer, deployment, or activation action or attempt must have begun. A build, packaging step, or proposed deployment alone is not a release event. Give the actual date or bounded period, without inventing timestamp precision. |
 | Release scope | One intended scope and one observed scope. | Identify audiences, channels, environments, units, or sites that matter. Keep intended recipients separate from confirmed recipients. |
 | Artifact or item | One or more exact items targeted by an actual release action or attempt. | Give identity, immutable revision or serial/effectivity, retrievable controlled locator, and whether each item was offered or transferred. A failed attempt may leave all items untransferred. For byte artifacts, record a digest and algorithm when available or required; a digest is not required for a physical item. Include a composition or inventory locator when an actual inventory covers the targeted items. |
@@ -53,5 +74,5 @@ Use an item table for multiple artifacts and an event log for actions and checks
 - The exact configuration, observed scope, and action sequence are traceable. A mutable branch name or package label alone does not identify released bytes.
 - Every required authorization matches the configuration, recipient scope, conditions, and timing claimed. An unconfirmed grant remains visibly unconfirmed.
 - Check results are observations tied to criteria and evidence. Skipped or failed checks remain visible, including after a later success.
-- Distribution, deployment, receipt, support handoff, and acceptance are not conflated. 
+- Distribution, deployment, receipt, support handoff, and acceptance are not conflated.
 - The stated outcome matches observed publication or delivery and checks. Open defects, restrictions, and recovery obligations remain actionable without fabricated closure.

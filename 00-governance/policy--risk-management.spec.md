@@ -1,3 +1,24 @@
+---
+title: "Risk management policy specification"
+description: >-
+  Defines the authoring contract for mandatory risk management policies governing how an organization, project, or service assesses, owns, treats, accepts, and reviews risks to stated objectives. Specifies required coverage of issuing authority, policy ownership, applicability and objectives, issuance state, mandatory risk directives, risk criteria and escalation rules, ownership and treatment obligations, authorized risk acceptance rules, review cadence, and exception handling. Ensures consistent accountability for risk decisions across teams.
+topics:
+  - "risk-management-policy"
+  - "risk-governance"
+  - "risk-criteria"
+  - "risk-acceptance"
+  - "risk-escalation"
+  - "organizational-governance"
+use_when:
+  - "An issuing authority needs common mandatory risk management rules across an organization, project, or service boundary."
+  - "A governance author is specifying risk criteria, escalation thresholds, ownership rules, and residual-risk acceptance authority."
+  - "A reviewer is checking whether a risk policy clearly separates risk identification from authorized risk acceptance."
+not_for:
+  - "Tracking active project or operational risks, ratings, and treatments, which belong in a risk register."
+  - "Analyzing physical or system safety hazards and mishap controls, which belong in a hazard log or safety assurance plan."
+  - "Recording already realized defects or active operational incidents."
+---
+
 # Risk management policy specification
 
 ## Identity and selection
@@ -20,12 +41,12 @@ Normally all five named risk subjects are covered. A subject may be excluded onl
 ## Finished-document contract
 
 - **Title:** Identify the governed organization, project, or service where needed and name the document as a risk management policy.
-- **Frontmatter:** None. Begin with the GFM title. Authority, scope, and policy state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, scope, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State authority, scope, and objectives before risk obligations; follow with decision rights and exceptions, then communication and policy review. Headings may use local wording if the roles below remain identifiable.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority, purpose, and applicability | Required | Identify the real issuer or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, covered objectives, people and activities, organizational and time boundaries, exclusions, and effective date only when authorized. Explain the risk governance outcome and the project objectives or decisions that establish the obligations. |
 | Mandatory risk direction | Required; subject coverage follows the approved exclusions defined above | State separately identifiable obligations for **risk criteria**, **risk ownership**, **treatment**, **acceptance**, and **risk review** wherever each subject remains in scope. For those subjects, respectively govern when risks must be identified and assessed and how a consistent method and escalation thresholds are established for the covered objectives; how each risk receives an accountable owner; who selects and authorizes treatment; what residual exposure must be considered before acceptance; and what conditions require monitoring, reassessment, or escalation. State how cross-boundary risks or criteria conflicts within scope are resolved. |
 | Risk decisions and accountability | Required | For the subjects in scope, allocate authority for criteria, ownership, treatment, acceptance, and escalation, including decisions above a role's mandate. Distinguish the risk owner from an action performer and from the acceptance authority when their duties differ. Where acceptance is covered, define its minimum recorded basis, including the accepted scope, conditions, and review point. A proposed treatment, assessment, or silence MUST NOT be described as acceptance. |
@@ -35,7 +56,7 @@ Normally all five named risk subjects are covered. A subject may be excluded onl
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Issuing authority and policy owner | One identified issuer or delegated role and one maintenance role. | An operational risk owner is not automatically the issuing authority; label a proposed issuer as proposed. |
 | Applicability and objectives | One explicit scope statement covering objectives, organizational or system boundary, affected roles, lifecycle or time horizon, and material exclusions. | State whether the policy covers adverse risks only or also opportunity-related uncertainty; do not silently extend decision rights across boundaries. |
 | Issuance state and edition | One truthful state and unambiguous edition; effective date only when decided. | Distinguish proposed, authorized but not yet effective, effective, and withdrawn or superseded in local terms. |

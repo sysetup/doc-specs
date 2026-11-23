@@ -1,3 +1,24 @@
+---
+title: "Runtime environment specification"
+description: >-
+  Defines the authoring contract for runtime environment specifications establishing the required platform state, dependencies, tooling, network zones, access controls, data rules, capacity, and readiness criteria for a bounded development, integration, staging, or production enabling environment. Allows recording an actual bounded readiness assessment for a named environment instance when performed, while keeping readiness observations clearly separate from target requirements and excluding specialized test instrumentation.
+topics:
+  - "runtime-environment"
+  - "enabling-environment"
+  - "environment-readiness"
+  - "platform-requirements"
+  - "access-boundaries"
+  - "deployment-target"
+use_when:
+  - "A development, integration, staging, or production environment needs a controlled target specification of platform state and readiness criteria."
+  - "An environment owner is specifying required tooling, connectivity, access rules, data constraints, and readiness gates."
+  - "A reviewer is checking whether an environment specification distinguishes required target state from actual instance readiness observations."
+not_for:
+  - "Test-specific instrumentation, simulators, fidelity tradeoffs, and reset rules, which belong in a test environment specification."
+  - "Enterprise network topology, routing, and wireless engineering, which belong in a network design description."
+  - "Operational governance companions wrapping versioned IaC code, which belong in a provisioning governance companion."
+---
+
 # Runtime environment specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a required target parameter, threshold, dependency, access rule, or readiness
 ## Finished-document contract
 
 - **Title:** Identify the target environment and its class as a runtime environment specification; include an edition or configuration identifier when needed to distinguish the target.
-- **Frontmatter:** None. Begin with the GFM title. Environment class, target configuration, and any actual readiness state are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Environment class, target configuration, and any actual readiness state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope and intended use before required state; place readiness criteria after the requirements and any actual assessment after its criteria. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Environment identity and scope | Required | Identify one bounded target environment, its class, intended use, supported system or software, users, lifecycle context, applicable edition, responsible decision boundary, and material exclusions or assumptions. Distinguish a class-level target from a named deployed instance. |
 | Required environment state | Required | State applicable compute, operating-system, runtime, storage, network, and platform characteristics; required versions or capabilities; data sources and handling; capacity, quotas, and scaling limits; access roles and paths; and dependencies or interfaces. Include tooling, distinct deployment or trust zones, monitoring, backup, or secret-management mechanisms when the intended use or supplied project requirements and decisions require them. Specify capabilities and configuration conditions required for readiness, with precise values, ranges, or compatibility rules where they affect readiness. |
 | Readiness criteria and use limits | Required | Give assessable criteria for the required state, the configuration to which each applies, the intended check or evidence source, and conditions or limitations on use. State the decision authority for declaring the environment usable. Planned checks specify expected conditions; only actual observations support an assessment. |
@@ -34,7 +55,7 @@ If a required target parameter, threshold, dependency, access rule, or readiness
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Environment target and class | One coherent target per finished document; one primary class: development, integration, staging, production, or a clearly defined other class. | Identify supported use and boundaries. The class integration means an enabling environment for integration work. If the same infrastructure serves multiple classes, state the applicable constraints and separation; do not silently treat one class's readiness as another's. A project identifier is included when one exists or is needed for control, without imposing a universal identifier pattern. |
 | Required characteristic | One or more assessable configuration or capability rules for every relevant facet of the target. | State the required property, applicability, value or range, units and tolerance where meaningful, version or compatibility constraint where needed, and its supplied project requirement or decision basis. Do not require a product version or platform component that the intended use does not need. |
 | Tool or dependency | Zero or more actual required tools, services, or interfaces. | Name the capability and compatible edition or constraint when it matters. Identify external owners and actual project interface definitions when they exist, and state the environment's dependency rule directly. |

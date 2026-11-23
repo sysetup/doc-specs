@@ -1,3 +1,24 @@
+---
+title: "Technical analysis report specification"
+description: >-
+  Defines the authoring contract for technical analysis reports preserving an executed or partially executed engineering, performance, modeling, or investigative analysis. Covers the stated question, progress status, bounded scope, inputs and assumptions, analytical method, performer and tool versions, data handling, observed results, quantified or qualitative uncertainty, generated artifacts, anomalies, limitations, bounded conclusions, clearly labeled proposed recommendations, review state, and references to separate decisions.
+topics:
+  - "technical-analysis"
+  - "engineering-investigation"
+  - "analytical-method"
+  - "uncertainty-bounds"
+  - "reproducibility"
+  - "analysis-report"
+use_when:
+  - "Technical investigation, modeling, benchmarking, or root-cause analysis has started or completed and requires a reproducible report."
+  - "An analyst is documenting inputs, assumptions, methods, observed results, uncertainty, limitations, and proposed recommendations."
+  - "A reviewer is assessing whether analytical conclusions stay within what the performed work and data actually support."
+not_for:
+  - "Structured multi-criteria comparison of competing options against gates to select a choice, which belongs in a trade study report."
+  - "Recording technical requirement conformance verdicts, which belongs in a verification evidence record."
+  - "Recording an authorized choice and its architecture rationale, which belongs in an architecture decision record."
+---
+
 # Technical analysis report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an input version, a tool version, a unit, a performer, or an uncertainty basi
 ## Finished-document contract
 
 - **Title:** Name the question and identify the document as a technical analysis report.
-- **Frontmatter:** None. Begin with the GFM title. The question, method, results, and conclusions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The question, method, results, and conclusions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the question and inputs before the method. State results before conclusions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Question and basis | Required | State one technical question, whether the work on that question is partial or complete, and the configuration, environment, period, and exclusions. Identify the inputs actually used. State each assumption the results depend on, or state that the assumptions were assessed and none were identified. |
 | Method used | Required | State the method and the configuration that affects the result, who or what performed the work, the data handling actually applied, and the known limitations and threats to validity. Identify each tool version that is material to reproduction, or state that the version is unknown. |
 | Results | Required | Separate observations from interpretations. State the uncertainty, sensitivity, bounds, or qualitative limits the method supports. Identify retained artifacts, or state that the result is contained in this report. Retain anomalies, failed runs, and data-quality issues that occurred, or state that those were assessed and none occurred. |
@@ -33,7 +54,7 @@ If an input version, a tool version, a unit, a performer, or an uncertainty basi
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Question | One technical question this analysis addresses. | State the technical property, behavior, cause, prediction, or constraint being examined. Keep alternative-selection decisions, requirement-conformity determinations, and intended-use acceptance determinations outside the question's scope. |
 | Progress | One statement: partial or complete for the stated question. | Partial means some of the stated work has been performed and the rest has not. Complete means this report claims the stated question was analyzed to the extent it describes. A plan with no performed work is neither, and it is not this report. |
 | Scope | One configuration, environment, period, and exclusion statement. | Results and conclusions do not extend outside that scope by silence. |

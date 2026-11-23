@@ -1,3 +1,24 @@
+---
+title: "Interface control document specification"
+description: >-
+  Defines the authoring contract for interface control documents defining and controlling a specific versioned physical, information, or behavioral interface realization across participating parties. Covers interface identity, endpoint responsibilities, controlled parameters or artifacts, compatibility matrices across version combinations, agreement state separating proposed from agreed realizations, as-built and verification citations, and joint change and effectivity governance so both sides build and maintain compatible implementations.
+topics:
+  - "interface-control"
+  - "interface-realization"
+  - "cross-party-compatibility"
+  - "interface-parameters"
+  - "agreement-state"
+  - "boundary-governance"
+use_when:
+  - "Two or more parties need a shared, controlled specification of concrete physical, data, or behavioral interface parameters."
+  - "An interface engineer is governing version compatibility rules, endpoint ownership, and joint change effectivity across a boundary."
+  - "A reviewer is checking whether proposed interface realizations are cleanly distinguished from mutually agreed baselines."
+not_for:
+  - "Stating required boundary interactions before selecting a concrete realization, which belongs in an interface requirements document."
+  - "Indexing multiple interfaces and pointers to their controlling documents, which belongs in an interface registry."
+  - "Providing consumer-facing API or CLI syntax lookup without cross-party agreement authority, which belongs in a technical reference."
+---
+
 # Interface control document specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an endpoint, parameter, version, decision role, compatibility rule, or agreem
 ## Finished-document contract
 
 - **Title:** Name the interface and identify the document as its interface control document; include the controlled edition (or unified corpus version when governed at corpus level) or configuration range when needed to distinguish it.
-- **Frontmatter:** None. Begin with the GFM title. Agreement state, applicability, and effectivity are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Agreement state, applicability, and effectivity are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish interface identity and decision basis before the controlled definition; put agreement, the intended check, compatibility, and change control after the definition. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Interface identity and control boundary | Required | Identify the interface, endpoints, participating parties and their responsibilities, applicable configurations or editions, document control identity (per-document edition or unified corpus version in `CHANGELOG.md` plus Git revision), supplied project obligations or design decisions, and authority for joint changes. State which side owns each parameter or artifact and how conflicts between controlled project definitions are resolved. Identify each cited obligation or interface identity by its actual record, edition, and scope, maintaining one controlling statement for each. |
 | Controlled realization | Required | Define the selected or proposed connection and exchange characteristics needed for both sides to interoperate: relevant geometry, connector and pin assignments, electrical or fluid limits, data and signal formats, protocol or medium, message sequencing, timing, initialization, state changes, error and degraded behavior, security or safety controls, and environmental constraints. Give units, tolerances, directions, and controlling project drawing or schema editions where they matter. |
 | Compatibility and intended check | Required | State permitted endpoint or protocol version combinations, dependencies, and migration or transition rules when versions can coexist. State the compatibility check for this definition directly, or identify a real project procedure or check record by its edition and locator. Specify the observation that would be needed for each intended check without assigning an execution result to it. |
@@ -33,7 +54,7 @@ If an endpoint, parameter, version, decision role, compatibility rule, or agreem
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Interface identity | One bounded interface or a tightly coupled set under the same parties and change authority. | Use stable IDs consistent with actual project records for the same interface; otherwise identify the boundary directly. Identify the controlling definition and version relationship for that identity, keeping unresolved definition conflicts visible. |
 | Endpoint and responsibility | Two or more actual sides or participating roles. | Identify provider or consumer direction, ownership of each side, integration responsibility, and who can accept or reject a parameter change. A contact name is not a substitute for decision authority. |
 | Project basis | At least one supplied project requirement, allocation, internal mandate, or recorded design decision that justifies the controlled definition. | Give a usable title or ID, edition, locator, and covered scope. Identify the actual controlling obligation or decision without duplicating its statement as a separately controlled version. |

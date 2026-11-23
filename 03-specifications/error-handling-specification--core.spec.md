@@ -1,3 +1,24 @@
+---
+title: "Error handling specification"
+description: >-
+  Defines the authoring contract for error handling specifications governing detection, propagation, disclosure boundaries, immediate response, recovery actions, terminal outcomes, and observability for technical faults within a bounded system or software scope. Requires explicit fault classes, caller and operator behavioral contracts, assessment bases tracing to reliability, security, safety, or interface obligations, compatibility and change rules, and visible open fault decisions so components fail predictably and safely.
+topics:
+  - "error-handling"
+  - "fault-detection"
+  - "fault-propagation"
+  - "failure-recovery"
+  - "error-observability"
+  - "behavioral-contracts"
+use_when:
+  - "A system or software scope needs explicit contracts for fault detection, error propagation, disclosure limits, and recovery behavior."
+  - "An engineer is aligning callers, operators, and security reviewers on terminal failure outcomes and diagnostic observability."
+  - "A reviewer is verifying that error semantics satisfy stated reliability, security, and interface compatibility obligations."
+not_for:
+  - "Step-by-step live incident mitigation and rollback procedures for operators, which belong in operational runbooks or playbooks."
+  - "General module structure, data schemas, and algorithms across a software item, which belong in a software design description."
+  - "Prioritizing hypothetical failure modes by criticality ranking, which belongs in failure modes and effects analysis."
+---
+
 # Error handling specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a failure condition, severity, detection threshold, ownership, outward behavi
 ## Finished-document contract
 
 - **Title:** Identify the bounded product or service and document as its error handling specification; include an applicable edition or configuration when needed.
-- **Frontmatter:** None. Begin with the GFM title. Error semantics, applicability, and decisions are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Error semantics, applicability, and decisions are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope, boundaries, and shared classification before individual fault contracts; place assessment and compatibility rules after the behavior they cover. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and failure model | Required | Identify affected components, interfaces, users or operators, operating modes, and trust or safety boundaries. Define the relevant error classes, severity or priority meanings where used, transient versus persistent distinctions, and who owns detection and response. Limit the failure model to technical faults within the stated operating boundary. |
 | Fault behavior contracts | Required | Give one distinguishable contract per material failure condition or class: trigger and detection, classification, affected state, behavior at each relevant boundary, safe or constrained response, recovery or unrecoverable disposition, observability, and user or operator action where applicable. Common rules may be stated once with explicit applicability and per-condition exceptions. |
 | Assessment basis | Required | Identify the expected observable outcomes and conditions for checking detection, response timing, propagated information, state integrity, negative cases, and recovery. State a method directly or refer to a real procedure when one exists. Identify any cited actual observation by its record and assessed configuration. Record an intended check without assigning `pass`, `fail`, `inconclusive`, or `not-run` to it. |
@@ -34,7 +55,7 @@ If a failure condition, severity, detection threshold, ownership, outward behavi
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Failure condition or class | One or more distinct technical fault contracts within the defined scope. | Give each a stable local or project identifier, triggering condition, relevant mode and actor, and classification. Keep that identifier for the same triggering condition. Do not reuse it for a different condition. Group equivalent causes only when their outward behavior and recovery obligations genuinely match. |
 | Detection | One recognition rule per contract. | Identify the observer, signal or condition, threshold, confidence or latency where these affect the required behavior. When the fault cannot be detected directly, state the proxy, timeout, or externally reported condition instead of implying certain detection. |
 | Propagation and disclosure | One outward rule per affected boundary; internal-only handling may have no external propagation. | State the recipient, status or error code and message semantics when applicable, causal context needed for diagnosis, and information that must be withheld across trust boundaries. Identify any separately controlled code, schema, or parameter by its definition and edition. State the value or semantics here when this contract controls that parameter. |

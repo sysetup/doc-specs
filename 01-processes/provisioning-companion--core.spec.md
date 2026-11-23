@@ -1,3 +1,24 @@
+---
+title: "Provisioning governance companion specification"
+description: >-
+  Defines the authoring contract for human-readable governance companions paired with authoritative infrastructure-as-code or automated provisioning codebases without duplicating executable desired state. Covers source binding, desired-state boundaries, target selectors, deployment authorization, state and secret protection, controlled provisioning stages, outcome verification, failure recovery, drift disposition, deprovisioning controls, and known check limitations. Ensures operators, maintainers, and reviewers govern automated provisioning safely while keeping versioned code authoritative.
+topics:
+  - "infrastructure-provisioning"
+  - "governance-companion"
+  - "infrastructure-as-code"
+  - "deployment-gates"
+  - "drift-control"
+  - "deprovisioning"
+use_when:
+  - "A team manages infrastructure with versioned provisioning code and needs a human-readable governance companion for targets, gates, and drift."
+  - "An author is documenting deployment authorization, secret boundaries, verification checks, and teardown rules around provisioning artifacts."
+  - "A reviewer is verifying that a provisioning companion binds to authoritative code without copying executable configuration."
+not_for:
+  - "Executing manual step-by-step operational procedures on a live service without a provisioning codebase, which belong in a runbook."
+  - "Designing network topology or runtime environment specifications before provisioning code exists."
+  - "Recording actual executed deployment runs or release attempts, which belong in execution or release records."
+---
+
 # Provisioning governance companion specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For unknown or not-established facts, record the gap, effect, resolving action, 
 ## Finished-document contract
 
 - **Title:** Name the provisioning system or resource scope and identify the document as its governance companion.
-- **Frontmatter:** None. Begin with the GFM title; source and target binding belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Source and target binding belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the authoritative source and permitted targets before readiness and stages; put failure, drift, and deprovisioning after the deployment and verification paths. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Source, desired-state boundary, and applicability | Required | Identify the authoritative code or artifact and repository/path, its revision binding rule, managed resource classes, relevant requirements, excluded resources, and which source wins on conflict. Summarize the managed intent and boundary without duplicating executable configuration. |
 | Targets, authority, and security | Required | Define allowed account, tenant, environment, region, or resource selectors as applicable; selection and confirmation rules; roles and change authority; identity and least-privilege rules; secret references; and protection of state, plans, logs, and outputs that may expose sensitive data. |
 | Readiness and controlled stages | Required | State supported tool and dependency context, backend and lock/readiness checks where applicable, prerequisites, and the ordered stages validate, preview or plan, review, approval, apply, and verify as supported by the actual stack. Describe each of those stages the stack supports. Declare each of those names the stack does not support as `not-used-by-stack` with the stack basis. Do not invent a command for an unsupported stage. Give hold and reapproval rules when source, target, or plan changes. |
@@ -37,7 +58,7 @@ For unknown or not-established facts, record the gap, effect, resolving action, 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Authoritative source | One codebase or machine-artifact set for this companion, with a stable locator and revision binding rule. | State how an immutable revision is selected for execution; identify relevant module/provider or dependency locks when they affect reproducibility. |
 | Desired-state boundary | One bounded description of managed resource classes and excluded or externally owned state. | Identify the actual requirement or design decision and its locator when it establishes the managed scope; summarize the boundary without duplicating executable configuration. |
 | Target selector | One or more allowed target classes or explicitly bounded targets. | State how the operator or automation confirms account, tenant, environment, and resource before an apply or destroy. An unspecified production target is invalid. |

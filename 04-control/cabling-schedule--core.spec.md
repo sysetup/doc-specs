@@ -1,3 +1,24 @@
+---
+title: "Cabling schedule specification"
+description: >-
+  Defines the authoring contract for physical cabling schedules identifying every cable, patch panel, port assignment, and connected endpoints across a bounded network or facility cabling plant. Requires explicit distinction between planned and as-built row states, plant identity and as-of currency, and transparent visibility of missing or unverified port records so designers, installers, and maintenance technicians trace physical cable paths accurately without conflating planned runs with installed reality.
+topics:
+  - "cabling-schedule"
+  - "physical-cabling"
+  - "patch-panels"
+  - "port-mapping"
+  - "as-built-records"
+  - "network-infrastructure"
+use_when:
+  - "Network engineers, installers, or facility operators need a controlled schedule mapping cables, patch panels, ports, and endpoints."
+  - "An author is documenting planned or as-built physical cabling paths while exposing unverified connections or plant gaps."
+  - "A technician needs to determine exact panel-to-endpoint cabling connectivity at a stated as-of point."
+not_for:
+  - "Recording logical IP prefix, VLAN, and hostname assignments, which belongs in a network allocation register."
+  - "Designing logical network topology, routing, and security zones, which belongs in a network design description."
+  - "Tracking firewall or ACL traffic rules, which belongs in a network access rule register."
+---
+
 # Cabling schedule specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a cable, panel, port, or endpoint is unknown, record the gap. Do not invent a
 ## Finished-document contract
 
 - **Title:** Identify the site or plant and name the document as its cabling schedule.
-- **Frontmatter:** None. Begin with the GFM title. Plant identity and the as-of point belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Plant identity and the as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the plant and the meaning of planned and as built before the cable rows. State gaps after or with the rows. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity and scope | Required | Identify the site or plant, the as-of point, the space the schedule covers, and what it excludes. Include the client or receiving-party element from this contract when applicable. |
 | Cable rows | Required | For each cable in scope, identify the cable, the panel, the port, and the endpoints, and label the row planned or as built. If no cable is yet identified, say so instead of adding a placeholder row. |
 | Gaps | Required | Identify missing ports, endpoints, or labels, and any row whose planned or as-built state is not established. State the next action. |
@@ -32,7 +53,7 @@ If a cable, panel, port, or endpoint is unknown, record the gap. Do not invent a
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Plant scope | One site or cabling plant per schedule. | State the as-of point and the spaces included. |
 | Cable | Zero or more cables in that plant. | Give each cable a stable identity within the schedule. Do not reuse an identity for a different cable. |
 | Panel and port | The panel and port for each stated end that has them. | Name the panel and the port. A missing port stays a gap. Do not invent a port number. |

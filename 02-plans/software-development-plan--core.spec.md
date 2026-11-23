@@ -1,3 +1,24 @@
+---
+title: "Software development plan specification"
+description: >-
+  Defines the authoring contract for software development plans coordinating work organization, schedules, delivery increments, development environments, configuration controls, secure development practices, third-party component obligations, assessment and quality gates, release preparation, plan change response, and transition to maintenance support. Equips software leads, developers, security and quality roles, suppliers, and release decision makers to coordinate project-specific software development and readiness before controlled release execution.
+topics:
+  - "software-development-plan"
+  - "delivery-increments"
+  - "secure-development"
+  - "build-infrastructure"
+  - "release-preparation"
+  - "support-handoff"
+use_when:
+  - "A software delivery effort needs a coordinated plan covering increments, development environments, secure builds, gates, and support handoff."
+  - "A software lead is assigning responsibilities, third-party obligations, and release readiness criteria across a defined project."
+  - "A reviewer is verifying that development controls, assessment gates, and change responses match project delivery obligations."
+not_for:
+  - "Reusable organization-wide software lifecycle rules, which belong in a software engineering lifecycle process."
+  - "Post-delivery bug fixes, enhancements, and end-of-support coordination, which belong in a software maintenance plan."
+  - "Detailed software architecture, module design, or requirements specifications."
+---
+
 # Software development plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Identify an unknown fact or undecided choice with its effect, resolving action, 
 ## Finished-document contract
 
 - **Title:** Identify the project or software item and name its software development plan.
-- **Frontmatter:** None. Begin with the GFM title; project boundary and plan state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Project boundary and plan state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish delivery scope and authority before the work strategy; present build and assurance controls before release and handoff. Exact heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Delivery scope and planning basis | Required | Identify software items or increments, intended users and operating context, delivery and acquisition boundaries, excluded work, established project obligations and explicit criteria with project-record IDs and versions, lifecycle approach, assumptions, and the actual planning and release decision roles. Distinguish established obligations from proposals. |
 | Work organization and schedule | Required | Define requirements allocation and change handling, design and interface work, implementation, integration, review, and expected outputs. Assign roles, resources, dependencies, milestones or increment gates, and an action for schedule uncertainty. Coordinate system and supplier work through actual scope, responsibilities, handoffs, and decision rights. |
 | Development environment and configuration | Required | Define repositories, branching or change integration rules when relevant, controlled source and dependency inputs, toolchain and environment boundaries, build and integration method, reproducibility or integrity needs, and how a candidate maps to its requirements and configuration. Name tool-specific settings only when selected. |
@@ -36,7 +57,7 @@ Identify an unknown fact or undecided choice with its effect, resolving action, 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Software delivery scope | One bounded project or effort; one or more software items or increments. | Identify item and delivery configuration or versioning approach, interfaces, exclusions, and whether work is developed, acquired, or integrated. Do not imply a release already exists. |
 | Development work item or increment | One or more planned units of work. | Connect the work to its obligation or planning basis, output, responsible role, dependency, expected timing or gate, and review or completion criterion. A date or estimate is proposed until committed. |
 | Development infrastructure and product security obligations | One treatment of each concern, with concrete controls only where selected. | State source/build environment protection and the software's own security requirements with their respective scopes. Relate each selected practice to an established project need, allocation, or decision with record ID and version, owner, planned actions, explicit criterion, and expected evidence. |

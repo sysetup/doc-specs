@@ -1,3 +1,24 @@
+---
+title: "Needs and intended-use validation matrix specification"
+description: >-
+  Defines the authoring contract for validation matrices tracking how in-scope stakeholder, business, mission, or intended-use needs map to representative validation scenarios, evaluation criteria, assessment methods, acquired validation evidence, acceptance references, and current fitness outcomes. Ensures every row evaluates a true desired outcome or intended-use question under representative conditions rather than a prescribed technical obligation, exposing uncovered, failed, or inconclusive needs clearly.
+topics:
+  - "validation-matrix"
+  - "needs-validation"
+  - "fitness-coverage"
+  - "scenario-mapping"
+  - "intended-use-accounting"
+  - "validation-status"
+use_when:
+  - "A bounded set of stakeholder, business, or mission needs requires a consolidated tracking view of validation scenarios and fitness outcomes."
+  - "A validation lead is monitoring which needs have credible validation paths and which remain uncovered, failed, or inconclusive."
+  - "A reviewer is checking whether intended-use fitness accounting cites real validation evidence under representative conditions."
+not_for:
+  - "Tracking technical requirement conformity via inspection, analysis, or test, which belongs in a requirements verification matrix."
+  - "Recording detailed per-event validation observations and artifact digests, which belongs in a validation evidence record."
+  - "Planning program-level validation schedules and resources before execution, which belongs in a validation plan."
+---
+
 # Needs and intended-use validation matrix specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a need source, scenario, criterion, configuration, method, or responsible rol
 ## Finished-document contract
 
 - **Title:** Identify the solution or intended-use scope and name the document as its validation matrix.
-- **Frontmatter:** None. Begin with the GFM title. Need basis, mappings, and results belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Need basis, mappings, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and status rules before the mappings; place coverage and unresolved findings after them. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, need basis, and status rules | Required | Identify the solution and configuration boundary, need sources and editions, included and excluded use questions, status meanings, and who maintains the matrix. State the intended-use fitness question assessed by the entries. |
 | Need-to-validation mappings | Required | Include every in-scope need or an explicit assessed-empty or source-gap statement. For each mapping, show the need, scenario and user or proxy population, representative conditions and fidelity limits, evaluation criteria, method, target configuration, and responsible role. Show evidence and an assessment result only for work that occurred. A selected scenario that was not attempted may be recorded as `not-run` with its bounded event and reason, but has no actual evidence. |
 | Coverage, limits, and unresolved work | Required | Judge each need across its scenarios and real results. Identify missing scenarios, non-representative conditions, failed or inconclusive outcomes, stale results after a need or solution change, and the route for reassessment. Keep a favorable result separate from stakeholder or receiving-party acceptance. |
@@ -32,7 +53,7 @@ If a need source, scenario, criterion, configuration, method, or responsible rol
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Need identity | One entry for each in-scope need or intended-use question; zero only with an explicit assessed-empty or unresolved-source statement. | Give a stable project identifier when one exists, plus source, edition, and locator. A locally stated need must name its real origin. State the stakeholder-visible outcome, business or mission need, or intended-use question. A prescribed technical or organizational obligation alone is insufficient; establish the outcome or use question to be assessed. |
 | Validation mapping | One or more mappings when a validation path exists; zero for a visible uncovered need. | Several scenarios may support one need. Do not count each row as a separate need. Identify scenario, actors or proxies, conditions, criterion, method, configuration, and responsible role. |
 | Scenario and representativeness | Required on every mapping that claims a validation path. | State the user or operator population, task, environment, and known simulation or sampling limits. A scenario name without those conditions does not show that intended use was represented. |
@@ -50,4 +71,4 @@ Use a need-centered table or linked tables with columns for need, scenario and p
 - Scenario, population, conditions, and criterion can actually inform the stated use question; an identifier link alone is not validation.
 - Planned work, observed fitness, and an authorized acceptance decision remain separate.
 - Failed, inconclusive, invalid, and superseded results stay visible. A planned reassessment changes no coverage state; a later checked pass can support `met` only after any earlier contradictory finding is resolved for the stated scope.
-- Coverage counts needs and declared use conditions, not duplicate scenario rows. 
+- Coverage counts needs and declared use conditions, not duplicate scenario rows.

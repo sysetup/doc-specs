@@ -1,3 +1,24 @@
+---
+title: "Standard operating procedure specification"
+description: >-
+  Defines the authoring contract for standard operating procedures governing recurring organizational or operational classes of work across roles, inputs, decision points, holds, controls, handoffs, and required records. Specifies trigger and applicability boundaries, role and decision authority, readiness inputs, ordered workflow steps and handoffs, abnormal routing, record retention, and periodic procedure review. Applies to recurring work classes even when performed by a single role.
+topics:
+  - "standard-operating-procedure"
+  - "recurring-workflow"
+  - "role-handoffs"
+  - "hold-points"
+  - "operational-controls"
+  - "work-records"
+use_when:
+  - "A recurring organizational or operational class of work needs standardized roles, readiness inputs, decision holds, and handoff rules."
+  - "An author is documenting a repeatable multi-step process with abnormal routing and required completion records."
+  - "A reviewer is verifying that a procedure clearly defines triggers, decision authority, and abnormal-work escalation."
+not_for:
+  - "Target-specific service commands, expected system observations, and rollback paths, which belong in an operational runbook."
+  - "Fine-grained technique, tooling, and tolerances for one single workstation task, which belong in a work instruction."
+  - "High-level lifecycle governance across multiple disciplines, which belongs in a lifecycle process."
+---
+
 # Standard operating procedure specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown or not-established fact, state the gap, its effect, the resolving
 ## Finished-document contract
 
 - **Title:** Name the recurring procedure and its organizational or operational scope.
-- **Frontmatter:** None. Begin with the GFM title; applicability and process authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicability and process authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and responsibility before prerequisites and activities; state abnormal routes before completion and record instructions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose and applicability | Required | State the outcome, trigger, process boundary, and exclusions. The boundary is the recurring class of work. When execution depends on a specific target or configuration, state the selection rule used at execution time. State the condition for using a different method, or that no alternative method is designated. Identify the method and edition to use when multiple methods may be active (which may be satisfied by a unified corpus version in `CHANGELOG.md` plus Git revision). |
 | Roles and decision authority | Required | Identify the process owner (or inherit an explicit default maintainer declared at the corpus/catalog level when recorded in the root catalog and not overridden) and the performing roles. Identify a receiving role, a release role, and segregation or an independent check only when the workflow has that role or check. State decision rights and escalation authority. |
 | Inputs and readiness | Required | Define accepted inputs, competence and permissions, needed resources or facilities, preflight checks, and the conditions that prevent work from starting. State the concrete controls needed to meet the workflow's established safety limits and supplied work commitments. |
@@ -35,7 +56,7 @@ For an unknown or not-established fact, state the gap, its effect, the resolving
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Trigger and scope | One or more bounded triggers and one applicability statement for the recurring workflow. | Distinguish out-of-scope cases and identify who resolves an ambiguous case. |
 | Role and authority | One accountable process owner and one or more performing roles; receiving and release roles as applicable. | A role's participation MUST NOT be treated as authority to approve or release a hold unless that right is established. |
 | Input and output | One or more required inputs and expected outputs for the workflow; intermediate items where they control handoffs. | State acceptance or readiness criteria and the receiving role for each material output. |

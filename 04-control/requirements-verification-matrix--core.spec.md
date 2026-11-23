@@ -1,3 +1,24 @@
+---
+title: "Requirements verification matrix specification"
+description: >-
+  Defines the authoring contract for requirements verification matrices providing requirement-by-requirement accounting of planned verification methods, assessable success criteria, linked activities, optional acceptance-test or preflight classifications, actual evidence citations, observed results, and current conformance coverage across a bounded technical requirement set. Keeps displayed requirement text strictly read-only, excludes non-technical needs, requires real assessment entries for results, and separates verification coverage from product acceptance.
+topics:
+  - "verification-matrix"
+  - "requirements-verification"
+  - "conformance-coverage"
+  - "verification-methods"
+  - "acceptance-classification"
+  - "verification-status"
+use_when:
+  - "A bounded set of technical requirements requires a requirement-by-requirement verification planning and conformance coverage view."
+  - "A verification lead is tracking mapped methods, criteria, executed evidence links, and unverified facets across configurations."
+  - "A reviewer is identifying unresolved verification gaps before release or acceptance decisions."
+not_for:
+  - "Tracking stakeholder or mission need fitness scenarios, which belongs in a needs and intended-use validation matrix."
+  - "Recording detailed observations and artifact digests from one verification event, which belongs in a verification evidence record."
+  - "General multi-endpoint tracing across design and decisions, which belongs in a requirements traceability matrix."
+---
+
 # Requirements verification matrix specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a requirement source, criterion, method, configuration, activity, responsible
 ## Finished-document contract
 
 - **Title:** Identify the item or requirement baseline and name the document as its requirements verification matrix.
-- **Frontmatter:** None. Begin with the GFM title. Verification basis and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Verification basis and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the controlled requirement set and status rules before the mappings; place coverage and unresolved findings after them. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, sources, and assessment conventions | Required | Identify the item and configuration boundary, requirement sources and editions, applicable baseline or as-of point, included and excluded obligations, method and phase vocabulary, established project success criteria and the role authorized to resolve them, status and result meanings, and who maintains the matrix. State how any displayed requirement text is refreshed from its source. |
 | Requirement verification mappings | Required | Include every in-scope technical requirement or an explicit assessed-empty/source-gap statement. For each separately assessable facet, show the source ID and locator, criterion, selected or pending method, target configuration or sample, planned level/event and responsible role, and expected evidence. Show actual evidence and assessment results only for work that occurred, with the edition and configuration assessed. A selected activity that was not attempted may be recorded as `not-run` with its bounded event and reason, but has no actual evidence. Mark acceptance-test classification when used; include preflight classification only for applicable flight work. |
 | Coverage, limits, and unresolved work | Required | Assess each requirement against the union of its facets and real results. Identify unplanned, partial, failed, inconclusive, deferred, or stale coverage, method and environment limits, deviations, open actions, and the route for reassessment after source or item change. State coverage for the assessed configuration without inferring an acceptance decision. |
@@ -32,7 +53,7 @@ If a requirement source, criterion, method, configuration, activity, responsible
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Requirement identity | One entry for each in-scope applicable technical requirement; zero only with an explicit assessed-empty or unresolved-source statement. | Give its stable ID, authoritative document and edition, exact paragraph or equivalent locator, and effectivity. A displayed statement MAY be a source-derived read-only snapshot tied to that edition; it MUST NOT become an independently editable master. |
 | Assessment mapping | One or more mappings for each assessable facet when a plan exists; zero for a visible uncovered facet. | Several methods or events may jointly cover one requirement. Identify the facet, method, criterion, target item/configuration, planned level or phase, performer, and expected evidence without double-counting the requirement. |
 | Success criterion | At least one established comparison rule per planned facet. | Give observable, limit or expected condition, units, tolerance, environment, sampling, and uncertainty treatment where they affect judgment. The criterion must be consistent with the source obligation; a missing value is a gap, not an invented pass/fail rule. |

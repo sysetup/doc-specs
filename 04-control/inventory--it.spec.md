@@ -1,3 +1,24 @@
+---
+title: "Observed IT inventory specification"
+description: >-
+  Defines the authoring contract for observed IT inventories capturing hardware, software, or service components actually discovered within a stated operational boundary at recorded observation times. Covers collection boundary, methods, refresh cadence, reconciliation rules against asset or baseline records, observed component identities, types, owners, locations, discovered versions, collection sources, dependencies, criticality, observation status, reconciliation evidence, and open discrepancies while excluding desired-state definitions and approval decisions.
+topics:
+  - "IT-inventory"
+  - "observed-components"
+  - "discovery-reconciliation"
+  - "asset-discovery"
+  - "configuration-discrepancies"
+  - "operational-visibility"
+use_when:
+  - "Operations, security, or configuration teams need a dated factual account of IT components actually observed in a boundary."
+  - "An engineer is reconciling discovered host, software, or service attributes against governed asset registries or approved baselines."
+  - "A reviewer is examining collection coverage limits, unknown owners, or unreconciled inventory drift."
+not_for:
+  - "Maintaining governed ownership, custody, and lifecycle authority for assets, which belongs in an IT asset registry."
+  - "Declaring desired baseline definitions or formal configuration releases, which belongs in configuration baseline or item records."
+  - "Listing embedded third-party software libraries inside one packaged release, which belongs in a software composition record."
+---
+
 # Observed IT inventory specification
 
 ## Identity and selection
@@ -19,13 +40,13 @@ If an owner, version, location, or reconciliation result is unknown, record the 
 ## Finished-document contract
 
 - **Title:** Identify the system or service boundary and name the document as its observed IT inventory, including the observation as-of point.
-- **Frontmatter:** None. Begin with the GFM title. Collection limits, observation times, and reconciliation status belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Collection limits, observation times, and reconciliation status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the boundary, collection, and reconciliation rules before the entries; place unresolved discrepancies after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
-| Boundary, collection, and refresh | Required | Identify the system or service scope, accountable owner, completeness definition, and exclusions. Describe each authorized discovery or attestation method, its source revision, observation window, and blind spots. State the project's review interval and change triggers.  |
+| --- | --- | --- |
+| Boundary, collection, and refresh | Required | Identify the system or service scope, accountable owner, completeness definition, and exclusions. Describe each authorized discovery or attestation method, its source revision, observation window, and blind spots. State the project's review interval and change triggers. |
 | Reconciliation rules | Required | State how duplicates, unrecognized components, unknown owners, and expected-but-absent components are handled. Compare with an approved baseline or asset registry only when that record was identified; otherwise state that the comparison was not performed. Keep discovered attributes separate from identifiers or approved revisions obtained through comparison. A comparison records correspondence and discrepancies; it grants no approval, baseline release, or authorization. |
 | Observed entries | Required | Include one entry for each observed instance and for each expected instance this collection accounts for as missing, or an explicit statement that the completed collection found none. Record only attributes the source reported, the observation time, and the reconciliation facts that exist. |
 | Open discrepancies | Required | List duplicate identities, unknown owners, unobserved versions or locations, unmatched components, and comparisons not yet performed, each with its consequence, or state that the assessed collection left none. |
@@ -33,7 +54,7 @@ If an owner, version, location, or reconciliation result is unknown, record the 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Inventory entry | One distinct component instance in this account. | Keep the entry identifier stable for that instance and do not reuse it for a different instance. Do not merge two instances because they share a product name. Within one inventory, a later observation of the same instance updates that entry and keeps a material conflict visible. A separate point-in-time inventory may assign its own entry identifiers. |
 | Asset reference | Required to address for each entry. | Cite a real asset-registry identifier when the instance is registered. Otherwise state that it is unregistered or that registration was not established. Do not invent an asset identity, and do not treat this inventory identifier as that asset identity. |
 | Observed component identity | One identifier and its issuing source for each seen instance. | For a `missing` entry, give the expected identifier and the named source of the expectation. The inventory entry identifier and the source-system identifier may differ; do not collapse them silently. |

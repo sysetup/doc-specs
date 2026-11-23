@@ -1,3 +1,24 @@
+---
+title: "Distributed third-party notices specification"
+description: >-
+  Defines the authoring contract for distributed third-party notices documents assembling faithfully preserved upstream copyright notices, license texts, required attributions, and additional distribution obligations accompanying one identified distributed artifact. Covers distribution identity and source basis, notice-bearing component mapping, verbatim upstream notice preservation, reconciliation against distributed contents, packaging instructions, and explicit unresolved distribution items while excluding component inventory metadata alone, novel license drafting, and legal certification.
+topics:
+  - "third-party-notices"
+  - "license-attribution"
+  - "open-source-notices"
+  - "distribution-obligations"
+  - "copyright-preservation"
+  - "release-packaging"
+use_when:
+  - "A distributed software package or artifact includes third-party components carrying notice, copyright, or license-text attribution duties."
+  - "A release maintainer is assembling verbatim upstream notices and reconciling them against the exact distributed artifact."
+  - "A reviewer is verifying source traceability and unresolved notice gaps without fabricating redistribution rights or legal certification."
+not_for:
+  - "Maintaining an internal inventory of component versions, origins, and licenses alone, which belongs in a software composition record."
+  - "Communicating user-facing feature changes or security vulnerabilities, which belong in release notes or security advisories."
+  - "Negotiating commercial intellectual-property terms in a contract, which belongs in a contracted engineering work agreement."
+---
+
 # Distributed third-party notices specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown component version, upstream text, distribution scope, rights, att
 ## Finished-document contract
 
 - **Title:** Identify the distributed artifact and version and name its third-party notices.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify distribution scope and provenance before component notices; put required modification or offer information with the affected notice, followed by placement checks and unresolved obligations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Distribution identity and source basis | Required | Identify actual artifact, version or immutable package identity, distribution boundary, component evidence and notice-source editions, permitted audience, and the client or receiving-party element when applicable. State the controlling notice files and their intended locations. |
 | Component notices and attribution | Required | For each component with an applicable obligation, identify included version and origin and faithfully preserve required copyright, license, notice, and attribution text from inspected upstream sources. Record authorized substitutions without changing substantive legal wording. |
 | Additional distribution obligations | Conditional when inspected source terms require modification notices, source availability information, written offers, or other accompanying statements | Provide required accompanying information only from the actual obligation and authorized arrangement, with affected component, source, period or scope, and usable location. Do not invent source-offer commitments or apply one component's obligations universally. |
@@ -33,7 +54,7 @@ Expose unknown component version, upstream text, distribution scope, rights, att
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Distributed artifact | Exactly one artifact and version or explicitly bounded package set in Distribution identity and source basis. | Bind the obligation assessment to actual distributed contents, not every development dependency. |
 | Notice-bearing component | One or more entries in Component notices and attribution. | Each has included identity, version, origin, and source terms; if no applicable notice obligation exists, use a reasoned distribution assessment rather than this populated notice contract. |
 | Upstream notice text | One or more required text blocks or exact attachments per applicable component in Component notices and attribution. | Preserve text and authorized substitutions faithfully; a license identifier or link alone is insufficient when text must accompany distribution. |

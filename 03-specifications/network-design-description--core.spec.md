@@ -1,3 +1,24 @@
+---
+title: "Network design description specification"
+description: >-
+  Defines the authoring contract for network design descriptions stating the intended topology, trust segmentation, routing and forwarding architecture, planned prefix and naming design, conditional wireless access design, and supporting network services for one enterprise or data-center network. Covers network boundaries, segments and security zones, route requirements, intended addressing plans, diagrams, service dependencies, and unresolved design decisions so implementers realize a controlled network baseline.
+topics:
+  - "network-design"
+  - "network-topology"
+  - "segmentation"
+  - "routing-design"
+  - "addressing-plan"
+  - "wireless-design"
+use_when:
+  - "An enterprise or data-center network requires a controlled design defining topology, segmentation, routing, addressing, and network services."
+  - "A network architect is specifying trust zones, wireless coverage design, and supporting infrastructure dependencies for implementation."
+  - "A reviewer is checking whether intended network design choices stay distinct from live operational assignments and open decisions."
+not_for:
+  - "Recording live prefixes, VLANs, and DNS assignments currently in force, which belong in a network allocation register."
+  - "Tracking active firewall, ACL, or zone enforcement rules, which belong in a network access rule register."
+  - "Documenting physical cable, patch panel, and port connections, which belongs in a cabling schedule."
+---
+
 # Network design description specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If topology, a segment, a route, an address plan, a wireless parameter, or a ser
 ## Finished-document contract
 
 - **Title:** Identify the network and name the document as its network design description.
-- **Frontmatter:** None. Begin with the GFM title. Network identity and design state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Network identity and design state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity and scope before topology and segmentation. State routing, intended addressing, wireless design, and network services before unresolved decisions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity and scope | Required | Identify the network, its boundary, included sites or facilities, connected system elements, exclusions, and design state. Include the client or receiving-party element from this contract when applicable. Identify its allocation and connection relationships within the supplied project system context, citing the actual project record and edition when one exists. |
 | Topology and segmentation | Required | State the required topology and the segments or zones, including what each segment is for and which trust boundary it represents. State which classes of traffic the design intends to keep apart and how the intended topology establishes those boundaries. |
 | Routing | Required | State the required routing relationships, including how segments reach one another, any default or external path, and the failure behavior the design requires. Leave an undecided path as a gap. Do not paste a device configuration as a substitute for the requirement. |
@@ -36,7 +57,7 @@ If topology, a segment, a route, an address plan, a wireless parameter, or a ser
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Network boundary | One network per document. | Name what is inside and outside, including external connections. Do not expand the boundary to cover an undescribed network. |
 | Segment or zone | One or more required segments, or an explicit statement that segmentation is unresolved. | Give each segment a stable name, its purpose, and its trust relationship to the others. The name identifies the logical zone; state any intended VLAN identifier and its decision state separately when relevant. |
 | Route requirement | One or more required paths, or an explicit gap for a path the design must decide. | State the source, destination, and intended forwarding or failure behavior. A vendor command list is not the requirement. |

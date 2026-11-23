@@ -1,3 +1,24 @@
+---
+title: "Network access rule register specification"
+description: >-
+  Defines the authoring contract for network access rule registers recording active, proposed, disabled, or superseded ACL, firewall, and security-zone enforcement rules within a stated network enforcement boundary. Covers boundary identity and currency, individual rule specifications, accountable rule owners, stated operational or security intent, current enforcement status, and visibility of undocumented or orphaned rules while excluding secret values, credentials, and live verification test results.
+topics:
+  - "network-access-rules"
+  - "firewall-register"
+  - "ACL-rules"
+  - "zone-policies"
+  - "rule-ownership"
+  - "network-security"
+use_when:
+  - "A bounded network enforcement perimeter requires a controlled register of firewall, ACL, or zone rules with owners and intent."
+  - "Network or security reviewers need to determine which traffic rules are proposed, active, disabled, or superseded and why each exists."
+  - "An operator is surfacing unowned, ambiguous, or legacy access rules for cleanup."
+not_for:
+  - "Designing overall network topology, segmentation architecture, and routing, which belongs in a network design description."
+  - "Tracking live IP prefixes, VLAN identifiers, and DNS names, which belongs in a network allocation register."
+  - "Recording firewall penetration-test or rule-verification outcomes, which belongs in a verification evidence record."
+---
+
 # Network access rule register specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an owner, intent, match, or status is unknown, record the gap. Do not invent 
 ## Finished-document contract
 
 - **Title:** Identify the network or enforcement boundary and name the document as its network access rule register.
-- **Frontmatter:** None. Begin with the GFM title. The boundary and as-of point belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The boundary and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the boundary and status meanings before the rules. State gaps with or after the rules. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity and scope | Required | Identify the enforcement boundary, the as-of point, the rule classes included, and the meaning of each status used. Include the client or receiving-party element from this contract when applicable. |
 | Rules | Required | Record each rule with its identity, match, action, owner, intent, and status. If no rule is established, say so instead of adding a placeholder rule. |
 | Gaps | Required | Identify missing owners, intents, or statuses, and any rule whose match is unresolved. State the next action. |
@@ -32,7 +53,7 @@ If an owner, intent, match, or status is unknown, record the gap. Do not invent 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Enforcement boundary | One bounded set of ACL, firewall, or zone enforcement per register. | State where the rules apply. Do not mix an unrelated boundary into the same status meanings without saying so. |
 | Rule | Zero or more rules. | Give each rule a stable identity, the match, and the action. Do not invent a match. |
 | Owner | One owner for each rule that has one. | The owner is accountable for the rule. An unknown owner stays unknown. |

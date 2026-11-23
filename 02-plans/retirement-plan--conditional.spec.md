@@ -1,3 +1,24 @@
+---
+title: "Retirement and disposal plan specification"
+description: >-
+  Defines the authoring contract for retirement and disposal plans organizing the controlled withdrawal, decommissioning, transfer, reuse, or disposal of an existing system, service, product, or asset. Covers retirement boundaries and decision authority, stakeholder dependencies and continuing obligations, data, record, and access disposition, staged withdrawal sequences and gates, asset and supplier closure, support and configuration closure, and verification criteria required before declaring retirement complete.
+topics:
+  - "retirement-plan"
+  - "decommissioning"
+  - "asset-disposal"
+  - "data-disposition"
+  - "access-revocation"
+  - "withdrawal-gates"
+use_when:
+  - "An existing system, service, product, or asset is slated for decommissioning, transfer, reuse, disposal, or end-of-support withdrawal."
+  - "A planner is coordinating data retention, access revocation, supplier contract closure, and dependent-service continuity during retirement."
+  - "A reviewer is checking whether withdrawal gates and closure verification criteria cover all continuing legal or operational obligations."
+not_for:
+  - "Introducing a replacement capability into live operations, which belongs in a transition and deployment plan."
+  - "Ongoing upkeep and routine servicing of an active asset or software product."
+  - "Recording actual completed decommissioning actions, which belongs in operational execution or handoff records."
+---
+
 # Retirement and disposal plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ State an unknown inventory item, dependency, obligation, authority, or disposal 
 ## Finished-document contract
 
 - **Title:** Identify the system, service, product, or asset and name its retirement or disposal plan.
-- **Frontmatter:** None. Begin with the GFM title; identity, authority, and retained obligations belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, authority, and retained obligations belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope, dependencies, and authority before irreversible withdrawal; describe disposition before closure evidence. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Retirement boundary and decision basis | Required | Identify what will leave service, its controlled identity and current role, included and excluded components, reason and intended end state, accountable owner, and real authority for withdrawal or approval still needed. State continued service obligations and constraints on timing. |
 | Dependencies and stakeholder continuity | Required | Identify users, downstream systems, interfaces, contracts, support functions, and other dependencies affected by withdrawal. Define notice, replacement or alternate service, migration or transfer interface, and hold conditions where an obligation would otherwise be stranded. |
 | Data, records, and access disposition | Required | Define data owners, classes or sensitivity where relevant, retention periods and checks for active preservation holds with their supplied project decision or agreement locators, archive or transfer destination, access and credential revocation, external connectivity removal, and planned evidence. State who may authorize deletion or sanitization and when retained copies remain necessary. |
@@ -36,7 +57,7 @@ State an unknown inventory item, dependency, obligation, authority, or disposal 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Retirement subject | One bounded system, service, product, or asset scope; multiple items only when governed as one coordinated retirement. | Identify current configuration and operating role, exclusions, and intended end state such as transfer, reuse, decommissioning, recycling, or destruction. |
 | Dependency or continuing obligation | One per material affected service, party, or obligation. | State owner, impact, replacement or transfer route, required notice or evidence, and condition before disconnection. Unknown dependencies require investigation before irreversible work. |
 | Data or record class | One per materially different retention, transfer, or sanitization treatment. | Identify custodian, retention period and its start or end condition, supplied retention or transfer decision or agreement, any active preservation hold, destination, access after retirement, method decision, and expected proof. Active-copy deletion must preserve required copies and archives through their retention end condition and until any active hold is released. |

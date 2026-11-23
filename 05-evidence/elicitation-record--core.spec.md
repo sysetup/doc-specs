@@ -1,3 +1,24 @@
+---
+title: "Elicitation and source record specification"
+description: >-
+  Defines the authoring contract for elicitation and source records preserving raw statements, behavioral observations, acquired source artifacts, instrument bindings, permission and custody bases, explicit transformations or redactions, and capture gaps from one bounded collection event or source set prior to synthesis or interpretation. Keeps raw factual provenance cleanly separate from downstream analysis, prevents asserting participant consent without evidence, and documents incomplete or failed capture truthfully.
+topics:
+  - "elicitation-record"
+  - "raw-evidence"
+  - "source-provenance"
+  - "custody-and-consent"
+  - "capture-gaps"
+  - "discovery-records"
+use_when:
+  - "An interview, workshop, survey, observation, or source-acquisition session has started and raw outputs must be preserved before interpretation."
+  - "A researcher or analyst is documenting raw statements, applied instruments, permission provenance, redactions, and capture gaps."
+  - "A reviewer is tracing synthesized findings or requirements back to unedited raw collection records and custody rules."
+not_for:
+  - "Designing interview prompts or questionnaires before collection, which belongs in an elicitation instrument specification."
+  - "Presenting interpreted themes, patterns, and product implications, which belongs in user and context research findings."
+  - "Recording ordinary project coordination meetings, which belongs in an engineering meeting record."
+---
+
 # Elicitation and source record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown provenance, time, instrument edition, permission, completeness, o
 ## Finished-document contract
 
 - **Title:** Identify the elicitation event or source set and name its elicitation and source record.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the actual event, provenance, and permitted use before acquired items; follow items with transformations, gaps, and custody. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Event identity, scope, and permitted use | Required | Identify actual collection boundary, context, captured time and precision or gap, performer, instrument edition when used, source or participant-code scheme, permissions, exclusions, and the client or receiving-party element when applicable. Record consent only from actual evidence and its scope. |
 | Acquired material | Required | Preserve one entry per actual statement, observation, note segment, or acquired artifact, with source locator and context. Distinguish direct quotation, paraphrase, observed behavior, and annotator comment. If capture failed, identify the actual attempt and missing material instead of inventing entries. |
 | Transformations and corrections | Required | Identify transcription, translation, normalization, selection, redaction, and later corrections actually applied, their performer or tool when known, source-to-derived relationships, and uncertain or unreadable segments. Preserve original material under the established access rules. |
@@ -33,7 +54,7 @@ Expose unknown provenance, time, instrument edition, permission, completeness, o
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Collection event or source set | Exactly one bounded event or coherent source set in Event identity, scope, and permitted use. | Actual collection or acquisition must have started; a scheduled interview alone does not qualify. |
 | Source item | Zero or more acquired items in Acquired material. | Zero requires an actual capture-failure or assessed-empty explanation; each item retains a recoverable locator and source context. |
 | Statement kind | Exactly one kind per textual item in Acquired material. | Use verbatim, paraphrase, observation, or annotation; uncertain transcription remains marked uncertain and cannot be called verbatim. |

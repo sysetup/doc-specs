@@ -1,3 +1,24 @@
+---
+title: "Verification plan specification"
+description: >-
+  Defines the authoring contract for standalone verification plans organizing how a bounded item will be assessed for technical conformity against specified requirements using traceable inspection, analysis, test, or demonstration methods. Covers verification scope and technical basis, verification levels and strategy, requirement-to-method coverage mappings, conformance criteria, exclusions or deviations, execution resources and readiness, evidence packaging, anomaly handling, and certification or review interfaces.
+topics:
+  - "verification-plan"
+  - "technical-conformance"
+  - "verification-methods"
+  - "coverage-mapping"
+  - "evidence-packaging"
+  - "conformance-criteria"
+use_when:
+  - "A project needs a dedicated plan for assessing technical conformity of an item against specified engineering requirements."
+  - "A verification lead is mapping technical obligations to inspection, analysis, test, or demonstration methods and expected evidence packages."
+  - "A reviewer is verifying coverage completeness, exclusion justifications, and readiness prerequisites before verification begins."
+not_for:
+  - "Assessing intended-use fitness against stakeholder needs in representative conditions, which belongs in a validation plan."
+  - "Coordinating both verification and validation in one combined program plan."
+  - "Recording actual conformance observations, which belongs in a verification evidence record."
+---
+
 # Verification plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown requirement, configuration, method capability, criterion, indepen
 ## Finished-document contract
 
 - **Title:** Identify the item or effort and name the document as its verification plan.
-- **Frontmatter:** None. Begin with the GFM title. The technical basis and coverage rules belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The technical basis and coverage rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State subject and requirements before method and coverage; place resources and readiness before evidence and review. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, scope, and technical basis | Required | Identify the item, lifecycle and project boundary, configuration or selection rule, in-scope project technical requirements with origins, editions and locators, objectives, material exclusions, and project scope decisions. State the technical properties to be assessed, any unresolved requirement conflicts, and an established project decision resolving precedence when one exists. |
 | Verification levels and strategy | Required | Select end-item, subsystem, integrated-system, or other levels that actually apply, with rationale and interfaces or off-nominal conditions that affect obligations. Choose suitable methods for each obligation whose method is established, and explain risk priorities and sampling or analysis limits. State the independence conclusion: required, with the established project decision or justified risk and the role separation; not required, because neither applies; or not established, when that basis is unknown. Do not invent an independent role. Program-level coordination is conditional on real scope. |
 | Requirement verification mapping | Required | For each in-scope obligation or assessable facet, connect its source to method, level, target configuration, criterion, planned event or procedure, responsible role, and expected evidence when those facts are established. Show an uncovered, deferred, or excluded obligation and the basis for that treatment. Do not invent a missing element, and do not enter a result. |
@@ -36,7 +57,7 @@ For an unknown requirement, configuration, method capability, criterion, indepen
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Verification subject | One bounded item or set of items and the configuration-selection rule for assessments. | Actual events must later record the configuration used; a proposed baseline is not an as-tested fact. |
 | Technical obligation | One or more in-scope, separately assessable project requirements or requirement clauses when their wording is established; otherwise one explicit source gap. | Give the supplied project requirement record, edition, and locator; preserve unresolved or proposed status. An identifier whose wording was not inspected is a gap, not an obligation. Split compound obligations where their criteria or methods differ. |
 | Verification coverage mapping | One visible account per in-scope obligation or separately assessable facet. | Show requirement, method, level, criterion, configuration, planned event, role, and expected evidence when established. An in-scope obligation that lacks one of those stays an explicit gap, deferral, or exclusion with its coverage consequence. Do not invent the missing element or claim coverage from an identifier alone. A planned row has no result. |

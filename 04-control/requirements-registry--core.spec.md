@@ -1,3 +1,24 @@
+---
+title: "Requirements registry specification"
+description: >-
+  Defines the authoring contract for requirements registries maintaining a cross-source index of controlled requirement identities, originating specifications and abstraction layers, current requirement content states, accountable owners, change and consumer pointers, and reconciliation findings across multiple specifications without creating a competing editable master of requirement text. Enables stewards and change authorities to locate controlling statements, spot conflicting states, and route edits accurately.
+topics:
+  - "requirements-registry"
+  - "requirement-index"
+  - "content-state"
+  - "source-reconciliation"
+  - "requirement-ownership"
+  - "requirements-management"
+use_when:
+  - "Controlled requirements spread across multiple specifications need one unified index of IDs, sources, owners, and content states."
+  - "A requirements steward is reconciling duplicate IDs, orphaned entries, or conflicting requirement states across documents."
+  - "A reader needs to locate which authoritative specification owns a requirement without copying editable wording."
+not_for:
+  - "Authoring authoritative requirement wording, which belongs in business, stakeholder, system, software, or interface requirements specifications."
+  - "Mapping directed links from requirements to design, decisions, and tests, which belongs in a requirements traceability matrix."
+  - "Accounting for per-requirement verification methods and pass/fail coverage, which belongs in a requirements verification matrix."
+---
+
 # Requirements registry specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a source, edition, identifier, owner, state, or change decision is unknown, r
 ## Finished-document contract
 
 - **Title:** Identify the project or system boundary and name the document as its requirements registry.
-- **Frontmatter:** None. Begin with the GFM title. Source authority, scope, and state are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Source authority, scope, and state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and source rules before the index; place reconciliation findings and pending changes after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, authority, and source rules | Required | Identify the indexed project or system boundary, requirement layers and source sets, edition or as-of point, ID namespace and uniqueness rule, source-of-truth rule, registry steward, content-state vocabulary, and how changes or source revisions reach the registry. State exclusions and effectivity where they change interpretation. |
 | Requirement index | Required | Give one entry for every in-scope requirement found in the inspected authoritative sets, or an explicit assessed-empty/gap statement. Index each requirement by stable source ID, exact source locator and edition, layer, current content state, and accountable owner or visible assignment gap. Link to real consumer views or change decisions only when useful and established. Do not independently maintain editable requirement wording. |
 | Reconciliation and open items | Required | State how the index was compared with its sources, identify missing, duplicate, superseded, conflicting, or stale entries, and give their consequence and resolution route. Distinguish a requirement content decision from implementation, verification, validation, and acceptance. Do not record `pass`, `fail`, `inconclusive`, or `not-run`. State when and how the next reconciliation occurs. |
@@ -32,7 +53,7 @@ If a source, edition, identifier, owner, state, or change decision is unknown, r
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Indexed source set | Two or more controlled requirement specifications in normal use of this type. | Identify each by title or ID, edition, accessible locator, and applicable baseline or effectivity. Index only statements established as requirement obligations; exclude need-only entries. A hash MAY bind a digital snapshot when available; it is not universally required. |
 | Requirement entry | One per in-scope authoritative requirement; zero only with an explicit assessed-empty or unresolved-source explanation. | Use the requirement's stable source ID as the registry key. A separate registry row ID is optional and MUST NOT obscure or replace that source ID. Prevent duplicate keys within the declared namespace. |
 | Source and layer | One authoritative requirement document, exact requirement locator, edition, and declared level for each entry. | The locator must let a reader recover the actual statement. Use the source's declared level, such as business, stakeholder, system, software, or interface. Identify source conflicts rather than selecting a master by guesswork. Do not copy the statement as a second editable obligation, and do not index a need label as a requirement. |

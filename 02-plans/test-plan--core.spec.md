@@ -1,3 +1,24 @@
+---
+title: "Test plan specification"
+description: >-
+  Defines the authoring contract for test plans organizing scope, objectives, inspectable test basis, test levels, techniques, coverage rules, responsibilities, environments, data dependencies, schedules, measurable entry, exit, suspension, and resumption gates, anomaly triage, and evidence reporting for a bounded test effort prior to execution. Keeps planning at campaign or level coordination depth while referencing detailed test designs, cases, and execution procedures as explicit planning dependencies.
+topics:
+  - "test-plan"
+  - "test-strategy"
+  - "coverage-rules"
+  - "entry-exit-criteria"
+  - "test-resources"
+  - "anomaly-reporting"
+use_when:
+  - "A test campaign, test level, or release requires an agreed scope, strategy, schedule, resources, and gate criteria before testing starts."
+  - "A test lead is aligning stakeholders on test basis coverage, environment dependencies, and evidence expectations."
+  - "A reviewer is verifying that entry, exit, suspension, and resumption criteria are observable and assigned to real decision authorities."
+not_for:
+  - "Deriving detailed test conditions, cases, or step-by-step execution scripts, which belong in test design, case, and procedure specifications."
+  - "Planning broader multi-method verification or intended-use validation programs beyond testing, which belong in V&V plans."
+  - "Reporting mid-campaign progress or ended-campaign outcomes, which belong in test status or test completion reports."
+---
+
 # Test plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark missing evidence as unknown and undecided planning choices as not establish
 ## Finished-document contract
 
 - **Title:** Identify the test effort and the document as its test plan; “Test Plan” alone is insufficient when several efforts may exist.
-- **Frontmatter:** None. Begin with the GFM title. Test scope and decision rules are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Test scope and decision rules are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before strategy; define resources and controls before evidence and reporting. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Objective, scope, and test basis | Required | Identify the test item and applicable configuration, objectives, included features or levels and material exclusions if any, constraints and assumptions, and the inspected basis for each objective. Explain risk priorities and the rationale for material exclusions. |
 | Strategy and coverage | Required | State the selected test levels, types, techniques, and depth; explain how coverage of the basis and important risks will be determined and traced. Identify planned coverage units and the activity that will define detailed conditions and cases when pending. State regression approach and independence needs when they affect the effort. |
 | Resources and environment | Required | Assign planning and execution responsibilities by real role; identify competence, tools, facilities, test data, environment configuration, readiness dependencies, and acquisition or setup needs. Reference existing detailed environment or case definitions when useful. |
@@ -34,7 +55,7 @@ Mark missing evidence as unknown and undecided planning choices as not establish
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Test item and configuration | One bounded item or set of items, with the version, baseline, or selection rule that will bind executions. | An unresolved build may be a planning dependency, but the plan MUST say how it will be fixed before testing. |
 | Test objective | One or more outcomes the testing is intended to examine. | Each objective MUST connect to at least one inspected basis or stated risk and to a coverage approach; it is not a claim that the outcome has been met. |
 | Test basis reference | One or more inspectable project requirements, designs, risks, user needs, or other supplied project records for the objectives. | Use a title or ID, applicable edition, and locator when needed; state the concrete statement or risk addressed by the objective. |

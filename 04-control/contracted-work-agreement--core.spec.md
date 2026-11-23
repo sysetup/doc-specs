@@ -1,3 +1,24 @@
+---
+title: "Contracted engineering work agreement specification"
+description: >-
+  Defines the authoring contract for structured engineering work agreements controlling the parties, decision state, revisions, scoped work commitments, deliverables, mutual responsibilities, receiving and acceptance criteria, support obligations, commercial and intellectual-property rights terms, change, suspension, and termination provisions, and controlling execution or amendment sources. Distinguishes proposed drafts from executed commitments while excluding offers alone, internal execution plans, invented signatures, and legal-validity certification.
+topics:
+  - "contracted-work-agreement"
+  - "engineering-contract"
+  - "deliverable-commitments"
+  - "acceptance-criteria"
+  - "commercial-terms"
+  - "amendment-control"
+use_when:
+  - "Established client and supplier parties need a structured control record of negotiated study, development, or maintenance commitments."
+  - "A technical or commercial lead is aligning deliverables, receiving criteria, rights terms, and amendment precedence."
+  - "A reviewer is verifying that draft agreements remain distinct from executed commitments and reference real controlling sources."
+not_for:
+  - "Presenting an unaccepted offer, estimate, and quotation prior to agreement, which belongs in a technical and commercial proposal."
+  - "Planning internal technical execution or supplier oversight activities, which belong in project or supplier assurance plans."
+  - "Recording actual post-delivery acceptance signoff on an artifact revision, which belongs in an approval and acceptance record."
+---
+
 # Contracted engineering work agreement specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unresolved parties, authority, controlling revision, scope, price, rights
 ## Finished-document contract
 
 - **Title:** Identify the parties and work and name the document as its contracted engineering work agreement.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify parties and authority before commitments; put deliverables and receiving criteria before commercial terms; place rights, change, ending, and execution state last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Agreement identity, parties, and authority | Required | Identify the work, parties and capacities, client relationship, agreement revision, control boundary, authorized representatives or authority gaps, and any controlling executed source. State governing-law or jurisdiction facts only when actually supplied. |
 | Work, deliverables, and responsibilities | Required | State included and excluded study, development, or maintenance work, deliverables, versions or configuration boundaries, party inputs and responsibilities, dependencies, and agreed or proposed milestones. Identify annexes and their revisions when used. |
 | Receiving, acceptance, and support | Required | State delivery method, assessable receiving and acceptance criteria, review roles and periods when established, handling of unmet criteria, and support or maintenance scope. Separate receipt, technical checks, acceptance decisions, and payment triggers. |
@@ -35,7 +56,7 @@ Expose unresolved parties, authority, controlling revision, scope, price, rights
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Agreement revision and state | Exactly one current revision and one state in Execution, effectivity, and source precedence. | Use draft, agreed-pending-execution, executed, superseded, or ended. Draft may become agreed-pending-execution after actual agreement; that state may become executed only with the established execution mechanism and evidence. Changes require a new controlled revision or actual amendment; superseded and ended preserve their prior effectivity. Not every executed agreement is yet effective; state conditions separately. |
 | Contracting party | Two or more established parties in Agreement identity, parties, and authority. | State capacity and representative authority; named contacts do not establish power to bind a party. |
 | Work commitment | One or more in Work, deliverables, and responsibilities. | Each names responsible party, deliverable, configuration or scope, timing basis, and dependencies with proposed or agreed state. |

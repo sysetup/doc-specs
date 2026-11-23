@@ -1,3 +1,24 @@
+---
+title: "Discovery input and product feedback register specification"
+description: >-
+  Defines the authoring contract for discovery input and product feedback registers capturing raw sourced feedback, suggestions, support observations, and field notes through structured intake, deduplication, theme linking, triage state tracking, and downstream routing to authoritative records. Preserves source provenance and context while clearly separating untriaged feedback from approved requirements, prioritized delivery backlogs, defect closure tracking, and ordinary customer service-request fulfillment.
+topics:
+  - "product-feedback"
+  - "discovery-intake"
+  - "feedback-triage"
+  - "theme-linking"
+  - "downstream-routing"
+  - "source-provenance"
+use_when:
+  - "Ongoing user feedback, support observations, suggestions, or discovery notes need centralized intake and triage before formal work creation."
+  - "A product analyst is linking duplicates, grouping themes, and routing triaged items to requirements, backlogs, or defect records."
+  - "A reviewer is checking that raw feedback retains provenance and is never confused with approved commitments."
+not_for:
+  - "Prioritizing and refining selected product delivery work, which belongs in an ordered product backlog."
+  - "Reporting synthesized outcomes from a formal user research round, which belongs in user and context research findings."
+  - "Tracking confirmed defects through reproduction and closure, which belongs in a problem or defect report."
+---
+
 # Discovery input and product feedback register specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown source, time, context, owner, classification, or disposition with
 ## Finished-document contract
 
 - **Title:** Identify the discovery or product boundary and name its input and feedback register.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State intake scope and handling rules before entries; follow entries with triage, routing, and reconciliation. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Intake boundary and handling | Required | Identify scope, channels, as-of point, steward or assignment gap, triage rules, access, retention, redaction, and the client or receiving-party element when applicable. Explain excluded request classes and their actual routes. |
 | Input entries | Required | Give every in-scope input a stable key, source or permitted locator, received time or gap, minimized description, context and version when known, uncertainty, and assigned triage owner or gap. An assessed-empty scope has an explicit no-inputs statement. |
 | Triage and disposition | Required | Record classification, duplicates or themes, current triage state, decision basis, and authoritative downstream destination when established. Preserve original input meaning and conflicting interpretations. Routed feedback is not delivered functionality or a closed defect. |
@@ -33,7 +54,7 @@ Expose unknown source, time, context, owner, classification, or disposition with
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Input | Zero or more entries in Input entries. | Use one immutable key per received input; do not silently merge distinct reports or overwrite their origins. |
 | Source and context | One provenance account per input in Input entries. | Store minimized content and permitted locators, not unrestricted sensitive transcripts; unknown context is not a default product version. |
 | Triage state | Exactly one of untriaged, in-triage, deferred, routed, duplicate, or dismissed per input in Triage and disposition. | Move from untriaged to in-triage before a disposition; deferred may return to in-triage. Routed requires an existing destination, duplicate an existing counterpart, and dismissed a recorded reason and deciding role. Reopening a disposition returns to in-triage with history. |

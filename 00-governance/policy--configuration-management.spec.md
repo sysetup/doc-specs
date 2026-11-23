@@ -1,3 +1,24 @@
+---
+title: "Configuration management policy specification"
+description: >-
+  Defines the authoring contract for mandatory configuration management policies governing controlled item identification, baseline establishment, change authority, status accounting, and configuration integrity across an organization or project. Specifies required coverage of issuing authority, policy ownership, controlled-item boundaries, issuance state, mandatory directives, baseline and change decision rules, exception governance, noncompliance handling, and policy review. Enables readers to determine what must stay under configuration control and who authorizes baseline changes.
+topics:
+  - "configuration-management"
+  - "governance-policy"
+  - "baselines"
+  - "change-authority"
+  - "configuration-integrity"
+  - "exceptions"
+use_when:
+  - "An issuing authority needs to author organization-wide or project-wide mandatory configuration management directives."
+  - "A governance author is defining baseline control rules, change decision rights, and exception handling for controlled items."
+  - "A reviewer is verifying that a configuration management policy distinguishes issuing authority, policy ownership, and issuance state."
+not_for:
+  - "Defining recurring workflow steps for baseline and change control, which belong in a configuration management lifecycle process."
+  - "Planning project-specific configuration management schedules, tools, and milestones, which belong in a configuration management plan."
+  - "Tracking individual controlled items or established baseline snapshots, which belong in configuration registers or baseline records."
+---
+
 # Configuration management policy specification
 
 ## Identity and selection
@@ -18,12 +39,12 @@ If an input is unknown, distinguish a missing project fact from a decision not y
 ## Finished-document contract
 
 - **Title:** Identify the governed subject as a configuration management policy and, when needed, the organization or project it covers.
-- **Frontmatter:** None. Begin with the GFM title. Authority, applicability, and policy state are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and policy state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish authority and applicability before obligations; state obligations before exception and maintenance rules. Headings may use local wording if the roles below remain clear.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority, purpose, and applicability | Required | Identify the actual issuing authority or visibly proposed authority; policy owner (or inherit an explicit corpus/catalog default when not overridden per document); controlled edition (or unified corpus version in `CHANGELOG.md` plus Git revision) and truthful issuance state; covered people, functions, systems or item classes, lifecycle boundaries, and exclusions. State the desired governance result and effective date only when decided by the proper authority. |
 | Configuration management direction | Required | Account for **configuration identification**, **baselines**, **change authority**, and **integrity**, stating identifiable mandatory obligations for each included area and the approved exclusion decision for each excluded area. For included areas, define respectively which classes of items must be identified and under what authority; when a baseline is established or released and how its identity is known; who may authorize a change and what impact must be considered; and how approved state, actual state, and discrepancies are accounted for. Express obligations as duties, decision rights, and conditions for controlled work. |
 | Accountability and decisions | Required | For the included subject areas, allocate who applies the policy, who maintains the authoritative configuration information, who may approve a baseline or change, and who escalates conflicts. State how urgent changes are governed if they are allowed; urgency alone MUST NOT be presented as authorization. State each role's decision bounds and the escalation route for conflicting assignments. |
@@ -33,7 +54,7 @@ If an input is unknown, distinguish a missing project fact from a decision not y
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Issuing authority and policy owner | One real issuing body or delegated role, and one accountable maintenance role. | A proposed issuer is labeled as proposed; an owner does not gain issuing power by being named. |
 | Applicability and controlled-item boundary | One explicit statement of affected people, systems, information or asset classes, lifecycle stages, and material exclusions. | If item-by-item selection is delegated, state who decides and the explicit item classes, inclusion conditions, and exclusions that bound that decision. |
 | Issuance state and edition | One unambiguous edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision) and truthful state; effective date only if established. | Distinguish a proposed draft, an authorized policy awaiting effect, and an effective or withdrawn policy using the project's real control vocabulary. Tie the stated edition, authorization, and effective date to established issuance decisions. |

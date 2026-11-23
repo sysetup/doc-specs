@@ -1,3 +1,24 @@
+---
+title: "Operational work execution record specification"
+description: >-
+  Defines the authoring contract for operational work execution records preserving one actual operational or maintenance attempt performed on a specific target—including interrupted, failed, unauthorized, or ad-hoc attempts without a procedure. Covers work identity, target selector, method and revision used, authorization evidence, timestamps, performers, as-found state, actions taken, observed results, deviations or problems encountered, as-left state, overall outcome, and conditional return-to-service disposition.
+topics:
+  - "operational-execution"
+  - "maintenance-record"
+  - "as-found-as-left"
+  - "return-to-service"
+  - "work-authorization"
+  - "execution-evidence"
+use_when:
+  - "Operational or maintenance work on a live system or asset has started and requires durable evidence of actions and resulting state."
+  - "An operator or maintainer is recording as-found state, method deviations, observed outcomes, and return-to-service disposition."
+  - "An investigator needs a truthful account of a completed, aborted, failed, or unauthorized operational attempt."
+not_for:
+  - "Authoring repeatable operational instructions before work starts, which belongs in an operational runbook or work instruction."
+  - "Recording executed test runs and test-case verdicts, which belongs in a test execution record."
+  - "Recording product release distribution across channels, which belongs in a release record."
+---
+
 # Operational work execution record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a time, revision, observation, performer, or authorization is unknown, state 
 ## Finished-document contract
 
 - **Title:** Identify the target and the work, and call the document an operational work execution record.
-- **Frontmatter:** None. Begin with the GFM title. Target, method, authority, and result belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Target, method, authority, and result belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the target, method, and authority before the actions. Place the overall result and any return-to-service disposition after the observations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Work identity and authority | Required | Identify one bounded work event, the actual target, every method and exact revision used or the absence of a controlled method, and the authorization, its absence, or that it is unconfirmed. State the start time, or that it is unknown. Once the work has ended, state the finish or abort time, or that it is unknown. State who performed or supervised the work, or that the performer is unknown. |
 | As-found state, actions, and observations | Required | State the observed condition before work, or that it was not observed. When the work depends on a configuration, revision, or environment, include the identity actually observed, or state that it was not observed. Record each action actually performed, in order when order matters, with its observed result and any retained evidence. State problems and both authorized and unauthorized departures. State the observed condition after the actions, or that it was not observed. |
 | Result and return to service | Required | Give one overall result consistent with the actions, the authorization, and whether the work has ended. Do not treat the method's expected outcome as that result. When a controlled return-to-service disposition applies, state its criteria, evidence, status, and authorization. When it does not apply, say so. |
@@ -32,7 +53,7 @@ If a time, revision, observation, performer, or authorization is unknown, state 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Work event | One bounded operational or maintenance attempt. | Real work on the target must have started. Give the actual date or bounded period without inventing precision. |
 | Target | One actual system, service, asset, component, location, or other controlled work target. | Identify it specifically enough to distinguish it from similar targets. A class is allowed only when the work applied to that whole class and the record says so. |
 | Method | One or more methods actually used, or one explicit statement that no controlled method was used. | Identify each runbook, standard operating procedure, work instruction, maintenance task, work-order method, or other basis by title or identifier, exact revision, and locator when one exists. When no controlled method was used, say so and do not invent a procedure identifier. When more than one revision was used, tie each action to the revision it followed. The method remains instruction; its text is not the action performed. |

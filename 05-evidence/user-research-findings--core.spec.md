@@ -1,3 +1,24 @@
+---
+title: "User and context research findings specification"
+description: >-
+  Defines the authoring contract for user and context research findings reports presenting supported discovery observations, themes, interpretations, participant disagreements, and implications derived from exploratory research actually performed. Covers research questions and round boundaries, actual methods and achieved participant coverage, source-grounded observations, transparent interpretation limits, open questions, confidence levels, and sharing constraints while excluding unperformed work, raw source masters, approved requirements, and formal solution validation.
+topics:
+  - "user-research-findings"
+  - "discovery-evidence"
+  - "qualitative-synthesis"
+  - "research-implications"
+  - "sample-limits"
+  - "user-insights"
+use_when:
+  - "An exploratory user research round has collected observations or ended with capture limits that must be synthesized for decision makers."
+  - "A researcher is reporting grounded themes, participant disagreements, sample limitations, and implications for needs or product work."
+  - "A reviewer is checking whether discovery insights trace to real collection records and preserve confidence and scope boundaries."
+not_for:
+  - "Planning recruitment, methods, and ethics before conducting research, which belongs in a user research and discovery plan."
+  - "Preserving unedited raw statements and session transcripts, which belongs in an elicitation and source record."
+  - "Judging intended-use fitness of a delivered solution against fixed needs, which belongs in a validation evidence record."
+---
+
 # User and context research findings specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown selection, participation, context, method edition, observation, o
 ## Finished-document contract
 
 - **Title:** Identify the research subject and round and name the document as user and context research findings.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State questions, actual context, and method before observations; place interpretation and implications after the evidence, followed by open questions and sharing limits. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Questions, round, and evidence boundary | Required | Identify questions, actual round and setting, decision use, as-of point, exclusions, and the client or receiving-party element when applicable. Cite the plan when used and state what actually occurred. |
 | Method and participation actually used | Required | Describe actual collection, instrument editions, selection and recruitment, achieved participant or corpus coverage, accessibility and proxy limits, analysis procedure, deviations, and missing perspectives. Use minimized participant descriptions. |
 | Observations and source support | Required | State supported observations with permitted source locators, context, and contradictory or exceptional observations. Identify actual counts only with units and denominators; no usable observations requires an explicit statement and capture-failure account. |
@@ -34,7 +55,7 @@ Expose unknown selection, participation, context, method edition, observation, o
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Research round | Exactly one round or explicitly bounded combined set in Questions, round, and evidence boundary. | Each combined round retains its actual setting and method differences. |
 | Achieved coverage | Exactly one account in Method and participation actually used. | Planned recruitment is separate from actual participation; missing groups remain visible. |
 | Observation | Zero or more supported observations in Observations and source support. | Each has a source locator and context; zero requires an explicit unusable-evidence or assessed-empty basis. |

@@ -1,3 +1,24 @@
+---
+title: "Cybersecurity post-incident review specification"
+description: >-
+  Defines the authoring contract for retrospective reviews of one stabilized cybersecurity incident examining supported causes, security control outcomes, detection and dwell-time intervals, response effectiveness, eradication confirmation, notification duty applicability and fulfillment, evidence-bounded lessons, justified improvement actions, effectiveness follow-up, and controlled dissemination or review disposition. Preserves analytical uncertainties, incomplete eradication checks, reviewed configurations, and evidence cutoffs transparently rather than fabricating certainty.
+topics:
+  - "post-incident-review"
+  - "cybersecurity-retrospective"
+  - "dwell-time"
+  - "control-effectiveness"
+  - "eradication-confirmation"
+  - "notification-assessment"
+use_when:
+  - "A cybersecurity incident has stabilized and teams have performed retrospective causal, control, dwell-time, and eradication analysis."
+  - "A security responder is documenting supported security control failures, notification assessment, and justified remediation actions."
+  - "A reviewer is checking whether retrospective cybersecurity findings stay bounded by inspected evidence and state open uncertainties."
+not_for:
+  - "Contemporaneous logging during an active cybersecurity incident, which belongs in a cybersecurity incident record."
+  - "Retrospective reviews of non-security operational outages, which belong in an operational post-incident review."
+  - "Retaining lessons from routine non-incident engineering projects, which belongs in a lessons learned record."
+---
+
 # Cybersecurity post-incident review specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Unknown causes, compromise times, control failures, assignments, or notification
 ## Finished-document contract
 
 - **Title:** Identify the incident and call the document a cybersecurity post-incident review.
-- **Frontmatter:** None. Begin with the GFM title. Review scope and findings belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review scope and findings belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope and evidence first, then causal and cybersecurity assessments, then lessons and follow-through. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review scope and evidence | Required | Identify the incident, resources and configuration, stabilization basis, actual review date and roles, and evidence cutoff. Summarize relevant timeline and impact with sources, disputed facts, and limits. Cite the actual incident record when available. |
 | Causal and response assessment | Required | Present the analysis, supported causes, contributing conditions, hypotheses, and open alternatives. Compare detection, response, and recovery with established objectives or disclose the basis and limits of retrospective judgment. Retain strengths as well as failures. |
 | Control outcomes and timing | Required | Assess failed, bypassed, missing, or ineffective controls against their intended operation; distinguish controls that worked and causal uncertainty. Define and assess the relevant undetected or active intervals, with bounds, evidence, method, and uncertainty or explicit indeterminacy. |
@@ -36,7 +57,7 @@ Unknown causes, compromise times, control failures, assignments, or notification
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review context | One bounded review of one cybersecurity incident. | Identify actual review date, participants or contributing roles, reviewed configuration and scope, stabilization basis, and evidence cutoff. Stabilization is not full recovery, eradication, or closure. |
 | Evidence and finding | Zero or more identified findings, with one assessment of the reviewed scope. | Each finding has a stable local identity, claim, supporting evidence, reasoning, and uncertainty. Classify causal claims as supported causes, contributing conditions, or hypotheses. Identify relevant source revisions or observation times and locators; retain conflicting accounts. State when no cause is established. |
 | Control assessment | Zero or more control findings plus an explicit assessment result. | For each, identify the control or intended objective, expected operation and its basis, observed outcome, evidence, and relationship to the incident. Distinguish absent, bypassed, failed, ineffective, and worked as assessed descriptions rather than assumed causes. A conclusion of no failed control identified needs the assessed scope and basis. An unassessed control set is not that conclusion. |

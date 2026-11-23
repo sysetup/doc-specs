@@ -1,3 +1,24 @@
+---
+title: "Generic response playbook specification"
+description: >-
+  Defines the authoring contract for branching operational or business response playbooks used when evolving conditions require coordinated assessment, decision points, and distinct authorized action paths. Specifies activation conditions, roles and communication authority, situation assessment, bounded response branches, time or resource limits, stabilization and transition criteria, and response recording. Equips response leads and participating teams to decide when to act, escalate, halt, or hand off work cleanly.
+topics:
+  - "response-playbook"
+  - "branching-response"
+  - "operational-coordination"
+  - "escalation-routing"
+  - "decision-points"
+  - "stabilization"
+use_when:
+  - "A team needs a coordinated branching response for an evolving operational or business disruption outside cybersecurity."
+  - "An author is defining activation conditions, explicit decision points, authority checks, and stabilization handoffs."
+  - "A reviewer is checking whether a generic playbook defines bounded response paths and clear escalation or halt criteria."
+not_for:
+  - "Suspected or confirmed cybersecurity incidents, which belong in a cybersecurity incident response playbook."
+  - "Vulnerability intake, assessment, and remediation tracking, which belong in a vulnerability response playbook."
+  - "Linear, unbranched service operations on one target, which belong in an operational runbook."
+---
+
 # Generic response playbook specification
 
 ## Identity and selection
@@ -18,13 +39,13 @@ For an unknown or not-established fact, state the gap, its effect on response, t
 
 ## Finished-document contract
 
-- **Title:** Name the situation or response domain, using a title such as “Playbook: [situation].”
-- **Frontmatter:** None. Begin with the GFM title; scope and response authority belong in the body.
+- **Title:** Name the situation or response domain, using a title such as “Playbook: \[situation\].”
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope and response authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State applicability and authority before assessment and response choices; put transition and record instructions after response paths. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose and activation | Required | State the situation, intended outcome, covered and excluded cases, activation signals, and when to use a different response route. Identify the applicable edition when more than one can be active. |
 | Roles, authority, and communication | Required | Name the response lead or role, decision rights, participating roles, escalation route, and communication responsibilities. Distinguish coordination from authority to perform a disruptive action. |
 | Assessment and decisions | Required | State what information to collect, how to treat uncertainty, and the conditions that select each response path. Include a route for insufficient information, out-of-scope events, and material change in conditions. |
@@ -35,7 +56,7 @@ For an unknown or not-established fact, state the gap, its effect on response, t
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Activation condition | One or more observable signals or authorized requests that bring the situation into scope. | Distinguish a signal requiring assessment from a decision to perform a response action. |
 | Decision point | At least one branching choice with two or more explicit outcomes, including an uncertainty or escalation outcome where needed. | Use conditions that a qualified responder can assess; avoid overlapping outcomes without a priority rule. |
 | Response path | One or more paths selected by decision conditions. | Each path has a locally unique label, condition, responsible role, permitted action, constraints, expected state, and next decision, transition, halt, or escalation. |

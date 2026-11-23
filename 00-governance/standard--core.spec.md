@@ -1,3 +1,24 @@
+---
+title: "Internal standard specification"
+description: >-
+  Defines the authoring contract for internal standards establishing authorized, mandatory, assessable technical or practice criteria for a defined domain or artifact class. Requires explicit coverage of issuing authority, standard domain and applicability, issuance state, controlled terms and interpretation, individually identifiable mandatory requirements paired with concrete assessment bases, exception rules, and adoption, review, and transition procedures. Ensures every stated requirement is objectively assessable and separates normative obligations from descriptive definitions.
+topics:
+  - "internal-standard"
+  - "normative-criteria"
+  - "compliance-assessment"
+  - "technical-standards"
+  - "exception-governance"
+  - "standard-maintenance"
+use_when:
+  - "An identified authority needs to publish binding, assessable technical or practice criteria for engineering, security, operations, data, testing, or documentation."
+  - "An author is translating domain conventions into verifiable requirements with explicit assessment bases and exception rules."
+  - "A reviewer is verifying that an internal standard states unambiguous mandatory criteria distinct from advisory prose."
+not_for:
+  - "Broad organizational duties and decision rights without granular assessable criteria, which belong in a policy."
+  - "Nonbinding practitioner advice, options, or style recommendations, which belong in an engineering guide."
+  - "Project-specific product or software requirements, which belong in requirements specifications."
+---
+
 # Internal standard specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If issuing authority, scope, or substantive criteria are not established, mark t
 ## Finished-document contract
 
 - **Title:** Name the governed subject and identify the document as a standard; “Internal Standard” alone is insufficient.
-- **Frontmatter:** None. Begin with the GFM title. Authority, applicability, and effectivity are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and effectivity are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State authority and applicability before mandatory criteria; define terms before their first ambiguous use; put exception and maintenance rules after the criteria. Headings may use project wording if their semantic roles remain clear.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority, identity, and applicability | Required | Identify the issuing authority or mark it as proposed; state the subject, accountable maintainer (or inherit an explicit default maintainer declared at the corpus/catalog level when not overridden per document), affected people, activities or artifacts, boundaries, exclusions, controlled edition or other unambiguous version (which may be satisfied by a unified corpus version in `CHANGELOG.md` plus Git revision), and truthful issuance state. Give an effective date only when decided by the proper authority. State the edition's issuance state and date of effect separately. |
 | Terms and interpretation | Conditional when a term or interaction between criteria affects interpretation | Define terms that could change assessment and explain how ambiguities or conflicts between criteria are resolved, including the internal decision role responsible. |
 | Mandatory criteria and assessment basis | Required | State one or more separately identifiable obligations. For each, give its applicability, observable assessment criterion, and the evidence type or inspection basis that would show whether it is met. State units, thresholds, tolerances, allowed values, and exact conditions where needed to make a criterion assessable. The criterion states the condition an assessment would observe, including what would meet or miss it. |
@@ -34,7 +55,7 @@ If issuing authority, scope, or substantive criteria are not established, mark t
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Standard domain and scope | One governed subject with explicit affected population, activities or artifacts, conditions, and material exclusions. | A domain label such as security, API, or testing may aid discovery. Identify the specific practices or artifacts governed within that domain. |
 | Issuing authority and state | One actual issuing body or delegated role, and one truthful state for the stated edition. | A draft may name a proposed authority, clearly labeled. Use project vocabulary but distinguish proposed, authorized, effective, and superseded or retired states. |
 | Standard requirement | One or more distinct mandatory criteria. | Give each a stable local ID, an addressee or governed artifact, explicit obligation, applicability condition, and assessable criterion. A criterion may be expressed in prose or a table; avoid combining unrelated obligations under one ID. |

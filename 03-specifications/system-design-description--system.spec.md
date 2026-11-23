@@ -1,3 +1,24 @@
+---
+title: "System design description specification"
+description: >-
+  Defines the authoring contract for system design descriptions specifying how a bounded whole system or subsystem is realized and integrated across physical, hardware, software, human, and enabling elements at a stated maturity level. Covers design scope and allocated basis, element breakdown and requirement allocations, internal and external interfaces and exchanges, system behavior and resource constraints, physical or deployment realization artifacts, design rationale, integration considerations, and open design issues.
+topics:
+  - "system-design"
+  - "subsystem-allocation"
+  - "physical-realization"
+  - "interface-integration"
+  - "design-maturity"
+  - "systems-engineering"
+use_when:
+  - "A whole system or subsystem requires a realizable design allocating obligations across hardware, software, human, and enabling elements."
+  - "A systems designer is specifying element responsibilities, resource rules, realization artifacts, and integration constraints at stated maturity."
+  - "A reviewer is checking whether a system design traces cleanly to allocated requirements without duplicating controlled interface masters."
+not_for:
+  - "High-level cross-cutting architecture viewpoints and tradeoffs alone, which belong in an architecture description."
+  - "Software-only component, data structure, and algorithm design, which belongs in a software design description."
+  - "Staged integration schedules and bring-up gates, which belong in an integration plan."
+---
+
 # System design description specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an allocation, design parameter, interface owner, feasibility assumption, or 
 ## Finished-document contract
 
 - **Title:** Name the system or subsystem and identify the document as its system design description.
-- **Frontmatter:** None. Begin with the GFM title. Design scope and maturity are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Design scope and maturity are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and project design basis before decomposition; describe interfaces and behavior after elements; end with integration, design rationale, and limitations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, maturity, and design basis | Required | Identify the system boundary, intended configuration or product position, design maturity, project requirements and constraints, inherited architectural choices, and controlled models or drawings with their applicable editions. Distinguish an approved baseline from a candidate basis. |
 | Elements and allocation | Required | Define the system decomposition and responsibility of each significant element, including human, hardware, software, or enabling elements where they carry system behavior. Show which project requirements, constraints, or design decisions each element is allocated to carry, and how cross-element resources or functions are allocated. Identify controlled requirement statements by project record, identity, and edition when available, without copying their wording. |
 | Interfaces and integration | Required | Describe material internal and external connections, direction and ownership, compatibility assumptions, and the intended integration sequence or dependency. Give the implementation parameters needed at the stated design maturity. Cite any actual project interface record that controls these parameters, by identity and edition, without creating a conflicting copy. Label parameters proposed here as realization intent and state their decision status. |
@@ -35,7 +56,7 @@ If an allocation, design parameter, interface owner, feasibility assumption, or 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Design scope | One coherent system or subsystem realization per document. | State included and external elements, lifecycle or design maturity, and applicable configuration. A provisional design is not labeled a completed build definition. |
 | Design basis | At least one real project requirement, constraint, or recorded design decision relevant to the scope. | Identify its project origin or state that the proposed basis remains to be agreed. Cite the source obligation without creating a conflicting copy or silently rewriting it as a design decision. |
 | Design element | One or more identifiable, responsibility-bearing elements. | For each, give identity, role, parent when relevant, key realization characteristics, project design basis, interfaces, and significant rationale. A support or integration element may be justified by a design constraint or derived need rather than a fabricated one-to-one requirement ID. Decomposition must be acyclic. |

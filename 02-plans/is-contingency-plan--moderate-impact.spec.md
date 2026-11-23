@@ -1,3 +1,24 @@
+---
+title: "Moderate-impact information-system contingency plan specification"
+description: >-
+  Defines the authoring contract for contingency plans governing one classified moderate-impact information system requiring coordinated activation, prioritized recovery, reconstitution, exercises, and upkeep. Covers system impact classification and authority, recovery objectives, dependencies and roles, mandatory explicit dispositions for offsite data storage and alternate processing sites, activation and escalation rules, prioritized restoration sequences, return-to-normal verification, and training and maintenance while explicitly excluding concurrent processing.
+topics:
+  - "contingency-plan"
+  - "moderate-impact-system"
+  - "offsite-storage"
+  - "alternate-processing"
+  - "prioritized-recovery"
+  - "reconstitution"
+use_when:
+  - "A responsible authority has classified an information system as moderate impact and requires a coordinated system contingency plan."
+  - "A contingency coordinator is documenting explicit offsite storage and alternate processing dispositions with prioritized service restoration."
+  - "A reviewer is checking whether dependencies, escalation rules, and reconstitution criteria match moderate-impact obligations."
+not_for:
+  - "High-impact systems needing failover reconciliation or concurrent processing, or low-impact systems needing lighter arrangements."
+  - "Organization-wide business continuity across people, sites, and manual business workarounds."
+  - "Active cybersecurity incident containment and eradication workflows."
+---
+
 # Moderate-impact information-system contingency plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark missing evidence unknown and an undecided arrangement not established, with
 ## Finished-document contract
 
 - **Title:** Identify the system and the moderate-impact information-system contingency plan.
-- **Frontmatter:** None. Begin with the GFM title. Plan control and operational authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Plan control and operational authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put system scope, objectives, and recovery strategy before activation; put reconstitution after recovery; end with readiness and maintenance. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, authority, and objectives | Required | Identify the system, plan edition, owner, established moderate-impact classification and its decision record, supported functions and material exclusions, assumptions, recovery priorities, time and data objectives with units, and who may approve and activate the plan. State required authorization gates and any approval still needed. |
 | Recovery concept, dependencies, and roles | Required | Describe system and data flows relevant to recovery, interdependent systems and providers, authorized recovery configuration, team responsibilities and handoffs, and protected access to current contacts. State how chosen storage and processing paths support the objectives and which external parties must coordinate. |
 | Offsite storage and alternate processing disposition | Required | Identify the selected offsite backup or data storage arrangement or an actual internally authorized alternative, accessibility and integrity controls, and the plan for returning or renewing protected copies after recovery. Identify the selected alternate processing location or method, or a recorded project decision permitting a viable alternative. For each alternative, name the decision, deciding role, and viable method. If neither a selected method nor such a decision is established, state that the disposition is not established. Do not invent a location, method, or decision. An unsupported assertion of inapplicability is insufficient. |
@@ -37,7 +58,7 @@ Mark missing evidence unknown and an undecided arrangement not established, with
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | System and impact decision | One bounded system and one established moderate-impact classification. | Identify the deciding role and decision record; a changed classification requires reassessment of plan scope and recovery arrangements. |
 | Recovery objective | One or more approved function-specific time and data-currency targets. | Give units, priority, source, and any conflict among objectives, dependencies, and actual capability. A target is not a measured result. |
 | Storage disposition | One selected offsite data arrangement or actual authorized alternative for the scoped data. | Identify custody, access during disruption, integrity or restore check, and renewal after use; do not embed storage credentials or sensitive coordinates. |

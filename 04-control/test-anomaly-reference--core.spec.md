@@ -1,3 +1,24 @@
+---
+title: "Test anomaly reference specification"
+description: >-
+  Defines the authoring contract for test anomaly references providing one controlled linking view across test anomalies within a declared test scope. Links each observed anomaly to its originating test execution record, any authoritative problem or defect record, resulting testing impact and constraints, disposition derived strictly from the cited problem revision, and linked retest or closure evidence so test leads track blocked testing and retest selections without creating a second defect master.
+topics:
+  - "test-anomaly-reference"
+  - "anomaly-linking"
+  - "test-impact"
+  - "retest-tracking"
+  - "derived-disposition"
+  - "test-control"
+use_when:
+  - "A test effort needs one unified view linking observed test anomalies to runs, problem records, testing constraints, and retests."
+  - "A test lead is tracking which anomalies block active testing or require retest while keeping dispositions anchored in problem masters."
+  - "A reviewer is reconciling test anomalies against closure evidence across multiple runs."
+not_for:
+  - "Performing root-cause analysis and owning formal defect disposition, which belongs in a problem or defect report."
+  - "Logging complete step-by-step observations from one initiated test run, which belongs in a test execution record."
+  - "Reporting overall test campaign progress and schedule forecast, which belongs in a test status report."
+---
+
 # Test anomaly reference specification
 
 ## Identity and selection
@@ -19,19 +40,19 @@ If the scope was assessed and no anomaly belongs in it, say so. If a run, proble
 ## Finished-document contract
 
 - **Title:** Name the test scope and identify the document as its test anomaly reference.
-- **Frontmatter:** None. Begin with the GFM title. Scope, links, and derived disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, links, and derived disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the scope before the links. Keep each anomaly's links together. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | View scope | Required | State the bounded test effort this view covers, the as-of time, and the basis on which anomalies were included or left out. State when the scope was assessed and no anomaly is linked. |
 | Anomaly links | Required | For each linked anomaly, identify the observation, the run, any problem record, the test impact, the derived disposition, testing-specific constraints, and any real retest or closure evidence. An assessed-empty scope has no link rows and says that no anomaly is linked. |
 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Test scope | One bounded test effort for this view. | Name the campaign, cycle, or other effort, and what is outside it. The as-of time is a date-time with an explicit offset, or the clock time is stated as unknown. |
 | Anomaly link | Zero after an assessed-empty scope; otherwise one per anomaly in the scope. | Give each link a stable label inside this view. The label is not a problem-record identifier unless that record is the one cited. |
 | Observation pointer | One short identification per link. | State what was noticed and where. When an execution record exists, cite it and the affected attempt when the observation belongs to an attempt. Do not cite a `not-run` entry as the observation: a `not-run` reason says the stimulus did not occur. If the run ended before any case was selected, cite the run and say that no attempt exists. When no execution record exists, identify the observation by the known facts and state that no execution record is cited. Identify the observation separately from the cited problem disposition. Do not paste the run log or invent an identifier. |

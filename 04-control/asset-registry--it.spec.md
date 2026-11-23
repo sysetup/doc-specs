@@ -1,3 +1,24 @@
+---
+title: "IT asset registry specification"
+description: >-
+  Defines the authoring contract for IT asset registries maintaining the governed identity, asset classification, organizational ownership, physical or logical custody, lifecycle state, and authorizing provenance of managed IT assets within an established scope. Covers registration authority, asset classes, downstream consumer interfaces, reconciliation and open items, and explicit linkages to configuration items while keeping managed asset identities cleanly distinct from configuration item control states and point-in-time inventory observations.
+topics:
+  - "IT-asset-registry"
+  - "asset-management"
+  - "asset-ownership"
+  - "asset-custody"
+  - "asset-lifecycle"
+  - "governance-register"
+use_when:
+  - "An organization needs a governed registry tracking managed IT asset identities, classes, owners, custody, and lifecycle states."
+  - "An asset manager is reconciling authoritative asset records with configuration items, maintenance, financial, or retirement consumers."
+  - "A reviewer is checking whether governed asset custody and authority stay separate from raw discovery scans."
+not_for:
+  - "Recording dated point-in-time technical observations from live scans, which belongs in an observed IT inventory."
+  - "Controlling baseline revisions and engineering changes across configuration items, which belongs in a configuration item register."
+  - "Tracking physical network cables and patch panels, which belongs in a cabling schedule."
+---
+
 # IT asset registry specification
 
 ## Identity and selection
@@ -18,12 +39,12 @@ If an owner, custodian, location context, title, or lifecycle decision is unknow
 ## Finished-document contract
 
 - **Title:** Identify the organizational boundary and name the document as its IT asset registry.
-- **Frontmatter:** None. Begin with the GFM title. Asset classes, authority, and lifecycle state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Asset classes, authority, and lifecycle state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope, classes, and authority before the asset index; place reconciliation exceptions after the assets. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, classification, and authority | Required | Identify the organizational boundary, the governed asset classes and the meaning of each class, and any included non-IT assets. Name the identifier authority, the lifecycle decision authority, and the master system. State how acquisition, transfer, and disposal update the registry and how an inventory observation is reconciled without becoming a lifecycle transition by itself. |
 | Asset index | Required | Include every asset registered in the scope, or an explicit assessed-empty statement. For each asset, give its immutable identity, class, owner, custody context, one lifecycle state supported by the actual authority, and configuration-item or consumer relationships that exist. |
 | Reconciliation and open items | Required | Identify duplicate identities, assets seen in inventory but not registered, registered assets with no supporting decision, and conflicting custody or ownership. State the consequence and route, or state that the assessed scope showed none. |
@@ -31,7 +52,7 @@ If an owner, custodian, location context, title, or lifecycle decision is unknow
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Asset identity | One governed asset; zero only when the scope was assessed and no asset is registered. | Use an immutable identifier and do not reuse it after transfer, retirement, or disposal. Keep it distinct from identifiers for related configuration items and individual observations. |
 | Asset class | One class defined in the scope section. | Do not introduce a silent class in an entry. A data-only or non-IT asset may be registered only when the scope includes it. |
 | Owner | One accountable role when assigned. | The owner is accountable for the asset. An unassigned owner remains a gap. Do not substitute the custodian, an inventory contact, or a financial owner unless that person or role is the assigned asset owner. |

@@ -1,3 +1,24 @@
+---
+title: "Security engineering plan specification"
+description: >-
+  Defines the authoring contract for security engineering plans coordinating technical security work across a project lifecycle from protection needs and threat or risk analysis through security requirements, secure design, verification and assurance strategies, vulnerability handling, operational handoff, and change control. Aligns developers, security engineers, operators, suppliers, and authorization authorities around established protection objectives, planned security assessments, risk-decision interfaces, and receiving-party security obligations.
+topics:
+  - "security-engineering"
+  - "threat-analysis"
+  - "secure-design"
+  - "security-assurance"
+  - "vulnerability-handling"
+  - "security-handoff"
+use_when:
+  - "A project has an established technical security-engineering responsibility requiring coordinated threat analysis, design controls, and assessments."
+  - "A security engineer is planning security requirements work, assurance activities, vulnerability routing, and operational security handoff."
+  - "A reviewer is checking whether planned security assessments and authorization interfaces trace back to real protection objectives."
+not_for:
+  - "High-level organizational cybersecurity mandates and escalation rules, which belong in a cybersecurity policy."
+  - "Pre-incident detection, severity, and crisis coordination, which belong in a cybersecurity incident response plan."
+  - "Recording implemented control claims or individual vulnerability cases, which belong in control records."
+---
+
 # Security engineering plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark unavailable facts unknown and unmade choices not established, with effect, 
 ## Finished-document contract
 
 - **Title:** Identify the system or item and name its security engineering plan.
-- **Frontmatter:** None. Begin with the GFM title. Security scope, obligations, and decision rights belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Security scope, obligations, and decision rights belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish protection context, project obligations, and criteria before design work; place planned assessment before operational handoff and change control. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Security scope, objectives, and authority | Required | Define the system or item, configurations, lifecycle and trust boundaries, assets and stakeholders, protection objectives, explicit established project obligations and criteria with project-record IDs and versions, exclusions, accountable roles, and actual security decision or escalation rights. Distinguish a selected requirement or control from a candidate. |
 | Threat and risk work | Required | Define how threats, attack paths or misuse conditions, weaknesses, dependencies, and security risks will be identified, assessed, updated, and linked to protection objectives. State sources, method, assumptions, treatment route, and who decides unresolved or residual risk. Avoid operational exploit instructions or invented ratings. |
 | Requirements and secure design strategy | Required | Explain how security needs become assessable requirements and selected controls, how architecture and trust-boundary decisions address them, and how secure design, build, supplier, and integration work will be performed and reviewed. State established organization-defined parameter values, their scope, and project decision basis; identify missing values and their resolution route. |
@@ -37,7 +58,7 @@ Mark unavailable facts unknown and unmade choices not established, with effect, 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Protection objective | One or more established needs or obligations for the selected scope. | State the protected asset, function, data, or stakeholder interest and its source; avoid unsupported conformance claims. |
 | Threat or risk input | One or more known inputs, or an explicit method and milestone to establish them. | Tie each to the relevant boundary, assumptions, owner, and decision route; do not present a planned analysis as a completed finding. |
 | Security requirement or control | Zero or more established items while selection is pending; the plan must define how material items will be selected and assessed. | For each established item, state its obligation, supporting project need, allocation, or decision with record ID and version, configuration or component scope, parameter values when defined, assessment criterion, responsible role, and selection state. |

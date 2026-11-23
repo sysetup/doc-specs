@@ -1,3 +1,24 @@
+---
+title: "Product guide specification"
+description: >-
+  Defines the authoring contract for recipient-facing product guides explaining how to install, configure, operate, and recover a delivered product within stated conditions and version boundaries. Covers product scope and applicability, installation prerequisites and steps, configuration settings and effects, ordinary user tasks with expected results, operational limits, troubleshooting or failure recovery, and explicit disclosure of unresolved facts so recipients use the delivered product safely and accurately.
+topics:
+  - "product-guide"
+  - "installation-guide"
+  - "configuration-guide"
+  - "user-manual"
+  - "recipient-documentation"
+  - "product-usage"
+use_when:
+  - "A delivered product or tool needs recipient-facing instructions covering installation, configuration, everyday use, and recovery limits."
+  - "An author is writing a user manual or product operations guide aligned with actual delivered product behavior."
+  - "A reviewer is checking whether installation steps, settings, expected results, and boundaries reflect verified behavior without overclaiming."
+not_for:
+  - "Concise symbol, API, CLI flag, or schema lookup without task walkthroughs, which belongs in a technical lookup reference."
+  - "Hands-on pedagogical exercises with learner checkpoints and cleanup, which belong in a learning tutorial."
+  - "Internal service recovery commands for operators managing a specific deployment target, which belong in an operational runbook."
+---
+
 # Product guide specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a step, setting, supported environment, or limit is unknown, say so and do no
 ## Finished-document contract
 
 - **Title:** Identify the product and name the document as its product guide.
-- **Frontmatter:** None. Begin with the GFM title. Product identity and the guide's covered version belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Product identity and the guide's covered version belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the product and audience before installation, configuration, and use. State limits and unresolved items after the procedures. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity and scope | Required | Identify the product, the version or version range this guide covers, the audience, the supported environment, and what the guide does not cover. Include the client or receiving-party element from this contract when applicable. |
 | Installation | Conditional: the product is installed by the reader | Give the prerequisites, the installation sequence, and the check that shows installation completed. If the product is not installed by the reader, omit the procedure and state that reason in identity and scope. |
 | Configuration | Conditional: the reader must set product configuration | State each setting the reader must choose, the effect of the choice, and the value or rule when one is established. An unknown setting stays unresolved. Do not invent a default and present it as required. |
@@ -34,7 +55,7 @@ If a step, setting, supported environment, or limit is unknown, say so and do no
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Product and version | One product and the version or range this guide covers. | Do not present the guide as current for an unstated version. A proposed version is labeled proposed. |
 | Reader task | One or more use paths; installation and configuration only when they apply. | Keep each path something the product's reader does. |
 | Setting | Zero or more settings the reader must set. | State the name, the effect, and the established value or choice. An unknown value remains unknown. |

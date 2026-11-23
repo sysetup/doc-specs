@@ -1,3 +1,24 @@
+---
+title: "Interface requirements document specification"
+description: >-
+  Defines the authoring contract for interface requirements documents stating assessable interaction obligations, limiting conditions, side responsibilities, numerical conventions, and conformity assessment bases across identified boundaries between system elements, external systems, people, or organizations. Covers decision roles, project origins, requirement content states, coverage, open interface issues, and change rules while reserving concrete realization parameters strictly for constraints imposed by established project decisions.
+topics:
+  - "interface-requirements"
+  - "boundary-obligations"
+  - "external-interfaces"
+  - "side-responsibility"
+  - "conformance-basis"
+  - "requirements-engineering"
+use_when:
+  - "Internal or external system boundaries need an authoritative statement of required interactions, limits, and responsibilities before realization."
+  - "An engineer is documenting testable interface obligations, numerical conventions, and open boundary issues across participating sides."
+  - "A reviewer is verifying that interface obligations define what must hold at the boundary without prematurely locking unselected implementations."
+not_for:
+  - "Controlling agreed physical, protocol, or schema realization parameters across parties, which belongs in an interface control document."
+  - "Indexing interface identifiers, criticality, and owners across a program, which belongs in an interface registry."
+  - "Documenting whole-system functional behavior unrelated to boundary exchanges, which belongs in a system requirements specification."
+---
+
 # Interface requirements document specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a boundary, responsible side, project origin or deciding role, quantitative l
 ## Finished-document contract
 
 - **Title:** Identify the interface or bounded group of interfaces and the document as its interface requirements document; include edition or scope where needed to distinguish it.
-- **Frontmatter:** None. Begin with the GFM title. Interface authority, precedence, and requirement state are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Interface authority, precedence, and requirement state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope, decision roles, and project basis first; identify each boundary and responsibility before its requirements; place coverage, unresolved decisions, and change information after the obligations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, scope, decision roles, and project basis | Required | Identify document edition or other control identity, interface set, both sides and their responsible roles, purpose, applicable configuration and conditions, exclusions, and the roles that decide requirement content. Identify supplied project needs, allocations, and decisions with editions or locators and the scope of each obligation they support. State how conflicting obligations or party decisions are resolved and who can decide the disputed content. |
 | Interface boundaries and conventions | Required | For each interface, give a stable identity, endpoints, boundary or plane, flow direction, category, and responsibility on each side. Define engineering units, reference frames, coordinate systems, tolerances, and conversion rules when needed to interpret numerical obligations. Describe relevant modes, environments, and assumptions without duplicating obligation text. |
 | Interface requirements | Required | State one authoritative, individually assessable boundary obligation per distinct required interaction or limit. Identify its interface, obligated side or parties, origin, content state, applicability conditions, and the observation a later verification would have to make. Include only relevant functional, structural, mechanical, fluid, thermal, electrical, signal, software or data, environmental, human, safety, and security concerns. State compatible values or ranges on both sides where the interaction demands them. Do not assign a verification result. |
@@ -33,7 +54,7 @@ If a boundary, responsible side, project origin or deciding role, quantitative l
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Interface identity and boundary | One or more interfaces, each with one stable ID unique within the controlled set. | Identify endpoints, direction, exchange or contact type, and the plane or logical point where responsibility changes. Use one consistent identity if another real record refers to the same interface. |
 | Side responsibility | Both sides of each interface, plus any custodian or integrator when relevant. | State which party provides, receives, tolerates, or controls each affected property, and any responsibility for a later check. A common requirement may name both sides. Do not leave a compatibility obligation with no responsible party. |
 | Interface requirement | One or more distinct obligations, each with one stable requirement ID. | State one boundary behavior, transfer, property, limit, or compatibility condition, with obligated side, mode, stimulus, and expected response where relevant. Use consistent obligation wording that makes the required behavior or limit explicit. A required range, unit, or compatibility condition is the obligation. Require a particular connector, pin assignment, message schema, or protocol configuration only when a supplied project requirement or recorded project decision imposes that realization. |

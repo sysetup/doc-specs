@@ -9,6 +9,25 @@ Collection releases are identified by date; the authoring standard has its own v
 
 No unreleased changes.
 
+## Release 2026-11-23
+
+This declared breaking major release includes all 144 catalog specifications upgraded to authoring standard `3.0.0`, the compact RFC 4180 discovery catalog `INDEX.csv`, both authoring templates, and the family registry. Authoring standard `3.0.0` is released, adopted, and effective from this collection release.
+
+### Added
+
+- Added standardized 5-key Semantic-Discovery YAML frontmatter (`title`, `description` 60–140 neutral words, `topics` 3–12, `use_when` 2–6, and conditional `not_for` 1–5 complying with Rule 13) to all 144 catalog specifications for three-tier agent discovery.
+- Added compact RFC 4180 `INDEX.csv` (`family,type,title,path,summary`, UTF-8 without BOM, CRLF terminators, sorted deterministically by family registry order and relative path) indexing all 144 specifications.
+
+### Changed
+
+- Released and adopted breaking major specification authoring standard `3.0.0` (`CONTRIBUTING.md`, `authoring/specification.template.md`, `authoring/request.template.json`): mandated 5-key Semantic-Discovery YAML frontmatter and Rule 13 semantic purity on every specification file and standalone Markdown finished document, replaced Markdown catalog maintenance rules with `INDEX.csv`, decoupled inline specification provenance when bound externally, sorted JSON request template keys lexicographically, and standardized compact GFM table delimiters (`| --- |`).
+- Updated all 144 catalog specifications to replace every legacy no-frontmatter finished-document directive with the mandatory 5-key Semantic-Discovery YAML frontmatter requirement (preserving native-surface metadata rules for dual-surface types), align standalone projection rows, decouple inline provenance in `TASK-EXECUTION-PLAN@core`, and normalize compact GFM table delimiters while retaining individual `Specification edition` `1.0`.
+- Updated `README.md` and `llms.txt` to reflect Release `2026-11-23`, authoring standard `3.0.0`, `INDEX.csv`, three-tier progressive disclosure, and repository Markdown conventions.
+
+### Removed
+
+- Retired `INDEX.md` in favor of `INDEX.csv` as the sole production discovery catalog.
+
 ## Release 2026-11-21
 
 This declared release includes all 144 catalog specifications, authoring standard 2.1.0, both authoring templates, and the family registry. Authoring standard 2.1.0 is released, adopted, and effective from this collection release.

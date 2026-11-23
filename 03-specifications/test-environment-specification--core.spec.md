@@ -1,3 +1,24 @@
+---
+title: "Test environment specification"
+description: >-
+  Defines the authoring contract for test environment specifications establishing target configurations, test-specific interfaces, simulation or fidelity rules, measurement instrumentation, timing constraints, protected data and access controls, safety rules, readiness criteria, change management, and reset or restoration rules for a bounded test effort. Permits recording an actual bounded instance readiness assessment when performed while clearly exposing fidelity limitations affecting test validity.
+topics:
+  - "test-environment"
+  - "test-instrumentation"
+  - "environment-fidelity"
+  - "test-readiness"
+  - "environment-reset"
+  - "test-infrastructure"
+use_when:
+  - "Test execution depends on a controlled hardware, software, or simulated environment with explicit instrumentation, fidelity, and reset rules."
+  - "A test engineer is defining readiness criteria and fidelity limits that govern which tests and conclusions an environment supports."
+  - "A reviewer is verifying that test environment requirements remain distinct from actual instance readiness observations."
+not_for:
+  - "General development, staging, or production enabling environments without test instrumentation, which belong in a runtime environment specification."
+  - "Defining reproducible input datasets and provenance rules, which belong in a test data specification."
+  - "Planning campaign-wide test strategy and schedules, which belongs in a test plan."
+---
+
 # Test environment specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a required configuration, interface behavior, instrument capability, data rul
 ## Finished-document contract
 
 - **Title:** Name the bounded test item or effort and its test environment specification; identify the target edition or configuration when needed.
-- **Frontmatter:** None. Begin with the GFM title. Configuration, readiness, and authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Configuration, readiness, and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish test scope and target environments before readiness criteria; place actual assessment, if any, after its criteria and fidelity and change limits before conclusions about use. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Test scope and environment identity | Required | Identify the tests or test levels supported, the item/configuration under test, one or more target environments, their distinct roles or variants, and the target edition. State material exclusions and who owns the target definition and test-use decision when established. |
 | Required configuration and test capabilities | Required | For each target, specify applicable compute, software, services, network, interfaces, tools, instrumentation, timing sources, test data and account rules, isolation, and safety controls with values or compatibility limits where they affect results. Distinguish real, simulated, and stubbed behavior and its fidelity limits. State setup or reset state required for repeatability. |
 | Readiness criteria and permitted use | Required | Define observable checks, expected results, evidence basis, allowed tests, conditions, and authority for deciding test use. Include calibration, clock accuracy, data preparation, interface availability, and restoration checks when they affect measurement or safety. A proposed check is not a passed check. |
@@ -34,7 +55,7 @@ If a required configuration, interface behavior, instrument capability, data rul
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Target environment | One or more distinguishable test configurations within one bounded effort. | Give each a stable local or project identity, supported tests, target edition, and applicability. A shared infrastructure may have multiple test configurations; do not transfer readiness from one to another without an explicit rule. |
 | Required characteristic | One or more assessable rules for each relevant configuration facet. | Specify capability or version, value or range, units and tolerance when needed, and compatibility constraints that affect test validity. Do not require exact versions, tools, or zones with no effect on this test scope. |
 | Interface and fidelity rule | One account per material real, simulated, stubbed, or disconnected dependency. | State behavior needed by the test, counterpart or simulator, limitations, and which conclusions may not be drawn. A simulator is not silently equivalent to the operational interface. |

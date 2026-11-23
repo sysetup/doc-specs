@@ -1,3 +1,24 @@
+---
+title: "Cybersecurity incident response plan specification"
+description: >-
+  Defines the authoring contract for cybersecurity incident response preparedness plans established before an incident occurs. Covers response scope across services, assets, and suppliers, declaration authority and decision rights, severity classification and escalation rules, readiness capabilities, response coordination, evidence preservation rules, interfaces to system recovery and business continuity, and recurring exercises, post-incident learning, and plan maintenance while excluding routine pre-exploitation vulnerability management.
+topics:
+  - "incident-response-plan"
+  - "cybersecurity-preparedness"
+  - "severity-classification"
+  - "escalation-authority"
+  - "evidence-handling"
+  - "response-exercises"
+use_when:
+  - "An organization or service boundary needs pre-incident cybersecurity governance, roles, severity levels, and escalation rules."
+  - "A security lead is defining evidence-handling standards, communication interfaces, and exercise schedules before an incident occurs."
+  - "A reviewer is checking whether incident declaration authority and continuity handoffs are established cleanly."
+not_for:
+  - "Branching tactical execution during an active incident, which belongs in a cybersecurity incident response playbook."
+  - "Managing ordinary vulnerabilities before suspected exploitation, which belongs in a vulnerability response playbook."
+  - "Logging an active incident or reviewing a past incident, which belong in incident records or post-incident reviews."
+---
+
 # Cybersecurity incident response plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a decision role, severity threshold, capability, reporting commitment, or res
 ## Finished-document contract
 
 - **Title:** Identify the organization or scope and name its cybersecurity incident response plan.
-- **Frontmatter:** None. Begin with the GFM title; authority, scope, and severity rules belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, scope, and severity rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and authority before detection and coordination; put recovery interfaces before exercise and improvement. Heading wording may vary. Section roles are planning duties.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, authority, and readiness | Required | Define covered services, assets, suppliers, exclusions, and plan objectives. State supplied service and response commitments and their boundaries. Identify incident command and the distinct rights to declare an incident, escalate, communicate, and authorize response, including required operational permissions and their approving roles. State the staffing, coverage, training expectation, tools, contact reachability, and recovery-resource access the plan relies on, including gaps. |
 | Detection and escalation | Required | Assign identification, classification, prioritization, and analysis responsibilities. Define the project's severity or priority levels, keep a suspected incident distinct from a confirmed one, and state escalation thresholds and the route when classification is uncertain. |
 | Response coordination | Required | Plan coordination of investigation, evidence preservation, and containment, including who decides a disruptive action and how service or safety tradeoffs are raised. Define internal communication routes and the authority for external communication. State established reporting recipients, triggers, deadlines, and responsible roles. Identify the coordination points with existing response procedures, the information they need, and the escalation route when a required method is unavailable. |
@@ -35,7 +56,7 @@ If a decision role, severity threshold, capability, reporting commitment, or res
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Response scope | One bounded organizational or system set. | Name inclusions, exclusions, suppliers, and supplied service or response commitments. |
 | Decision right | One or more distinct authorities for command, declaration, escalation, communication, and disruptive or recovery action. | Name the role and its limit. Do not collapse different rights into one unnamed responder. |
 | Severity level | One or more project-defined levels used to prioritize response. | State the observable conditions, expected escalation, and deciding role. |

@@ -1,3 +1,24 @@
+---
+title: "Software design description specification"
+description: >-
+  Defines the authoring contract for software design descriptions specifying how a bounded software item realizes its allocated requirements across components, responsibility allocations, internal and external interface contracts, data definitions and ownership, behaviors and algorithms, runtime and deployment configurations, failure handling, rationale, assurance hooks, and open design issues. Explicitly states boundaries with hardware, people, and external services at the declared design maturity.
+topics:
+  - "software-design"
+  - "component-design"
+  - "interface-contracts"
+  - "data-modeling"
+  - "algorithms"
+  - "runtime-design"
+use_when:
+  - "Software designers and implementers need a detailed design covering modules, interfaces, data models, algorithms, and runtime configuration."
+  - "A team is translating allocated software requirements and architecture into concrete build-to component responsibilities."
+  - "A reviewer is verifying software design coverage, data ownership, rationale, and open issues before or during implementation."
+not_for:
+  - "High-level cross-cutting architecture viewpoints and system-wide tradeoffs, which belong in an architecture description."
+  - "Whole-system realization spanning hardware, physical elements, and people, which belongs in a system design description."
+  - "Stating what the software must accomplish before design choices are made, which belongs in a software requirements specification."
+---
+
 # Software design description specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If an interface contract, data rule, algorithm, dependency version, operational 
 ## Finished-document contract
 
 - **Title:** Name the software item and identify the document as its software design description.
-- **Frontmatter:** None. Begin with the GFM title. Design maturity and applicable versions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Design maturity and applicable versions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before module detail; describe interfaces, data, and behavior before deployment and change implications. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Software scope and design basis | Required | Identify the software item, external boundary, applicable configuration or maturity, supplied software requirements or allocated system obligations, architectural constraints, runtime assumptions, and editions of the project records used as a design basis. Separate approved choices from proposals. |
 | Components and responsibility allocation | Required | Define significant modules, services, processes, or other software elements, their responsibilities and dependencies, and how they collectively carry the allocated project obligations. Cite each supplied obligation by identity and edition without duplicating its wording. Identify ownership of cross-cutting behavior rather than assigning the same responsibility ambiguously to several components. |
 | Interfaces and data | Required | Define provided and required interfaces, inputs and outputs, data meaning and ownership, relevant schemas or formats, input checks, persistence and lifecycle, and compatibility rules. Include identity, trust, authorization, and error semantics where they affect a boundary. For supplied project interface or error definitions used, give identity and edition and state which definition controls each affected design choice; identify conflicting definitions as unresolved. Describe the software item's intended interface behavior. |
@@ -35,7 +56,7 @@ If an interface contract, data rule, algorithm, dependency version, operational 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Software item and basis | One bounded software design scope and at least one real project obligation or decision basis. | Identify the project origin and edition when available; if approval of the basis is unsettled, label it as proposed. Cite the obligation without duplicating its wording. |
 | Software element | One or more identifiable modules, services, processes, or comparable units. | For each, state responsibility, interfaces and dependencies, relevant design basis, and significant rationale. Identify the project obligations allocated to the element. Parent-child decomposition must be acyclic; do not create artificial modules or identifiers to fill a list. |
 | Interface contract | Each externally visible or cross-element interaction material to implementation. | Identify provider and consumer, direction, inputs and outputs, input checks, failure behavior, and version or compatibility rule as relevant. A named API alone does not define its behavior. Define the conditions under which input checks accept or reject data. Cite actual project interface definitions used by identity and edition, preserving their stated meaning. |

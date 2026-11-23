@@ -1,3 +1,24 @@
+---
+title: "Technical lookup reference specification"
+description: >-
+  Defines the authoring contract for version-bound technical lookup references indexing inspectable APIs, SDK symbols, CLI commands, configuration settings, exposed protocol behaviors, and schema fields without requiring task narratives. Requires bidirectional reconciliation between source inventories, indexes, and item definitions, explicit accounting of sourced, absent, unknown, or inapplicable attributes, conditional specialized sections for callables, protocol behaviors, CLI grammar, and settings, native schema or generation bindings, and drift reassessment.
+topics:
+  - "technical-reference"
+  - "API-reference"
+  - "CLI-reference"
+  - "configuration-reference"
+  - "schema-lookup"
+  - "inventory-reconciliation"
+use_when:
+  - "A product, library, CLI, or schema needs a version-bound lookup reference detailing exact syntax, types, defaults, errors, and limits."
+  - "An author is reconciling generated or hand-authored reference definitions against controlling source code or native schemas."
+  - "A reviewer is checking whether technical reference entries distinguish unknown defaults from zero or disabled values and bind real check status."
+not_for:
+  - "Task-oriented installation and end-user workflows, which belong in a product guide."
+  - "Hands-on step-by-step exercises for learners, which belong in a learning tutorial."
+  - "Cross-party interface realization agreements, which belong in an interface control document."
+---
+
 # Technical lookup reference specification
 
 ## Identity and selection
@@ -19,17 +40,17 @@ Expose unknown version, inventory, source authority, subject-kind applicability 
 ## Finished-document contract
 
 - **Title:** Identify the product, reference subject, and covered version or range.
-- **Frontmatter:** None. Begin with the standalone GFM title. Put identity, scope, sources and state in the body. Governing source: Type-owned TECHNICAL-REFERENCE@core policy; no external publication metadata schema is selected.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Put identity, scope, sources and state in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity, applicability and source authority before the inventory and lookup index; put common and applicable subject-specific definitions before examples, lifecycle and consistency results.
 - **Presentation:** Required roles may share item blocks, tables, paragraphs or sections when their facts, conditions, source locators and gaps remain retrievable. Group by actual subject taxonomy; a compact reference needs no separate administrative chapter per role. This specification contains every selected obligation and requires no supporting override.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Human lookup document (standalone) | The document owns an H1 naming product, subject and applicable version. Identity, scope, source editions and actual check state are body content; no YAML frontmatter is used. | GFM is the human lookup representation; exact native definitions and schemas remain separate controlling artifacts when selected. Bind the inspected implementation, schema and generation snapshots by edition and usable locator, adding revision or digest when needed. The view does not change native syntax or authority; changed sources require reconciliation and reassessment before retaining current applicability or check claims. |
+| --- | --- | --- |
+| Human lookup document (standalone) | The document begins with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by an H1 naming product, subject, and applicable version. Identity, scope, source editions, and actual check state remain body content. | GFM is the human lookup representation; exact native definitions and schemas remain separate controlling artifacts when selected. Bind the inspected implementation, schema and generation snapshots by edition and usable locator, adding revision or digest when needed. The view does not change native syntax or authority; changed sources require reconciliation and reassessment before retaining current applicability or check claims. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity, version, and authority | Required | Identify product, included subject kinds, applicable version or range, audience, exclusions, the client or receiving-party element when applicable, and exact controlling source editions and snapshots. Give usable source and version locators; state which implementation or native artifact controls disputed definitions. Unknown subject-kind applicability remains a gap that blocks affected completeness or use claims. |
 | Inventory and item index | Required | Identify the source-derived in-scope inventory and taxonomy. Reconcile that inventory, index and item definitions in both directions: give each item a discoverable name, applicable version and usable definition or explicit gap locator; identify missing, duplicate, orphaned or excluded entries and their consequences. State an assessed-empty scope with its basis, or an unavailable inventory with recovery action; unavailable is not empty. Record actual reconciliation scope, edition, result and remaining gaps before claiming covered lookup. |
 | Common item definition | Required | For each indexed item, give name, purpose, applicability, input or parameter representation, output or effect, material constraints, failure behavior, lifecycle state and authoritative item locator. Account for material attributes as sourced, absent, unknown or inapplicable with reasons; an unknown default is not zero, empty or disabled. Link a shared rule explicitly when it applies; do not force the reader to reconstruct an item from undocumented inheritance. |
@@ -42,7 +63,7 @@ Expose unknown version, inventory, source authority, subject-kind applicability 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Reference subject | Exactly one coherent product and version-bound subject set in Identity, version, and authority. | Identify included kinds, source editions, controlling artifacts and excluded versions; an unstated version is not current. |
 | Coverage reconciliation | Exactly one account in Inventory and item index, repeated by kind or edition when needed. | Compare source inventory, index and definitions in both directions; expose missing, duplicate and orphaned items. An assessed-empty result requires a basis; an unavailable inventory remains a gap. |
 | Lookup item | One per declared in-scope item in Inventory and item index and Common item definition; zero only with assessed-empty scope or an explicit unavailable inventory. | Use stable names and usable item/version locators. Give a definition or a visible gap and consequence; an index alone is not lookup coverage. |

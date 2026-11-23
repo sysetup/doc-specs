@@ -1,3 +1,24 @@
+---
+title: "Configuration management plan specification"
+description: >-
+  Defines the authoring contract for project-specific configuration management plans assigning controlled item identification, baselining strategies, change and exception routing, status accounting, integrity audits, tooling, supplier configuration duties, retention rules, and milestones to a defined product, service, or lifecycle effort. Translates organizational configuration obligations into concrete project authority, schedules, deliverables, baseline release criteria, and review checkpoints before controlled configurations or baselines are established.
+topics:
+  - "configuration-management-plan"
+  - "baseline-strategy"
+  - "change-control"
+  - "status-accounting"
+  - "supplier-configuration"
+  - "integrity-audits"
+use_when:
+  - "A project needs to assign configuration management responsibilities, tools, baseline milestones, and supplier rules for a bounded scope."
+  - "A configuration lead is planning item classes, change routes, integrity checks, and retention timing before project execution."
+  - "A reviewer is checking whether project configuration authority and baseline release criteria are concretely defined."
+not_for:
+  - "Setting organization-wide mandatory configuration direction, which belongs in a configuration management policy."
+  - "Defining a reusable cross-project workflow without project schedules, which belongs in a configuration management lifecycle process."
+  - "Listing live controlled items or recording an established baseline snapshot, which belong in control registers or baseline records."
+---
+
 # Configuration management plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown item boundary, authority, schedule, tool, or project control crit
 ## Finished-document contract
 
 - **Title:** Name the project or controlled product and its configuration management plan.
-- **Frontmatter:** None. Begin with the GFM title; applicability and authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicability and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope, authority, and item selection before baseline and change rules; follow with accounting, integrity, interfaces, and planned milestones. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Configuration scope and authority | Required | Define controlled product or service, lifecycle and item classes, exclusions, project configuration requirements with their establishing needs or decisions, accountable CM role, baseline and change decision rights, separation or escalation of conflicting duties, and interfaces with engineering, assurance, release, and operations. Define terms such as item, baseline, revision, release, deviation, and waiver where local usage could change a decision. |
 | Identification and baseline strategy | Required | State criteria for selecting and naming configuration items; how versions and relationships are identified; where the authoritative item information resides; which baseline types are needed; how candidate, approved, effective, and observed states are distinguished; and how baseline establishment, protection, and effectivity are decided and evidenced. |
 | Change and exception control | Required | Plan submission, impact assessment, affected-party review, the authority that may later authorize the change, implementation, the planned check that implementation matches the decision, baseline update, and closure for ordinary changes. Define urgent change limits and reconciliation if an urgent route is allowed. State how deviations, waivers, unauthorized changes, and approved-versus-actual discrepancies are contained and decided. |
@@ -35,7 +56,7 @@ For an unknown item boundary, authority, schedule, tool, or project control crit
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Controlled item class | One or more classes or an explicit selection rule pending classification. | Identify selection criterion, owner, identifier/version rule, authoritative location, and relationships to other items. Do not populate a fictional register. |
 | Baseline rule | At least one rule for a controlled state or set. | Identify contents or selection rule, approving authority, effective point, protection method, permitted changes, and expected establishment record. State the evidence and authorization required for approval and release. |
 | Change route | One normal route, plus a conditional urgent route if permitted. | Separate proposal, impact, decision, execution, verification, accounting, and closure, with actual decision roles and response to rejection or unresolved discrepancies. |

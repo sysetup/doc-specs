@@ -1,3 +1,24 @@
+---
+title: "Problem or defect report specification"
+description: >-
+  Defines the authoring contract for problem and defect reports controlling one observed departure from expected behavior or specified obligations from initial capture through reproduction, affected-scope bounding, root-cause triage, formal disposition, optional correcting changes or accepted limitations, effectiveness verification, recurrence tracking, and authorized closure. Keeps observed departures strictly separate from speculative future risks, active incident chronologies, anomaly-linking indexes, and general execution status reports.
+topics:
+  - "problem-report"
+  - "defect-tracking"
+  - "nonconformance"
+  - "reproduction-evidence"
+  - "defect-disposition"
+  - "effectiveness-check"
+use_when:
+  - "An observed software bug, hardware fault, or specification nonconformance requires structured analysis, disposition, and verified closure."
+  - "An engineer or quality lead is recording reproduction results, affected configurations, correction links, and effectiveness checks."
+  - "A reviewer is confirming that defect closure rests on real authority and verified correction rather than an untested patch."
+not_for:
+  - "Tracking uncertain future events that have not occurred, which belongs in a risk register."
+  - "Tracking active operational or security outage chronologies, which belongs in an incident record."
+  - "Linking multiple test anomalies across runs to existing problem records, which belongs in a test anomaly reference."
+---
+
 # Problem or defect report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a fact, time, subject, owner, authority, or check result is unknown or not es
 ## Finished-document contract
 
 - **Title:** Name the departure and identify the document as its problem or defect report.
-- **Frontmatter:** None. Begin with the GFM title. Identity, state, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, state, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the observation before analysis. Place disposition and effectiveness after analysis. Place history and closure last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Observed departure | Required | Give the departure a stable identity and the time this version of the report represents. State the accountable role or that none is assigned. State the factual departure without a cause. State the reporter or detection channel, the detection time, and the version or environment when known. Separate the observed behavior from the expected behavior, and name the basis of the expectation or state that the basis is unestablished. |
 | Reproduction and affected scope | Required | State the reproduction result and the conditions, steps, inputs, frequency, and limits that were actually used or observed. Name each affected subject that is identified, including a controlled requirement, configuration item, interface, test case, or execution only when that record exists. State operational, safety, and security impact as assessed, not assessed, or none identified after assessment. |
 | Triage and analysis | Required | State whether classification has occurred. When it has, give the project's severity or priority and the rationale. Keep known facts, hypotheses, and confirmed causes distinct, and cite investigation evidence only when it exists. State the current problem state. |
@@ -34,7 +55,7 @@ If a fact, time, subject, owner, authority, or check result is unknown or not es
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Departure identity | One stable identifier for this departure. | Do not reuse it for another departure. It is not a document-lifecycle state. |
 | Report time | One as-of time for this version. | Use a date-time with an explicit offset, or state that the clock time is unknown. A later update changes the as-of time and does not silently rewrite earlier history. |
 | Expectation basis | One current basis for the expected behavior. | Identify a project requirement, design, interface, procedure, or other inspected project record describing the expected behavior when one exists. An unestablished basis remains visible. Do not treat that expectation as a confirmed nonconformance. |

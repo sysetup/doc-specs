@@ -1,3 +1,24 @@
+---
+title: "Test data specification"
+description: >-
+  Defines the authoring contract for test data specifications defining logical datasets, reproducible selection or generation rules, schemas and validity constraints, expected statistical or structural properties, provenance and usage rights, privacy or security protection rules, retention lifecycle, and suitability checks for a bounded set of tests. Distinguishes logical data specifications from actual materialized snapshots and exposes dataset limitations affecting test coverage or result interpretation.
+topics:
+  - "test-data-specification"
+  - "reproducible-datasets"
+  - "data-provenance"
+  - "data-protection"
+  - "synthetic-data"
+  - "test-suitability"
+use_when:
+  - "Tests rely on shared, reproducible, sensitive, or generated datasets that require controlled definition beyond inline test-case values."
+  - "A test engineer or data steward is defining provenance, privacy protection, generation rules, and suitability checks for test inputs."
+  - "A reviewer is verifying that test datasets separate logical selection rules from materialized snapshot observations and expose coverage limits."
+not_for:
+  - "Simple inline scalar inputs belonging strictly to a single test case, which belong in a test case specification."
+  - "Configuring test hardware, simulators, and runtime instrumentation, which belongs in a test environment specification."
+  - "Recording actual test execution outcomes, which belongs in a test execution record."
+---
+
 # Test data specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a source, use right, sensitivity classification, schema, generation parameter
 ## Finished-document contract
 
 - **Title:** Name the test effort or data scope and the document as its test data specification; distinguish an applicable edition when needed.
-- **Frontmatter:** None. Begin with the GFM title. Data definition, provenance, and use constraints are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Data definition, provenance, and use constraints are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State test need and selection rules before individual assets; state protection and lifecycle rules before any claim that data is ready for use. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and selection model | Required | Identify the tests or conditions served, relevant item configuration, data classes, normal and boundary values, invalid inputs when needed, representativeness or sampling rationale, exclusions, and known limits. Distinguish designed coverage from actual use in a run. |
 | Data asset definitions | Required | Define one or more distinct datasets, input collections, or generator recipes. For each, give identity, source or generation rule, reproducible edition or snapshot rule, format and schema, meaningful value constraints and expected properties, intended conditions, and availability or unresolved state. |
 | Provenance and permitted use | Required | State origin, ownership or source, acquisition or generation method, applicable rights and use restrictions, and handling decision for each asset. Give generation parameters, seed, or source edition where needed for reproduction. State when production-derived data is prohibited or conditionally authorized. |
@@ -34,7 +55,7 @@ If a source, use right, sensitivity classification, schema, generation parameter
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Test condition and data need | One or more mappings from intended tests to needed data classes or properties. | Identify the relevant condition or case when established. Explain why each distribution, boundary, invalid input, or known-answer property matters; do not force all classes into every asset. |
 | Data asset | One or more distinguishable datasets, collections, or generator recipes. | Assign a stable local or project identity. Distinguish a logical data definition from a materialized snapshot or generated instance; a planned asset need not pretend to have a real hash or location. |
 | Reproduction rule | One per asset, complete enough to identify or recreate the edition used. | Give an immutable snapshot/version or source edition and generator instructions with parameters and seed where applicable. Use a content digest or other integrity identifier when the project relies on exact bytes; do not mandate a hash for data that is defined by controlled generation and checked properties. Label planned digest and generation rules as planned; identify an actual digest, generated instance, or run use only from observations bound to the materialized edition. |

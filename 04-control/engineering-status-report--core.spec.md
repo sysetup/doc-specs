@@ -1,3 +1,24 @@
+---
+title: "Engineering delivery status report specification"
+description: >-
+  Defines the authoring contract for engineering delivery status reports providing a bounded period or as-of view of development and engineering progress against plan, resource facts, active impediments, blockers, dependencies, prospective schedule or scope forecasts with explicit assumptions, requested decisions, and next-period work. Keeps observed progress distinct from forecasts and avoids test-only accounting, live production service health reporting, unsupported productivity claims, or delivery acceptance decisions.
+topics:
+  - "engineering-status-report"
+  - "delivery-progress"
+  - "impediments-and-blockers"
+  - "delivery-forecast"
+  - "resource-facts"
+  - "project-reporting"
+use_when:
+  - "An active engineering or software delivery effort needs a periodic status snapshot of progress, blockers, resources, and forecast."
+  - "A project or engineering lead is surfacing decision requests and replanning options grounded in sourced progress measures."
+  - "A reviewer is checking whether forecasts, assumptions, and actual progress remain separated cleanly."
+not_for:
+  - "Reporting active testing campaign progress and anomaly counts alone, which belongs in a test status report."
+  - "Reporting production service availability, telemetry coverage, and incidents, which belongs in a service-period status report."
+  - "Recording actual consumed hours for effort accounting, which belongs in an engineering effort and work-time record."
+---
+
 # Engineering delivery status report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown baseline, count, completion criterion, source, forecast premise, 
 ## Finished-document contract
 
 - **Title:** Identify the delivery effort and reporting period and name its engineering delivery status report.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State period and source basis before progress; put impediments before forecast, decisions, and next-period work. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Period, scope, and sources | Required | Identify delivery scope, period and cutoff, baseline or plan edition, changes to the counting scope, units, actual sources and their as-of times, and the client or receiving-party element when applicable. |
 | Planned and actual delivery | Required | Compare planned work with observed work in progress and established completed outputs. Cite completion criteria and evidence, preserve unfinished or cancelled scope, and explain denominators, overlap, and measurement limits for counts or percentages. |
 | Resources, blockers, and dependencies | Required | Record sourced effort, cost, or capacity facts only when used; distinguish resource forecasts from observations. Identify current impediments and their impact, known dependency and risk masters, owner or gap, and assessed absence where applicable. |
@@ -33,7 +54,7 @@ Expose unknown baseline, count, completion criterion, source, forecast premise, 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Reporting basis | Exactly one period, cutoff, and source account in Period, scope, and sources. | Preserve time precision and versions; comparisons across changing scope disclose the change. |
 | Progress measure | Zero or more measures in Planned and actual delivery. | State unit, source, completion rule, numerator and denominator when used; unknown or partial coverage cannot be presented as full progress. |
 | Resource fact | Zero or more in Resources, blockers, and dependencies. | Identify source, unit, period, and observed versus forecast state; time logged alone is not delivered value or individual productivity. |

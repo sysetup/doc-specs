@@ -1,3 +1,24 @@
+---
+title: "Deviation or waiver request specification"
+description: >-
+  Defines the authoring contract for deviation and waiver requests tracking a bounded, time-limited or item-limited departure from an identified requirement, baseline, process, or criterion while keeping the underlying obligation in force. Covers request identity and state, departure type, affected obligation, exact extent, technical justification, impact and residual exposure assessment, compensating controls, linked risks, actual authority grant or refusal with conditions and notices, effectivity bounds, and closure or compliance-restoration evidence.
+topics:
+  - "deviation-request"
+  - "waiver-request"
+  - "policy-exception"
+  - "compensating-controls"
+  - "bounded-departure"
+  - "compliance-disposition"
+use_when:
+  - "A team requests a temporary or item-scoped departure from an active requirement, baseline, or standard without modifying the rule itself."
+  - "A governance authority is evaluating impact, compensating controls, residual exposure, effectivity bounds, and closure conditions."
+  - "A reviewer is confirming that a requested departure stays visibly pending until an authorized grant or refusal is recorded."
+not_for:
+  - "Permanently modifying a controlled baseline, requirement, or product configuration, which belongs in a change request."
+  - "Establishing organization-wide rules for when exceptions are permitted, which belongs in a policy or internal standard."
+  - "Tracking ongoing uncertain adverse events without a specific rule departure, which belongs in a risk register."
+---
+
 # Deviation or waiver request specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ When a fact is unknown or not decided, state that, its consequence, the resolvin
 ## Finished-document contract
 
 - **Title:** Name the affected obligation or subject and identify the document as the deviation or waiver request for that departure.
-- **Frontmatter:** None. Begin with the GFM title. The departure type, request state, effectivity, and authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The departure type, request state, effectivity, and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the definition in use, the obligation, and the departure before impact. State impact and controls before authority. Place effectivity and conditions with the authority. Place closure last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Obligation and departure | Required | Give the request a stable identity, requester, request date when known, and current state. State the departure-type definition in use and apply one type. Identify each affected obligation, the specific departure, the requested extent, and what remains mandatory. Give the justification, the alternatives considered, and why compliance or a change to the obligation is not proposed. |
 | Impact and controls | Required | For safety, security, function, interfaces, quality, cost, schedule, support, and contractual effect, state the assessed impact, that no impact was identified, or that the concern is not assessed. State residual exposure. Cite a risk record only when one exists. State the compensating controls, their limits, and how they will be checked, or state that none are proposed and the consequence. Record an actual check only when it has occurred. |
 | Authority and effectivity | Required | State whether a grant or refusal exists. A grant identifies the authority, the obligation, the departure type, the scope, and the effectivity, and it is no broader than the assessed request. A refusal identifies the authority and reason. State the conditions and who must be told. Separate a requester withdrawal from a refusal. |
@@ -33,7 +54,7 @@ When a fact is unknown or not decided, state that, its consequence, the resolvin
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Request identity | One identifier. | Keep it stable and identify this departure request distinctly from any related obligation, baseline, or decision. |
 | Request state | Exactly one of `requested`, `assessed`, `authorized`, `rejected`, `expired`, or `closed`. | `requested` means impact is not complete. `assessed` means every named concern and the control position are addressed and no grant or refusal exists. `authorized` cites a grant covering this obligation, type, scope, and effectivity. `rejected` cites the refusing authority and reason. `expired` means the granted effectivity has ended. `closed` means the closure authority has accepted restoration or the final disposition. A withdrawal before a decision stays `requested` or `assessed`, names its actor and date, and is not `rejected`. Use before a grant does not make the state `authorized`. |
 | Departure type | Exactly one of `deviation` or `waiver`, under one stated definition. | By default, a deviation is a planned departure requested before the nonconforming result exists; a waiver is a disposition of a nonconformity that already exists. If supplied project data establishes a different adopted definition, use it instead and state that complete definition, its project decision and revision when recorded, and the classification conditions for both types. A definition based on configuration-control status is used only when the project supplied and adopted it. Apply the stated definition consistently. The obligation stays in force under either type. |

@@ -1,3 +1,24 @@
+---
+title: "Test execution record specification"
+description: >-
+  Defines the authoring contract for test execution records preserving what actually happened during one bounded, initiated test run against an actual configuration. Covers run identity, scope, execution authority, referenced test definitions, actual tested configuration, per-case and per-attempt entries keeping distinct retry identities and unattempted selected cases explicit, timestamps, observations and evidence locators, outcomes, deviation and anomaly links, reconciled counts, and execution limitations.
+topics:
+  - "test-execution-record"
+  - "test-run-evidence"
+  - "observed-outcomes"
+  - "test-attempts"
+  - "anomalies-and-retests"
+  - "testing-evidence"
+use_when:
+  - "A test run has been initiated and requires an exact factual log of tested configuration, attempted cases, observations, and outcomes."
+  - "A test operator is recording distinct retry attempts, aborted runs, unattempted selected cases, and anomaly links."
+  - "An investigator or test lead is reconstructing a specific run to judge pass/fail verdicts and determine retest needs."
+not_for:
+  - "Summarizing multiple runs at the end of an entire campaign, which belongs in a test completion report."
+  - "Defining expected inputs and test steps prior to execution, which belongs in test case or test procedure specifications."
+  - "Binding multi-method conformance observations to technical requirements overall, which belongs in a verification evidence record."
+---
+
 # Test execution record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a timestamp, configuration element, observation, or evidence item was not cap
 ## Finished-document contract
 
 - **Title:** Identify the test item or effort and the actual run, and name the document as a test execution record.
-- **Frontmatter:** None. Begin with the GFM title. Run identity, configuration, and results belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Run identity, configuration, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the real run and execution context before case outcomes; present reconciliation and limitations after the observations. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Run identity, scope, and authority | Required | Identify one bounded run, its actual start and end or abort state, target and limits, operator or automation identity, and the actual project authorization or standing permission, its decision maker or issuer, and its execution limits where execution control required it. Record this authorization independently of the technical outcomes. |
 | Test basis and actual configuration | Required | Identify the actual item/build, environment, data, tools or instrumentation, and relevant versions or baselines used. Do not substitute the plan's intended configuration for the configuration used. If an actual identity is unknown, say so and limit any comparison that depends on it. Identify the applicable test definitions, expected results, and criteria by real edition and locator, or state them in this record when no separate controlled definition exists. Record material drift from the planned configuration. |
 | Attempted cases and observations | Required | Give one `not-run` entry for each case selected for this run for which neither a test stimulus nor a result assertion was performed, and one entry for each actual attempt, including a retest. If the run ended before any case was selected, say so and do not invent a case. Record actual times, actions or steps performed, observations or measurements with units where relevant, evidence locators, deviations, and comparison with expected results for each attempt. Link anomalies and later retests to the affected attempt. |
@@ -33,7 +54,7 @@ If a timestamp, configuration element, observation, or evidence item was not cap
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Run identity | One unique, stable identity for the bounded run. | Bind the record to the actual tested item, scope, and time window. Do not combine separate campaign runs under one identity merely to summarize progress. |
 | Execution authority | One applicable authority basis when the project controls execution. | Identify the actual project approval, change authorization, standing permission, or execution-control decision and its limits. When no distinct authorization is required, state that project execution-control decision and the role that established it; if this basis is unknown, state the gap. |
 | Test definition | Zero when the run ended before any test definition was selected. Otherwise each selected case or attempt identifies the definition that applies to it. | That definition is a real case, procedure, or script, or text stated in this record. Give an ID, title, edition, and locator only when that controlled definition exists. When none exists, state the objective, stimulus or steps, and expected result here and do not invent an identifier. Record performed actions and observations separately from the definition. |

@@ -1,3 +1,24 @@
+---
+title: "Requirements traceability matrix specification"
+description: >-
+  Defines the authoring contract for requirements traceability matrices recording directed relationships and explicitly surfacing missing required links across controlled endpoints including needs, requirements, architecture or design elements, interfaces, decisions, assessment activities, and evidence records within a declared scope. Preserves link bases, relationship semantics, and change-impact navigation while keeping endpoint wording, controlled parameters, assessment verdicts, and approval authority strictly inside their referenced endpoint records.
+topics:
+  - "requirements-traceability"
+  - "traceability-matrix"
+  - "directed-relationships"
+  - "impact-analysis"
+  - "coverage-gaps"
+  - "systems-engineering"
+use_when:
+  - "A project needs bidirectional navigation across needs, requirements, design, decisions, verification activities, and evidence."
+  - "A change analyst or V&V lead is performing change-impact analysis and exposing missing or disputed traceability edges."
+  - "A reviewer is checking traceability completeness without duplicating endpoint requirement text or test verdicts."
+not_for:
+  - "Tracking per-requirement verification methods, criteria, and conformance status, which belongs in a requirements verification matrix."
+  - "Tracking stakeholder need validation scenarios and fitness outcomes, which belongs in a validation matrix."
+  - "Indexing requirement IDs, owners, and content states alone, which belongs in a requirements registry."
+---
+
 # Requirements traceability matrix specification
 
 ## Identity and selection
@@ -21,12 +42,12 @@ If an endpoint, source edition, link basis, or required-relationship rule is unk
 ## Finished-document contract
 
 - **Title:** Identify the project, system, or baseline scope and name the document as its requirements traceability matrix.
-- **Frontmatter:** None. Begin with the GFM title. Relationship semantics belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Relationship semantics belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define sources and edge semantics before the relationship view; report missing relationships and change effects after it. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, sources, and relationship rules | Required | Identify the included entity kinds and controlled sources with editions or as-of point, boundary and exclusions, and baseline or effectivity assumptions. Define each allowed relationship type, its source and target kinds, and its direction. State which of those relationships the project requires. If that rule is not established, say so rather than inventing it. State how reverse navigation is obtained from one stored edge. State that an edge has no verification, validation, or acceptance state. |
 | Directed relationships | Required | Record each supported unique source–relationship–target edge with resolvable endpoint references, applicable editions, and a concise semantic basis. Distinguish a link to an activity that has not been executed from a link to an existing evidence record. If there are no valid edges, state that fact and its scope. |
 | Missing relationships and change impact | Required | Review the required incoming and outgoing relationships for each in-scope entity, including entities that have no edge row. Report missing relationships, stale or conflicting endpoints, and disputed edges, with action and owner if assigned. Identify edges affected by a changed source or baseline. A statement that the required relationships are present is only a statement about links. |
@@ -34,7 +55,7 @@ If an endpoint, source edition, link basis, or required-relationship rule is unk
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Endpoint | Two per edge: one source and one target. | Cite the entity kind, stable ID, authoritative record, edition or applicable configuration, and locator. Allowed kinds, when in scope, are a business or mission need, business requirement, stakeholder requirement, system requirement, software requirement, interface requirement, interface-control definition, interface-registry identity, design element, configuration item, decision, assessment activity, and evidence record. Do not copy the authoritative wording or controlled parameters. A missing endpoint is not a valid edge. |
 | Relationship type | One declared type per edge. | Define the verb, direction, and valid endpoint kinds. A derived item may use the project's derivation verb, such as `derives-from`, toward a source need or requirement. An element may `satisfy` or `realize` a requirement only as design or allocation, not as a verified or validated result. `constrains` and `rationale-for` cite a real constraint or decision relationship. Any activity or evidence verb is a pointer to that record. Do not label the edge `gap`, `partial`, `planned`, `verified`, `not-verified`, `accepted`, `pass`, `fail`, `inconclusive`, `not-run`, `met`, or `not-met`. |
 | Directed edge | Zero or more unique assertions; one row per distinct source–type–target relationship. | Give a stable link ID when links are controlled individually, plus endpoint references and the inspected basis. Do not create a separately maintained mirror row for reverse lookup, and do not count duplicate links as extra relationships. The edge has no coverage field and no acceptance field. |

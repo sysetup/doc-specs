@@ -1,3 +1,24 @@
+---
+title: "Task execution plan specification"
+description: >-
+  Defines the authoring contract for living task execution plans maintaining the current execution state of one bounded task for durable tracking, recovery, and cross-session handoff. Covers objective, acceptance criteria, workspace boundaries, explicit authorization provenance separating user authorization from runtime permissions, maintenance currency, identifiable steps with strict lifecycle state values and completion bases, material decisions and sources, separated planned versus executed checks, active blockers with release conditions, and concrete next-action continuation while excluding formal record masters.
+topics:
+  - "task-execution-plan"
+  - "task-state-tracking"
+  - "session-handoff"
+  - "recovery-checkpoint"
+  - "authorization-provenance"
+  - "blocker-tracking"
+use_when:
+  - "A bounded multi-step task needs durable state tracking, recovery checkpoints, or cross-session handoff without an existing formal plan."
+  - "An operator or agent is recording completed versus deferred steps, decisions, executed verification checks, and concrete blockers."
+  - "A receiving agent needs to resume bounded work safely with clear authorization boundaries and release conditions."
+not_for:
+  - "Project-wide engineering schedules, budgets, or multi-team release planning, which belong in development or systems engineering plans."
+  - "Serving as an authoritative master for organizational decisions, actions, or approvals, which belong in formal registers or evidence records."
+  - "Logging raw command transcripts or recording completed responsibility transfers between parties, which belong in handoff records."
+---
+
 # Task execution plan specification
 
 ## Identity and selection
@@ -19,17 +40,17 @@ For a missing fact, record the gap, its consequence, the resolving action, and t
 ## Finished-document contract
 
 - **Title:** Identify the bounded task and name its execution plan.
-- **Frontmatter:** None. Begin with a GFM title; keep metadata in the body. Governing source: this specification's standalone Markdown contract.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Keep metadata in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present the five content groups below in order; heading wording may vary.
 - **Presentation:** Use short paragraphs, lists, or a compact step table. An explicit `none` is sufficient for assessed absence; do not add sample entries or empty templates.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Workspace plan (standalone) | One task-specific H1. In Objective and scope, identify source specification and edition, local edition (or controlling corpus/VCS revision when governed at corpus level), maintenance responsibility (or declared catalog/corpus default), and currency. | GFM at workspace `PLAN.md` unless an existing project record is selected. Task instructions and cited source records remain authoritative; the plan neither grants access nor guarantees runtime loading or retention. |
+| --- | --- | --- |
+| Workspace plan (standalone) | Mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task-specific H1. In Objective and scope, identify local edition (or controlling corpus/VCS revision when governed at corpus level), maintenance responsibility (or declared catalog/corpus default), and currency; specification provenance may be bound externally in build or layout metadata rather than repeated inline. | GFM at workspace `PLAN.md` unless an existing project record is selected. Task instructions and cited source records remain authoritative; the plan neither grants access nor guarantees runtime loading or retention. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Objective and scope | Required | State intended outcome, acceptance criteria, workspace and work boundaries, constraints, authorization provenance and limits, maintenance responsibility, and currency. Separate established facts from assumptions. |
 | Steps and state | Required | Give identifiable steps, outcomes, dependencies or explicit absence, current states, and completion basis. Keep completed and remaining work distinguishable; identify which evidence supports each completion claim. |
 | Decisions and sources | Required | Preserve material decisions with rationale, unresolved choices with their resolving action, and relevant source paths, editions, revisions, or precise locators. Reference existing formal records when applicable rather than replacing their authority. |
@@ -39,7 +60,7 @@ For a missing fact, record the gap, its consequence, the resolving action, and t
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Maintenance and currency | One accountable role (or declared catalog/corpus default) and one last-reviewed indicator for the task state. | Use a date or timestamp with timezone when needed, tied to the reviewed workspace revision or relevant source snapshot. Update after material changes; local edition or controlling corpus/VCS revision identifies the plan, while currency identifies the state reviewed. Neither proves unchanged external state. |
 | Authorization provenance | One account of the controlling request or decision, its scope, limits, and current gaps. | Use a retrievable locator or concise description when no stable identifier exists. Distinguish user authorization from runtime permissions. A past grant, plan entry, completion claim, or passing check does not expand authority. |
 | Step | One or more stable identifiers with an observable outcome and dependencies. | Do not reuse an identifier for different work. Identify unresolved predecessors and reject self-dependencies or cycles. |

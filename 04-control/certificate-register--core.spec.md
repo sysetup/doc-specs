@@ -1,3 +1,24 @@
+---
+title: "Certificate register specification"
+description: >-
+  Defines the authoring contract for certificate registers tracking public-key or TLS certificate metadata across a bounded set of systems or services, including certificate identity, covered scope or subject names, responsible custodian, expiration date, installed locations, currency as-of point, and visibility of missing or unverified entries. Explicitly prohibits storing private keys, passphrases, or secret material inside the register so operators manage certificate renewals safely.
+topics:
+  - "certificate-register"
+  - "TLS-certificates"
+  - "certificate-expiry"
+  - "custodian-tracking"
+  - "PKI-inventory"
+  - "security-operations"
+use_when:
+  - "A bounded set of services or hosts requires a controlled register of certificate identities, scopes, custodians, expiries, and locations."
+  - "Operators need reliable visibility into upcoming certificate renewals and where each certificate is installed."
+  - "A security reviewer is verifying that certificate metadata is tracked accurately without exposing private keys or secrets."
+not_for:
+  - "Storing private keys, secret tokens, or credential material, which belong strictly in approved secret managers."
+  - "Tracking user accounts, system groups, and authorization privileges, which belongs in an identity and access register."
+  - "Executing step-by-step certificate rotation commands, which belongs in an operational runbook."
+---
+
 # Certificate register specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If identity, scope, custodian, expiry, or installed location is unknown, record 
 ## Finished-document contract
 
 - **Title:** Identify the system or service set and name the document as its certificate register.
-- **Frontmatter:** None. Begin with the GFM title. The covered set and as-of point belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The covered set and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the covered set before the certificate entries. State gaps with or after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity and scope | Required | Identify the systems or services covered and the as-of point. Include the client or receiving-party element from this contract when applicable. |
 | Certificates | Required | For each certificate, record its identity, scope, custodian, expiry, and installed location when those facts are known. If none are in scope, say so instead of adding a placeholder certificate. |
 | Gaps | Required | Identify missing custodians, expiry, scope, or installed locations, and the next action. |
@@ -32,7 +53,7 @@ If identity, scope, custodian, expiry, or installed location is unknown, record 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Covered set | One bounded set of systems or services per register. | State the as-of point. Do not silently add certificates from outside that set. |
 | Certificate identity | One identity per certificate entry. | State subject or equivalent name, issuer, and serial or another established identifier. A certificate fingerprint MAY be included. Do not record a private key. |
 | Scope | The names, hosts, or uses the certificate is for, when known. | State the scope. An unknown name or use stays a gap. |

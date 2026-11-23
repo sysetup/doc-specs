@@ -1,3 +1,24 @@
+---
+title: "Cybersecurity policy specification"
+description: >-
+  Defines the authoring contract for mandatory cybersecurity policies governing protection objectives, secure development expectations, incident response duties, and supply-chain security across an authorized organizational or project scope. Requires explicit coverage of issuing authority, policy ownership, applicability, issuance state, security directives, accountability and security escalation paths, risk and exception decision rules, noncompliance handling, and oversight review. Enables builders, operators, and overseers to identify binding security duties and escalation channels clearly.
+topics:
+  - "cybersecurity-policy"
+  - "information-security"
+  - "secure-development"
+  - "supply-chain-security"
+  - "incident-escalation"
+  - "security-governance"
+use_when:
+  - "An issuing authority needs mandatory cybersecurity directives governing protection objectives, secure development, and supply-chain security."
+  - "A security governance author is defining security accountability, incident escalation rules, and security exception authorities."
+  - "A reviewer is assessing whether a cybersecurity policy separates high-level mandatory obligations from technical implementation plans."
+not_for:
+  - "Planning project-specific threat modeling, security controls, and assessments, which belong in a security engineering plan."
+  - "Preparing incident response governance and escalation workflows, which belong in an incident response plan or playbook."
+  - "Recording actual vulnerability cases, security advisories, or selected control implementations."
+---
+
 # Cybersecurity policy specification
 
 ## Identity and selection
@@ -18,12 +39,12 @@ If a protection objective, threat assumption, project security duty, or role is 
 ## Finished-document contract
 
 - **Title:** Identify the covered subject as a cybersecurity policy and name the organization, project, or system boundary where ambiguity would result.
-- **Frontmatter:** None. Begin with the GFM title. Authority, applicability, and policy state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State authority and scope before security obligations; place responsibility and exception routes after the obligations they govern. Headings may use project wording if their roles remain clear.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority, objectives, and applicability | Required | Identify the real issuing authority or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, covered people and assets or services, boundaries and exclusions, and effective date only when established. Explain the protection outcome and the established project security duties it addresses. |
 | Mandatory security direction | Required | Account for **protection objectives**, **secure development**, **incident response**, and **supply-chain security**, stating identifiable obligations for each included area and the approved exclusion decision for each excluded area. For included areas, protection direction identifies what interests must be protected and who sets applicable priorities; development direction governs security across design, change, and release as applicable; incident direction governs recognition, reporting, escalation, decision authority, and preservation of relevant information; and supply-chain direction governs security expectations and accountability for externally supplied components or services within scope. State the required duties, decision rights, and conditions for each included subject area. |
 | Security accountability and escalation | Required | Assign roles for applying the obligations, interpreting them, receiving reports, coordinating across the internal and supplier boundaries within scope, and deciding a security conflict or material risk. State who provides recommendations or risk assessments and who has the decision right, with each role's decision bounds. |
@@ -33,7 +54,7 @@ If a protection objective, threat assumption, project security duty, or role is 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Issuing authority and policy owner | One identified issuer or delegated role, and one accountable maintenance role. | A named security team is not necessarily the issuing authority. Mark proposed assignments as proposed. |
 | Applicability | One statement of affected people, systems, information, services, suppliers, lifecycle stages, and material exclusions. | For external parties, state the supplied delivery scope and agreed security responsibilities, identifying the established project agreement or decision that assigns them. |
 | Issuance state and edition | One truthful state and unambiguous edition; effective date only when decided. | Distinguish draft, authorized but not effective, effective, and withdrawn or superseded in the project's terms. Tie the stated edition, authorization, and effective date to established issuance decisions. |

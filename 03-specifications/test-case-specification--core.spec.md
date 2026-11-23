@@ -1,3 +1,24 @@
+---
+title: "Test case specification"
+description: >-
+  Defines the authoring contract for test case specifications defining one or more independently assessable tests before execution. Covers case set scope and controlling test basis, unique case identities, traced objectives, preconditions, concrete inputs and stimuli, local action details, expected observations and pass/fail result criteria, postconditions and cleanup, priorities, dependencies, and use limits so testers and automated suites evaluate outcomes unambiguously against defined oracles.
+topics:
+  - "test-case-specification"
+  - "test-oracles"
+  - "test-inputs"
+  - "expected-observations"
+  - "pass-fail-criteria"
+  - "software-testing"
+use_when:
+  - "One test or a coherent test case set needs a stable pre-execution specification of inputs, preconditions, actions, and pass/fail criteria."
+  - "A test designer is defining unambiguous expected observations and cleanup postconditions traced to requirements or risks."
+  - "A reviewer is checking whether test cases isolate individual assessable oracles without bloating into long shared execution scripts."
+not_for:
+  - "Campaign-level test strategy, schedules, and entry/exit gates, which belong in a test plan."
+  - "Deriving high-level test conditions and coverage techniques before concrete cases, which belongs in a test design specification."
+  - "Ordered multi-case operational run scripts or recorded actual run outcomes, which belong in test procedures or test execution records."
+---
+
 # Test case specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown configuration, input, expected result, or criterion, identify the
 ## Finished-document contract
 
 - **Title:** Identify the test item or bounded case set and name the document as its test case specification; distinguish the applicable item or case edition when it changes interpretation.
-- **Frontmatter:** None. Begin with the GFM title. Case identity and source editions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Case identity and source editions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the scope and oracle basis before the cases; put use limits and unresolved case dependencies after the case definitions. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Case set scope and basis | Required | Identify the item and applicable configuration, the case set's boundary, project-basis editions, the established basis and decision owner for expected behavior, and material assumptions or exclusions. State how cases are identified or revised when later runs must resolve their edition. |
 | Case definitions | Required | Define one or more distinct cases. For each, state objective and basis; initial state and prerequisites; input values or reproducible selection rules; action or condition to apply; expected observable outcomes and pass/fail rule; observation method; and any necessary end state or cleanup. Keep each case independently identifiable and assessable. |
 | Dependencies and use limits | Required | Identify unresolved or conditional data, environment, access, instrumentation, sequence, safety, or oracle dependencies that affect execution or interpretation. State the resolving action and actual decision owner when established. Do not report a planned test as performed. |
@@ -32,7 +53,7 @@ For an unknown configuration, input, expected result, or criterion, identify the
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Case identity | One stable project or local identity per case; one or more cases per coherent specification. | An identity must distinguish a case from other cases and allow a run to identify the applicable edition. A globally prescribed ID pattern is unnecessary unless the project has one. Separate cases with different objectives or result criteria. |
 | Objective and basis | One assessable purpose and at least one inspectable basis or explained risk per case. | Link the case to a requirement when a requirement actually governs it; do not force a requirement reference for a legitimate non-requirement test. A case purpose alone does not establish coverage adequacy. |
 | Preconditions | One defined starting-state rule per case, including relevant configuration, permissions, data state, and prior actions. | State observable readiness checks and the effect of a failed prerequisite. If no special setup applies, identify the ordinary starting state. Treat the stated configuration as required setup; a claim of readiness requires actual check observations. Label an unmet prerequisite as blocking execution or result judgment rather than assigning a case pass or fail. |

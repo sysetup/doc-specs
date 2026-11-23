@@ -1,3 +1,24 @@
+---
+title: "Engineering policy specification"
+description: >-
+  Defines the authoring contract for mandatory engineering policies governing lifecycle responsibilities, requirements discipline, interface control expectations, and technical decision rigor across an organizational or project scope. Specifies required coverage of issuing authority, policy ownership, applicability, issuance state, mandatory engineering directives, requirements and interface governance rules, technical authority and coordination, exception handling, nonconformance escalation, and oversight review. Clarifies who owns technical conclusions and what basis is required before accepting technical changes.
+topics:
+  - "engineering-policy"
+  - "technical-governance"
+  - "lifecycle-accountability"
+  - "requirements-governance"
+  - "interface-governance"
+  - "technical-decisions"
+use_when:
+  - "An issuing authority needs broad mandatory engineering obligations covering lifecycle duties, requirements, interfaces, and technical decisions."
+  - "An author is defining organizational engineering decision rights, coordination rules, and nonconformance escalation routes."
+  - "A reviewer is checking whether an engineering policy stays at mandatory governance level without embedding detailed lifecycle procedures."
+not_for:
+  - "Defining recurring cross-discipline workflows or handoffs, which belong in systems or software engineering lifecycle processes."
+  - "Planning one project's engineering tailoring, resources, and gates, which belong in a systems engineering management plan."
+  - "Setting granular technical artifact rules, which belong in an internal standard."
+---
+
 # Engineering policy specification
 
 ## Identity and selection
@@ -20,12 +41,12 @@ Normally all four named engineering subjects are covered. A subject may be exclu
 ## Finished-document contract
 
 - **Title:** Name the organization or project subject where needed and identify the document as an engineering policy.
-- **Frontmatter:** None. Begin with the GFM title; authority, applicability, and state are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present authority and boundaries before mandatory direction, then responsibility and exception rules, then communication and review. Headings may use local wording if the roles remain identifiable.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority, purpose, and scope | Required | Identify the real issuing authority or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, affected disciplines and people, systems or products, lifecycle boundary, exclusions, and effective date only when established. State the engineering outcome and the project needs, allocations or decisions that establish the obligations. |
 | Mandatory engineering direction | Required; subject coverage follows the approved exclusions defined above | State identifiable obligations for **lifecycle responsibility**, **requirements**, **interfaces**, and **decision quality** wherever each subject remains in scope. For those subjects, respectively govern continuity of technical accountability through the covered lifecycle; source, allocation, change, and evaluation of requirements; ownership and coordinated change of interfaces; and proportionate rationale, assumptions, risks, alternatives, and evidence for consequential technical decisions. Specify how claims of conformity to requirements and fitness for intended use are to be supported where those claims are within scope. State the required review, verification, validation, or acceptance practices where needed. |
 | Technical authority and coordination | Required | For the subjects in scope, allocate responsibility and decision rights for engineering outputs, requirements and interface changes, cross-discipline conflicts, and acceptance of technical evidence. Define an escalation route when authorities or baselines conflict. State the coordination and handoff rules needed to apply these obligations. |
@@ -35,7 +56,7 @@ Normally all four named engineering subjects are covered. A subject may be exclu
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Issuing authority and policy owner | One identified issuing body or delegated role, and one maintenance role. | A technical reviewer or project manager is not automatically the issuing authority; a proposed role is labeled proposed. |
 | Applicability | One explicit statement of disciplines, roles, products or systems, lifecycle stages, and material exclusions. | Do not claim authority over organizational or supplier boundaries not covered by the mandate. |
 | Issuance state and edition | One truthful state and unambiguous edition; effective date only if established. | Distinguish proposed, authorized but not yet effective, effective, and withdrawn or superseded states in local terms. |

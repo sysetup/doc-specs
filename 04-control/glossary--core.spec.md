@@ -1,3 +1,24 @@
+---
+title: "Concept-oriented glossary specification"
+description: >-
+  Defines the authoring contract for concept-oriented glossaries controlling shared meanings of project or domain concepts across documentation sets. Covers glossary scope and stewardship, unique concept entries, preferred designations, permitted aliases, explicitly deprecated designations, substantive conceptual definitions beyond acronym expansion alone, subject context, definition origin distinguishing adopted, adapted, or project-authored terms, source provenance and rights, usage notes, related concepts, and unresolved terminology disputes.
+topics:
+  - "glossary"
+  - "terminology-control"
+  - "concept-definitions"
+  - "preferred-terms"
+  - "controlled-vocabulary"
+  - "domain-semantics"
+use_when:
+  - "A project or domain needs one controlled vocabulary unifying concept meanings, preferred terms, aliases, and deprecated labels."
+  - "A terminology steward is documenting definition origins, semantic distinctions, and unresolved term disputes across documents."
+  - "A reviewer is checking whether glossary entries define real underlying concepts rather than merely expanding acronyms."
+not_for:
+  - "Documenting version-bound software API symbols, CLI options, or schema fields, which belongs in a technical lookup reference."
+  - "Issuing mandatory engineering rules or compliance criteria, which belongs in an internal standard."
+  - "Recording architectural tradeoffs or formal requirements statements."
+---
+
 # Concept-oriented glossary specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If the subject field or language is unknown, say so and leave it unresolved. If 
 ## Finished-document contract
 
 - **Title:** Name the subject field and identify the document as its concept glossary.
-- **Frontmatter:** None. Begin with the GFM title. Scope, designations, and definitions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, designations, and definitions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope and stewardship before the entries. Present unresolved disputes with or after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and stewardship | Required | State the subject field, audiences, each language in scope or the unresolved language, and any naming convention actually in use. Name the steward role or the assignment gap. State the adoption and change rule, or that it is not established. Identify each vocabulary supplying definitions used by the project, with its supplied version, or state that no such vocabulary is used. State the order used to find an entry. |
 | Concept entries | Required | Record each established concept once, with a stable ID, preferred designation, distinguishing definition, subject context, definition origin, and source and rights. Include permitted and deprecated designations and related concepts only when they exist. If no concept is established, state that limit instead of a placeholder entry, and do not call the document the controlled vocabulary. |
 | Unresolved disputes | Required | State each recorded conflict between meanings, designations, or sources, and any steward selection among them. If none are recorded, say so. |
@@ -32,7 +53,7 @@ If the subject field or language is unknown, say so and leave it unresolved. If 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Concept entry | One per concept the project has established. Zero only when the document states that no concept is established; that document is not the controlled vocabulary. | Keep one entry for one concept, including when the concept has an acronym. Use two entries when one designation carries two meanings. |
 | Concept ID | One per entry, stable across revisions of that concept. | Never reuse an ID for a different concept. Follow a project identifier scheme when one exists. Do not add a second identifier to satisfy a character pattern. |
 | Preferred designation | One per declared language for each entry, or an explicit gap for a language whose designation is not established. | The designation is the term, symbol, or name to use. An acronym is the preferred designation only when the entry also gives the full form, or states that the acronym is the name in use. |
@@ -57,4 +78,4 @@ Use a glossary table or a definition list that shows the preferred designation, 
 - Each definition distinguishes the concept from the related concepts the entry names and expresses its meaning without prescribing an action.
 - Origin, supplied source version, and reuse permission agree. An unavailable source definition or version, or a definition without established redistribution permission, is not marked `adopted`.
 - Entries stay proposed while the steward or adoption rule is unestablished. A document with no established concepts does not claim to be the shared vocabulary.
-- Recorded disputes are visible. 
+- Recorded disputes are visible.

@@ -1,3 +1,24 @@
+---
+title: "Preliminary design review record specification"
+description: >-
+  Defines the authoring contract for Preliminary Design Review records preserving one held lifecycle gate assessing whether a preliminary design satisfies parent requirements within project risk and constraints and provides an adequate basis to proceed into detailed design. Covers review identity and authority, preliminary-design and requirement editions, adopted criteria, entrance evidence, design-basis assessments, findings, assigned actions, actual disposition, conditions, and the boundary of approval effects.
+topics:
+  - "preliminary-design-review"
+  - "PDR"
+  - "preliminary-design"
+  - "detailed-design-readiness"
+  - "lifecycle-gate"
+  - "systems-engineering"
+use_when:
+  - "A Preliminary Design Review has been held and requires a record of design-basis assessment, entrance results, findings, and disposition."
+  - "A review chair is binding PDR conditions, actions, and proceed decisions to exact preliminary-design and requirement editions."
+  - "A reviewer is verifying whether a preliminary design passed gate criteria before entering detailed design."
+not_for:
+  - "Earlier requirements credibility reviews, which belong in a System Requirements Review record."
+  - "Later detailed-design maturity reviews for fabrication and integration, which belong in a Critical Design Review record."
+  - "Authoring the system or software design content itself, which belongs in design description specifications."
+---
+
 # Preliminary design review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ State each established entrance and success criterion explicitly, including the 
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as a Preliminary Design Review record.
-- **Frontmatter:** None. Begin with the GFM title. Review identity, criteria, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the preliminary-design edition, and the authority before the criteria. Present entrance results before the design assessment. Present the disposition after the findings. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and authority | Required | Identify one held Preliminary Design Review, the system boundary, the preliminary-design edition, the requirements edition used as the assessment basis, the actual date or sessions, the chair, reviewers, and decision authority. State the project-defined independence or quorum rule and its observed result when required. |
 | Adopted criteria | Required | State every entrance and success criterion established for this PDR, its required product or evidence, satisfaction condition, and scope limit. Identify the project criteria record by title or ID, edition, and locator. Record each authorized omission or change, its reason, and its decision maker. If no criteria were established, say so. |
 | Entrance results | Required | Give one entry for each established entrance criterion, including the required product and revision, the evidence examined, the assessment, and the rationale. Record an authorized omission as `not-applicable` with its reason and decision maker. Identify the examined preliminary design, supporting plans, interface material, runtime-environment target, and prior-review dispositions by edition and locator when the criterion requires them. |
@@ -34,7 +55,7 @@ State each established entrance and success criterion explicitly, including the 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review identity | One stable identity for one held PDR. | Bind it to the system, the preliminary-design edition, and the actual date or session. A later repeat review is a different record. |
 | Preliminary-design edition | One preliminary-design definition the review examined. | Identify it by title or ID, edition, and locator. Bind each design assessment to that examined edition and its preliminary-design maturity. |
 | Requirements basis | One requirements edition against which the design was assessed. | Identify its title or ID and edition. Do not assess the design against requirements that were not in that edition unless the review records them as an explicit exception. |

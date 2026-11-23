@@ -1,3 +1,24 @@
+---
+title: "Project or product quality plan specification"
+description: >-
+  Defines the authoring contract for project or product quality plans establishing specific quality objectives, assurance activities, responsibilities, resources, realization and information controls, supplier quality oversight, quality measures, and planned nonconformity handling against an established quality basis. Guides teams on what quality checks must occur, which evidence reviewers will examine, and how deficient outputs are contained and dispositioned before delivery or continued use.
+topics:
+  - "quality-plan"
+  - "quality-assurance"
+  - "quality-objectives"
+  - "nonconformity-control"
+  - "quality-measures"
+  - "supplier-quality"
+use_when:
+  - "A bounded project, product, service, or contract requires a coordinated quality assurance approach across its lifecycle."
+  - "A quality lead is specifying quality objectives, planned checks, measures, and nonconforming-output routing before delivery."
+  - "A reviewer is verifying that planned quality checks map cleanly to an established quality basis and real disposition authority."
+not_for:
+  - "Organization-wide mandatory quality direction and independence principles, which belong in a quality policy."
+  - "Detailed technical test strategy and case coverage planning, which belong in a test plan or verification plan."
+  - "Recording actual audit findings or individual defect closures, which belong in audit reports or defect reports."
+---
+
 # Project or product quality plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ State an unknown requirement, target, criterion, resource, or authority with its
 ## Finished-document contract
 
 - **Title:** Identify the project, product, or service and name its quality plan.
-- **Frontmatter:** None. Begin with the GFM title; quality scope and authority belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Quality scope and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish quality basis and objectives before responsibilities and controls; place assessment before nonconformity and improvement routes. Exact headings may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Specific case and quality basis | Required | Define covered outputs, project, supplied delivery scope or service and lifecycle stages, material exclusions, customer and technical requirements and agreed project or delivery obligations with editions or agreement states, and who may set or change the quality basis. State concrete criteria and distinguish established requirements from proposed targets. |
 | Quality objectives and measures | Required | State established, assessable objectives for the scope, their responsible roles, measurement or evaluation method, source of targets, timing, and escalation when an objective or target is missing or missed. Avoid unsupported universal thresholds or claims of achieved performance. |
 | Organization and resources | Required | Assign process, assurance, review, nonconformity, release, and acceptance roles as applicable; state the actual impartiality or independence requirement and conflict route. Plan the people, competence, infrastructure, equipment, measurement resources, and supplier capacity needed. |
@@ -36,7 +57,7 @@ State an unknown requirement, target, criterion, resource, or authority with its
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Quality basis | One bounded set of project requirements and acceptance criteria, with a rule for changed inputs. | Identify the supplied requirement or decision record, edition or agreement state, output or process affected, concrete criterion, and decision authority. |
 | Quality objective | One or more objectives for the covered work. | Give measurable outcome or assessable criterion, target source and status, owner, method, review point, and action if not met. Do not invent a numeric target. |
 | Planned quality check | One or more checks proportionate to the actual lifecycle and risk. | Give object, criterion, timing or trigger, responsible and reviewing roles, expected evidence, and the planned response when a check does not meet its criterion or cannot be concluded. Name a formal audit only when required by a stated project decision or selected for the scope. |

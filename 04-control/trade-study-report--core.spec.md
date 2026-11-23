@@ -1,3 +1,24 @@
+---
+title: "Trade study report specification"
+description: >-
+  Defines the authoring contract for trade study reports systematically comparing credible alternatives for one bounded engineering or architectural question against mandatory pass/fail gates and explicit weighted or unweighted evaluation criteria. Covers decision question and constraints, declared method and measures, inputs, compared alternatives, observed or modeled results, uncertainty and sensitivity analysis, risk comparison, selection rule, a clearly labeled proposed recommendation, and separate citation to any actual authorized decision.
+topics:
+  - "trade-study"
+  - "alternatives-analysis"
+  - "decision-criteria"
+  - "sensitivity-analysis"
+  - "selection-gates"
+  - "engineering-tradeoffs"
+use_when:
+  - "An engineering choice requires structured comparison of credible alternatives against mandatory gates, explicit criteria, uncertainty, and risk."
+  - "An analyst is performing sensitivity checks to verify whether a proposed recommendation stays robust before presenting to decision makers."
+  - "A reviewer is checking whether a trade study separates analytical recommendation from actual decision authorization."
+not_for:
+  - "Recording an already authorized architecture choice and its follow-through, which belongs in an architecture decision record."
+  - "Investigating one technical question or model without comparing competing candidate options, which belongs in a technical analysis report."
+  - "Presenting a client quotation and commercial terms, which belongs in a technical and commercial proposal."
+---
+
 # Trade study report specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ When a fact is unknown or not established, keep it unknown, state its consequenc
 ## Finished-document contract
 
 - **Title:** Name the decision question and identify the document as the trade study for that question.
-- **Frontmatter:** None. Begin with the GFM title. The subject, criteria, results, and recommendation belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The subject, criteria, results, and recommendation belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the question and the gates before the measures. State the measures and method before the results. State screened and compared alternatives before the recommendation. Place the selection rule with the recommendation. Place the decision handoff after the recommendation. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Decision question and constraints | Required | Identify the subject, decision question, lifecycle point, boundaries, and comparison baseline, or state that none is established. Define that baseline as the reference state or no-change option used for evaluation. State the goals and constraints. Separate mandatory gates from preferences, state each gate's explicit criterion and project need, requirement, constraint, or decision basis, and identify its source or mark it not established. |
 | Criteria, measures, and method | Required | Define each criterion used to gate or rank alternatives, including how it is observed or judged, its threshold or preference direction, its scale, and its data quality. State a weight or rank only when the method uses one, with the reason. Name criteria that were considered and then excluded, with the reason. State the method, why it fits the information available, and its limits. |
 | Alternatives | Required | Identify the alternatives that were gated or ranked, the baseline or no-change option when it is credible, and the options screened out before full evaluation with the reasons. When only one option remains viable, show that screening. Include doing nothing when it was considered. |
@@ -35,7 +56,7 @@ When a fact is unknown or not established, keep it unknown, state its consequenc
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Subject and question | One subject and one decision question. | Bind the lifecycle point, boundaries, and comparison baseline. That baseline is the reference state or no-change option used in the comparison. Keep the evaluated alternatives and recommendation within this question. |
 | Gate | Zero or more mandatory criteria, each with a source or an explicit gap. | State the criterion and its supplied project need, requirement, constraint, or decision basis. For each alternative, record whether it meets the gate, does not meet the gate, or the comparison is not established. Not established does not mean the alternative meets the gate. An alternative that does not meet a gate is screened out of preference ranking. Use only these three comparison states for the gate result. |
 | Criterion | One or more criteria used, plus any considered and then excluded. | State meaning, observation or judgment method, threshold or preference direction, and data quality. A normalized or ordinal scale needs an operational definition of each step. A weight or rank appears only when the method uses it and the reason is stated. An ordinal label is not a physical measurement. |

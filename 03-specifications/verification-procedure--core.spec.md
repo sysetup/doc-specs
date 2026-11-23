@@ -1,3 +1,24 @@
+---
+title: "Verification procedure specification"
+description: >-
+  Defines the authoring contract for verification procedures specifying repeatable inspection, analysis, test, or demonstration methods and decision criteria to assess whether a bounded item conforms to identified technical requirements or specifications. Covers technical obligations and target configurations, explicit obligation-to-criterion mappings, tool, model, or measurement bases, preconditions and capability requirements, ordered assessment steps, and evidence, review, and disposition rules before execution.
+topics:
+  - "verification-procedure"
+  - "conformance-method"
+  - "inspection-analysis-test"
+  - "criterion-mapping"
+  - "measurement-basis"
+  - "technical-verification"
+use_when:
+  - "Specific technical obligations require a repeatable inspection, analysis, test, or demonstration method with clear decision criteria."
+  - "A verification engineer is mapping requirements to measurement models, preconditions, ordered assessment steps, and evidence rules."
+  - "A reviewer is checking whether a verification method establishes clear conformance criteria before actual assessment runs."
+not_for:
+  - "Assessing intended-use fitness against stakeholder needs in representative scenarios, which belongs in a validation procedure."
+  - "Detailed step-by-step operational test-runner scripts alone, which belong in a test procedure."
+  - "Recording actual conformance observations and verdicts, which belongs in a verification evidence record."
+---
+
 # Verification procedure specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a requirement, configuration, criterion, method capability, sample basis, or 
 ## Finished-document contract
 
 - **Title:** Identify the bounded item or verification scope and name the document as its verification procedure; distinguish the method or procedure edition when results will cite it.
-- **Frontmatter:** None. Begin with the GFM title. Technical basis, configuration, and decision rules belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Technical basis, configuration, and decision rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State subject and method before criteria; place prerequisites before steps and evidence and disposition after the actions that produce them. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Verification subject and basis | Required | Identify the item, applicable configuration or selection rule, one or more established project technical requirements or clauses and their editions and locators, material exclusions, and the scope of the conformance claim this method could support. |
 | Method and criterion mapping | Required | Select inspection, analysis, test, demonstration, or a justified combination; explain suitability and map each applicable requirement to observable or calculable criteria, limits, units, tolerances, uncertainty treatment, and sample or coverage rule where needed. State what an actual assessment would have to observe to treat the criterion as met, missed, or not supportable. A failed prerequisite or a stop before the assessment leaves the criterion unassessed. |
 | Preconditions and capability | Required | Define required item state, environment, inputs, tools or models, personnel capability, access and safety controls, instrument calibration or model validity when relevant, and checks before assessment begins. Identify actual authorization requirements without treating this procedure as authorization. |
@@ -34,7 +55,7 @@ If a requirement, configuration, criterion, method capability, sample basis, or 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Technical obligation | One or more applicable requirements or specification clauses. | State the supplied project obligation, exact origin, edition, and locator, and identify the assessed part of a compound obligation. Give its concrete criterion in the mapping rather than only a reference. |
 | Item and configuration | One bounded item or coherent set with an applicable baseline, build, sample, or selection rule. | State what will actually be assessed and the rule for choosing representative samples if all units cannot be examined. A planned configuration, including a test-environment target or readiness assessment, is not evidence of the configuration actually assessed. |
 | Verification method | One or more selected modes: inspection, analysis, test, or demonstration, as suitable to the obligation. | State the method, why it can expose conformance, and what it cannot establish. Identify the edition and locator of a project-controlled method record when used. |

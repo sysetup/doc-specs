@@ -1,3 +1,24 @@
+---
+title: "Risk register specification"
+description: >-
+  Defines the authoring contract for risk registers maintaining ongoing identity, assessment, ownership, treatment staging, trigger monitoring, residual exposure, and review history for uncertain events or conditions that may adversely affect stated project, service, or operational objectives. Covers declared assessment scales, explicit risk states and acceptance decisions, and response triggers while separating uncertain future exposure from realized defects or incidents and ensuring ratings never substitute for authorized residual-risk acceptance.
+topics:
+  - "risk-register"
+  - "risk-assessment"
+  - "risk-treatment"
+  - "residual-risk"
+  - "risk-monitoring"
+  - "uncertainty-control"
+use_when:
+  - "A project, product, or service needs ongoing tracking of uncertain adverse events, ratings, owners, treatments, and monitoring triggers."
+  - "A risk owner or manager is prioritizing exposure, escalating treatments, and reviewing open residual-risk acceptance decisions."
+  - "A reviewer is checking whether realized problems are kept distinct from uncertain future risks."
+not_for:
+  - "Setting organization-wide mandatory risk criteria and escalation governance, which belongs in a risk management policy."
+  - "Tracking safety-critical physical or system hazards and mishaps, which belongs in a hazard log."
+  - "Tracking already occurred software defects or known maintainability compromises, which belong in defect or technical debt registers."
+---
+
 # Risk register specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a condition, rating, owner, treatment, or acceptance decision is unknown or n
 ## Finished-document contract
 
 - **Title:** Identify the project, service, or bounded scope and the document as its risk register.
-- **Frontmatter:** None. Begin with the GFM title. Scope, review state, and risk decisions belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, review state, and risk decisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope and assessment rules before entries; present current disposition and review information with or after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and assessment method | Required | State the objectives, organizational or system boundary, time horizon, review owner, assessment date or as-of point, and established project risk criteria. Define the scales, thresholds, rating calculations, prioritization and escalation rules, and conditions for residual-risk acceptance needed to interpret and act on the entries. Identify the project method's edition or adoption decision when established. Name the assigned decision role, its recorded assignment, scope, and limits. Mark unresolved criteria or decision rights explicitly. |
 | Risk entries | Required | Record each identified risk with a stable ID, cause or condition, uncertain event, consequence for an objective, evidence or origin, current assessment and uncertainty, accountable owner, treatment decision or pending choice, indicators, and current state. If no risk is identified after a real assessment, state the assessed scope and its limitation instead of adding a placeholder risk. |
 | Treatment, residual exposure, and review | Required | For each entry, identify its actual treatment stage; distinguish proposed actions, authorized actions, completed actions, forecast residual exposure, and reassessment supported by observed results when each exists. Record action completion and observed effectiveness separately. Give a monitoring or review route, escalation on a material trigger, next review point, and the latest real review or decision if one occurred. Cite actual acceptance of residual risk only where the assigned decision role made that decision within its recorded scope and conditions. `closed`, `retain`, and a low rating are not that acceptance. Summarize unresolved ratings, owners, or decisions that block prioritization or closure. |
@@ -32,7 +53,7 @@ If a condition, rating, owner, treatment, or acceptance decision is unknown or n
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Assessment rule or scale | One coherent project method; one or more dimensions only if that method uses them. | Give rating values or quantitative units, anchors, ordering, horizon, combination rule, thresholds, and the established project method edition or adoption decision. Define the rating meanings needed to interpret entries. If no scale is established, leave ratings unresolved. Use only dimensions and combinations established for the stated scope. A score is an exposure assessment, not permission to accept risk; `pass`, `fail`, `inconclusive`, and `not-run` are not risk rating values. |
 | Risk entry | Zero or more assessed or emerging risks within the stated scope. | Give every entry a unique stable ID and one intelligible cause/condition → uncertain event → consequence chain. The event MUST remain uncertain; cite a realized occurrence when it changes this risk's basis or state, and identify the remaining uncertainty. |
 | Current assessment | One current assessment per active entry, or an explicit pending state. | Show likelihood and consequence or other method-specific values, basis, confidence or material uncertainty, and the method edition or scale used. Reassess when the basis or scope materially changes. |

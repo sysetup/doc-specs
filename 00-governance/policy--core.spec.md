@@ -1,3 +1,24 @@
+---
+title: "General policy specification"
+description: >-
+  Defines the authoring contract for general organizational or project policies setting authorized, mandatory, high-level direction outside specialized governance subjects. Requires explicit identification of issuing authority, policy ownership, applicability boundaries, issuance state and effective date, addressee-bound mandatory directives, accountability and conflict escalation, exception allowance or prohibition rules, and review cadence. Keeps policy text focused on high-level duties, decision rights, and outcomes without drifting into technical thresholds or detailed operational procedures.
+topics:
+  - "general-policy"
+  - "organizational-governance"
+  - "mandatory-directives"
+  - "decision-rights"
+  - "exception-governance"
+  - "accountability"
+use_when:
+  - "An issuing authority needs to establish broadly applicable mandatory duties and decision rights for a general subject."
+  - "An author is drafting an organizational or project policy outside configuration, cybersecurity, engineering, quality, or risk domains."
+  - "A reviewer is checking whether a general policy separates proposed drafts from effective directives and defines real exception authority."
+not_for:
+  - "Specialized configuration, cybersecurity, engineering, quality, or risk management policies, which have dedicated policy specifications."
+  - "Technical or practice criteria requiring detailed assessable checks, which belong in an internal standard."
+  - "Nonbinding recommendations, practitioner options, or operational step-by-step procedures."
+---
+
 # General policy specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a fact is unknown, distinguish missing evidence from a decision that has not 
 ## Finished-document contract
 
 - **Title:** Name the policy subject and identify the document as a policy; a generic title such as “General Policy” alone is insufficient.
-- **Frontmatter:** None. Begin with the GFM title. Policy authority and applicability are substantive content in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Policy authority and applicability are substantive content in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present authority and scope before directives, and directives before exception and maintenance rules. Headings may use project wording if their semantic roles remain clear.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Authority and applicability | Required | Identify the actual issuing authority or mark it as proposed; identify the policy owner (or inherit an explicit default maintainer declared at the corpus/catalog level when not overridden per document), controlled edition or other unambiguous version (which may be satisfied by a unified corpus version in `CHANGELOG.md` plus Git revision), issuance state, subject, affected people or functions, boundaries, exclusions, and effective date only when established by the proper authority. Distinguish authorization from the date a policy takes effect. |
 | Purpose and mandatory direction | Required | Explain the desired outcome and state one or more clear, mandatory directives. Make the addressee and obligation discernible; group related directives without repeating them. Give rationale where it clarifies intent or a non-obvious boundary. Where a directive requires subsequent work, state that duty and its triggering condition explicitly. |
 | Accountability and application | Required | State who must apply the directives, who interprets or oversees them, and how conflicts in obligations or decision rights are escalated or resolved. State the application conditions and decision bounds needed by each responsible role. |
@@ -34,7 +55,7 @@ If a fact is unknown, distinguish missing evidence from a decision that has not 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Issuing authority | One identified body or delegated role with authority to issue this policy. | A draft may name a proposed authority, clearly labeled as such; it is not an issued policy. |
 | Applicability | One explicit statement of the covered subject, people/functions, and organizational, project, system, or lifecycle boundaries that matter. | State material exclusions and avoid silently extending the mandate. |
 | Issuance state and effective date | One truthful state; an effective date is conditional on a real effective-date decision. | Use the project's control vocabulary, but distinguish proposed, authorized but not yet effective, effective, and withdrawn or superseded states. Tie the stated version, authorization, and effective date to established issuance decisions. |

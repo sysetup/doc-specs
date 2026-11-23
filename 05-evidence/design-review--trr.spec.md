@@ -1,3 +1,24 @@
+---
+title: "Test readiness review record specification"
+description: >-
+  Defines the authoring contract for Test Readiness Review records preserving one held gate assessing whether the test article configuration, test environment or facility, support personnel, safety controls, open issues, test procedures, and data acquisition, reduction, and control arrangements are ready to begin a specified test or test series. Covers review identity and authority, adopted criteria, entrance evidence, readiness assessments, findings, actions, disposition, conditions, and separation from independent test authorization.
+topics:
+  - "test-readiness-review"
+  - "TRR"
+  - "test-readiness"
+  - "article-configuration"
+  - "test-controls"
+  - "lifecycle-gate"
+use_when:
+  - "A Test Readiness Review has been held for a bounded test or test series and requires an authoritative readiness record."
+  - "A review chair is recording article configuration, procedure and facility readiness, safety issues, findings, and disposition."
+  - "A test lead is verifying exact reviewed editions and conditions established before test execution begins."
+not_for:
+  - "Operational deployment readiness after testing, which belongs in an Operational Readiness Review record."
+  - "Planning test objectives, schedules, and entry criteria prior to the review, which belongs in a test plan."
+  - "Recording observations during actual test runs, which belongs in a test execution record."
+---
+
 # Test readiness review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Account for every criterion in the supplied project criteria set and every autho
 ## Finished-document contract
 
 - **Title:** Name the test or series and identify the document as a Test Readiness Review record.
-- **Frontmatter:** None. Begin with the GFM title. Review identity, criteria, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the test scope, and the authority before the criteria. Present entrance results before the readiness assessment. Present the disposition after the findings. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and authority | Required | Identify one held Test Readiness Review, the item or system boundary, the specified test or series and its objectives, the article configuration, the actual date or sessions, the chair, reviewers, and decision authority. State any independence or quorum result the project requires. Identify the scope of the authority's readiness decision. |
 | Adopted criteria | Required | Identify the project's entrance and success criteria set and its edition. State each criterion's text, satisfaction conditions, scope limits, and locator within the set. Record each authorized omission or change, its reason, and its deciding authority. If no criteria were established, say so. |
 | Entrance results | Required | Give one entry for each applied entrance criterion, including the required product and revision, the evidence examined, the assessment, and the rationale. Identify the article, procedures, environment or facility, personnel readiness, and safety or open-issue dispositions when the adopted criteria require them. Bind each evidence locator to the examined artifact and edition. |
@@ -34,7 +55,7 @@ Account for every criterion in the supplied project criteria set and every autho
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review identity | One stable identity for one held TRR. | Bind it to the specified test or series, the article configuration, and the actual date or session. A later repeat review, and a review of a different test or series, are different records. |
 | Test scope | One test or one defined series this review examined. | State the objectives and the boundary of the test. Keep the assessment within the scope actually reviewed. |
 | Article configuration | One configuration of the item under test. | Identify the as-built or controlled configuration the review examined, by title or ID, edition, and locator. Bind the assessment to that configuration and the review date; identify any later change separately. |

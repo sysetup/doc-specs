@@ -1,3 +1,24 @@
+---
+title: "Business requirements specification"
+description: >-
+  Defines the authoring contract for business requirements specifications translating authorized business or mission objectives into individually identifiable, assessable business obligations, operating rules, and constraints. Covers business boundary and applicable context, source and decision authority, rationale, priority, explicit requirement content states distinguishing proposals from authorized obligations, assessment conditions, downstream relationships, deferred items, and change control while keeping technical implementation choices strictly bounded to explicit project decisions.
+topics:
+  - "business-requirements"
+  - "business-obligations"
+  - "operating-rules"
+  - "requirement-authority"
+  - "assessment-conditions"
+  - "requirements-engineering"
+use_when:
+  - "Business or mission objectives must be translated into identifiable, assessable business-level obligations and operating rules."
+  - "An analyst is documenting business constraints, authorization states, priorities, and downstream interfaces for review."
+  - "A reviewer is checking whether proposed business obligations are clearly separated from authorized requirements and technical implementation choices."
+not_for:
+  - "Exploratory framing of a problem or opportunity before obligations exist, which belongs in a business or mission needs document."
+  - "Stakeholder-facing system outcomes or whole-system technical obligations, which belong in stakeholder or system requirements specifications."
+  - "Tracking cross-source requirement status without authoring statements, which belongs in a requirements registry."
+---
+
 # Business requirements specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a need, project decision role, threshold, business rule, method, or decision 
 ## Finished-document contract
 
 - **Title:** Name the business or mission subject and identify the document as its business requirements specification; include the applicable edition or scope when needed to distinguish it.
-- **Frontmatter:** None. Begin with the GFM title. Business scope, obligation state, and authority are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Business scope, obligation state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish business boundary and source basis before the authoritative requirements; put coverage, unresolved decisions, and change information after them. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity, purpose, and business boundary | Required | Identify the business or mission subject, document edition or unambiguous control identity, intended outcomes, affected organization or process boundary, relevant stakeholder groups, exclusions, and actual authority or proposal state. Give enough current and intended operating context to interpret the obligations. |
 | Applicable business context | Conditional when a business model, process, information flow, established internal operating rule, operational mode, scenario, lifecycle condition, or project resource or delivery limit changes a requirement's meaning | Describe only the relevant context and its project basis. Distinguish an existing business rule from a new obligation stated in this document; do not repeat the same binding requirement in narrative form. Define terms or abbreviations that would otherwise make an obligation ambiguous. |
 | Business requirements | Required | Present one authoritative statement per distinct business-level obligation or constraint, each with an ID, obligated business actor or function, applicability, source, rationale where needed, and an assessable business condition. Group by business capability or outcome where useful. Identify proposal, approval, or other content state where it differs among items. Keep each statement at the business actor or function level; describe established downstream allocations through links to the identified project records. |
@@ -34,7 +55,7 @@ If a need, project decision role, threshold, business rule, method, or decision 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Business boundary | One coherent subject and applicability frame for the requirement set. | State the organizational, process, service, or mission scope and relevant operating conditions. Context may mention system options without allocating detailed technical behavior to them. |
 | Business requirement | One or more distinct obligations; each has one stable ID unique within the controlled set. | State a single business-level outcome, capability, operating rule, or authorized constraint with an identifiable obligated actor or function and applicability condition. Use the project's normative wording consistently. Include an implementation constraint only when an identified project decision establishes it; state its business consequence and scope. |
 | Source and decision authority | At least one inspected origin or documented derivation per requirement. | Identify the originating project need, sponsor decision, allocation, established operating limit, or supplied delivery commitment by usable title/ID, edition, and locator when needed. State the actual project role that can authorize derived or disputed content. A cited origin does not by itself prove that this requirement has been approved. |

@@ -1,3 +1,24 @@
+---
+title: "Configuration baseline record specification"
+description: >-
+  Defines the authoring contract for configuration baseline records identifying one actually established, controlled configuration snapshot with its baseline kind, boundary, establishment authority and state, exact controlled item revisions and locators, cryptographic or integrity bindings, configuration constraints, active deviations or waivers, predecessor baseline links, reproduction and comparison rules, and release relationships. Keeps established baseline definitions distinct from deployment conformity claims for live instances.
+topics:
+  - "configuration-baseline"
+  - "controlled-snapshot"
+  - "item-revisions"
+  - "integrity-binding"
+  - "baseline-effectivity"
+  - "configuration-management"
+use_when:
+  - "A functional, allocated, product, software, infrastructure, operational, or document configuration has been formally baselined."
+  - "A configuration manager is fixing exact controlled item revisions, integrity bindings, active deviations, and effectivity for reproduction."
+  - "A reviewer is verifying what exact item set and constraints constitute an established baseline prior to change or release."
+not_for:
+  - "Maintaining an ongoing catalog of candidate, controlled, and former items across baselines, which belongs in a configuration item register."
+  - "Recording an actual deployment or distribution attempt of a baseline, which belongs in a release record."
+  - "Recording components discovered in a live runtime scan, which belongs in an observed IT inventory."
+---
+
 # Configuration baseline record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If establishment has not occurred, do not title a proposed collection an actual 
 ## Finished-document contract
 
 - **Title:** Identify the bounded configuration and call the document a configuration baseline record.
-- **Frontmatter:** None. Begin with the GFM title. Baseline identity, effectivity, and control state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Baseline identity, effectivity, and control state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the snapshot identity and authority before the item set; put relationships, integrity limits, and supersession after the item set. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Baseline identity and control | Required | State one baseline ID and revision, kind, controlled boundary, establishment date or event, effective units/environments/period, internal controlling role and its decision rights, explicit project change-control conditions, and current baseline state. Identify the actual decision that established it; if the project requires approval, state that condition and show the actual approval's exact scope. |
 | Controlled item set | Required | Give the complete controlled set for the stated boundary: item identity, name or role, exact revision or serial/effectivity, controlled locator, and integrity or provenance basis appropriate to the item. Explain an intentionally empty snapshot only when authority actually established one. |
 | Configuration constraints and deviations | Conditional when supplied project requirements, interface definitions, design decisions, or deviations determine the baseline's meaning | State the concrete constraints and identify the project records and revisions that established them, and any approved, effective deviations or waivers. State which item or scope each constrains or changes. Do not list a requested or expired deviation as effective. |
@@ -34,7 +55,7 @@ If establishment has not occurred, do not title a proposed collection an actual 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Baseline identity | One stable baseline identity with an exact snapshot revision. | A changed member set, member revision, or effectivity creates a new controlled snapshot or revision under project rules; do not silently rewrite the established set. |
 | Baseline kind and boundary | One defined configuration purpose and scope. | Use the project's kind, such as functional, allocated, product, software, infrastructure, operational, or document. The kind does not impose software-only fields on physical or conceptual items. |
 | Establishment and state | One actual establishment event and current state. | Identify deciding authority, date, source, and effectivity. `Established`, `superseded`, or `retired` requires actual control history. `Proposed` is not an established baseline. `Released` is a separate release event unless the project expressly defines a baseline release state and records that event. |

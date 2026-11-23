@@ -1,3 +1,24 @@
+---
+title: "Product roadmap specification"
+description: >-
+  Defines the authoring contract for product roadmaps communicating evolving product direction, themes, intended outcomes, dependencies, and feasibility assumptions across multiple planning horizons. Requires explicit distinction between directional forecasts and established commitments, clear horizon framing, dependency visibility, and defined revision and review triggers so product owners, engineering leads, and stakeholders align priorities without treating roadmap entries as approved requirements or contractual promises.
+topics:
+  - "product-roadmap"
+  - "product-strategy"
+  - "planning-horizons"
+  - "outcome-planning"
+  - "forecast-vs-commitment"
+  - "product-dependencies"
+use_when:
+  - "Product and engineering leaders need to communicate evolving product direction, themes, and intended outcomes across multiple horizons."
+  - "An author is documenting strategic dependencies and feasibility assumptions while clearly separating forecasts from commitments."
+  - "A reviewer is checking that a product roadmap avoids claiming unachieved outcomes or duplicating backlog execution details."
+not_for:
+  - "Maintaining an ordered inventory of emergent work items and refinement states, which belongs in an ordered product backlog."
+  - "Detailed engineering delivery schedules or periodic progress tracking, which belong in development plans or status reports."
+  - "Binding commercial offers or executed contractual delivery commitments."
+---
+
 # Product roadmap specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown need, outcome measure, horizon, dependency, authority, or commitm
 ## Finished-document contract
 
 - **Title:** Identify the product and covered horizons and name its product roadmap.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State direction and source basis before outcome themes and horizons; follow horizons with dependencies, commitments, and review rules. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Product direction and basis | Required | Identify product, audience, strategic goal and decision state, source needs, as-of point, planning scope and exclusions, and the client or receiving-party element when applicable. |
 | Themes, outcomes, and horizons | Required | Map each initiative or theme to a sourced problem and intended outcome, an observable outcome basis or gap, and a stated horizon. Show ordering rationale and confidence; solution features remain candidates unless actually chosen. |
 | Dependencies and feasibility assumptions | Required | Identify material capacity, supplier, technical, regulatory, learning, or market dependencies only when grounded in actual inputs. State uncertainty, feasibility gaps, and conditions that would change the proposed direction. |
@@ -33,7 +54,7 @@ Expose unknown need, outcome measure, horizon, dependency, authority, or commitm
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Direction and goal | Exactly one bounded direction account in Product direction and basis. | Link goal to sourced needs and its actual proposal or endorsement state. |
 | Theme or initiative | One or more in Themes, outcomes, and horizons. | Each has problem, expected outcome, observation basis or gap, and horizon; outcomes are intended rather than achieved. |
 | Planning horizon | Two or more distinguishable horizons in Themes, outcomes, and horizons. | Use dates, ranges, or defined relative horizons with a common as-of basis; a horizon does not create a delivery promise. |

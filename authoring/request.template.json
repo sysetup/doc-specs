@@ -1,111 +1,215 @@
 {
-  "standard_version": "2.1.0",
   "base_revision": "{{FULL_CURRENT_HEAD}}",
-  "state": "draft",
-  "registry_version": "1.0.0",
-  "source_bindings": [
-    {"path": "CONTRIBUTING.md", "sha256": "{{INSPECTED_SHA256}}"},
-    {"path": "INDEX.md", "sha256": "{{INSPECTED_SHA256}}"},
-    {"path": "authoring/families.json", "sha256": "{{INSPECTED_SHA256}}"},
-    {"path": "authoring/request.template.json", "sha256": "{{INSPECTED_SHA256}}"},
-    {"path": "authoring/specification.template.md", "sha256": "{{INSPECTED_SHA256}}"},
-    {"path": "{{COMPARED_OR_REVISED_SPECIFICATION_PATH}}", "sha256": "{{INSPECTED_SHA256}}"}
-  ],
   "items": [
     {
-      "operation": "add",
-      "previous_sha256": null,
-      "family": "{{FAMILY}}",
-      "family_extension": null,
-      "design": {
-        "subject_boundary": "{{SUBJECT_INCLUSIONS_AND_EXCLUSIONS}}",
-        "lifetime_and_risk": "{{LIFETIME_AND_CONSEQUENCES_OF_MISSING_INFORMATION}}",
-        "change_basis": "{{SOURCED_NEED_AND_ADDITION_OR_REVISION_BASIS}}",
-        "unknown_facts": "{{MISSING_INFORMATION_CONSEQUENCE_ACTION_AND_STOPPING_RULE}}",
-        "sources": [
-          {"id": "SRC-1", "locator": "{{EXACT_SOURCE_AND_LOCATOR_WITH_LOCAL_DIGEST_WHEN_APPLICABLE}}", "version": "{{SOURCE_EDITION}}", "authority": "{{SUPPLIED_DERIVED_OR_SYNTHETIC_SOURCE_AND_AUTHORITY_LIMIT}}"}
-        ],
-        "tasks": [
-          {"id": "TASK-1", "reader": "{{READER_ROLE}}", "action": "{{OBSERVABLE_RETRIEVAL_DECISION_OR_ACTION}}", "information": ["{{NECESSARY_INFORMATION_IDENTIFIED_BEFORE_SECTIONS}}"]}
-        ],
-        "obligations": [
-          {"id": "OBL-1", "information": "{{SOURCE_OBLIGATION}}", "applicability": "{{EXPLICIT_SCOPE_OR_DECIDABLE_PREDICATE}}", "source_ids": ["SRC-1"]}
-        ],
-        "exclusions": [],
-        "coverage": [
-          {"task_ids": ["TASK-1"], "obligation_ids": ["OBL-1"], "content": ["section:1", "section:2", "element:1"], "exclusion_ids": [], "case_ids": ["CASE-1", "CASE-2", "CASE-3"]}
-        ],
-        "cases": [
-          {"id": "CASE-1", "kind": "ordinary", "fixture": "{{FINISHED_ORDINARY_INSTANCE_AND_DIGEST}}", "procedure": "{{TASK_INPUT_EXPECTED_ACTION_AND_METHOD}}", "expected": "{{OBSERVABLE_PASS_CRITERION}}", "evidence": "{{ACTUAL_RECORD_OR_NOT_RUN_GAP}}", "result": "not-run"},
-          {"id": "CASE-2", "kind": "incomplete", "fixture": "{{FINISHED_INCOMPLETE_INSTANCE_AND_DIGEST}}", "procedure": "{{TASK_AND_MISSING_INPUT_CHECK}}", "expected": "{{VISIBLE_GAP_AND_SAFE_STOP_CRITERION}}", "evidence": "{{ACTUAL_RECORD_OR_NOT_RUN_GAP}}", "result": "not-run"},
-          {"id": "CASE-3", "kind": "boundary", "fixture": "{{FINISHED_BOUNDARY_INSTANCE_AND_DIGEST}}", "procedure": "{{RELEVANT_BOUNDARY_TASK_AND_METHOD}}", "expected": "{{BOUNDARY_PASS_CRITERION}}", "evidence": "{{ACTUAL_RECORD_OR_NOT_RUN_GAP}}", "result": "not-run"}
-        ]
-      },
-      "identity": {
-        "type": "{{TYPE}}",
-        "variant": "{{VARIANT}}",
-        "edition": "1.0",
-        "catalog_name": "{{HUMAN_DOCUMENT_TYPE_NAME}}",
-        "purpose": "{{PURPOSE_SENTENCE}}",
-        "readers": "{{READER_ROLES}}",
-        "decision": "{{SUPPORTED_DECISION_SENTENCE}}",
-        "use_when": "{{APPLICABILITY_SENTENCE}}",
-        "scope": "{{INCLUSIONS_AND_EXCLUSIONS_SENTENCE}}"
-      },
-      "comparisons": [
-        {
-          "id": "{{INSPECTED_SPECIFICATION_ID}}",
-          "difference": "{{MATERIAL_DIFFERENCE_SENTENCE}}"
-        }
-      ],
       "authoring": {
         "inputs": "{{REQUIRED_AUTHORING_INPUTS_PARAGRAPH}}",
         "unresolved": "{{GAP_CONSEQUENCE_ACTION_OWNER_AND_BLOCKING_RULE_PARAGRAPH}}"
       },
+      "comparisons": [
+        {
+          "difference": "{{MATERIAL_DIFFERENCE_SENTENCE}}",
+          "id": "{{INSPECTED_SPECIFICATION_ID}}"
+        }
+      ],
       "contract": {
-        "title": "{{FINISHED_DOCUMENT_TITLE_RULE}}",
         "frontmatter": {
-          "policy": "none",
           "condition": null,
-          "fields": [],
-          "governing_source": "{{TYPE_OWNED_POLICY_OR_EXACT_HOST_SOURCE_AND_VERSION}}",
-          "rule": "{{PLACEMENT_APPLICABILITY_ALLOWED_FIELDS_AND_UNKNOWN_METADATA_RULE}}"
+          "fields": [
+            {
+              "name": "title",
+              "rule": "Required string (3 to 160 characters). Source-grounded document title free of internal IDs, versions, hashes, paths, build metadata, and unresolved template delimiters (Rule 13)."
+            },
+            {
+              "name": "description",
+              "rule": "Required string (60 to 140 neutral retrieval words). Compact semantic summary covering purpose, subjects, decisions, and boundaries; Rule 13 compliant."
+            },
+            {
+              "name": "topics",
+              "rule": "Required array of 3 to 12 unique strings (2 to 80 characters each). Concrete domain subjects, methods, or artifacts materially covered; Rule 13 compliant."
+            },
+            {
+              "name": "use_when",
+              "rule": "Required array of 2 to 6 unique strings (at least 10 characters each). Neutral task or intent conditions where consulting the document is relevant; Rule 13 compliant."
+            },
+            {
+              "name": "not_for",
+              "rule": "Conditional array of 1 to 5 unique strings (at least 10 characters each). Grounded exclusions for unsuitable neighboring intents; omit the key entirely when empty; Rule 13 compliant."
+            }
+          ],
+          "governing_source": "Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).",
+          "policy": "required",
+          "rule": "{{BODY_BOUNDARY_AND_PROJECTION_FRONTMATTER_RULE}}"
         },
-        "projections": [
-          {"name": "{{SURFACE_NAME}}", "kind": "standalone", "title": "{{TITLE_OWNERSHIP_RULE}}", "metadata": "{{METADATA_OWNERSHIP_RULE}}", "syntax": "{{GFM_OR_NATIVE_SYNTAX_AND_VERSION_RULE}}", "authority": "{{CONTROLLING_SOURCE_SNAPSHOT_AND_CHANGE_RULE}}"}
-        ],
         "order": "{{SEMANTIC_ORDER_AGREEING_WITH_SECTION_ARRAY}}",
         "presentation": "{{PROPORTIONATE_GROUPING_WITHOUT_LOSING_OBLIGATIONS}}",
+        "projections": [
+          {
+            "authority": "{{CONTROLLING_SOURCE_SNAPSHOT_AND_CHANGE_RULE}}",
+            "kind": "standalone",
+            "metadata": "Mandatory 5-key Semantic-Discovery YAML frontmatter before the H1 heading; substantive domain facts remain in the body.",
+            "name": "{{SURFACE_NAME}}",
+            "syntax": "{{GFM_OR_NATIVE_SYNTAX_AND_VERSION_RULE}}",
+            "title": "{{TITLE_OWNERSHIP_RULE}}"
+          }
+        ],
         "sections": [
           {
-            "role": "{{REQUIRED_ROLE_NAME}}",
-            "status": "required",
             "condition": null,
-            "obligation": "{{SUBSTANTIVE_ROLE_OBLIGATION}}"
+            "obligation": "{{SUBSTANTIVE_ROLE_OBLIGATION}}",
+            "role": "{{REQUIRED_ROLE_NAME}}",
+            "status": "required"
           },
           {
-            "role": "{{CONDITIONAL_ROLE_NAME}}",
-            "status": "conditional",
             "condition": "{{DECIDABLE_PREDICATE_WITHOUT_LEADING_WHEN}}",
-            "obligation": "{{CONDITIONAL_ROLE_OBLIGATION}}"
+            "obligation": "{{CONDITIONAL_ROLE_OBLIGATION}}",
+            "role": "{{CONDITIONAL_ROLE_NAME}}",
+            "status": "conditional"
           }
-        ]
+        ],
+        "title": "{{FINISHED_DOCUMENT_TITLE_RULE}}"
       },
       "definitions": [
         {
+          "constraint": "{{ELEMENT_CONSTRAINT_AND_ROLE_RELATIONSHIP}}",
           "element": "{{ELEMENT_NAME}}",
-          "meaning_and_cardinality": "{{MEANING_WITH_EXPLICIT_CARDINALITY}}",
-          "constraint": "{{ELEMENT_CONSTRAINT_AND_ROLE_RELATIONSHIP}}"
+          "meaning_and_cardinality": "{{MEANING_WITH_EXPLICIT_CARDINALITY}}"
         }
       ],
-      "supporting": [],
+      "design": {
+        "cases": [
+          {
+            "evidence": "{{ACTUAL_RECORD_OR_NOT_RUN_GAP}}",
+            "expected": "{{OBSERVABLE_PASS_CRITERION}}",
+            "fixture": "{{FINISHED_ORDINARY_INSTANCE_AND_DIGEST}}",
+            "id": "CASE-1",
+            "kind": "ordinary",
+            "procedure": "{{TASK_INPUT_EXPECTED_ACTION_AND_METHOD}}",
+            "result": "not-run"
+          },
+          {
+            "evidence": "{{ACTUAL_RECORD_OR_NOT_RUN_GAP}}",
+            "expected": "{{VISIBLE_GAP_AND_SAFE_STOP_CRITERION}}",
+            "fixture": "{{FINISHED_INCOMPLETE_INSTANCE_AND_DIGEST}}",
+            "id": "CASE-2",
+            "kind": "incomplete",
+            "procedure": "{{TASK_AND_MISSING_INPUT_CHECK}}",
+            "result": "not-run"
+          },
+          {
+            "evidence": "{{ACTUAL_RECORD_OR_NOT_RUN_GAP}}",
+            "expected": "{{BOUNDARY_PASS_CRITERION}}",
+            "fixture": "{{FINISHED_BOUNDARY_INSTANCE_AND_DIGEST}}",
+            "id": "CASE-3",
+            "kind": "boundary",
+            "procedure": "{{RELEVANT_BOUNDARY_TASK_AND_METHOD}}",
+            "result": "not-run"
+          }
+        ],
+        "change_basis": "{{SOURCED_NEED_AND_ADDITION_OR_REVISION_BASIS}}",
+        "coverage": [
+          {
+            "case_ids": ["CASE-1", "CASE-2", "CASE-3"],
+            "content": ["section:1", "section:2", "element:1"],
+            "exclusion_ids": [],
+            "obligation_ids": ["OBL-1"],
+            "task_ids": ["TASK-1"]
+          }
+        ],
+        "exclusions": [],
+        "lifetime_and_risk": "{{LIFETIME_AND_CONSEQUENCES_OF_MISSING_INFORMATION}}",
+        "obligations": [
+          {
+            "applicability": "{{EXPLICIT_SCOPE_OR_DECIDABLE_PREDICATE}}",
+            "id": "OBL-1",
+            "information": "{{SOURCE_OBLIGATION}}",
+            "source_ids": ["SRC-1"]
+          }
+        ],
+        "sources": [
+          {
+            "authority": "{{SUPPLIED_DERIVED_OR_SYNTHETIC_SOURCE_AND_AUTHORITY_LIMIT}}",
+            "id": "SRC-1",
+            "locator": "{{EXACT_SOURCE_AND_LOCATOR_WITH_LOCAL_DIGEST_WHEN_APPLICABLE}}",
+            "version": "{{SOURCE_EDITION}}"
+          }
+        ],
+        "subject_boundary": "{{SUBJECT_INCLUSIONS_AND_EXCLUSIONS}}",
+        "tasks": [
+          {
+            "action": "{{OBSERVABLE_RETRIEVAL_DECISION_OR_ACTION}}",
+            "id": "TASK-1",
+            "information": [
+              "{{NECESSARY_INFORMATION_IDENTIFIED_BEFORE_SECTIONS}}"
+            ],
+            "reader": "{{READER_ROLE}}"
+          }
+        ],
+        "unknown_facts": "{{MISSING_INFORMATION_CONSEQUENCE_ACTION_AND_STOPPING_RULE}}"
+      },
+      "family": "{{FAMILY}}",
+      "family_extension": null,
       "forms": "{{RECOMMENDED_FORMS_AND_AUTHORITATIVE_CONTENT_PARAGRAPH}}",
+      "frontmatter": {
+        "description": "{{SPEC_FRONTMATTER_DESCRIPTION_60_TO_140_WORDS_RULE_13_COMPLIANT}}",
+        "not_for": ["{{SPEC_GROUNDED_EXCLUSION_1}}"],
+        "title": "{{HUMAN_DOCUMENT_TYPE_NAME}} specification",
+        "topics": ["{{SPEC_TOPIC_1}}", "{{SPEC_TOPIC_2}}", "{{SPEC_TOPIC_3}}"],
+        "use_when": [
+          "{{SPEC_NEUTRAL_USE_WHEN_1}}",
+          "{{SPEC_NEUTRAL_USE_WHEN_2}}"
+        ]
+      },
+      "identity": {
+        "catalog_name": "{{HUMAN_DOCUMENT_TYPE_NAME}}",
+        "catalog_summary": "{{CONCISE_ONE_LINE_INDEX_CSV_SUMMARY_8_TO_18_WORDS}}",
+        "decision": "{{SUPPORTED_DECISION_SENTENCE}}",
+        "edition": "1.0",
+        "purpose": "{{PURPOSE_SENTENCE}}",
+        "readers": "{{READER_ROLES}}",
+        "scope": "{{INCLUSIONS_AND_EXCLUSIONS_SENTENCE}}",
+        "type": "{{TYPE}}",
+        "use_when": "{{APPLICABILITY_SENTENCE}}",
+        "variant": "{{VARIANT}}"
+      },
+      "operation": "add",
+      "previous_sha256": null,
       "quality": [
         {
-          "text": "{{OBSERVABLE_CRITERION}}",
-          "covers": ["section:1", "section:2", "element:1"]
+          "covers": ["section:1", "section:2", "element:1"],
+          "text": "{{OBSERVABLE_CRITERION}}"
         }
-      ]
+      ],
+      "supporting": []
     }
-  ]
+  ],
+  "registry_version": "1.0.0",
+  "source_bindings": [
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "{{INSPECTED_SHA256}}"
+    },
+    {
+      "path": "INDEX.csv",
+      "sha256": "{{INSPECTED_SHA256}}"
+    },
+    {
+      "path": "authoring/families.json",
+      "sha256": "{{INSPECTED_SHA256}}"
+    },
+    {
+      "path": "authoring/request.template.json",
+      "sha256": "{{INSPECTED_SHA256}}"
+    },
+    {
+      "path": "authoring/specification.template.md",
+      "sha256": "{{INSPECTED_SHA256}}"
+    },
+    {
+      "path": "{{COMPARED_OR_REVISED_SPECIFICATION_PATH}}",
+      "sha256": "{{INSPECTED_SHA256}}"
+    }
+  ],
+  "standard_version": "3.0.0",
+  "state": "draft"
 }

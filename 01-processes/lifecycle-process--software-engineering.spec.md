@@ -1,3 +1,24 @@
+---
+title: "Software engineering lifecycle process specification"
+description: >-
+  Defines the authoring contract for a reusable software engineering lifecycle process covering how software is developed, integrated, assured, controlled, released, and maintained across projects or product lines. Specifies process authority and applicability, development and integration flows, assurance and configuration controls, controlled build expectations, release decision gates, post-delivery maintenance routes, tailoring rules, and process feedback mechanisms so teams coordinate work products, evidence, and handoffs consistently.
+topics:
+  - "software-engineering"
+  - "lifecycle-process"
+  - "software-delivery"
+  - "integration-workflow"
+  - "release-gates"
+  - "software-maintenance"
+use_when:
+  - "An organization needs common software lifecycle rules guiding development, integration, assurance, release, and maintenance across projects."
+  - "A process author is specifying recurring software work paths, work-product expectations, decision gates, and handoff boundaries."
+  - "A reviewer is verifying that a software lifecycle process defines tailoring rules and assurance interfaces cleanly."
+not_for:
+  - "Planning one project's software increments, schedule, and team assignments, which belong in a software development plan."
+  - "Cross-discipline hardware, human, and system-wide coordination, which belongs in a systems engineering lifecycle process."
+  - "Executing a single service maintenance task or operator recovery sequence, which belongs in a runbook."
+---
+
 # Software engineering lifecycle process specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For unknown facts, identify the gap, effect, resolving action, and owner if assi
 ## Finished-document contract
 
 - **Title:** Name the software engineering lifecycle process and applicable software or organization scope.
-- **Frontmatter:** None. Begin with the GFM title; process edition and applicability are body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Process edition and applicability are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and authority before the activity flow, then cross-cutting controls and process evolution. Headings may use local wording.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, authority, and applicability | Required | Define the reusable software work covered, process owner, applicable lifecycle and item classes, the project needs and decisions establishing software obligations, truthful edition or state when controlled, and handoffs to system-level or external participants. State exclusions and how local tailoring is decided. |
 | Development and integration flow | Required | Describe how a sourced change or obligation enters design and construction, how work is reviewed and built, how components are integrated with controlled interfaces, and how integration readiness and anomalies are assessed. State roles, inputs, outputs, completion criteria, and return loops without imposing a single development model. |
 | Assurance and configuration control | Required | Define software review, analysis, test, security or quality checks as applicable; the explicit criteria and evidence needed to assess them; and how source code, dependencies, build inputs, generated artifacts, and changes remain identifiable and controlled. Identify V&V and configuration management handoffs, including the exchanged information and responsible roles. |
@@ -34,7 +55,7 @@ For unknown facts, identify the gap, effect, resolving action, and owner if assi
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Software work path | One connected path from authorized intake through development, integration, assessment, release decision, and maintenance feedback. | Iteration and parallel work are allowed; define entry, hold, rework, and exit rules where they affect control. |
 | Process activity | One or more activities with a local label when referenced. | Give action and intended output, responsible role, entry condition or input, completion criterion, method or control, and recipient or next action. A subject may contain several activities. |
 | Assurance obligation | One or more applicable forms of review, analysis, test, or other check. | State who performs or judges it, the explicit criterion applied, what observations and limitations a later check must record, and the route when the check does not meet its criterion or cannot be concluded. |

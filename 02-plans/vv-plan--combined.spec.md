@@ -1,3 +1,24 @@
+---
+title: "Verification and validation plan specification"
+description: >-
+  Defines the authoring contract for combined verification and validation plans coordinating technical requirement conformance assessment and stakeholder intended-use fitness assessment within one bounded project scope. Requires separate verification and validation bases, mappings, criteria, and conclusions even when activities share a common event, alongside planned configurations, assessment levels, integrated execution readiness, evidence packaging, anomaly handling, and certification or acceptance interfaces before assessment begins.
+topics:
+  - "verification-and-validation-plan"
+  - "combined-vv"
+  - "conformance-planning"
+  - "fitness-validation"
+  - "evidence-packaging"
+  - "assurance-planning"
+use_when:
+  - "One project needs a unified plan coordinating both technical verification and intended-use validation under a single program scope."
+  - "A V&V lead is mapping both technical obligations and stakeholder needs while keeping criteria, bases, and conclusions distinct."
+  - "A reviewer is checking that shared events preserve separate pass criteria for verification versus validation."
+not_for:
+  - "Planning verification alone or validation alone as separate packages, which use dedicated verification or validation plan specifications."
+  - "Planning a single software testing campaign without broader inspection, analysis, or demonstration paths, which belongs in a test plan."
+  - "Defining reusable cross-project V&V workflows, which belong in a V&V lifecycle process."
+---
+
 # Verification and validation plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Mark an unavailable fact as unknown and an unmade choice as not established. For
 ## Finished-document contract
 
 - **Title:** Identify the system or project scope and name the document as its verification and validation plan.
-- **Frontmatter:** None. Begin with the GFM title. Scope, editions, and decision rules are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, editions, and decision rules are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish subject and both assessment bases before methods; place resources and sequence before evidence and result interfaces. Heading wording may vary. Keep the two mappings visibly distinct even when logistics are shared.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Purpose, scope, and project basis | Required | Identify the system or item, lifecycle and project boundary, objectives of both paths, included and excluded work, requirement and need origins, editions and locators, and established project commitments versus proposed statements or contextual information where that distinction affects decisions. Explain material exclusions and unresolved conflicts among project requirements, needs, or decisions. |
 | Assessment subjects and levels | Required | Define how target configurations, interfaces, enabling products, and end-item or integrated-system subjects will be selected and identified. State which levels apply and why; include cross-project or program-level coordination only when it exists. Do not require a separate section for every possible level. |
 | Verification strategy and requirement mapping | Required | For each in-scope technical obligation, give a suitable inspection, analysis, test, demonstration, or other justified method; assessment level, target configuration, criterion, responsible role, planned event or method reference, and expected evidence when those facts are established. Leave a missing element as an explicit gap or deferral. Do not invent it, and do not enter a result. |
@@ -37,7 +58,7 @@ Mark an unavailable fact as unknown and an unmade choice as not established. For
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Planned subject and configuration | One bounded system or set of items and a rule for selecting each assessed baseline. | A target may still be planned, but the rule must bind actual events to a known configuration later. |
 | Verification basis | One or more in-scope project technical obligations or requirement clauses when their wording is established; otherwise one explicit source gap. | Identify the supplied project requirement record, edition, and locator as needed; show proposal or unresolved status rather than silently treating it as approved. An identifier whose wording was not inspected is a gap, not an obligation. |
 | Validation basis | One or more project stakeholder needs, mission outcomes, or intended-use questions when they are established; otherwise one explicit source gap. | Identify the real project need origin and use context; do not replace a need with a technical requirement ID alone or invent the missing need. |

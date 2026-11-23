@@ -1,3 +1,24 @@
+---
+title: "Test procedure specification"
+description: >-
+  Defines the authoring contract for test procedure specifications specifying a repeatable, bounded test execution sequence with test basis, target configuration, authorization and setup prerequisites, controlled asset handling, ordered execution steps and checkpoints, abnormal handling, failure and retry bounds, end-state restoration, and evidence capture rules. Ensures test operators and automation implementers execute runs reproducibly and stop or recover safely on anomalies.
+topics:
+  - "test-procedure"
+  - "execution-sequence"
+  - "test-checkpoints"
+  - "failure-branches"
+  - "environment-restoration"
+  - "test-evidence-capture"
+use_when:
+  - "A test requires an explicit ordered execution script with setup checks, safety controls, failure branches, and restoration steps."
+  - "A test engineer or automation author is defining exact runtime checkpoints and evidence-capture rules for reproducible runs."
+  - "A reviewer is checking whether a test procedure bounds retries, protects shared assets, and restores clean end states."
+not_for:
+  - "Defining isolated test inputs and pass/fail oracles without shared sequencing, which belongs in a test case specification."
+  - "Broader multi-method technical conformance or stakeholder fitness procedures beyond test execution, which belong in verification or validation procedures."
+  - "Recording actual observations from an executed run, which belongs in a test execution record."
+---
+
 # Test procedure specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a target, authority, prerequisite, script edition, expected checkpoint, failu
 ## Finished-document contract
 
 - **Title:** Identify the test item or effort and name the document as its test procedure; distinguish the procedure edition when later runs must cite it.
-- **Frontmatter:** None. Begin with the GFM title. Target, revision, and execution limits belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Target, revision, and execution limits belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope and prerequisites before the ordered sequence; put recording and restoration rules after the actions they govern, with critical stop rules visible at the point of use. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, test basis, and applicability | Required | Identify the tested item, applicable build or selection rule, objective, established project expected-behavior basis, supplied case identities and locators where relevant, supported environment or configuration, and material exclusions. State the edition of scripts or procedure-controlled assets that affects repeatability. |
 | Preconditions, authority, and setup | Required | Specify the required starting state, environment and data readiness, access or execution permission checks when applicable, tools and measurement capability, safety or isolation limits, and setup steps. State how an operator recognizes a failed prerequisite and what action follows. |
 | Ordered execution and checkpoints | Required | Give one or more ordered, stable locally identified steps. For each material action, state target and inputs, expected observation or state, planned evidence capture, and next action or branch. Specify wait limits, retries, or timing only when they affect correctness, safety, or result interpretation. |
@@ -34,7 +55,7 @@ If a target, authority, prerequisite, script edition, expected checkpoint, failu
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Procedure objective and basis | One bounded purpose and one or more inspectable expected-behavior sources. | State the objective and pass/fail criteria with their established project basis. Identify supplied cases and their editions and locators where they contribute to the sequence or criteria. |
 | Test target and configuration | One defined test item or coherent set, with applicable configuration and environment rule. | Give edition, range, or selection method at the precision needed for a reproducible run. This is the intended target. An environment reference alone does not establish actual readiness, authorization, or the configuration a run used. |
 | Prerequisite and setup check | One or more checks sufficient to establish safe, interpretable starting conditions. | Include personnel competence, permission, calibration, isolation, and data checks only where they matter. State the observable check and failed-check branch, not just the word “ready.” |

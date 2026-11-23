@@ -1,3 +1,24 @@
+---
+title: "Configuration management lifecycle process specification"
+description: >-
+  Defines the authoring contract for a reusable configuration management lifecycle process governing recurring item identification, baseline establishment and change control, status accounting, integrity checks, and configuration history retention across projects or lifecycle stages. Covers process authority, scope and interfaces, controlled item classes, baseline and change routing, discrepancy controls, audit and record obligations, and tailoring rules so teams follow consistent configuration workflows and authoritative state transitions.
+topics:
+  - "configuration-management"
+  - "lifecycle-process"
+  - "baseline-control"
+  - "change-control"
+  - "status-accounting"
+  - "configuration-audit"
+use_when:
+  - "An organization needs a reusable configuration management process governing items, baselines, changes, and audits across multiple projects."
+  - "A process author is defining recurring configuration state transitions, discrepancy handling, and tailoring rules."
+  - "A reviewer is checking whether a configuration management process clearly separates recurring workflow rules from project-specific plans."
+not_for:
+  - "High-level mandatory configuration management direction and authority, which belong in a configuration management policy."
+  - "Project-specific schedules, tools, and milestones for one effort, which belong in a configuration management plan."
+  - "Maintaining live item entries or baseline snapshots, which belong in registers or baseline evidence records."
+---
+
 # Configuration management lifecycle process specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ When a fact is unknown, state the gap, its consequence, resolving action, and ow
 ## Finished-document contract
 
 - **Title:** Name the configuration management lifecycle process and its governing scope.
-- **Frontmatter:** None. Begin with the GFM title; process applicability and edition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Process applicability and edition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish authority and applicability before the activity flow; present decision controls and records before effectiveness and tailoring. Exact heading words are flexible.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Process authority, scope, and interfaces | Required | State the reusable outcome, owner, truthful process edition or state when controlled, applicable item classes and lifecycle boundaries, the project decisions establishing the control mandate, and interfaces with engineering, release, suppliers, or operations. Identify exclusions and the route for a scoped applicability decision. |
 | Configuration activity flow | Required | Define identification, baseline establishment and protection, change control, status accounting, integrity checks or audits, configuration records, and tailoring. For each subject, give entry conditions, responsible role, key inputs, actions or decision points, expected outputs, completion criteria, and handoffs. Activities may be combined in one flow if every subject remains findable. |
 | Decision and discrepancy controls | Required | Distinguish the future states of change proposal, impact assessment, authorization, implementation, verification of the changed state, and baseline update. State who may later decide each transition, how affected parties learn of decisions, how urgent changes are controlled when allowed, and how unauthorized or mismatched actual state is contained and resolved. |
@@ -33,7 +54,7 @@ When a fact is unknown, state the gap, its consequence, resolving action, and ow
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Controlled item class and identity | One or more classes of hardware, software, data, documents, or other items actually in scope, with an identification rule for each. | State selection criteria and the authority for adding or removing an item; a global identifier regex is required only if a real control system needs one. |
 | Baseline rule | At least one rule for establishing, identifying, changing, and protecting an approved set or state. | Distinguish candidate, approved, and observed state; require the actual approval decision to establish an approved baseline. |
 | Change route | One normal route, plus a conditional urgent or exceptional route if allowed. | Define request content, impact on affected items and interfaces, decision authority, implementation control, and post-change reconciliation. Urgency never supplies authority by itself. |

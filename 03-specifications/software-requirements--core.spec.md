@@ -1,3 +1,24 @@
+---
+title: "Software requirements specification"
+description: >-
+  Defines the authoring contract for software requirements specifications stating traceable, individually assessable obligations allocated to one identified software item across behavior, interfaces, data, quality attributes, operations, and justified constraints. Covers software boundaries and context, source origins, decision authority, rationale, priority, explicit requirement states, verification conditions, allocation links, deferred obligations, and change control while restricting implementation prescriptions strictly to imposed project decisions.
+topics:
+  - "software-requirements"
+  - "functional-requirements"
+  - "quality-attributes"
+  - "verification-basis"
+  - "requirement-traceability"
+  - "software-engineering"
+use_when:
+  - "A bounded software item needs controlled, traceable, and assessable functional, interface, data, and quality obligations."
+  - "A software engineer or analyst is defining software requirements with verification conditions and explicit authorization states."
+  - "A reviewer is checking whether software requirements remain testable, traced to parent origins, and free of unjustified design lock-in."
+not_for:
+  - "Whole-system obligations prior to allocation across software, hardware, and people, which belong in a system requirements specification."
+  - "Implementation modules, classes, and internal algorithms, which belong in a software design description."
+  - "Stakeholder outcomes framed in user language prior to technical allocation, which belong in a stakeholder requirements specification."
+---
+
 # Software requirements specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For an unknown fact, state the gap, its effect on the affected requirement, the 
 ## Finished-document contract
 
 - **Title:** Identify the software item and document as its software requirements specification; include the applicable edition or configuration where needed to disambiguate it.
-- **Frontmatter:** None. Begin with the GFM title. Software scope, requirement status, and authority are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Software scope, requirement status, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish software scope and context before the requirements; place coverage and change information after the authoritative requirement statements. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity, scope, and context | Required | Identify the software item, document edition or other unambiguous control identity, its purpose, boundary, included and excluded responsibilities, relationship to the larger system, relevant users, modes, environments, assumptions, dependencies, and material limitations. Identify the authority for the requirement set and its actual decision state without implying approval from the document's existence. |
 | Software requirements | Required | Give one controlled statement for each software obligation, with a stable identifier, conditions of applicability, project need, allocation, or decision as its originating basis, and a way to assess conformity. Group requirements by useful concern. Address functional behavior, external interactions, data handling, usability, performance and capacity, reliability and availability, security, operational behavior, deployment or site adaptation, and design constraints when applicable. Do not force empty categories or duplicate a detailed interface obligation in an identified project record. |
 | Traceability and coverage | Required | Show how included obligations relate to their inspected sources and any real allocations, interfaces, or downstream verification definitions. Explain how the chosen set covers the allocated software responsibilities and identify gaps, conflicts, or deferred obligations. A link to a real planned method or relationship view may be cited. It cannot replace the requirement statement and does not carry an assessment result. |
@@ -33,7 +54,7 @@ For an unknown fact, state the gap, its effect on the affected requirement, the 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Software boundary | One bounded item and allocation context for this document. | State what the software controls, consumes, and exposes, and distinguish its responsibilities from system, hardware, operator, and external-service responsibilities. |
 | Requirement | One or more separately identifiable software obligations. | Each has one stable, unique ID; a single assessable obligation; triggering or operating conditions; observable behavior or quality criterion; and a real source or reasoned derivation. Use the project's normative wording consistently. Do not embed solution design unless an authorized constraint requires it. |
 | Source and authority | At least one inspected project need, allocation, decision, or explicitly documented derivation for each requirement; identify the project decision authority for derived or disputed content. | Give an ID/title, applicable edition, and locator when needed. A source link explains origin; it does not by itself prove approval. |

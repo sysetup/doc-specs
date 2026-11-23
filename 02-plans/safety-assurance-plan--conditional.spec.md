@@ -1,3 +1,24 @@
+---
+title: "Safety assurance plan specification"
+description: >-
+  Defines the authoring contract for safety assurance plans organizing how a project identifies safety hazards, allocates safety requirements and controls, acquires assurance evidence, structures safety arguments, reviews residual exposure at decision gates, and maintains safety across the lifecycle. Covers safety obligations, hazard analysis routes, risk criteria, control-to-evidence traceability, receiving-party acceptance interfaces, and lifecycle reassessment triggers whenever an established safety obligation applies.
+topics:
+  - "safety-assurance"
+  - "hazard-analysis"
+  - "safety-case"
+  - "safety-gates"
+  - "residual-risk"
+  - "system-safety"
+use_when:
+  - "Established requirements, agreements, or project decisions impose a safety obligation requiring coordinated hazard analysis and assurance."
+  - "A safety lead is planning hazard identification, safety controls, assurance evidence, and safety decision gates across the lifecycle."
+  - "A reviewer is checking whether safety arguments, residual-exposure authority, and lifecycle reassessment triggers are planned cleanly."
+not_for:
+  - "Tracking individual active system hazards, controls, and closure status over time, which belongs in a hazard log."
+  - "Analyzing reliability or non-safety failure priorities alone, which belongs in failure modes and effects analysis."
+  - "Planning technical cybersecurity protections and vulnerability workflows, which belong in a security engineering plan."
+---
+
 # Safety assurance plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ For unknown facts, state what is missing, its effect on the plan, the resolving 
 ## Finished-document contract
 
 - **Title:** Identify the project or system and name its safety assurance plan.
-- **Frontmatter:** None. Begin with the GFM title. Applicability, configuration, and decision authority are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicability, configuration, and decision authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the obligation and subject before analysis and controls; place planned evidence before safety decision gates; close with lifecycle upkeep. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope, obligation, and responsibility | Required | Identify the safety-relevant system or activity, intended use and lifecycle boundary, each established project safety obligation and its project-record ID and version, exclusions and their basis, plan owner, participating roles, and the actual authorities for technical disposition and residual-risk decisions. Include a safety classification only when the project has established it; state its meaning, scope, and assignment basis. |
 | Hazard and risk approach | Required | Define how hazards, causes, affected parties, operating conditions, interfaces, and changes will be identified and analyzed; the selected risk method and explicit criteria; who performs, reviews, and updates analyses; and how unresolved or newly discovered hazards are escalated. Select analysis techniques, including FMEA when appropriate, according to the project's hazard characteristics and analysis needs, and explain the selection. |
 | Safety requirements and control work | Required | Explain how hazard controls become allocated, assessable safety requirements or operational restrictions; how design, implementation, supplier, and operations work will maintain them; and how each material change is checked for effects on hazards and controls. Distinguish proposed controls from authorized baselines. |
@@ -37,7 +58,7 @@ For unknown facts, state what is missing, its effect on the plan, the resolving 
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Safety basis | At least one established project safety obligation for the selected plan. | State the obligation, affected scope, supporting project need, allocation, decision, or supplied agreement scope, its record ID and version, and any actual project tailoring authority. |
 | Safety-relevant subject | One bounded system, service, or activity, with multiple configurations or operating modes when material. | State who or what may be harmed and where interfaces or lifecycle transitions alter the exposure. |
 | Hazard analysis route | One or more planned analyses, with an update route for newly identified hazards. | Give purpose, method or selection rule, inputs, timing, responsible role, review, and treatment of uncertainty; do not seed fictional hazard rows. |

@@ -1,3 +1,24 @@
+---
+title: "System requirements review record specification"
+description: >-
+  Defines the authoring contract for System Requirements Review records preserving one held gate assessing whether a system's functional and performance requirements and planned technical work respond credibly to project needs and parent requirements within scope. Covers review identity and authority, examined requirement editions, adopted entrance and success criteria, credibility assessments, findings, actions, actual disposition, conditions, next activities, and separation from independent requirement approval.
+topics:
+  - "system-requirements-review"
+  - "SRR"
+  - "requirements-credibility"
+  - "lifecycle-gate"
+  - "review-disposition"
+  - "systems-engineering"
+use_when:
+  - "A System Requirements Review has been held and requires a record of requirements credibility assessment, findings, actions, and disposition."
+  - "A review chair is binding SRR entrance results and proceed conditions to exact examined requirement editions."
+  - "A stakeholder is verifying whether system requirements were judged credible enough to proceed into preliminary design."
+not_for:
+  - "Preliminary or detailed design maturity reviews, which belong in PDR or CDR design review records."
+  - "Authoring the system requirements statements themselves, which belongs in a system requirements specification."
+  - "Recording formal requirement baseline signoff alone, which belongs in an approval and acceptance decision record."
+---
+
 # System requirements review record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Account for every criterion in the supplied project criteria set and every autho
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as a System Requirements Review record.
-- **Frontmatter:** None. Begin with the GFM title. Review identity, criteria, and disposition belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the requirements edition, and the authority before the criteria. Present entrance results before the requirements assessment. Present the disposition after the findings. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Review identity and authority | Required | Identify one held System Requirements Review, the system boundary, the requirements edition reviewed, the actual date or sessions, the chair, reviewers, and decision authority. State any independence or quorum result the project requires. Identify the scope of the authority's decision. |
 | Adopted criteria | Required | Identify the project's entrance and success criteria set and its edition. State each criterion's text, satisfaction conditions, scope limits, and locator within the set. Record each authorized omission or change, its reason, and its deciding authority. If no criteria were established, say so. |
 | Entrance results | Required | Give one entry for each applied entrance criterion, including the required product and revision, the evidence examined, the assessment, and the rationale. Identify requirements, technical plans, and any concept, risk, or prior-review material the adopted criteria require, at the maturity those criteria state. Bind each evidence locator to the examined artifact and edition. |
@@ -34,7 +55,7 @@ Account for every criterion in the supplied project criteria set and every autho
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Review identity | One stable identity for one held SRR. | Bind it to the system, the requirements edition, and the actual date or session. A later repeat review is a different record. |
 | Requirements edition | One requirements set the review examined. | Identify the specification or equivalent source by title or ID, edition, and locator. Do not copy its wording. Proposed wording that was not in the reviewed edition stays outside the assessed set. |
 | Project need or parent requirement | The needs and parent requirements the review used as the responsiveness basis. | Identify their edition and locator. If the project has no parent requirements, state the project need actually used. Do not invent a parent document. |

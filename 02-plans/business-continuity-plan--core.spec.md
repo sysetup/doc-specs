@@ -1,3 +1,24 @@
+---
+title: "Business continuity plan specification"
+description: >-
+  Defines the authoring contract for business continuity plans specifying how prioritized business or service capabilities continue or recover across severe disruptions involving people, sites, suppliers, information, or manual workarounds. Covers continuity scope and ownership, prioritized activities, recovery objectives, disruption assumptions, activation and communication authority, continuity strategies, business restoration and return-to-normal decisions, and exercise, evaluation, and plan upkeep schedules so authorities decide activation and stand-down safely.
+topics:
+  - "business-continuity"
+  - "disruption-recovery"
+  - "recovery-objectives"
+  - "continuity-strategies"
+  - "return-to-normal"
+  - "continuity-exercises"
+use_when:
+  - "An organization needs to prioritize critical business or service capabilities and plan workarounds across people, sites, and suppliers."
+  - "A continuity planner is defining activation authority, recovery objectives, communication routes, and return-to-normal criteria."
+  - "A reviewer is checking whether a business continuity plan covers exercise evaluation and realistic supplier dependencies."
+not_for:
+  - "Technical recovery and failover for one classified information system, which belongs in an information-system contingency plan."
+  - "Routine service monitoring and reliability engineering, which belong in operations or availability plans."
+  - "Cybersecurity incident triage and containment preparedness, which belong in a cybersecurity incident response plan."
+---
+
 # Business continuity plan specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a priority, dependency, objective, trigger, strategy, or authority is unknown
 ## Finished-document contract
 
 - **Title:** Identify the organization, mission, or service set and name its business continuity plan.
-- **Frontmatter:** None. Begin with the GFM title; scope, authority, and priorities belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, authority, and priorities belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish priorities and disruption assumptions before activation and strategies; describe restoration and return before exercise and maintenance. Exact heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Scope and responsibilities | Required | Define critical products or services, organizational boundaries, exclusions, interested parties, and continuity responsibilities. State assumptions about what remains available during disruption. |
 | Priorities and disruption risk | Required | Present the business impact analysis: prioritized activities, dependencies, tolerable disruption, and recovery objectives with their originating project decision or service commitment and whether each objective is proposed or approved. Identify disruptive conditions and assumptions whose failure would change the strategy. |
 | Activation and communications | Required | State invocation and deactivation authority, observable triggers, escalation, and response-team coordination. Describe warning arrangements, who may communicate, how authorized people reach current contacts during disruption, and alternate channels. Do not publish secrets or an unrestricted sensitive contact list. |
@@ -35,7 +56,7 @@ If a priority, dependency, objective, trigger, strategy, or authority is unknown
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Priority activity | One or more activities whose interruption the plan addresses. | Identify the business or service effect, dependencies, tolerable disruption when established, and the consequence of exceeding it. |
 | Recovery objective | Zero or more approved time, capacity, or information objectives. | Give units, the establishing project decision or service commitment, and the approving role. An unapproved target is a proposal or gap, not a commitment. |
 | Disruption assumption | One or more conditions the strategies rely on. | State what changes if the assumption fails, or that this route is unresolved. |

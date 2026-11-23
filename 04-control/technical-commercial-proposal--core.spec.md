@@ -1,3 +1,24 @@
+---
+title: "Technical and commercial proposal specification"
+description: >-
+  Defines the authoring contract for bounded technical and commercial engineering proposals presenting an explicit offer to a prospective client or receiving party before an agreement creates commitments. Covers offer identity, revision, and decision state, scoped technical approach and offered deliverables, milestones and transparent estimate bases, itemized quotation and totals, proposed commercial terms and response mechanisms, and negotiation or supersession routes while excluding internal work plans, executed agreements, and invented legal terms.
+topics:
+  - "commercial-proposal"
+  - "engineering-offer"
+  - "deliverable-scope"
+  - "cost-estimates"
+  - "quotation-basis"
+  - "proposal-negotiation"
+use_when:
+  - "An engineering team is preparing a bounded study, development, integration, or maintenance offer with deliverables and pricing."
+  - "A technical or commercial lead is documenting estimate assumptions, milestones, quotation lines, and offer response terms."
+  - "A reviewer is checking that an engineering proposal stays distinct from an executed contract or unilateral authorization."
+not_for:
+  - "Controlling mutually negotiated and executed contractual commitments, which belongs in a contracted engineering work agreement."
+  - "Organizing internal technical schedules and team staffing after award, which belongs in development or systems engineering plans."
+  - "Recording actual historical hours consumed, which belongs in an engineering effort and work-time record."
+---
+
 # Technical and commercial proposal specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unresolved scope, authority, estimate, currency, tax treatment, validity,
 ## Finished-document contract
 
 - **Title:** Identify the offered work and name its technical and commercial proposal.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State offer identity and need before scope and approach; establish assumptions before milestones and quotation; place proposed conditions and response route last. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Offer identity and decision context | Required | Identify proposer, named recipient and relationship, subject, offer revision, date or gap, current offer state, offering authority or gap, and the problem the offer addresses. Include the client or receiving-party element when applicable. |
 | Scope, deliverables, and approach | Required | State included and excluded work, deliverables, technical approach, supplied inputs, responsibilities, and proposed assessable completion or receiving criteria. Identify dependencies and assumptions rather than promising unsupported feasibility. |
 | Milestones and estimate basis | Required | Give milestones, dependencies, resource and effort assumptions, estimate method and uncertainty, client inputs, and schedule basis. Distinguish forecast from proposed commitment and consumed effort from estimated work. |
@@ -34,7 +55,7 @@ Expose unresolved scope, authority, estimate, currency, tax treatment, validity,
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Offer revision and state | Exactly one revision and one state in Offer identity and decision context. | Use draft, issued, superseded, withdrawn, or expired; issuing requires actual offering authority and issued content. Draft may be issued or withdrawn; issued may be superseded, withdrawn, or expired with actual basis. Revised offers receive a new revision; client agreement is recorded separately. |
 | Offered deliverable | One or more in Scope, deliverables, and approach. | Each identifies scope, proposed completion basis, responsibilities, and dependencies; exclusions remain explicit. |
 | Milestone and estimate | One or more milestones and one estimate basis in Milestones and estimate basis. | State units, assumptions, source and uncertainty; unknown duration or cost is not zero. |

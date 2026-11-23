@@ -1,3 +1,24 @@
+---
+title: "Stakeholder requirements specification"
+description: >-
+  Defines the authoring contract for stakeholder requirements specifications stating stakeholder-visible outcomes, capabilities, operational use conditions, and constraints required of a defined system before technical obligations are allocated. Covers stakeholder groups and roles, operational and lifecycle context, origins and agreement authority, requirement content states, rationale, priority, validation success criteria, downstream system links, and open stakeholder issues so later validation can judge intended-use fitness.
+topics:
+  - "stakeholder-requirements"
+  - "stakeholder-outcomes"
+  - "use-constraints"
+  - "validation-basis"
+  - "intended-use"
+  - "requirements-engineering"
+use_when:
+  - "Elicited stakeholder needs, scenarios, and success criteria must be consolidated into a controlled stakeholder-level requirement set."
+  - "An analyst is defining stakeholder-visible capabilities and use constraints that will govern downstream system requirements and validation."
+  - "A reviewer is verifying stakeholder agreement state and ensuring technical design constraints appear only when truly stakeholder-imposed."
+not_for:
+  - "Initial problem framing before requirements are structured, which belongs in a business or mission needs document."
+  - "Whole-system technical specifications or allocated software obligations, which belong in system or software requirements specifications."
+  - "Narrative operating scenarios and human-system concepts alone, which belong in a concept of operations."
+---
+
 # Stakeholder requirements specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a stakeholder, source, operating condition, success criterion, or decision is
 ## Finished-document contract
 
 - **Title:** Name the system or mission subject and identify the document as its stakeholder requirements specification; include scope or edition when needed to distinguish the set.
-- **Frontmatter:** None. Begin with the GFM title. Stakeholder identity, obligation state, and authority are substantive body content.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Stakeholder identity, obligation state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish stakeholder and use context before the authoritative obligations; follow them with coverage, unresolved decisions, and control information. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity, purpose, and stakeholder boundary | Required | Identify the system of interest, document edition or other unambiguous control identity, included lifecycle/use scope, exclusions, relevant stakeholder groups and their roles, intended outcomes, and actual authority or proposal state. Define terms that affect interpretation. |
 | Operational and lifecycle context | Required | Describe the use situations, actors, environment, interactions, information needs, modes, and constraints needed to interpret the obligations. Include scenarios or use cases when they determine conditions, exceptions, or success measures; summarize only pertinent project business rules supplied for the authoring task and identify the actual decision or operating record that establishes them. Do not turn the context into a second requirements list. |
 | Stakeholder requirements | Required | State one authoritative stakeholder requirement per distinct stakeholder outcome, capability, quality expectation, or use constraint. Identify its beneficiary or accountable stakeholder, real origin, applicability, observable success condition, and content state. Keep technical allocation and design choices out unless an actual stakeholder authority imposes a constraint. |
@@ -34,7 +55,7 @@ If a stakeholder, source, operating condition, success criterion, or decision is
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Stakeholder group or role | One or more real groups or roles whose use, support, oversight, or other project interest drives the set. | Identify each group's interest and relevant lifecycle phase. A project sponsor does not automatically speak for every user or affected party. |
 | Stakeholder requirement | One or more distinct stakeholder-level requirements, each with one stable ID unique within the controlled set. | State one stakeholder-visible outcome or constraint, subject, triggering/operating condition, and assessable expectation per statement. Use the project's normative wording consistently. Identify whether the wording is proposed or agreed, and include a technical constraint only when the actual stakeholder decision establishes it. |
 | Origin and decision authority | At least one inspected stakeholder need, project decision, or documented derivation per requirement. | Give a usable title/ID, edition and locator when needed; identify the stakeholder or project role that may confirm or resolve the statement. An expectation may be directly recorded here with its origin. |

@@ -1,3 +1,24 @@
+---
+title: "Software composition record specification"
+description: >-
+  Defines the authoring contract for software composition records cataloging the third-party, open-source, or internal software components actually contained in one identified software item at a stated version. Covers item scope and as-of currency, component identities, exact versions, origins, known or unknown licenses, component context, and explicit visibility of unresolved composition gaps while ensuring that listing a component records composition facts alone without implying component approval or legal compliance certification.
+topics:
+  - "software-composition"
+  - "SBOM"
+  - "component-inventory"
+  - "dependency-origins"
+  - "license-inventory"
+  - "supply-chain-visibility"
+use_when:
+  - "A specific software item and version requires a controlled inventory of contained components, exact versions, origins, and licenses."
+  - "A maintainer or security reviewer is checking component provenance and surfacing missing version or license metadata."
+  - "A team needs a factual composition record feeding vulnerability assessment or distribution notice assembly."
+not_for:
+  - "Assembling verbatim upstream copyright notices and license texts for distribution, which belongs in distributed third-party notices."
+  - "Tracking live deployed servers and infrastructure hosts, which belongs in an observed IT inventory."
+  - "Recording formal vulnerability triage or security advisories, which belong in vulnerability records or security advisories."
+---
+
 # Software composition record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a component, version, origin, or license is unknown, record the gap. Do not i
 ## Finished-document contract
 
 - **Title:** Identify the software item and version, and name the document as its software composition record.
-- **Frontmatter:** None. Begin with the GFM title. The item, version, and as-of point belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The item, version, and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the software item before the component entries. State gaps with or after the entries. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Identity and scope | Required | Identify the one software item, the version this record covers, and the as-of point. Include the client or receiving-party element from this contract when applicable. |
 | Components | Required | For each component, state its name, version, origin, and license when those facts are known. If no component is established, say so instead of adding a placeholder component. |
 | Gaps | Required | Identify missing versions, origins, and licenses, and the next action. An unknown license stays unknown. |
@@ -32,7 +53,7 @@ If a component, version, origin, or license is unknown, record the gap. Do not i
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Software item | One software item and one version per record. | Do not merge a second item into the same component list without saying the record has changed subject. |
 | Component | Zero or more components of that item. | Give each component a name that distinguishes it within the record. |
 | Version | The component version when known. | State the version that is in the item. An unknown version stays unknown. Do not copy a baseline revision and call it this version unless it is the component version. |

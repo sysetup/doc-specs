@@ -1,3 +1,24 @@
+---
+title: "Research participant information specification"
+description: >-
+  Defines the authoring contract for advance participant-facing notices explaining a planned research study, its activities, duration, recording choices, risks, benefits, voluntary participation and stopping rights, data collection, sharing, retention, deletion, reachable contacts, and withdrawal limits to prospective participants. Requires plain-language presentation, explicit notice edition binding, checked accessible equivalents where needed, and audience-appropriate retrieval and understanding assessment while keeping information delivery strictly distinct from consent evidence.
+topics:
+  - "participant-information"
+  - "research-ethics"
+  - "informed-participation"
+  - "data-retention"
+  - "withdrawal-rights"
+  - "accessible-delivery"
+use_when:
+  - "A study involving human participants requires clear advance information before individuals decide whether to participate."
+  - "A researcher is documenting recording choices, data handling, withdrawal limits, and reachable contacts in plain participant-facing language."
+  - "A reviewer is verifying that participant notices separate information supply and comprehension checks from signed consent records."
+not_for:
+  - "Internal study design, recruitment logistics, and analysis schedules, which belong in a user research and discovery plan."
+  - "Exact interview questions or survey items, which belong in an elicitation instrument specification."
+  - "Recording collected responses or signed consent evidence, which belong in elicitation records or separate consent records."
+---
+
 # Research participant information specification
 
 ## Identity and selection
@@ -19,17 +40,17 @@ Expose missing activity, contact, recording, data-use, retention, withdrawal, ac
 ## Finished-document contract
 
 - **Title:** Name the study and identify the document as information for prospective research participants.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, edition, and readiness belong in the body. Governing source: Type-owned policy in RESEARCH-PARTICIPANT-INFORMATION@core; no external metadata schema is selected.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, edition, and readiness belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Explain study identity and activities before participation choices; put data and withdrawal information before contacts and edition applicability. Heading wording may vary.
 - **Presentation:** Use short participant-facing paragraphs, meaningful headings, and concise lists; combine roles where choices remain easy to find. Keep internal assessment details in their actual evidence record, with only the edition's use limits in the notice.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
-|---|---|---|
-| Standalone information (standalone) | The document owns one descriptive H1. Identity and edition are body facts; no YAML frontmatter is supplied. | Use GFM for the written edition. Bind this written notice to the study's sourced arrangements and the edition actually supplied. A checked oral, translated, or accessible equivalent retains those meanings and identifies its relationship to this edition; it is not a separate source of consent or data terms. Changed arrangements or delivery content require a new applicability and readiness assessment. |
+| --- | --- | --- |
+| Standalone information (standalone) | The document begins with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one descriptive H1. Identity and edition remain substantive body facts. | Use GFM for the written edition. Bind this written notice to the study's sourced arrangements and the edition actually supplied. A checked oral, translated, or accessible equivalent retains those meanings and identifies its relationship to this edition; it is not a separate source of consent or data terms. Changed arrangements or delivery content require a new applicability and readiness assessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Study identity and purpose | Required | Explain the study, responsible organization or role, purpose, who is invited, intended use of findings, and the client or receiving-party element when applicable in language the prospective participant can understand. Integrate any applicable client or receiving-party relationship into ordinary study context. |
 | Activities, recording, and effects | Required | Describe what participation involves, location or medium, expected duration, tasks or questions, recordings and optional choices, known discomfort or risks and expected benefits without promises. State compensation only when offered under established terms. |
 | Voluntary choice and stopping | Required | Explain how to accept or decline, skip where permitted, stop participation, and raise concerns. State any established consequences of declining; do not imply that reading this information or attending establishes consent. |
@@ -39,7 +60,7 @@ Expose missing activity, contact, recording, data-use, retention, withdrawal, ac
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Study and notice edition | Exactly one study and one notice edition in Study identity and purpose and Withdrawal, questions, and applicability. | Bind applicability and any readiness claim to the edition actually supplied and the study arrangement sources; the notice is information rather than a consent record. A changed arrangement reopens affected assessment. |
 | Participation activity | One or more activities in Activities, recording, and effects. | State expected duration and recording choices; do not imply unsupported risk-free participation or guaranteed benefit. |
 | Participation choice | One or more established choices in Voluntary choice and stopping. | Explain accept, decline, and stop routes and applicable limits without inventing rights or institutional commitments. |

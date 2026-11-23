@@ -1,3 +1,24 @@
+---
+title: "Verification evidence record specification"
+description: >-
+  Defines the authoring contract for verification evidence records preserving actual observations showing whether identified technical requirements or specifications were satisfied at a stated assessed configuration. Covers package conformance questions, configuration baselines, independence and retention rules, per-item technical subjects, methods actually used, artifact locators and cryptographic digests, execution identities, evidence states keeping planned work distinct from executed results, criteria comparisons, reviews, acceptance citations, demonstrated coverage, and limitations.
+topics:
+  - "verification-evidence"
+  - "technical-conformance"
+  - "assessed-configuration"
+  - "evidence-integrity"
+  - "criteria-comparison"
+  - "conformance-coverage"
+use_when:
+  - "A verification activity has acquired conformance observations—or closed an assessed scope with none—requiring binding to technical requirements."
+  - "A verification lead is recording assessed configurations, observed comparisons, artifact integrity, failed attempts, and retests."
+  - "A reviewer is auditing whether a technical pass claim names the exact requirement, criterion, actual configuration, and observation."
+not_for:
+  - "Recording stakeholder intended-use fitness in representative scenarios, which belongs in a validation evidence record."
+  - "Logging low-level step-by-step execution of a single test run alone, which belongs in a test execution record."
+  - "Tracking requirement-by-requirement verification planning and summary coverage across a program, which belongs in a requirements verification matrix."
+---
+
 # Verification evidence record specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ If a subject, configuration, criterion, observation, digest, or time is unknown,
 ## Finished-document contract
 
 - **Title:** Name the item or requirement set and identify the document as a verification evidence record.
-- **Frontmatter:** None. Begin with the GFM title. Subjects, configuration, and results belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Subjects, configuration, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the package boundary before the evidence items. State sufficiency and limitations after the items. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Evidence package boundary | Required | State the conformance question, the configuration baseline the conclusions apply to, and the independence arrangement actually used or that it was not required or not established. State the established access permissions, sensitive-data handling conditions, and retention periods for the evidence, identifying any that are unknown. Separate planned evidence from acquired evidence. Keep failed observations and later retests as separate facts. |
 | Evidence items | Required | Give one item for each distinct observation, analysis, or assessment attempt. When no assessment was attempted and no observation acquired, say so without fabricating an acquired item. If an attempt occurred but its observation was not captured, record the attempt and the gap as inconclusive. Include a proposed or planned item only when needed to identify expected work that did not occur; it has no result. |
 | Sufficiency and limitations | Required | State which specified-requirement or specification facets and conditions the acquired observations demonstrated, and which they did not. State uncertainty, sampling, configuration drift, unexamined aspects, and unresolved findings. |
@@ -32,7 +53,7 @@ If a subject, configuration, criterion, observation, digest, or time is unknown,
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Package question | One conformance question for this record. | State the conformity to be assessed with identified technical requirements or specifications. |
 | Subject | One or more subjects on each item. | Identify the technical requirement or specification by title or ID, edition, and locator when that record exists. When no separate record exists, state the exact technical obligation in the item. Do not invent an identifier. |
 | Procedure or method | One method for each attempted item. | Identify the method actually used to assess the stated technical obligation. Cite the procedure or conformance-method record and its edition when one was used; otherwise state the method in the item. Identify how the method produced the observation used for the comparison. A `pass` requires an identified method and an actual observation supporting the criterion comparison. |

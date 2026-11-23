@@ -1,3 +1,24 @@
+---
+title: "Support and request-routing guide specification"
+description: >-
+  Defines the authoring contract for recipient-facing support and request-routing guides directing users, integrators, and contributors to established channels for help, defect reporting, feature improvements, and confidential security disclosures. Covers supported scope and audience boundaries, request classification and entry routes, useful intake information fields, truthful response expectations without invented service-level promises, privacy and sensitive-report handling, and upkeep rules while excluding internal support staffing plans and fulfillment procedures.
+topics:
+  - "support-guide"
+  - "request-routing"
+  - "issue-intake"
+  - "security-reporting"
+  - "support-boundaries"
+  - "recipient-help"
+use_when:
+  - "A product, repository, or service needs a clear recipient-facing guide directing users to help, bug, feature, and security channels."
+  - "A maintainer is specifying intake information expectations, supported versions, and confidential reporting rules."
+  - "A reviewer is checking that a support guide avoids inventing unbacked response commitments or exposing sensitive report channels publicly."
+not_for:
+  - "Internal support team staffing, runbooks, or escalation procedures, which belong in operations plans or standard operating procedures."
+  - "Product installation, configuration, and usage tutorials, which belong in a product guide."
+  - "Publishing vulnerability applicability and fixes to recipients, which belongs in a recipient security advisory."
+---
+
 # Support and request-routing guide specification
 
 ## Identity and selection
@@ -19,12 +40,12 @@ Expose unknown supported versions, channel, response expectation, privacy condit
 ## Finished-document contract
 
 - **Title:** Identify the supported subject and name its support and request-routing guide.
-- **Frontmatter:** None. Begin with the GFM title. Identity, scope, and state belong in the body.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State supported scope before request choices; put channel and intake information before expectations, privacy limits, and upkeep. Heading wording may vary.
 
 | Section role | Status and inclusion condition | Content obligation |
-|---|---|---|
+| --- | --- | --- |
 | Supported scope and audience | Required | Identify product or service, supported versions and recipients or explicit gaps, support boundary, actual hours or language coverage when established, exclusions, and the client or receiving-party element when applicable. |
 | Request classification and routes | Required | Explain how to distinguish ordinary help, suspected defects, improvement or feedback, and security matters. Give established channels or visible gaps, actual self-help resources, and escalation route when supplied; sensitive security reports require an established private route. |
 | Useful intake information | Required | State the context, version, observed versus expected behavior, reproducible details, and requested outcome useful for each applicable route. Instruct readers to redact credentials, personal data, and private infrastructure details and to use permitted attachments or secure sharing only when established. |
@@ -34,7 +55,7 @@ Expose unknown supported versions, channel, response expectation, privacy condit
 ## Content definitions and forms
 
 | Element | Meaning and cardinality | Constraint |
-|---|---|---|
+| --- | --- | --- |
 | Support boundary | Exactly one bounded subject and audience account in Supported scope and audience. | Supported and unsupported versions are sourced; unknown support is not a supported promise. |
 | Request route | One route or explicit unavailable-route statement for each relevant request class in Request classification and routes. | Use actual reachable destinations; public issue trackers cannot be substituted for unknown private security routes. |
 | Intake field | Zero or more minimized fields per route in Useful intake information. | Require only useful context and placeholders; no secret value is requested. |
