@@ -19,6 +19,8 @@ not_for:
   - "Simple inline scalar inputs belonging strictly to a single test case, which belong in a test case specification."
   - "Configuring test hardware, simulators, and runtime instrumentation, which belongs in a test environment specification."
   - "Recording actual test execution outcomes, which belongs in a test execution record."
+  - "Documenting general-purpose training, evaluation, or analytical dataset assets with collection methodology, composition, and bias disclosures, which belongs in a dataset specification."
+  - "Governing ongoing producer-to-consumer operational data-product schemas, freshness SLAs, and schema-evolution commitments, which belongs in a data contract specification."
 ---
 
 # Test data specification
@@ -30,7 +32,7 @@ not_for:
 - **Intended readers:** Test designers and operators, data owners and stewards, environment owners, security or privacy reviewers, and people interpreting test results.
 - **Decision or action supported:** Select or generate suitable data, prepare it safely for the intended tests, verify its properties, and identify limitations that affect coverage or result interpretation.
 - **Use when:** Test inputs or datasets need controlled definition beyond the values in a single test case, especially when provenance, representativeness, reproducibility, sensitivity, or reuse matters.
-- **Scope boundaries:** Specify logical data assets and reproducible selection or generation rules for the stated tests. Identify materialized snapshots or generated instances only when established, with their actual editions, locators, and observed properties.
+- **Scope boundaries:** Specify logical data assets and reproducible selection or generation rules for the stated tests. Identify materialized snapshots or generated instances only when established, with their actual editions, locators, and observed properties. General-purpose training, evaluation, or analytical dataset assets belong in a dataset specification.
 
 ## Authoring inputs and unresolved facts
 

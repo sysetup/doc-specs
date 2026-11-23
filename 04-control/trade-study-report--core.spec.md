@@ -19,6 +19,7 @@ not_for:
   - "Recording an already authorized architecture choice and its follow-through, which belongs in an architecture decision record."
   - "Investigating one technical question or model without comparing competing candidate options, which belongs in a technical analysis report."
   - "Presenting a client quotation and commercial terms, which belongs in a technical and commercial proposal."
+  - "Proposing one concrete engineering design change for peer comment, rollout planning, and disposition, which belongs in a technical request for comments."
 ---
 
 # Trade study report specification

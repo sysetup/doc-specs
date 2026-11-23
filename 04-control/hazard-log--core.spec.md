@@ -19,6 +19,7 @@ not_for:
   - "Planning program-wide safety analyses, arguments, and lifecycle gates upfront, which belongs in a safety assurance plan."
   - "Tracking non-safety project, cost, schedule, or operational risks, which belongs in a risk register."
   - "Ranking functional component failure modes by engineering priority alone, which belongs in failure modes and effects analysis."
+  - "Analyzing intentional adversarial threats, trust boundaries, and security mitigations, which belongs in a threat model."
 ---
 
 # Hazard log specification

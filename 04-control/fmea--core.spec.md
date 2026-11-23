@@ -19,6 +19,7 @@ not_for:
   - "Tracking system-level safety hazards and mishap acceptance across the lifecycle, which belongs in a hazard log."
   - "Tracking broader project or operational business risks outside functional failure analysis, which belongs in a risk register."
   - "Defining runtime software exception propagation and caller contracts, which belongs in an error handling specification."
+  - "Analyzing intentional adversarial attack paths and security mitigations across trust boundaries, which belongs in a threat model."
 ---
 
 # Failure modes and effects analysis specification

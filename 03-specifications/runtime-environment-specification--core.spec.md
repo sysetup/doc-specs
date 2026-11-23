@@ -19,6 +19,7 @@ not_for:
   - "Test-specific instrumentation, simulators, fidelity tradeoffs, and reset rules, which belong in a test environment specification."
   - "Enterprise network topology, routing, and wireless engineering, which belong in a network design description."
   - "Operational governance companions wrapping versioned IaC code, which belong in a provisioning governance companion."
+  - "Forecasting multi-horizon workload growth, resource headroom reserves, and provisioning lead times, which belongs in a capacity plan."
 ---
 
 # Runtime environment specification

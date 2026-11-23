@@ -19,6 +19,7 @@ not_for:
   - "High-level organizational cybersecurity mandates and escalation rules, which belong in a cybersecurity policy."
   - "Pre-incident detection, severity, and crisis coordination, which belong in a cybersecurity incident response plan."
   - "Recording implemented control claims or individual vulnerability cases, which belong in control records."
+  - "Maintaining detailed system decomposition, trust-boundary analysis, enumerated threat scenarios, and mitigation status, which belongs in a threat model."
 ---
 
 # Security engineering plan specification
@@ -30,7 +31,7 @@ not_for:
 - **Intended readers:** Security and system engineers, developers, operators, supplier and assurance roles, project decision makers, and any actual security authorization authority.
 - **Decision or action supported:** Coordinate security design and assessment against an established protection basis and assign work, evidence, and risk-decision interfaces through the project lifecycle.
 - **Use when:** The project has an established responsibility for coordinated technical security engineering of a defined system or software item, whether imposed by an agreement, organizational direction, or project decision.
-- **Scope boundaries:** Cover technical protection objectives, threat and risk work, security requirements and controls, planned assessments, vulnerability handling, operational handoff, and reassessment of the selected system or software item.
+- **Scope boundaries:** Cover technical protection objectives, threat and risk work, security requirements and controls, planned assessments, vulnerability handling, operational handoff, and reassessment of the selected system or software item. Plan threat-modeling cadence and risk-decision interfaces here while maintaining enumerated threat scenarios and mitigation tracking in a separate threat model when detailed threat analysis is controlled.
 
 ## Authoring inputs and unresolved facts
 

@@ -19,6 +19,7 @@ not_for:
   - "Detailed module, data structure, algorithm, or runtime implementation design, which belongs in software or system design descriptions."
   - "Recording a single isolated technical choice and its alternatives, which belongs in an architecture decision record."
   - "Stating testable system or software obligations, which belong in requirements specifications."
+  - "Circulating a proposed technical design change for broad peer comment and disposition prior to adoption, which belongs in a technical request for comments."
 ---
 
 # Architecture description specification

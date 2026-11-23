@@ -19,6 +19,7 @@ not_for:
   - "Indexing status and pointers across many controlled decisions without full rationale, which belongs in a decision registry."
   - "Quantitative multi-criteria option scoring with sensitivity analysis prior to choice, which belongs in a trade study report."
   - "Formal acceptance or compliance signoff on a deliverable revision, which belongs in an approval and acceptance decision record."
+  - "Circulating a pre-decision technical design proposal for broad peer comment, objection resolution, and migration planning before recording a formal choice, which belongs in a technical request for comments."
 ---
 
 # Architecture decision record specification
@@ -30,7 +31,7 @@ not_for:
 - **Intended readers:** The decision authority, the architects and implementers who must apply the choice, and later readers who need to know whether it still stands.
 - **Decision or action supported:** See whether an option has been selected, why the other considered options were set aside, what the choice requires, and when it must be reconsidered.
 - **Use when:** One architecture or technical choice needs a durable record of context, alternatives, rationale, status, consequences, and follow-through.
-- **Scope boundaries:** Preserve one bounded architecture or technical decision with its context, alternatives, rationale, state, consequences, and follow-through; exclude multi-decision status indexes, quantitative trade studies, and formal approval records.
+- **Scope boundaries:** Preserve one bounded architecture or technical decision with its context, alternatives, rationale, state, consequences, and follow-through; exclude multi-decision status indexes, pre-decision technical design proposals awaiting broad peer comment, quantitative trade studies, and formal approval records.
 
 ## Authoring inputs and unresolved facts
 

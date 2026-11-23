@@ -19,6 +19,8 @@ not_for:
   - "Broad day-to-day staffing, support, and routine operations models, which belong in an operations and support plan."
   - "Enterprise-wide disruption workarounds spanning sites and business units, which belong in a business continuity plan."
   - "Reporting actual observed availability metrics for a past period, which belongs in a service-period status report."
+  - "Defining standalone service level indicators, error budgets, burn-rate alert tiers, and exhaustion policies, which belongs in a service level objective and error budget specification."
+  - "Forecasting multi-horizon workload growth, resource headroom, provisioning lead times, and scaling budgets, which belongs in a capacity plan."
 ---
 
 # Service or system availability plan specification
@@ -30,7 +32,7 @@ not_for:
 - **Intended readers:** Service and product owners, availability and reliability engineers, operators, support and incident roles, suppliers, and objective owners.
 - **Decision or action supported:** Choose defensible availability provisions, measurement, response thresholds, and review actions for the service's actual operating context.
 - **Use when:** A service or system needs explicit availability objectives, dependency and failure analysis, resilience provisions, or degraded-operation planning.
-- **Scope boundaries:** Cover availability objectives, measurement rules, failure analysis, resilience provisions, degraded behavior, and assessment for the defined service or system at planning depth.
+- **Scope boundaries:** Cover availability objectives, measurement rules, failure analysis, resilience provisions, degraded behavior, and assessment for the defined service or system at planning depth. Reference standalone service level objective specifications or capacity plans when SLI/error-budget governance or multi-horizon demand scaling are maintained separately.
 
 ## Authoring inputs and unresolved facts
 

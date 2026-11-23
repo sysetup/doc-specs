@@ -19,6 +19,7 @@ not_for:
   - "Internal study design, recruitment logistics, and analysis schedules, which belong in a user research and discovery plan."
   - "Exact interview questions or survey items, which belong in an elicitation instrument specification."
   - "Recording collected responses or signed consent evidence, which belong in elicitation records or separate consent records."
+  - "Conducting an internal privacy risk, necessity, and safeguard assessment for personal-data processing, which belongs in a data protection impact assessment."
 ---
 
 # Research participant information specification

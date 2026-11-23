@@ -19,6 +19,7 @@ not_for:
   - "Recording stakeholder intended-use fitness in representative scenarios, which belongs in a validation evidence record."
   - "Logging low-level step-by-step execution of a single test run alone, which belongs in a test execution record."
   - "Tracking requirement-by-requirement verification planning and summary coverage across a program, which belongs in a requirements verification matrix."
+  - "Reporting empirical AI model or system benchmark scores, stochastic variance, red-team probing, and subgroup error slices, which belongs in an AI evaluation report."
 ---
 
 # Verification evidence record specification

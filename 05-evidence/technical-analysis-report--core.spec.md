@@ -19,6 +19,7 @@ not_for:
   - "Structured multi-criteria comparison of competing options against gates to select a choice, which belongs in a trade study report."
   - "Recording technical requirement conformance verdicts, which belongs in a verification evidence record."
   - "Recording an authorized choice and its architecture rationale, which belongs in an architecture decision record."
+  - "Reporting structured multi-suite AI model or system capability, safety, bias, and red-team evaluations, which belongs in an AI evaluation report."
 ---
 
 # Technical analysis report specification

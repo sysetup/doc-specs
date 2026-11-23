@@ -19,6 +19,7 @@ not_for:
   - "Recording technical conformity against specified engineering requirements, which belongs in a verification evidence record."
   - "Mapping program-wide needs to planned validation activities and aggregate status, which belongs in a validation matrix."
   - "Designing validation scenarios prior to execution, which belongs in a validation plan or validation procedure."
+  - "Recording benchmark suites, judge calibration, data-contamination disclosures, and disaggregated AI capability or safety metrics, which belongs in an AI evaluation report."
 ---
 
 # Validation evidence record specification

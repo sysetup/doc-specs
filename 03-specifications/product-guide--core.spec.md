@@ -19,6 +19,7 @@ not_for:
   - "Concise symbol, API, CLI flag, or schema lookup without task walkthroughs, which belongs in a technical lookup reference."
   - "Hands-on pedagogical exercises with learner checkpoints and cleanup, which belong in a learning tutorial."
   - "Internal service recovery commands for operators managing a specific deployment target, which belong in an operational runbook."
+  - "Disclosing an AI model or system's training provenance, intended and out-of-scope uses, known biases, evaluation citations, and oversight limits, which belongs in an AI model or system card."
 ---
 
 # Product guide specification

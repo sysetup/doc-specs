@@ -4,6 +4,28 @@ Notable changes to this collection are recorded here, following
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 One project version governs the entire collection.
 
+## 3.2.0
+
+Released 2026-11-23. Expanded the collection to 153 specifications by adding 9 modern engineering, reliability, data, privacy, and AI document specifications, refactoring adjacent sibling boundaries, and extending the controlled domain topic taxonomy compatibly.
+
+### Added
+
+- `AI-EVALUATION-REPORT@core`: Preserve empirical AI model or compound AI system evaluations covering evaluated snapshots, benchmark and red-team suites, contamination disclosures, judge calibration, uncertainty, disaggregated slices, and bounded conclusions.
+- `AI-SYSTEM-CARD@core`: Disclose an AI model or compound AI system's identity, maturity, intended and out-of-scope uses, system composition, data provenance summaries, cited evaluation results, human oversight, operational limits, and optional native registry exports.
+- `CAPACITY-PLAN@core`: Plan workload demand forecasts, empirical baselines, resource headroom targets, scaling cliffs, provisioning lead times, cost envelopes, and load validation across a declared horizon.
+- `DATA-CONTRACT@core`: Govern producer-to-consumer schemas, field semantics, data quality and freshness guarantees, privacy classifications, schema-evolution compatibility, deprecation rules, and optional native schema artifacts.
+- `DATASET-SPECIFICATION@core`: Specify curated dataset assets covering immutable snapshot bindings, intended and prohibited uses, composition and split-leakage rules, collection or synthetic provenance, conditional annotation quality, licensing, privacy safeguards, known biases, and optional native metadata descriptors.
+- `DPIA@core`: Assess personal-data processing necessity, data flows, data-subject rights mechanisms, individual privacy risks, technical and organizational safeguards, consultations, residual risk, and processing dispositions.
+- `SLO-SPECIFICATION@core`: Define measurable service level indicators, service level objectives, compliance windows, derived error budgets, burn-rate alerting tiers, error-budget exhaustion policies, and optional native SLO manifests.
+- `TECHNICAL-RFC@core`: Circulate pre-decision technical design proposals for peer review, alternatives evaluation, cross-cutting impact analysis, migration planning, objection tracking, and explicit disposition.
+- `THREAT-MODEL@core`: Maintain living adversarial threat models decomposing protected assets, attack surfaces, data flows, and trust boundaries into threat scenarios, mapped mitigations, verification status, residual exposure, and reassessment triggers.
+- Added 3 compatible controlled domain topics (`ai-and-ml`, `data-engineering`, `privacy-and-compliance`) to `CONTRIBUTING.md` (`FM-01`), bringing the shared controlled taxonomy to 25 tags.
+
+### Changed
+
+- Updated the single project version to `3.2.0` and synchronized collection count (`153`) across `CONTRIBUTING.md`, `authoring/families.json`, `authoring/request.template.json`, `INDEX.csv`, `CATALOG.json`, `README.md`, `llms.txt`, and `CHANGELOG.md`.
+- Refactored `not_for` exclusions and adjacent `Scope boundaries` across 24 neighboring sibling specifications (`SECURITY-ENGINEERING-PLAN@conditional`, `RISK-REGISTER@core`, `HAZARD-LOG@core`, `FMEA@core`, `VULNERABILITY-RECORD@core`, `AVAILABILITY-PLAN@core`, `OPERATIONS-PLAN@core`, `OBSERVABILITY-REGISTER@core`, `SERVICE-STATUS-REPORT@core`, `RUNTIME-ENVIRONMENT-SPECIFICATION@core`, `INTERFACE-CONTROL@core`, `TEST-DATA-SPECIFICATION@core`, `TECHNICAL-REFERENCE@core`, `CONTROL-IMPLEMENTATION-RECORD@core`, `RESEARCH-PARTICIPANT-INFORMATION@core`, `ADR@core`, `TRADE-STUDY-REPORT@core`, `CHANGE-REQUEST@core`, `ARCHITECTURE-DESCRIPTION@core`, `PRODUCT-GUIDE@core`, `VERIFICATION-EVIDENCE@core`, `VALIDATION-EVIDENCE@core`, `TECHNICAL-ANALYSIS-REPORT@core`, and `TEST-COMPLETION-REPORT@core`) to preserve clean selection boundaries.
+
 ## 3.1.0
 
 Released 2026-11-23. Unified the entire 144-specification collection under one project version and full structural conformance across all families, catalogs, and authoring resources.

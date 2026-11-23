@@ -19,6 +19,8 @@ not_for:
   - "Detailed command sequences and rollback steps for one operational task, which belong in an operational runbook."
   - "Staged cutover and migration into operations, which belongs in a transition and deployment plan."
   - "Summarizing actual past service-period metrics and incidents, which belongs in a service-period status report."
+  - "Forecasting multi-horizon workload demand, resource bottlenecks, lead times, and scaling budgets, which belongs in a capacity plan."
+  - "Specifying mathematical service level indicators, error budgets, and burn-rate exhaustion policies, which belongs in a service level objective and error budget specification."
 ---
 
 # Operations and support plan specification
@@ -30,7 +32,7 @@ not_for:
 - **Intended readers:** Service owners, operators, support teams, security and change roles, suppliers, and managers responsible for service readiness.
 - **Decision or action supported:** Establish how the service will be operated, monitored, supported, and kept within its agreed operating boundaries.
 - **Use when:** A service or system needs a coordinated operating and support model before or during sustained use.
-- **Scope boundaries:** Define sustained operating and support arrangements through roles, coverage, controls, decision thresholds, and handoffs.
+- **Scope boundaries:** Define sustained operating and support arrangements through roles, coverage, controls, decision thresholds, and handoffs. Reference standalone capacity plans and service level objective specifications when detailed demand forecasting or error-budget governance are maintained separately.
 
 ## Authoring inputs and unresolved facts
 

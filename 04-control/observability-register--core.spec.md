@@ -19,6 +19,7 @@ not_for:
   - "Step-by-step troubleshooting commands and rollback procedures triggered by an alert, which belong in an operational runbook."
   - "Reporting observed telemetry trends and service availability over a past window, which belongs in a service-period status report."
   - "Defining overall operations staffing and support commitments, which belongs in an operations and support plan."
+  - "Specifying mathematical service level indicators, compliance windows, error budgets, and burn-rate exhaustion policies, which belongs in a service level objective and error budget specification."
 ---
 
 # Observability register specification

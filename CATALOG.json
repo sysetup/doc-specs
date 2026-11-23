@@ -1,5 +1,5 @@
 {
-  "count": 144,
+  "count": 153,
   "families": [
     {
       "boundary": "A policy or standard governs a population; a guide recommends a practice.",
@@ -632,7 +632,9 @@
       "not_for": [
         "Broad day-to-day staffing, support, and routine operations models, which belong in an operations and support plan.",
         "Enterprise-wide disruption workarounds spanning sites and business units, which belong in a business continuity plan.",
-        "Reporting actual observed availability metrics for a past period, which belongs in a service-period status report."
+        "Reporting actual observed availability metrics for a past period, which belongs in a service-period status report.",
+        "Defining standalone service level indicators, error budgets, burn-rate alert tiers, and exhaustion policies, which belongs in a service level objective and error budget specification.",
+        "Forecasting multi-horizon workload growth, resource headroom, provisioning lead times, and scaling budgets, which belongs in a capacity plan."
       ],
       "path": "02-plans/availability-plan--core.spec.md",
       "projections": [
@@ -685,6 +687,37 @@
         "An organization needs to prioritize critical business or service capabilities and plan workarounds across people, sites, and suppliers.",
         "A continuity planner is defining activation authority, recovery objectives, communication routes, and return-to-normal criteria.",
         "A reviewer is checking whether a business continuity plan covers exercise evaluation and realistic supplier dependencies."
+      ]
+    },
+    {
+      "family": "02-plans",
+      "not_for": [
+        "Planning overall routine service staffing, support commitments, backups, and day-to-day maintenance, which belongs in an operations and support plan.",
+        "Analyzing component failure modes, redundancy failover architectures, and degraded-operation modes for uptime, which belongs in a service or system availability plan.",
+        "Specifying mathematical service level indicators, error budgets, and burn-rate alerting policies, which belongs in a service level objective and error budget specification.",
+        "Reporting historical observed production utilization and service metrics for a past period, which belongs in a service-period status report."
+      ],
+      "path": "02-plans/capacity-plan--core.spec.md",
+      "projections": [
+        "standalone"
+      ],
+      "summary": "Plan workload demand forecasts, resource headroom, bottlenecks, scaling triggers, procurement lead times, and load checks",
+      "title": "Capacity plan",
+      "topics": [
+        "planning",
+        "operations",
+        "networking-and-infrastructure",
+        "capacity-plan",
+        "demand-forecasting",
+        "resource-headroom",
+        "scaling-triggers",
+        "bottleneck-analysis"
+      ],
+      "type": "CAPACITY-PLAN@core",
+      "use_when": [
+        "A service, platform, or infrastructure scope requires a forward-looking plan aligning workload growth forecasts with compute, storage, network, or quota headroom.",
+        "A reliability or infrastructure engineer is identifying scaling cliffs, provisioning lead times, load-validation tests, and exhaustion triggers across a planning horizon.",
+        "A reviewer or service owner is verifying that scaling investments and cost envelopes rest on transparent baseline observations and labeled forecast assumptions."
       ]
     },
     {
@@ -872,7 +905,9 @@
       "not_for": [
         "Detailed command sequences and rollback steps for one operational task, which belong in an operational runbook.",
         "Staged cutover and migration into operations, which belongs in a transition and deployment plan.",
-        "Summarizing actual past service-period metrics and incidents, which belongs in a service-period status report."
+        "Summarizing actual past service-period metrics and incidents, which belongs in a service-period status report.",
+        "Forecasting multi-horizon workload demand, resource bottlenecks, lead times, and scaling budgets, which belongs in a capacity plan.",
+        "Specifying mathematical service level indicators, error budgets, and burn-rate exhaustion policies, which belongs in a service level objective and error budget specification."
       ],
       "path": "02-plans/operations-plan--core.spec.md",
       "projections": [
@@ -1021,7 +1056,8 @@
       "not_for": [
         "High-level organizational cybersecurity mandates and escalation rules, which belong in a cybersecurity policy.",
         "Pre-incident detection, severity, and crisis coordination, which belong in a cybersecurity incident response plan.",
-        "Recording implemented control claims or individual vulnerability cases, which belong in control records."
+        "Recording implemented control claims or individual vulnerability cases, which belong in control records.",
+        "Maintaining detailed system decomposition, trust-boundary analysis, enumerated threat scenarios, and mitigation status, which belongs in a threat model."
       ],
       "path": "02-plans/security-engineering-plan--conditional.spec.md",
       "projections": [
@@ -1349,9 +1385,42 @@
     {
       "family": "03-specifications",
       "not_for": [
+        "Preserving detailed empirical benchmark runs, scoring harnesses, stochastic variance, and red-team findings, which belongs in an AI evaluation report.",
+        "Documenting a single dataset's full schema, collection methodology, annotation rules, and licensing in depth, which belongs in a dataset specification.",
+        "Providing step-by-step installation and everyday end-user operating procedures for general software, which belongs in a product guide.",
+        "Conducting an internal personal-data legal necessity and privacy risk assessment, which belongs in a data protection impact assessment."
+      ],
+      "path": "03-specifications/ai-system-card--core.spec.md",
+      "projections": [
+        "standalone",
+        "native"
+      ],
+      "summary": "Structured AI model or system disclosure covering intended uses, composition, data provenance, evaluation citations, and limits",
+      "title": "AI model or system card",
+      "topics": [
+        "specifications",
+        "ai-and-ml",
+        "risk-and-safety",
+        "ai-system-card",
+        "model-card",
+        "intended-use",
+        "ai-transparency",
+        "human-oversight"
+      ],
+      "type": "AI-SYSTEM-CARD@core",
+      "use_when": [
+        "An AI model or compound AI system requires structured transparency documentation for integrators, deployers, operators, or governance reviewers.",
+        "A model or system owner is disclosing intended and out-of-scope uses, system composition, data provenance summaries, known biases, and human-oversight bounds.",
+        "A reviewer is verifying that AI capability and safety disclosures cite real evaluation evidence and expose undisclosed upstream provenance honestly."
+      ]
+    },
+    {
+      "family": "03-specifications",
+      "not_for": [
         "Detailed module, data structure, algorithm, or runtime implementation design, which belongs in software or system design descriptions.",
         "Recording a single isolated technical choice and its alternatives, which belongs in an architecture decision record.",
-        "Stating testable system or software obligations, which belong in requirements specifications."
+        "Stating testable system or software obligations, which belong in requirements specifications.",
+        "Circulating a proposed technical design change for broad peer comment and disposition prior to adoption, which belongs in a technical request for comments."
       ],
       "path": "03-specifications/architecture-description--core.spec.md",
       "projections": [
@@ -1468,6 +1537,70 @@
     {
       "family": "03-specifications",
       "not_for": [
+        "Controlling physical, electrical, or transport-level protocol parameters across hardware or software boundaries, which belongs in an interface control document.",
+        "Documenting a curated static dataset asset's collection methodology, labeling protocol, and bias profile, which belongs in a dataset specification.",
+        "Specifying reproducible test-only input fixtures and generators for a bounded test campaign, which belongs in a test data specification.",
+        "Providing read-only consumer syntax lookup for APIs, CLIs, or settings without cross-party quality commitments, which belongs in a technical lookup reference."
+      ],
+      "path": "03-specifications/data-contract--core.spec.md",
+      "projections": [
+        "standalone",
+        "native"
+      ],
+      "summary": "Govern producer-consumer data schemas, semantics, quality guarantees, privacy rules, evolution compatibility, and change authority",
+      "title": "Data contract",
+      "topics": [
+        "specifications",
+        "data-engineering",
+        "architecture-and-design",
+        "data-contract",
+        "schema-evolution",
+        "data-quality",
+        "data-governance",
+        "producer-consumer-agreement"
+      ],
+      "type": "DATA-CONTRACT@core",
+      "use_when": [
+        "A data producer and downstream analytical, operational, or AI consumers need an explicit contract for schemas, semantics, data quality, and evolution rules.",
+        "A data engineer or steward is defining freshness, completeness, PII classification, compatibility modes, and breaking-change deprecation policies for a data product.",
+        "A reviewer is verifying that human data-contract terms align with controlling machine-readable schema artifacts and distinguish proposed rules from agreed guarantees."
+      ]
+    },
+    {
+      "family": "03-specifications",
+      "not_for": [
+        "Defining reproducible test-only input fixtures and suitability checks for a bounded software or system test campaign, which belongs in a test data specification.",
+        "Governing ongoing producer-to-consumer operational stream or table schemas, freshness SLAs, and compatibility rules, which belongs in a data contract specification.",
+        "Disclosing an AI model or compound AI system's overall architecture, capabilities, and oversight constraints, which belongs in an AI model or system card.",
+        "Preserving raw qualitative transcripts and provenance from user discovery interviews, which belongs in an elicitation and source record."
+      ],
+      "path": "03-specifications/dataset-specification--core.spec.md",
+      "projections": [
+        "standalone",
+        "native"
+      ],
+      "summary": "Define curated dataset assets covering provenance, collection, composition, labeling, licensing, privacy, biases, and lifecycle",
+      "title": "Dataset specification",
+      "topics": [
+        "specifications",
+        "data-engineering",
+        "ai-and-ml",
+        "dataset-specification",
+        "data-provenance",
+        "dataset-composition",
+        "annotation-protocol",
+        "data-bias"
+      ],
+      "type": "DATASET-SPECIFICATION@core",
+      "use_when": [
+        "A curated, collected, or synthetically generated dataset for AI training, evaluation, or analytical reuse needs comprehensive provenance, composition, and governance documentation.",
+        "A data steward or ML engineer is recording exact snapshot digests, split-leakage prevention, annotation quality, licensing, privacy limits, and known biases.",
+        "A reviewer is verifying whether a dataset is legally, ethically, and statistically suitable for a proposed modeling, evaluation, or analytical task."
+      ]
+    },
+    {
+      "family": "03-specifications",
+      "not_for": [
         "Study-wide sampling, ethics, and schedule planning, which belong in a user research and discovery plan.",
         "Preserving raw responses collected during sessions, which belongs in an elicitation and source record.",
         "Synthesizing interpreted study outcomes or advance participant consent notices, which belong in findings or participant information documents."
@@ -1530,7 +1663,8 @@
       "not_for": [
         "Stating required boundary interactions before selecting a concrete realization, which belongs in an interface requirements document.",
         "Indexing multiple interfaces and pointers to their controlling documents, which belongs in an interface registry.",
-        "Providing consumer-facing API or CLI syntax lookup without cross-party agreement authority, which belongs in a technical reference."
+        "Providing consumer-facing API or CLI syntax lookup without cross-party agreement authority, which belongs in a technical reference.",
+        "Governing data-product schemas, data quality expectations, privacy classifications, and schema evolution commitments between producers and consumers, which belongs in a data contract specification."
       ],
       "path": "03-specifications/interface-control--core.spec.md",
       "projections": [
@@ -1620,7 +1754,8 @@
       "not_for": [
         "Concise symbol, API, CLI flag, or schema lookup without task walkthroughs, which belongs in a technical lookup reference.",
         "Hands-on pedagogical exercises with learner checkpoints and cleanup, which belong in a learning tutorial.",
-        "Internal service recovery commands for operators managing a specific deployment target, which belong in an operational runbook."
+        "Internal service recovery commands for operators managing a specific deployment target, which belong in an operational runbook.",
+        "Disclosing an AI model or system's training provenance, intended and out-of-scope uses, known biases, evaluation citations, and oversight limits, which belongs in an AI model or system card."
       ],
       "path": "03-specifications/product-guide--core.spec.md",
       "projections": [
@@ -1710,7 +1845,8 @@
       "not_for": [
         "Internal study design, recruitment logistics, and analysis schedules, which belong in a user research and discovery plan.",
         "Exact interview questions or survey items, which belong in an elicitation instrument specification.",
-        "Recording collected responses or signed consent evidence, which belong in elicitation records or separate consent records."
+        "Recording collected responses or signed consent evidence, which belong in elicitation records or separate consent records.",
+        "Conducting an internal privacy risk, necessity, and safeguard assessment for personal-data processing, which belongs in a data protection impact assessment."
       ],
       "path": "03-specifications/research-participant-information--core.spec.md",
       "projections": [
@@ -1740,7 +1876,8 @@
       "not_for": [
         "Test-specific instrumentation, simulators, fidelity tradeoffs, and reset rules, which belong in a test environment specification.",
         "Enterprise network topology, routing, and wireless engineering, which belong in a network design description.",
-        "Operational governance companions wrapping versioned IaC code, which belong in a provisioning governance companion."
+        "Operational governance companions wrapping versioned IaC code, which belong in a provisioning governance companion.",
+        "Forecasting multi-horizon workload growth, resource headroom reserves, and provisioning lead times, which belongs in a capacity plan."
       ],
       "path": "03-specifications/runtime-environment-specification--core.spec.md",
       "projections": [
@@ -1794,6 +1931,38 @@
         "A product security issue requires controlled recipient communication covering affected versions, impact, severity basis, and remediation.",
         "A security coordinator is publishing or revising an advisory while keeping unknown applicability distinct from not-affected status.",
         "A reviewer is checking whether independent severity assessments, disclosure authority, and optional native exports are accurately bound."
+      ]
+    },
+    {
+      "family": "03-specifications",
+      "not_for": [
+        "Planning architectural failure analysis, redundancy failover mechanisms, and degraded-operation investments, which belongs in a service or system availability plan.",
+        "Cataloging all general watched operational signals, owners, and response pointers across a service, which belongs in an observability register.",
+        "Reporting actual observed reliability, telemetry coverage, and incidents over a past operating period, which belongs in a service-period status report.",
+        "Planning multi-horizon workload demand forecasts, headroom reserves, and scaling lead times, which belongs in a capacity plan."
+      ],
+      "path": "03-specifications/slo-specification--core.spec.md",
+      "projections": [
+        "standalone",
+        "native"
+      ],
+      "summary": "Define service level indicators, reliability objectives, compliance windows, error budgets, burn-rate alerts, and exhaustion policies",
+      "title": "Service level objective and error budget specification",
+      "topics": [
+        "specifications",
+        "operations",
+        "quality-assurance",
+        "slo-specification",
+        "service-level-indicator",
+        "error-budget",
+        "burn-rate-alerting",
+        "reliability-targets"
+      ],
+      "type": "SLO-SPECIFICATION@core",
+      "use_when": [
+        "A service or critical user journey needs exact mathematical service level indicators, reliability targets, compliance windows, error budgets, and exhaustion policies.",
+        "A reliability engineer or service owner is aligning multi-window burn-rate alert thresholds with product-engineering error-budget governance.",
+        "A reviewer is checking whether SLI denominators, missing-data handling, and companion machine-readable SLO manifests are unambiguous and distinct from external SLAs."
       ]
     },
     {
@@ -1981,7 +2150,8 @@
       "not_for": [
         "Task-oriented installation and end-user workflows, which belong in a product guide.",
         "Hands-on step-by-step exercises for learners, which belong in a learning tutorial.",
-        "Cross-party interface realization agreements, which belong in an interface control document."
+        "Cross-party interface realization agreements, which belong in an interface control document.",
+        "Establishing producer-consumer data quality guarantees, ownership, and schema-evolution agreements for data products, which belongs in a data contract specification."
       ],
       "path": "03-specifications/technical-reference--core.spec.md",
       "projections": [
@@ -2041,7 +2211,9 @@
       "not_for": [
         "Simple inline scalar inputs belonging strictly to a single test case, which belong in a test case specification.",
         "Configuring test hardware, simulators, and runtime instrumentation, which belongs in a test environment specification.",
-        "Recording actual test execution outcomes, which belongs in a test execution record."
+        "Recording actual test execution outcomes, which belongs in a test execution record.",
+        "Documenting general-purpose training, evaluation, or analytical dataset assets with collection methodology, composition, and bias disclosures, which belongs in a dataset specification.",
+        "Governing ongoing producer-to-consumer operational data-product schemas, freshness SLAs, and schema-evolution commitments, which belongs in a data contract specification."
       ],
       "path": "03-specifications/test-data-specification--core.spec.md",
       "projections": [
@@ -2312,7 +2484,8 @@
       "not_for": [
         "Indexing status and pointers across many controlled decisions without full rationale, which belongs in a decision registry.",
         "Quantitative multi-criteria option scoring with sensitivity analysis prior to choice, which belongs in a trade study report.",
-        "Formal acceptance or compliance signoff on a deliverable revision, which belongs in an approval and acceptance decision record."
+        "Formal acceptance or compliance signoff on a deliverable revision, which belongs in an approval and acceptance decision record.",
+        "Circulating a pre-decision technical design proposal for broad peer comment, objection resolution, and migration planning before recording a formal choice, which belongs in a technical request for comments."
       ],
       "path": "04-control/adr--core.spec.md",
       "projections": [
@@ -2462,7 +2635,8 @@
       "not_for": [
         "Requesting a temporary bounded departure while leaving the underlying obligation unchanged, which belongs in a deviation or waiver request.",
         "Submitting an unapproved code diff for peer review in a repository, which belongs in a pull or merge request description.",
-        "Tracking a defect before a controlled baseline change is proposed, which belongs in a problem or defect report."
+        "Tracking a defect before a controlled baseline change is proposed, which belongs in a problem or defect report.",
+        "Circulating an exploratory pre-baseline technical design proposal for peer comment and design alignment, which belongs in a technical request for comments."
       ],
       "path": "04-control/change-request--core.spec.md",
       "projections": [
@@ -2582,7 +2756,8 @@
       "not_for": [
         "Planning broader security engineering work and threat analysis across a lifecycle, which belongs in a security engineering plan.",
         "Reporting findings from a completed formal audit examination, which belongs in an audit report.",
-        "Tracking individual discovered software vulnerabilities through patching, which belongs in a vulnerability record."
+        "Tracking individual discovered software vulnerabilities through patching, which belongs in a vulnerability record.",
+        "Evaluating personal-data processing necessity, data-subject risks, and privacy safeguards prior to processing, which belongs in a data protection impact assessment."
       ],
       "path": "04-control/control-implementation-record--core.spec.md",
       "projections": [
@@ -2670,6 +2845,37 @@
     {
       "family": "04-control",
       "not_for": [
+        "Explaining a planned research study's activities and withdrawal options directly to prospective human participants, which belongs in a research participant information notice.",
+        "Tracking per-control implementation claims across an entire security or compliance catalog, which belongs in a selected control implementation record.",
+        "Analyzing general adversarial security attack paths across system trust boundaries beyond personal-data rights impacts, which belongs in a threat model.",
+        "Tracking general project, cost, schedule, or operational uncertainties unrelated to personal-data protection, which belongs in a risk register."
+      ],
+      "path": "04-control/dpia--core.spec.md",
+      "projections": [
+        "standalone"
+      ],
+      "summary": "Assess personal-data processing necessity, flows, privacy risks, safeguards, consultations, and residual-risk dispositions",
+      "title": "Data protection impact assessment",
+      "topics": [
+        "control-records",
+        "privacy-and-compliance",
+        "risk-and-safety",
+        "dpia",
+        "privacy-impact-assessment",
+        "personal-data",
+        "data-subject-rights",
+        "privacy-safeguards"
+      ],
+      "type": "DPIA@core",
+      "use_when": [
+        "A planned or materially changed personal-data processing activity requires structured assessment of necessity, individual privacy risks, and technical or organizational safeguards.",
+        "A privacy engineer, product owner, or data protection officer is evaluating data flows, subprocessor transfers, data-subject rights, and residual privacy risk before launch.",
+        "A reviewer is verifying whether unresolved lawful-basis, retention, or high-residual-risk conditions block processing or trigger supervisory consultation."
+      ]
+    },
+    {
+      "family": "04-control",
+      "not_for": [
         "Reporting active testing campaign progress and anomaly counts alone, which belongs in a test status report.",
         "Reporting production service availability, telemetry coverage, and incidents, which belongs in a service-period status report.",
         "Recording actual consumed hours for effort accounting, which belongs in an engineering effort and work-time record."
@@ -2702,7 +2908,8 @@
       "not_for": [
         "Tracking system-level safety hazards and mishap acceptance across the lifecycle, which belongs in a hazard log.",
         "Tracking broader project or operational business risks outside functional failure analysis, which belongs in a risk register.",
-        "Defining runtime software exception propagation and caller contracts, which belongs in an error handling specification."
+        "Defining runtime software exception propagation and caller contracts, which belongs in an error handling specification.",
+        "Analyzing intentional adversarial attack paths and security mitigations across trust boundaries, which belongs in a threat model."
       ],
       "path": "04-control/fmea--core.spec.md",
       "projections": [
@@ -2762,7 +2969,8 @@
       "not_for": [
         "Planning program-wide safety analyses, arguments, and lifecycle gates upfront, which belongs in a safety assurance plan.",
         "Tracking non-safety project, cost, schedule, or operational risks, which belongs in a risk register.",
-        "Ranking functional component failure modes by engineering priority alone, which belongs in failure modes and effects analysis."
+        "Ranking functional component failure modes by engineering priority alone, which belongs in failure modes and effects analysis.",
+        "Analyzing intentional adversarial threats, trust boundaries, and security mitigations, which belongs in a threat model."
       ],
       "path": "04-control/hazard-log--core.spec.md",
       "projections": [
@@ -3002,7 +3210,8 @@
       "not_for": [
         "Step-by-step troubleshooting commands and rollback procedures triggered by an alert, which belong in an operational runbook.",
         "Reporting observed telemetry trends and service availability over a past window, which belongs in a service-period status report.",
-        "Defining overall operations staffing and support commitments, which belongs in an operations and support plan."
+        "Defining overall operations staffing and support commitments, which belongs in an operations and support plan.",
+        "Specifying mathematical service level indicators, compliance windows, error budgets, and burn-rate exhaustion policies, which belongs in a service level objective and error budget specification."
       ],
       "path": "04-control/observability-register--core.spec.md",
       "projections": [
@@ -3244,7 +3453,9 @@
       "not_for": [
         "Setting organization-wide mandatory risk criteria and escalation governance, which belongs in a risk management policy.",
         "Tracking safety-critical physical or system hazards and mishaps, which belongs in a hazard log.",
-        "Tracking already occurred software defects or known maintainability compromises, which belong in defect or technical debt registers."
+        "Tracking already occurred software defects or known maintainability compromises, which belong in defect or technical debt registers.",
+        "Decomposing system trust boundaries and adversarial attack scenarios, which belongs in a threat model.",
+        "Assessing personal-data processing necessity, data-subject rights, and privacy safeguards, which belongs in a data protection impact assessment."
       ],
       "path": "04-control/risk-register--core.spec.md",
       "projections": [
@@ -3274,7 +3485,8 @@
       "not_for": [
         "Reporting software or engineering project delivery milestones, which belongs in an engineering delivery status report.",
         "Maintaining active alert definitions and thresholds, which belongs in an observability register.",
-        "Logging contemporaneous outage timelines or post-incident root-cause reviews, which belong in incident records or post-incident reviews."
+        "Logging contemporaneous outage timelines or post-incident root-cause reviews, which belong in incident records or post-incident reviews.",
+        "Defining target service level indicators, error budgets, or forward-looking resource scaling plans, which belong in a service level objective specification or capacity plan."
       ],
       "path": "04-control/service-status-report--core.spec.md",
       "projections": [
@@ -3422,6 +3634,37 @@
     {
       "family": "04-control",
       "not_for": [
+        "Preserving a concise durable record of one already selected architecture choice and its follow-through, which belongs in an architecture decision record.",
+        "Performing quantitative multi-criteria scoring and sensitivity analysis across competing options alone, which belongs in a trade study report.",
+        "Controlling formal impact approval, execution, and baseline closure for a governed configuration item change, which belongs in a change request.",
+        "Submitting one concrete repository code diff for peer review and merge, which belongs in a pull or merge request description."
+      ],
+      "path": "04-control/technical-rfc--core.spec.md",
+      "projections": [
+        "standalone"
+      ],
+      "summary": "Propose a technical design change for peer review, alternatives evaluation, and disposition before formal decision",
+      "title": "Technical request for comments",
+      "topics": [
+        "control-records",
+        "architecture-and-design",
+        "software-engineering",
+        "technical-rfc",
+        "design-proposal",
+        "peer-review",
+        "migration-planning",
+        "design-alignment"
+      ],
+      "type": "TECHNICAL-RFC@core",
+      "use_when": [
+        "An engineer or architect is proposing a significant technical, architectural, protocol, or cross-team design change for peer comment before implementation.",
+        "Reviewers need one structured proposal detailing motivation, non-goals, design, alternatives, cross-cutting impacts, migration limits, and open questions.",
+        "A decision body is tracking reviewer objections and recording an explicit proposal disposition before authorizing an ADR, change request, or implementation."
+      ]
+    },
+    {
+      "family": "04-control",
+      "not_for": [
         "Performing root-cause analysis and owning formal defect disposition, which belongs in a problem or defect report.",
         "Logging complete step-by-step observations from one initiated test run, which belongs in a test execution record.",
         "Reporting overall test campaign progress and schedule forecast, which belongs in a test status report."
@@ -3482,9 +3725,42 @@
     {
       "family": "04-control",
       "not_for": [
+        "Planning lifecycle security engineering activities, schedules, supplier duties, and assessment programs, which belongs in a security engineering plan.",
+        "Analyzing accidental non-adversarial component failure modes and reliability criticality, which belongs in failure modes and effects analysis.",
+        "Tracking safety-critical physical or system mishap hazards across a lifecycle, which belongs in a hazard log.",
+        "Evaluating personal-data processing lawfulness, proportionality, and data-subject rights safeguards, which belongs in a data protection impact assessment.",
+        "Tracking one discovered concrete software vulnerability case through patching and closure, which belongs in a vulnerability record."
+      ],
+      "path": "04-control/threat-model--core.spec.md",
+      "projections": [
+        "standalone"
+      ],
+      "summary": "Analyze system assets, trust boundaries, data flows, adversarial threats, mitigations, and residual security exposure",
+      "title": "Threat model",
+      "topics": [
+        "control-records",
+        "security",
+        "risk-and-safety",
+        "threat-model",
+        "trust-boundaries",
+        "attack-surface",
+        "security-mitigations",
+        "adversarial-analysis"
+      ],
+      "type": "THREAT-MODEL@core",
+      "use_when": [
+        "A system, service, architecture, or material feature change requires structured adversarial threat identification across assets, data flows, and trust boundaries.",
+        "A security engineer or architect is enumerating threat scenarios, mapping existing versus planned mitigations, tracking verification, and exposing residual security exposure.",
+        "A reviewer or authorizing authority is auditing threat coverage, architectural assumptions, and open residual-risk decisions before release or baseline change."
+      ]
+    },
+    {
+      "family": "04-control",
+      "not_for": [
         "Recording an already authorized architecture choice and its follow-through, which belongs in an architecture decision record.",
         "Investigating one technical question or model without comparing competing candidate options, which belongs in a technical analysis report.",
-        "Presenting a client quotation and commercial terms, which belongs in a technical and commercial proposal."
+        "Presenting a client quotation and commercial terms, which belongs in a technical and commercial proposal.",
+        "Proposing one concrete engineering design change for peer comment, rollout planning, and disposition, which belongs in a technical request for comments."
       ],
       "path": "04-control/trade-study-report--core.spec.md",
       "projections": [
@@ -3574,7 +3850,8 @@
       "not_for": [
         "Coordinating repeatable team workflows for vulnerability intake and triage, which belongs in a vulnerability response playbook.",
         "Publishing affected product versions and fixes to external customers, which belongs in a recipient security advisory.",
-        "Logging active suspected or confirmed exploitation, which belongs in a cybersecurity incident record."
+        "Logging active suspected or confirmed exploitation, which belongs in a cybersecurity incident record.",
+        "Performing proactive system-wide adversarial threat analysis across assets and trust boundaries, which belongs in a threat model."
       ],
       "path": "04-control/vulnerability-record--core.spec.md",
       "projections": [
@@ -3597,6 +3874,37 @@
         "One discovered or reported vulnerability requires a controlled record of applicability, chosen treatment, verification, and closure state.",
         "A vulnerability owner is linking an owned-code defect, tracking pending fixes, and recording verified remediation evidence.",
         "A security authority is deciding whether a vulnerability case may close or remains open with explicit residual risk."
+      ]
+    },
+    {
+      "family": "05-evidence",
+      "not_for": [
+        "Disclosing an AI model or system's intended uses, composition, provenance summary, and oversight obligations to deployers, which belongs in an AI model or system card.",
+        "Recording deterministic technical requirement conformance verdicts alone, which belongs in a verification evidence record.",
+        "Summarizing an ended deterministic software test campaign against test-plan exit criteria, which belongs in a test completion report.",
+        "Documenting a curated evaluation or training dataset's provenance, composition, and licensing, which belongs in a dataset specification."
+      ],
+      "path": "05-evidence/ai-evaluation-report--core.spec.md",
+      "projections": [
+        "standalone"
+      ],
+      "summary": "Empirical AI model or system evaluation preserving snapshot, benchmarks, judges, metrics, uncertainty, slices, and limits",
+      "title": "AI evaluation report",
+      "topics": [
+        "evidence",
+        "ai-and-ml",
+        "verification-and-validation",
+        "ai-evaluation",
+        "model-benchmarking",
+        "red-teaming",
+        "evaluation-metrics",
+        "judge-calibration"
+      ],
+      "type": "AI-EVALUATION-REPORT@core",
+      "use_when": [
+        "An AI model, checkpoint, or compound AI system has undergone empirical capability, safety, robustness, or red-team evaluation requiring a traceable evidence report.",
+        "An AI engineer or evaluator is recording exact evaluated snapshots, benchmark editions, judge calibration, stochastic run variance, and subgroup error slices.",
+        "A reviewer or release authority is assessing what claims observed AI evaluation scores support and which contamination, coverage, or validity limits remain open."
       ]
     },
     {
@@ -4173,7 +4481,8 @@
       "not_for": [
         "Structured multi-criteria comparison of competing options against gates to select a choice, which belongs in a trade study report.",
         "Recording technical requirement conformance verdicts, which belongs in a verification evidence record.",
-        "Recording an authorized choice and its architecture rationale, which belongs in an architecture decision record."
+        "Recording an authorized choice and its architecture rationale, which belongs in an architecture decision record.",
+        "Reporting structured multi-suite AI model or system capability, safety, bias, and red-team evaluations, which belongs in an AI evaluation report."
       ],
       "path": "05-evidence/technical-analysis-report--core.spec.md",
       "projections": [
@@ -4203,7 +4512,8 @@
       "not_for": [
         "Reporting periodic mid-campaign progress and forecasts while testing is still active, which belongs in a test status report.",
         "Recording detailed per-case observations from one single test run, which belongs in a test execution record.",
-        "Planning test scope and exit criteria before testing begins, which belongs in a test plan."
+        "Planning test scope and exit criteria before testing begins, which belongs in a test plan.",
+        "Reporting empirical AI benchmark metrics, probabilistic run variance, judge methodologies, and safety probing outcomes, which belongs in an AI evaluation report."
       ],
       "path": "05-evidence/test-completion-report--core.spec.md",
       "projections": [
@@ -4293,7 +4603,8 @@
       "not_for": [
         "Recording technical conformity against specified engineering requirements, which belongs in a verification evidence record.",
         "Mapping program-wide needs to planned validation activities and aggregate status, which belongs in a validation matrix.",
-        "Designing validation scenarios prior to execution, which belongs in a validation plan or validation procedure."
+        "Designing validation scenarios prior to execution, which belongs in a validation plan or validation procedure.",
+        "Recording benchmark suites, judge calibration, data-contamination disclosures, and disaggregated AI capability or safety metrics, which belongs in an AI evaluation report."
       ],
       "path": "05-evidence/validation-evidence--core.spec.md",
       "projections": [
@@ -4323,7 +4634,8 @@
       "not_for": [
         "Recording stakeholder intended-use fitness in representative scenarios, which belongs in a validation evidence record.",
         "Logging low-level step-by-step execution of a single test run alone, which belongs in a test execution record.",
-        "Tracking requirement-by-requirement verification planning and summary coverage across a program, which belongs in a requirements verification matrix."
+        "Tracking requirement-by-requirement verification planning and summary coverage across a program, which belongs in a requirements verification matrix.",
+        "Reporting empirical AI model or system benchmark scores, stochastic variance, red-team probing, and subgroup error slices, which belongs in an AI evaluation report."
       ],
       "path": "05-evidence/verification-evidence--core.spec.md",
       "projections": [
@@ -4349,5 +4661,5 @@
       ]
     }
   ],
-  "version": "3.1.0"
+  "version": "3.2.0"
 }

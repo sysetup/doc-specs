@@ -19,6 +19,7 @@ not_for:
   - "Stating required boundary interactions before selecting a concrete realization, which belongs in an interface requirements document."
   - "Indexing multiple interfaces and pointers to their controlling documents, which belongs in an interface registry."
   - "Providing consumer-facing API or CLI syntax lookup without cross-party agreement authority, which belongs in a technical reference."
+  - "Governing data-product schemas, data quality expectations, privacy classifications, and schema evolution commitments between producers and consumers, which belongs in a data contract specification."
 ---
 
 # Interface control document specification
@@ -30,7 +31,7 @@ not_for:
 - **Intended readers:** Responsible organizations on both sides, interface and integration engineers, implementers, configuration managers, and verification personnel.
 - **Decision or action supported:** Each party can implement the same interface edition, identify who controls each side, and determine whether a proposed change or version combination is permitted.
 - **Use when:** Parties need a shared, controlled definition of an interface's chosen physical, information, or behavioral realization, whether still proposed or actually agreed.
-- **Scope boundaries:** Control the selected or proposed interface parameters, their ownership, version combinations, and joint decisions for the identified boundary.
+- **Scope boundaries:** Control the selected or proposed interface parameters, their ownership, version combinations, and joint decisions for the identified boundary. Use a separate data contract specification when governing analytical or operational data-product quality rules, field-level privacy classifications, and schema-evolution commitments.
 
 ## Authoring inputs and unresolved facts
 

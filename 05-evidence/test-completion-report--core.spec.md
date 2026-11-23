@@ -19,6 +19,7 @@ not_for:
   - "Reporting periodic mid-campaign progress and forecasts while testing is still active, which belongs in a test status report."
   - "Recording detailed per-case observations from one single test run, which belongs in a test execution record."
   - "Planning test scope and exit criteria before testing begins, which belongs in a test plan."
+  - "Reporting empirical AI benchmark metrics, probabilistic run variance, judge methodologies, and safety probing outcomes, which belongs in an AI evaluation report."
 ---
 
 # Test completion report specification

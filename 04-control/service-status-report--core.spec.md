@@ -19,6 +19,7 @@ not_for:
   - "Reporting software or engineering project delivery milestones, which belongs in an engineering delivery status report."
   - "Maintaining active alert definitions and thresholds, which belongs in an observability register."
   - "Logging contemporaneous outage timelines or post-incident root-cause reviews, which belong in incident records or post-incident reviews."
+  - "Defining target service level indicators, error budgets, or forward-looking resource scaling plans, which belong in a service level objective specification or capacity plan."
 ---
 
 # Service-period status report specification

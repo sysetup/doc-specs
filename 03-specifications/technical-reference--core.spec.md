@@ -19,6 +19,7 @@ not_for:
   - "Task-oriented installation and end-user workflows, which belong in a product guide."
   - "Hands-on step-by-step exercises for learners, which belong in a learning tutorial."
   - "Cross-party interface realization agreements, which belong in an interface control document."
+  - "Establishing producer-consumer data quality guarantees, ownership, and schema-evolution agreements for data products, which belongs in a data contract specification."
 ---
 
 # Technical lookup reference specification

@@ -19,6 +19,7 @@ not_for:
   - "Planning broader security engineering work and threat analysis across a lifecycle, which belongs in a security engineering plan."
   - "Reporting findings from a completed formal audit examination, which belongs in an audit report."
   - "Tracking individual discovered software vulnerabilities through patching, which belongs in a vulnerability record."
+  - "Evaluating personal-data processing necessity, data-subject risks, and privacy safeguards prior to processing, which belongs in a data protection impact assessment."
 ---
 
 # Selected control implementation record specification

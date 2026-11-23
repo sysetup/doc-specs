@@ -19,6 +19,7 @@ not_for:
   - "Requesting a temporary bounded departure while leaving the underlying obligation unchanged, which belongs in a deviation or waiver request."
   - "Submitting an unapproved code diff for peer review in a repository, which belongs in a pull or merge request description."
   - "Tracking a defect before a controlled baseline change is proposed, which belongs in a problem or defect report."
+  - "Circulating an exploratory pre-baseline technical design proposal for peer comment and design alignment, which belongs in a technical request for comments."
 ---
 
 # Change request specification

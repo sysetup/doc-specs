@@ -19,6 +19,8 @@ not_for:
   - "Setting organization-wide mandatory risk criteria and escalation governance, which belongs in a risk management policy."
   - "Tracking safety-critical physical or system hazards and mishaps, which belongs in a hazard log."
   - "Tracking already occurred software defects or known maintainability compromises, which belong in defect or technical debt registers."
+  - "Decomposing system trust boundaries and adversarial attack scenarios, which belongs in a threat model."
+  - "Assessing personal-data processing necessity, data-subject rights, and privacy safeguards, which belongs in a data protection impact assessment."
 ---
 
 # Risk register specification
