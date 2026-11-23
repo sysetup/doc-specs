@@ -3,12 +3,14 @@ title: "Engineering guide specification"
 description: >-
   Defines the authoring contract for reusable engineering guides that deliver nonbinding recommendations, options, rationales, and usage boundaries for technical practitioners. Covers guide scope, explicit nonbinding status, structured guidance items, application cues, contextual illustrations, supporting observations or project constraints, and maintenance responsibilities. Helps authors explain tradeoffs and practitioner judgment clearly while keeping advice distinct from mandatory rules and preventing undocumented project requirements from masquerading as advisory guidance.
 topics:
+  - "governance"
+  - "software-engineering"
+  - "systems-engineering"
   - "engineering-guide"
   - "nonbinding-guidance"
   - "best-practices"
   - "practitioner-advice"
   - "decision-cues"
-  - "governance"
 use_when:
   - "An author needs to write a reusable, nonbinding engineering guide explaining recommended practices, options, and tradeoffs."
   - "A team wants to document contextual practitioner advice and worked illustrations without establishing mandatory compliance criteria."
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `GUIDE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Give practitioners reusable, nonbinding recommendations or conventions, with reasons and limits that help them choose how to work.
 - **Intended readers:** Practitioners deciding whether and how to apply the advice, and the role that maintains it.
 - **Decision or action supported:** A reader can choose a suitable practice, adapt it to the stated context, or identify when it should not be used.
 - **Use when:** A practice needs explanation, options, examples, or contextual judgment without creating a new mandatory rule.
+- **Scope boundaries:** Provide nonbinding recommendations, options, rationales, and usage cues for a bounded practice; exclude binding requirements, enforcement authority, and compliance certification.
 
 ## Authoring inputs and unresolved facts
 
@@ -38,10 +40,15 @@ If a recommendation lacks an established basis, qualify it as reasoned advice an
 
 ## Finished-document contract
 
-- **Title:** Name the subject or practice and identify the document as a guide; “Engineering Guide” alone is insufficient.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Context and nonbinding status are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Name the subject or practice and identify the document as a guide; "Engineering Guide" alone is insufficient.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Context and nonbinding status are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish audience, purpose, and applicability before the advice; place maintenance information after the advice. Define a relevant term or project constraint before the advice it qualifies, or identify it at that point. Headings may use project wording if their semantic roles remain clear.
+- **Presentation:** Use concise prose, comparison tables, or brief examples sized to the practice covered. Required roles may share sections while keeping nonbinding status, recommendations, rationales, and usage boundaries clearly distinguishable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Engineering guide (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

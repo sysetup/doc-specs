@@ -3,6 +3,8 @@ title: "Validation procedure specification"
 description: >-
   Defines the authoring contract for validation procedures specifying repeatable scenarios and evaluation criteria to assess whether a bounded solution is fit for identified stakeholder, user, mission, or business needs under representative operating conditions. Covers validation questions and need bases, representative use contexts, participant or actor roles, safety and readiness prerequisites, ordered validation activities, expected evidence and result interpretation rules, and acceptance relationships while bounding conclusions strictly to assessed conditions.
 topics:
+  - "specifications"
+  - "verification-and-validation"
   - "validation-procedure"
   - "intended-use-assessment"
   - "validation-scenarios"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VALIDATION-PROCEDURE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable assessment of whether a bounded solution is fit for identified stakeholder needs or intended use under representative conditions.
 - **Intended readers:** Validation designers and facilitators, users or stakeholder representatives, operators, product owners, and reviewers of intended-use evidence.
 - **Decision or action supported:** Prepare a credible use scenario, conduct the planned assessment, capture relevant observations, and judge what the event can or cannot show about stakeholder need satisfaction.
@@ -40,9 +41,14 @@ If a need, success criterion, representative condition, participant role, safety
 ## Finished-document contract
 
 - **Title:** Identify the solution or bounded intended-use scope and name the document as its validation procedure; distinguish the procedure or scenario edition when later results will cite it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Need basis, scenario, and evaluation criteria belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Need basis, scenario, and evaluation criteria belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the need and use context before the scenario and criteria; define prerequisites before actions and evidence and decision rules after the actions. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Validation procedure (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

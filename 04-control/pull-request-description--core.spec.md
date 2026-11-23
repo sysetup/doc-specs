@@ -3,12 +3,14 @@ title: "Pull or merge request description specification"
 description: >-
   Defines the authoring contract for pull or merge request descriptions presenting one bounded repository diff for peer review and integration across standalone Markdown or native forge surfaces. Covers diff identity and host provenance, concrete trigger and before-and-after change result, changed components and source links, checks actually performed bound to immutable snapshots with explicit not-run and coverage gaps, material risks, rollout and reversal dispositions, and focused reviewer questions while separating review requests from approval or merge evidence.
 topics:
+  - "control-records"
+  - "software-engineering"
+  - "change-and-release"
   - "pull-request-description"
   - "merge-request"
   - "diff-review"
   - "immutable-check-snapshot"
   - "rollout-and-reversal"
-  - "change-rationale"
 use_when:
   - "A change author is preparing or submitting a bounded repository diff for pull-request or merge-request review."
   - "A reviewer needs concise rationale, concrete before-and-after results, actual snapshot-bound check evidence, and rollback limits."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PULL-REQUEST-DESCRIPTION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Present an identified change for review and integration with its rationale, validation, risks, and pending decisions.
 - **Intended readers:** Change authors, reviewers, integrators, maintainers, and relevant release or operations roles.
 - **Decision or action supported:** Assess the requested diff and decide which review, integration, or readiness questions remain.
@@ -40,7 +41,7 @@ Expose unknown base, head, checked snapshot, host provenance, validation, impact
 ## Finished-document contract
 
 - **Title:** Use a title stating the concrete change. A standalone GFM document begins with its own H1; a native request body uses the host-owned title and omits its H1 when the declared surface requires that.
-- **Frontmatter:** Required on standalone GFM documents; omitted on native host request bodies whose host manages metadata externally. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), complying with Rule 13 (no internal IDs, versions, hashes, paths, build metadata, or unresolved template delimiters), followed by the H1 title. A native request body follows the host-owned title rule without an added H1 or injected YAML; scope, client context, and checked-snapshot provenance remain retrievable in the body or referenced host fields under the declared projection. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0) and this type's projection policy.
+- **Frontmatter:** Required on standalone GFM documents; omitted on native host request bodies whose host manages metadata externally. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), excluding internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values, followed by the H1 title. A native request body follows the host-owned title rule without an added H1 or injected YAML; scope, client context, and checked-snapshot provenance remain retrievable in the body or referenced host fields under the declared projection. Governing source: Collection Semantic-Discovery Frontmatter contract and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Explain the concrete problem and result before diff scope; place actual validation before material risks, rollout, reversal, and requested reviewer decisions. Heading wording may vary.
 - **Presentation:** Scale the description to the diff. Small documentation or maintenance changes may combine all required roles into a few paragraphs or a short list without a heading per role. Describe the concrete document or configuration result when no runtime behavior changes; retain actual check status, reasoned risk and rollout dispositions, reversal limits, and pending decisions.

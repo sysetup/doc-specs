@@ -3,12 +3,14 @@ title: "Interface control document specification"
 description: >-
   Defines the authoring contract for interface control documents defining and controlling a specific versioned physical, information, or behavioral interface realization across participating parties. Covers interface identity, endpoint responsibilities, controlled parameters or artifacts, compatibility matrices across version combinations, agreement state separating proposed from agreed realizations, as-built and verification citations, and joint change and effectivity governance so both sides build and maintain compatible implementations.
 topics:
+  - "specifications"
+  - "architecture-and-design"
+  - "systems-engineering"
   - "interface-control"
   - "interface-realization"
   - "cross-party-compatibility"
   - "interface-parameters"
   - "agreement-state"
-  - "boundary-governance"
 use_when:
   - "Two or more parties need a shared, controlled specification of concrete physical, data, or behavioral interface parameters."
   - "An interface engineer is governing version compatibility rules, endpoint ownership, and joint change effectivity across a boundary."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `INTERFACE-CONTROL@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define and control a versioned interface realization and the cross-party decisions needed to keep its two sides compatible.
 - **Intended readers:** Responsible organizations on both sides, interface and integration engineers, implementers, configuration managers, and verification personnel.
 - **Decision or action supported:** Each party can implement the same interface edition, identify who controls each side, and determine whether a proposed change or version combination is permitted.
@@ -40,9 +41,14 @@ If an endpoint, parameter, version, decision role, compatibility rule, or agreem
 ## Finished-document contract
 
 - **Title:** Name the interface and identify the document as its interface control document; include the controlled edition (or unified corpus version when governed at corpus level) or configuration range when needed to distinguish it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Agreement state, applicability, and effectivity are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Agreement state, applicability, and effectivity are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish interface identity and decision basis before the controlled definition; put agreement, the intended check, compatibility, and change control after the definition. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Interface control document (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

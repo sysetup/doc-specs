@@ -3,6 +3,8 @@ title: "Test case specification"
 description: >-
   Defines the authoring contract for test case specifications defining one or more independently assessable tests before execution. Covers case set scope and controlling test basis, unique case identities, traced objectives, preconditions, concrete inputs and stimuli, local action details, expected observations and pass/fail result criteria, postconditions and cleanup, priorities, dependencies, and use limits so testers and automated suites evaluate outcomes unambiguously against defined oracles.
 topics:
+  - "specifications"
+  - "testing"
   - "test-case-specification"
   - "test-oracles"
   - "test-inputs"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-CASE-SPECIFICATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define one or more independently assessable tests, with their basis, conditions, actions, expected observations, and result criteria before execution.
 - **Intended readers:** Test designers and operators, implementers, test leads, and reviewers who must understand what each case will establish.
 - **Decision or action supported:** Prepare and select executable cases, identify missing prerequisites or uncertain oracles, and compare later observations with defined expectations.
@@ -40,9 +41,14 @@ For an unknown configuration, input, expected result, or criterion, identify the
 ## Finished-document contract
 
 - **Title:** Identify the test item or bounded case set and name the document as its test case specification; distinguish the applicable item or case edition when it changes interpretation.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Case identity and source editions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Case identity and source editions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the scope and oracle basis before the cases; put use limits and unresolved case dependencies after the case definitions. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test case specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -58,7 +64,7 @@ For an unknown configuration, input, expected result, or criterion, identify the
 | Objective and basis | One assessable purpose and at least one inspectable basis or explained risk per case. | Link the case to a requirement when a requirement actually governs it; do not force a requirement reference for a legitimate non-requirement test. A case purpose alone does not establish coverage adequacy. |
 | Preconditions | One defined starting-state rule per case, including relevant configuration, permissions, data state, and prior actions. | State observable readiness checks and the effect of a failed prerequisite. If no special setup applies, identify the ordinary starting state. Treat the stated configuration as required setup; a claim of readiness requires actual check observations. Label an unmet prerequisite as blocking execution or result judgment rather than assigning a case pass or fail. |
 | Inputs and stimulus | One or more inputs, states, or triggers sufficient to distinguish the case. | Give exact values or controlled selection rules, bounds and units when meaningful, and real data edition or generator parameters when needed. Describe the action that applies them. |
-| Expected observation and criterion | One or more assessable expected outcomes per case. | For each material assertion, state what will be observed, the oracle and its established project basis, comparison rule, and timing, tolerance, or measurement uncertainty when these change the verdict. A vague expected outcome such as “works” is insufficient. |
+| Expected observation and criterion | One or more assessable expected outcomes per case. | For each material assertion, state what will be observed, the oracle and its established project basis, comparison rule, and timing, tolerance, or measurement uncertainty when these change the verdict. A vague expected outcome such as "works" is insufficient. |
 | Action detail | One concise sequence or triggering action per case; detailed steps only when necessary for unambiguous execution. | A case MAY identify an actual procedure and its edition for shared setup or complex steps. State the case's action, prerequisites, and observation rule explicitly enough to determine what is executed and assessed. |
 | Postcondition and cleanup | Conditional: required for stateful, destructive, resource-consuming, or sequenced cases. | State the required end or restored state and how to recognize it. Do not force a cleanup action for a read-only case with no consequential state change. |
 | Priority and dependencies | Conditional: include when used to select, sequence, or authorize testing. | Give the real risk or decision basis and identify blocking data, environment, tool, or authority conditions. Do not fabricate a priority ranking to fill a field. |

@@ -3,12 +3,14 @@ title: "Architecture description specification"
 description: >-
   Defines the authoring contract for architecture descriptions explaining the organizing structure, behavior, interactions, allocations, and governing technical decisions of a system or software entity through explicit viewpoints tailored to stakeholder concerns. Covers entity scope and design basis, stakeholder concerns and architectural drivers, viewpoint selection, architecture views and models, cross-view correspondence and consistency checks, key decisions, and architectural limitations or change implications while keeping build-to and code-level implementation details outside architectural scope.
 topics:
+  - "specifications"
+  - "architecture-and-design"
+  - "systems-engineering"
   - "architecture-description"
   - "architectural-views"
   - "viewpoints"
   - "stakeholder-concerns"
   - "cross-view-consistency"
-  - "system-architecture"
 use_when:
   - "An architect needs to document cross-cutting structure, behavior, allocations, and tradeoffs across explicit stakeholder viewpoints."
   - "A team is evaluating whether a proposed architecture satisfies its drivers and checking cross-view correspondence."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ARCHITECTURE-DESCRIPTION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Explain the organizing structure, behavior, relationships, and governing choices of a system or software entity from the views needed to address stakeholder concerns.
 - **Intended readers:** Stakeholders with architecture concerns, architects, system and software designers, integrators, technical reviewers, and change authorities.
 - **Decision or action supported:** Evaluate whether the proposed architecture addresses its drivers, coordinate detailed design across boundaries, and understand the impact of architectural change.
@@ -40,9 +41,14 @@ If a driver, boundary, allocation, relationship, or decision is unsettled, mark 
 ## Finished-document contract
 
 - **Title:** Name the entity and identify the document as its architecture description.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicable configuration and decision state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Applicable configuration and decision state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the entity and drivers before presenting views; state correspondences, rationale, and unresolved issues after the views. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Architecture description (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

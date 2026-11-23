@@ -3,12 +3,14 @@ title: "Requirements traceability matrix specification"
 description: >-
   Defines the authoring contract for requirements traceability matrices recording directed relationships and explicitly surfacing missing required links across controlled endpoints including needs, requirements, architecture or design elements, interfaces, decisions, assessment activities, and evidence records within a declared scope. Preserves link bases, relationship semantics, and change-impact navigation while keeping endpoint wording, controlled parameters, assessment verdicts, and approval authority strictly inside their referenced endpoint records.
 topics:
+  - "control-records"
+  - "requirements-engineering"
+  - "systems-engineering"
   - "requirements-traceability"
   - "traceability-matrix"
   - "directed-relationships"
   - "impact-analysis"
   - "coverage-gaps"
-  - "systems-engineering"
 use_when:
   - "A project needs bidirectional navigation across needs, requirements, design, decisions, verification activities, and evidence."
   - "A change analyst or V&V lead is performing change-impact analysis and exposing missing or disputed traceability edges."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `REQUIREMENTS-TRACEABILITY-MATRIX@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record directed relationships among needs, requirements, design or interface records, decisions, assessment activities, and evidence within a declared scope, and show where a required relationship is missing.
 - **Intended readers:** Requirements and design owners, V&V leads, change analysts, and reviewers who need to navigate origins and downstream records.
 - **Decision or action supported:** Find the origins and downstream records of an in-scope item, identify a missing or disputed relationship, and see which relationships a change affects.
@@ -42,9 +43,14 @@ If an endpoint, source edition, link basis, or required-relationship rule is unk
 ## Finished-document contract
 
 - **Title:** Identify the project, system, or baseline scope and name the document as its requirements traceability matrix.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Relationship semantics belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Relationship semantics belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define sources and edge semantics before the relationship view; report missing relationships and change effects after it. Heading wording may vary.
+- **Presentation:** Use compact structured matrices or item-centered tables sized to the controlled scope without duplicating endpoint wording. Required roles may share sections while keeping relationship semantics, source editions, coverage accounting, and missing-link findings directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Requirements traceability matrix (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

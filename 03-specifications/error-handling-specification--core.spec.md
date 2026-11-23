@@ -3,12 +3,14 @@ title: "Error handling specification"
 description: >-
   Defines the authoring contract for error handling specifications governing detection, propagation, disclosure boundaries, immediate response, recovery actions, terminal outcomes, and observability for technical faults within a bounded system or software scope. Requires explicit fault classes, caller and operator behavioral contracts, assessment bases tracing to reliability, security, safety, or interface obligations, compatibility and change rules, and visible open fault decisions so components fail predictably and safely.
 topics:
+  - "specifications"
+  - "architecture-and-design"
+  - "software-engineering"
   - "error-handling"
   - "fault-detection"
   - "fault-propagation"
   - "failure-recovery"
   - "error-observability"
-  - "behavioral-contracts"
 use_when:
   - "A system or software scope needs explicit contracts for fault detection, error propagation, disclosure limits, and recovery behavior."
   - "An engineer is aligning callers, operators, and security reviewers on terminal failure outcomes and diagnostic observability."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ERROR-HANDLING-SPECIFICATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define required detection, propagation, response, recovery, and observable behavior for technical faults in a bounded system or software scope.
 - **Intended readers:** Implementers, interface owners, operators, security and safety reviewers, testers, and maintainers.
 - **Decision or action supported:** Implement consistent fault behavior, coordinate what callers and operators can expect, and assess whether failure responses meet the project's stated reliability, security, safety, and interface obligations.
@@ -40,16 +41,21 @@ If a failure condition, severity, detection threshold, ownership, outward behavi
 ## Finished-document contract
 
 - **Title:** Identify the bounded product or service and document as its error handling specification; include an applicable edition or configuration when needed.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Error semantics, applicability, and decisions are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Error semantics, applicability, and decisions are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope, boundaries, and shared classification before individual fault contracts; place assessment and compatibility rules after the behavior they cover. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Error handling specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Scope and failure model | Required | Identify affected components, interfaces, users or operators, operating modes, and trust or safety boundaries. Define the relevant error classes, severity or priority meanings where used, transient versus persistent distinctions, and who owns detection and response. Limit the failure model to technical faults within the stated operating boundary. |
 | Fault behavior contracts | Required | Give one distinguishable contract per material failure condition or class: trigger and detection, classification, affected state, behavior at each relevant boundary, safe or constrained response, recovery or unrecoverable disposition, observability, and user or operator action where applicable. Common rules may be stated once with explicit applicability and per-condition exceptions. |
 | Assessment basis | Required | Identify the expected observable outcomes and conditions for checking detection, response timing, propagated information, state integrity, negative cases, and recovery. State a method directly or refer to a real procedure when one exists. Identify any cited actual observation by its record and assessed configuration. Record an intended check without assigning `pass`, `fail`, `inconclusive`, or `not-run` to it. |
-| Compatibility and change | Conditional: include when error codes, schemas, messages, or behavior are exposed to other components or users | State the applicable contract edition, consumer expectations, allowed or excluded combinations, and how changes are coordinated with affected interface owners. When more than one edition is in use, state the migration effects. Identify each separately controlled exposed parameter by its definition, edition, and locator, maintaining one controlling definition for that parameter. |
+| Compatibility and change | Conditional when error codes, schemas, messages, or behavior are exposed to other components or users | State the applicable contract edition, consumer expectations, allowed or excluded combinations, and how changes are coordinated with affected interface owners. When more than one edition is in use, state the migration effects. Identify each separately controlled exposed parameter by its definition, edition, and locator, maintaining one controlling definition for that parameter. |
 | Open decisions and limits | Required | Identify unresolved error behavior, unsupported failure cases, operational limits, and the actual decision or resolution route. If the known scope has no unresolved fault decision, say so; do not invent an open item. State the risk of relying on a proposed or unverified contract. |
 
 ## Content definitions and forms

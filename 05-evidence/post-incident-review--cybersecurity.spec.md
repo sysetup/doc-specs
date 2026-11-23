@@ -3,12 +3,14 @@ title: "Cybersecurity post-incident review specification"
 description: >-
   Defines the authoring contract for retrospective reviews of one stabilized cybersecurity incident examining supported causes, security control outcomes, detection and dwell-time intervals, response effectiveness, eradication confirmation, notification duty applicability and fulfillment, evidence-bounded lessons, justified improvement actions, effectiveness follow-up, and controlled dissemination or review disposition. Preserves analytical uncertainties, incomplete eradication checks, reviewed configurations, and evidence cutoffs transparently rather than fabricating certainty.
 topics:
+  - "evidence"
+  - "security"
+  - "incident-and-continuity"
   - "post-incident-review"
   - "cybersecurity-retrospective"
   - "dwell-time"
   - "control-effectiveness"
   - "eradication-confirmation"
-  - "notification-assessment"
 use_when:
   - "A cybersecurity incident has stabilized and teams have performed retrospective causal, control, dwell-time, and eradication analysis."
   - "A security responder is documenting supported security control failures, notification assessment, and justified remediation actions."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POST-INCIDENT-REVIEW@cybersecurity`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Review one stabilized cybersecurity incident for supported causes, control outcomes, response effectiveness, dwell time, eradication confirmation, notification handling, and improvements.
 - **Intended readers:** Security responders, affected resource and control owners, and the roles responsible for disclosure decisions and improvement follow-through.
 - **Decision or action supported:** Assess what failed or worked, what remains uncertain, and what corrective work or further investigation is justified.
@@ -40,9 +41,14 @@ Unknown causes, compromise times, control failures, assignments, or notification
 ## Finished-document contract
 
 - **Title:** Identify the incident and call the document a cybersecurity post-incident review.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review scope and findings belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Review scope and findings belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope and evidence first, then causal and cybersecurity assessments, then lessons and follow-through. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Cybersecurity post-incident review (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

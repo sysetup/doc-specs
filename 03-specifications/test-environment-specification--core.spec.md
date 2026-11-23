@@ -3,12 +3,14 @@ title: "Test environment specification"
 description: >-
   Defines the authoring contract for test environment specifications establishing target configurations, test-specific interfaces, simulation or fidelity rules, measurement instrumentation, timing constraints, protected data and access controls, safety rules, readiness criteria, change management, and reset or restoration rules for a bounded test effort. Permits recording an actual bounded instance readiness assessment when performed while clearly exposing fidelity limitations affecting test validity.
 topics:
+  - "specifications"
+  - "testing"
+  - "networking-and-infrastructure"
   - "test-environment"
   - "test-instrumentation"
   - "environment-fidelity"
   - "test-readiness"
   - "environment-reset"
-  - "test-infrastructure"
 use_when:
   - "Test execution depends on a controlled hardware, software, or simulated environment with explicit instrumentation, fidelity, and reset rules."
   - "A test engineer is defining readiness criteria and fidelity limits that govern which tests and conclusions an environment supports."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-ENVIRONMENT-SPECIFICATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the conditions and readiness criteria of an environment used for a bounded test effort, including test-specific interfaces, instrumentation, data, fidelity, and reset needs.
 - **Intended readers:** Test designers and operators, environment owners, integrators, data and security stewards, and people who decide whether testing may begin or continue.
 - **Decision or action supported:** Build or select a suitable test environment, assess it against explicit criteria, and determine which tests and conclusions its limitations permit.
@@ -40,16 +41,21 @@ If a required configuration, interface behavior, instrument capability, data rul
 ## Finished-document contract
 
 - **Title:** Name the bounded test item or effort and its test environment specification; identify the target edition or configuration when needed.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Configuration, readiness, and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Configuration, readiness, and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish test scope and target environments before readiness criteria; place actual assessment, if any, after its criteria and fidelity and change limits before conclusions about use. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test environment specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Test scope and environment identity | Required | Identify the tests or test levels supported, the item/configuration under test, one or more target environments, their distinct roles or variants, and the target edition. State material exclusions and who owns the target definition and test-use decision when established. |
 | Required configuration and test capabilities | Required | For each target, specify applicable compute, software, services, network, interfaces, tools, instrumentation, timing sources, test data and account rules, isolation, and safety controls with values or compatibility limits where they affect results. Distinguish real, simulated, and stubbed behavior and its fidelity limits. State setup or reset state required for repeatability. |
 | Readiness criteria and permitted use | Required | Define observable checks, expected results, evidence basis, allowed tests, conditions, and authority for deciding test use. Include calibration, clock accuracy, data preparation, interface availability, and restoration checks when they affect measurement or safety. A proposed check is not a passed check. |
-| Actual readiness assessment | Conditional: include only if the document reports one or more real assessments | Bind each assessment to the actual instance, target edition, observation time, checks performed, results and evidence, deviations, and actual decision or limitation. Identify the decision maker and authorization reference only when authorization was required and granted. Limit conclusions to the environment characteristics actually observed at that time. |
+| Actual readiness assessment | Conditional when the document reports one or more actual readiness assessments | Bind each assessment to the actual instance, target edition, observation time, checks performed, results and evidence, deviations, and actual decision or limitation. Identify the decision maker and authorization reference only when authorization was required and granted. Limit conclusions to the environment characteristics actually observed at that time. |
 | Fidelity, change, and restoration | Required | State known differences from the relevant operational setting, effects on permissible conclusions, how target or instance drift is detected, when readiness must be rechecked, and how the environment returns to a defined state after tests. Include unresolved dependencies and their resolution route. |
 
 ## Content definitions and forms

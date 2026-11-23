@@ -3,12 +3,14 @@ title: "Assumption and dependency register specification"
 description: >-
   Defines the authoring contract for registers controlling assumptions, dependencies, and constraints that materially affect engineering requirements, architecture, project plans, risks, schedules, or operations. Covers selection and disposition rules, controlled statements with source provenance, owners, explicit lifecycle status, impact if false or unavailable, concrete validation or resolution actions, review timing, links to related records, and escalation gaps whenever an invalid assumption or unavailable dependency must escalate into a risk, issue, change, or decision.
 topics:
+  - "control-records"
+  - "risk-and-safety"
+  - "systems-engineering"
   - "assumption-register"
   - "dependency-register"
   - "project-constraints"
   - "assumption-validation"
   - "dependency-impact"
-  - "escalation-control"
 use_when:
   - "Material assumptions, external dependencies, or constraints affect plans, architecture, schedules, or operations and require ongoing control."
   - "A project lead or architect is assigning owners, validation actions, review timing, and failure impacts to relied-upon statements."
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ASSUMPTION-DEPENDENCY-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Control assumptions, dependencies, and constraints that materially affect requirements, architecture, plans, risk, schedule, or operations, including their owners, validation or resolution, impact, and disposition.
 - **Intended readers:** Owners of those statements, planners and architects who rely on them, and reviewers who decide whether one must become a risk, issue, change, or decision.
 - **Decision or action supported:** Determine which relied-upon statements are still open, what follows if an assumption is false or a dependency is unavailable, and what evidence or escalation their disposition requires.
 - **Use when:** Assumptions, dependencies, or constraints materially affect requirements, architecture, plans, risk, schedule, or operations and need ownership, validation or resolution, and lifecycle control.
+- **Scope boundaries:** Control project assumptions, dependencies, and constraints with owners, impact, validation or resolution status, and escalation routes; exclude uncertain risk registers, action registers, and architectural decisions.
 
 ## Authoring inputs and unresolved facts
 
@@ -39,9 +41,14 @@ If the owner, impact, provider, or review date is unknown, keep the entry visibl
 ## Finished-document contract
 
 - **Title:** Identify the project or system boundary and name the document as its assumption and dependency register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Rules, statements, and dispositions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Rules, statements, and dispositions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State selection and disposition rules before entries; place escalation gaps after the entries. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Assumption and dependency register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

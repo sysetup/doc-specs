@@ -3,12 +3,13 @@ title: "Configuration item register specification"
 description: >-
   Defines the authoring contract for configuration item registers providing controlled status accounting for candidate, actively controlled, and retained former configuration items within a product or service boundary. Covers selection and accounting rules, unique item identity, name and class, accountable owner, authoritative locator, control state and control basis, controlled revisions with effectivity, parent and baseline relationships, and open discrepancies so teams know exactly which items and revisions are under configuration control.
 topics:
+  - "control-records"
+  - "configuration-management"
   - "configuration-item-register"
   - "status-accounting"
   - "controlled-revisions"
   - "item-ownership"
   - "baseline-links"
-  - "configuration-management"
 use_when:
   - "A project or service needs centralized status accounting of candidate, controlled, and retained former configuration items."
   - "A configuration manager is tracking item owners, authoritative locators, controlled revisions, parent hierarchies, and baseline links."
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CONFIGURATION-ITEM-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Account for the identity, ownership, configuration-control state, controlled revisions, and relationships of real candidate, controlled, and retained former configuration items.
 - **Intended readers:** Configuration managers, item owners, change authorities, and consumers who must locate a controlled item and determine its actual control state and revision effectivity.
 - **Decision or action supported:** Determine which items are controlled, who owns each one, which revisions are under control and for what effectivity, and how an item relates to its parents or to a real baseline.
@@ -40,9 +40,14 @@ If control selection has not been decided for a real candidate, record it as `pr
 ## Finished-document contract
 
 - **Title:** Identify the project or product boundary and name the document as its configuration item register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Selection rules, control state, and revisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Selection rules, control state, and revisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State selection and update rules before the item index; place discrepancies after the items. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Configuration item register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

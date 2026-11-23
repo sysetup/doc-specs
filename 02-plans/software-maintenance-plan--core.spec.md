@@ -3,12 +3,14 @@ title: "Software maintenance plan specification"
 description: >-
   Defines the authoring contract for software maintenance plans governing post-delivery support and controlled modification of defined software items while treating physical assets and operating routines solely as external dependencies. Covers maintenance scope and service commitments, takeover and team organization, issue and change intake, impact analysis and authorization, corrective, adaptive, perfective, and preventive modification workflows, regression assessment, release communication, migration and end-of-support coordination, and periodic plan review.
 topics:
+  - "planning"
+  - "software-engineering"
+  - "operations"
   - "software-maintenance"
   - "post-delivery-support"
   - "modification-control"
   - "regression-assessment"
   - "end-of-support"
-  - "service-commitments"
 use_when:
   - "A delivered software item requires a structured strategy for ongoing support, defect fixes, enhancements, regression testing, and re-release."
   - "A maintainer is defining intake triage, change authorization, support commitments, and end-of-support migration routes."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-MAINTENANCE-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan support and controlled modification of delivered software, from intake and analysis through change, regression, release, and end-of-support coordination.
 - **Intended readers:** Maintainers, support and operations roles, development and security teams, suppliers, configuration managers, release decision makers, and the receiving organization.
 - **Decision or action supported:** Route a reported problem or proposed enhancement to the right maintenance treatment, resources, assessment, and release or support decision.
@@ -40,9 +41,14 @@ State unknown support scope, rights, commitments, or decision authority with the
 ## Finished-document contract
 
 - **Title:** Identify the maintained software or service and name its software maintenance plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Support scope and plan state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Support scope and plan state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define support responsibility and enabling environment before intake and modification; present assessment and release before migration, end-of-support, and feedback. Exact headings may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Software maintenance plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

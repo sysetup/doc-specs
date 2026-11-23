@@ -3,12 +3,14 @@ title: "Support and request-routing guide specification"
 description: >-
   Defines the authoring contract for recipient-facing support and request-routing guides directing users, integrators, and contributors to established channels for help, defect reporting, feature improvements, and confidential security disclosures. Covers supported scope and audience boundaries, request classification and entry routes, useful intake information fields, truthful response expectations without invented service-level promises, privacy and sensitive-report handling, and upkeep rules while excluding internal support staffing plans and fulfillment procedures.
 topics:
+  - "specifications"
+  - "product-and-discovery"
+  - "operations"
   - "support-guide"
   - "request-routing"
   - "issue-intake"
   - "security-reporting"
   - "support-boundaries"
-  - "recipient-help"
 use_when:
   - "A product, repository, or service needs a clear recipient-facing guide directing users to help, bug, feature, and security channels."
   - "A maintainer is specifying intake information expectations, supported versions, and confidential reporting rules."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SUPPORT-GUIDE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Direct recipients to established help, defect, improvement, and security-reporting routes.
 - **Intended readers:** Supported users, integrators, contributors, and support recipients.
 - **Decision or action supported:** Choose the correct request channel and provide useful information within privacy and support boundaries.
@@ -40,9 +41,14 @@ Expose unknown supported versions, channel, response expectation, privacy condit
 ## Finished-document contract
 
 - **Title:** Identify the supported subject and name its support and request-routing guide.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State supported scope before request choices; put channel and intake information before expectations, privacy limits, and upkeep. Heading wording may vary.
+- **Presentation:** Use concise recipient-facing prose, task lists, or compact reference tables proportional to the product or release scope. Required roles may share sections while keeping supported versions, prerequisites, expected outcomes, routing paths, and known limits immediately scannable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Support and request-routing guide (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,12 +3,14 @@ title: "Action item register specification"
 description: >-
   Defines the authoring contract for action item registers tracking discrete follow-up actions across a project, team, or review effort. Covers action governance rules, uniquely identified action items, originating sources, assigned owners or explicit assignment gaps, priority, predecessor dependencies, due dates, controlled lifecycle states, explicit closure criteria, checked closure evidence, and index defects so teams monitor open follow-up load and verify closure rather than closing items on unverified claims.
 topics:
+  - "control-records"
+  - "quality-assurance"
+  - "operations"
   - "action-item-register"
   - "follow-up-tracking"
   - "action-ownership"
   - "closure-evidence"
   - "task-dependencies"
-  - "control-register"
 use_when:
   - "Discrete follow-up actions from reviews, audits, meetings, or operations require centralized ownership, due dates, and verified closure."
   - "A coordinator is tracking blocked predecessors, overdue items, and unresolved owner assignments in one register."
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ACTION-ITEM-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Account for discrete follow-up actions, including the owner, status, due date, dependencies, and closure evidence of each action.
 - **Intended readers:** Action owners, the role that assigns or closes actions, and consumers who need the current follow-up load.
 - **Decision or action supported:** Determine what must be delivered, by whom and when, what is blocked, and whether closure rests on checked evidence.
 - **Use when:** Discrete follow-up actions need controlled owners, status, due dates, dependencies, and closure evidence.
+- **Scope boundaries:** Track discrete follow-up actions with owners, status, due dates, dependencies, and closure evidence; exclude project delivery plans, architectural decisions, and work-execution logs.
 
 ## Authoring inputs and unresolved facts
 
@@ -39,9 +41,14 @@ If an owner, date, source, or predecessor is unknown, keep the action visible an
 ## Finished-document contract
 
 - **Title:** Identify the project or team boundary and name the document as its action item register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, rules, and action state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, rules, and action state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State governance before the action index; place defects in the index after the actions. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Action item register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

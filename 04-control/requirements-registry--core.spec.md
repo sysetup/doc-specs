@@ -3,12 +3,14 @@ title: "Requirements registry specification"
 description: >-
   Defines the authoring contract for requirements registries maintaining a cross-source index of controlled requirement identities, originating specifications and abstraction layers, current requirement content states, accountable owners, change and consumer pointers, and reconciliation findings across multiple specifications without creating a competing editable master of requirement text. Enables stewards and change authorities to locate controlling statements, spot conflicting states, and route edits accurately.
 topics:
+  - "control-records"
+  - "requirements-engineering"
+  - "configuration-management"
   - "requirements-registry"
   - "requirement-index"
   - "content-state"
   - "source-reconciliation"
   - "requirement-ownership"
-  - "requirements-management"
 use_when:
   - "Controlled requirements spread across multiple specifications need one unified index of IDs, sources, owners, and content states."
   - "A requirements steward is reconciling duplicate IDs, orphaned entries, or conflicting requirement states across documents."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `REQUIREMENTS-REGISTRY@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a current index of requirement identity, authoritative source, content state, and ownership across controlled requirement sets without creating a second statement master.
 - **Intended readers:** Requirements stewards, change authorities, requirement owners, and people reconciling source sets or consuming their IDs.
 - **Decision or action supported:** Locate the controlling requirement, identify its applicable edition and owner, detect source or state conflicts, and route changes to the proper authority.
@@ -40,9 +41,14 @@ If a source, edition, identifier, owner, state, or change decision is unknown, r
 ## Finished-document contract
 
 - **Title:** Identify the project or system boundary and name the document as its requirements registry.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Source authority, scope, and state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Source authority, scope, and state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and source rules before the index; place reconciliation findings and pending changes after the entries. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Requirements registry (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

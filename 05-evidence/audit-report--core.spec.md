@@ -3,6 +3,8 @@ title: "Audit report specification"
 description: >-
   Defines the authoring contract for audit reports preserving one actually performed audit or assessment, including authorization, participating parties, objectives, scope, applied criteria, examination methods, evidence actually inspected, coverage limits, classified findings tied directly to evidence, bounded conclusions, follow-up action references, and controlled distribution. Prevents presenting planned audit procedures or unexamined areas as completed assessment and keeps conclusions strictly bounded by inspected evidence.
 topics:
+  - "evidence"
+  - "quality-assurance"
   - "audit-report"
   - "compliance-audit"
   - "audit-findings"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `AUDIT-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one audit or assessment that was performed, including its authority, scope, criteria, evidence examined, findings, limitations, and conclusions.
 - **Intended readers:** The audit client, the auditee, the audit team, and anyone who later relies on what was examined and what the evidence supports.
 - **Decision or action supported:** See which criteria were applied, which evidence supports each finding, what remains outside the conclusion, and which follow-up exists.
@@ -40,9 +41,14 @@ If authorization, a criterion, evidence, independence, or a classification defin
 ## Finished-document contract
 
 - **Title:** Name the audited subject and identify the document as an audit report.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, criteria, findings, and conclusions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, criteria, findings, and conclusions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State objectives and scope before the method and the evidence. State findings before conclusions. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Audit report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,12 +3,13 @@ title: "Business requirements specification"
 description: >-
   Defines the authoring contract for business requirements specifications translating authorized business or mission objectives into individually identifiable, assessable business obligations, operating rules, and constraints. Covers business boundary and applicable context, source and decision authority, rationale, priority, explicit requirement content states distinguishing proposals from authorized obligations, assessment conditions, downstream relationships, deferred items, and change control while keeping technical implementation choices strictly bounded to explicit project decisions.
 topics:
+  - "specifications"
+  - "requirements-engineering"
   - "business-requirements"
   - "business-obligations"
   - "operating-rules"
   - "requirement-authority"
   - "assessment-conditions"
-  - "requirements-engineering"
 use_when:
   - "Business or mission objectives must be translated into identifiable, assessable business-level obligations and operating rules."
   - "An analyst is documenting business constraints, authorization states, priorities, and downstream interfaces for review."
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `BUSINESS-REQUIREMENTS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State the business-level obligations and constraints needed to achieve authorized business or mission outcomes, with their basis, applicability, and assessment conditions.
 - **Intended readers:** Business authorities, stakeholder representatives, analysts, project leads, and reviewers who derive, authorize, implement, or assess business requirements.
 - **Decision or action supported:** Readers can determine what the business must achieve or observe, why each obligation exists, which obligations are authorized, and what evidence would support assessment.
@@ -40,9 +40,14 @@ If a need, project decision role, threshold, business rule, method, or decision 
 ## Finished-document contract
 
 - **Title:** Name the business or mission subject and identify the document as its business requirements specification; include the applicable edition or scope when needed to distinguish it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Business scope, obligation state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Business scope, obligation state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish business boundary and source basis before the authoritative requirements; put coverage, unresolved decisions, and change information after them. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Business requirements specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,6 +3,7 @@ title: "Configuration management lifecycle process specification"
 description: >-
   Defines the authoring contract for a reusable configuration management lifecycle process governing recurring item identification, baseline establishment and change control, status accounting, integrity checks, and configuration history retention across projects or lifecycle stages. Covers process authority, scope and interfaces, controlled item classes, baseline and change routing, discrepancy controls, audit and record obligations, and tailoring rules so teams follow consistent configuration workflows and authoritative state transitions.
 topics:
+  - "processes"
   - "configuration-management"
   - "lifecycle-process"
   - "baseline-control"
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@configuration-management`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable process for identifying controlled configurations, establishing and changing baselines, accounting for status, checking integrity, and retaining configuration history.
 - **Intended readers:** Configuration managers, change and baseline authorities, item owners, auditors, and teams that create or use controlled items.
 - **Decision or action supported:** A team can route an item or proposed change through the right controls and determine which state and record are authoritative.
@@ -40,9 +40,14 @@ When a fact is unknown, state the gap, its consequence, resolving action, and ow
 ## Finished-document contract
 
 - **Title:** Name the configuration management lifecycle process and its governing scope.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Process applicability and edition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Process applicability and edition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish authority and applicability before the activity flow; present decision controls and records before effectiveness and tailoring. Exact heading words are flexible.
+- **Presentation:** Use concise prose alongside activity or gate tables and brief flow diagrams sized to the lifecycle scope. Required roles may share sections while keeping roles, entry/exit gates, handoffs, and required records clearly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Configuration management lifecycle process (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

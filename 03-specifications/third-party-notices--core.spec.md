@@ -3,12 +3,14 @@ title: "Distributed third-party notices specification"
 description: >-
   Defines the authoring contract for distributed third-party notices documents assembling faithfully preserved upstream copyright notices, license texts, required attributions, and additional distribution obligations accompanying one identified distributed artifact. Covers distribution identity and source basis, notice-bearing component mapping, verbatim upstream notice preservation, reconciliation against distributed contents, packaging instructions, and explicit unresolved distribution items while excluding component inventory metadata alone, novel license drafting, and legal certification.
 topics:
+  - "specifications"
+  - "change-and-release"
+  - "configuration-management"
   - "third-party-notices"
   - "license-attribution"
   - "open-source-notices"
   - "distribution-obligations"
   - "copyright-preservation"
-  - "release-packaging"
 use_when:
   - "A distributed software package or artifact includes third-party components carrying notice, copyright, or license-text attribution duties."
   - "A release maintainer is assembling verbatim upstream notices and reconciling them against the exact distributed artifact."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `THIRD-PARTY-NOTICES@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Assemble sourced third-party notices and attribution accompanying an identified distributed artifact.
 - **Intended readers:** Distribution recipients, release maintainers, component stewards, and authorized intellectual-property reviewers.
 - **Decision or action supported:** Locate faithfully preserved upstream notices and unresolved distribution obligations for the actual package.
@@ -40,9 +41,15 @@ Expose unknown component version, upstream text, distribution scope, rights, att
 ## Finished-document contract
 
 - **Title:** Identify the distributed artifact and version and name its third-party notices.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required on standalone GFM documents; omitted on verbatim native plain-text notice or license files packaged alongside distributed artifacts. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), excluding internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values, followed by the H1 title. Distribution identity, component-to-source mapping, packaging placement, and unresolved items belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify distribution scope and provenance before component notices; put required modification or offer information with the affected notice, followed by placement checks and unresolved obligations. Heading wording may vary.
+- **Presentation:** Combine required roles into concise prose, component-to-notice mapping tables, and verbatim notice blocks sized to the distributed artifact. Keep upstream legal text intact without compressing it into prose summaries.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Standalone notices document (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one H1 naming the distributed artifact, version, and third-party notices. Distribution scope, component provenance, reconciliation status, and corpus-level governance inheritance where applicable remain body content. | Use GFM prose, mapping tables, and fenced verbatim blocks for human review and reconciliation. Bind every notice to inspected upstream sources and the exact distributed package; package or component changes require reconciliation before reuse. |
+| Verbatim native notice file (native) | A packaged plain-text NOTICE, LICENSE, or upstream attachment omits YAML frontmatter and markdown headings to preserve exact upstream bytes and formatting. The accompanying GFM notices document indexes its path and provenance. | Preserve exact native whitespace, encodings, copyright lines, and legal wording required by upstream terms. The verbatim native file remains controlling wherever Markdown rendering could alter legal text. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

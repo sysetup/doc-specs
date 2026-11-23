@@ -122,12 +122,12 @@ family,type,title,path,summary
 05-evidence,AUDIT-REPORT@core,Audit report,05-evidence/audit-report--core.spec.md,"Performed audit record covering authorization, criteria, examined evidence, findings, limits, and conclusions"
 05-evidence,CODE-REVIEW-RECORD@core,Code review record,05-evidence/code-review-record--core.spec.md,"Performed review of an immutable source snapshot covering criteria, findings, dispositions, and outcome"
 05-evidence,CONFIGURATION-BASELINE@core,Configuration baseline record,05-evidence/configuration-baseline--core.spec.md,"Established configuration snapshot fixing exact controlled item revisions, integrity, deviations, and effectivity"
-05-evidence,DESIGN-REVIEW@cdr,Critical design review,05-evidence/design-review--cdr.spec.md,"Held Critical Design Review assessing detailed-design maturity for fabrication, integration, and test"
-05-evidence,DESIGN-REVIEW@core,Project-defined technical review,05-evidence/design-review--core.spec.md,"Held project-defined technical or peer review covering criteria, examined evidence, findings, and disposition"
-05-evidence,DESIGN-REVIEW@orr,Operational readiness review,05-evidence/design-review--orr.spec.md,Held Operational Readiness Review evaluating deployed system and support-organization readiness
-05-evidence,DESIGN-REVIEW@pdr,Preliminary design review,05-evidence/design-review--pdr.spec.md,Held Preliminary Design Review assessing preliminary design adequacy as a basis for detailed design
-05-evidence,DESIGN-REVIEW@srr,System requirements review,05-evidence/design-review--srr.spec.md,Held System Requirements Review assessing requirements credibility and readiness to proceed
-05-evidence,DESIGN-REVIEW@trr,Test readiness review,05-evidence/design-review--trr.spec.md,"Held Test Readiness Review evaluating test article, environment, personnel, procedures, and data controls"
+05-evidence,DESIGN-REVIEW@cdr,Critical design review record,05-evidence/design-review--cdr.spec.md,"Held Critical Design Review assessing detailed-design maturity for fabrication, integration, and test"
+05-evidence,DESIGN-REVIEW@core,Project-defined technical review record,05-evidence/design-review--core.spec.md,"Held project-defined technical or peer review covering criteria, examined evidence, findings, and disposition"
+05-evidence,DESIGN-REVIEW@orr,Operational readiness review record,05-evidence/design-review--orr.spec.md,Held Operational Readiness Review evaluating deployed system and support-organization readiness
+05-evidence,DESIGN-REVIEW@pdr,Preliminary design review record,05-evidence/design-review--pdr.spec.md,Held Preliminary Design Review assessing preliminary design adequacy as a basis for detailed design
+05-evidence,DESIGN-REVIEW@srr,System requirements review record,05-evidence/design-review--srr.spec.md,Held System Requirements Review assessing requirements credibility and readiness to proceed
+05-evidence,DESIGN-REVIEW@trr,Test readiness review record,05-evidence/design-review--trr.spec.md,"Held Test Readiness Review evaluating test article, environment, personnel, procedures, and data controls"
 05-evidence,ELICITATION-RECORD@core,Elicitation and source record,05-evidence/elicitation-record--core.spec.md,"Preserve raw elicitation statements, observations, provenance, custody, and capture gaps before interpretation"
 05-evidence,ENGINEERING-EFFORT-RECORD@core,Engineering effort and work-time record,05-evidence/engineering-effort-record--core.spec.md,"Preserve actual consumed engineering effort, units, attribution, totals, corrections, and use limits"
 05-evidence,HANDOFF@core,Handoff and transfer record,05-evidence/handoff--core.spec.md,"Record actual transfer of responsibility, custody, items, access, receipt, open items, and response"

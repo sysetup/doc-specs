@@ -3,12 +3,14 @@ title: "Generic response playbook specification"
 description: >-
   Defines the authoring contract for branching operational or business response playbooks used when evolving conditions require coordinated assessment, decision points, and distinct authorized action paths. Specifies activation conditions, roles and communication authority, situation assessment, bounded response branches, time or resource limits, stabilization and transition criteria, and response recording. Equips response leads and participating teams to decide when to act, escalate, halt, or hand off work cleanly.
 topics:
+  - "processes"
+  - "operations"
+  - "incident-and-continuity"
   - "response-playbook"
   - "branching-response"
   - "operational-coordination"
   - "escalation-routing"
   - "decision-points"
-  - "stabilization"
 use_when:
   - "A team needs a coordinated branching response for an evolving operational or business disruption outside cybersecurity."
   - "An author is defining activation conditions, explicit decision points, authority checks, and stabilization handoffs."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PLAYBOOK@generic`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Coordinate a branching response to a bounded operational or business situation.
 - **Intended readers:** Response leads, participating teams, escalation authorities, and people receiving a transition or handoff.
 - **Decision or action supported:** A responder can decide when to activate the playbook, assess the situation, select an authorized response path, and decide when to halt, escalate, or transition.
@@ -39,10 +40,15 @@ For an unknown or not-established fact, state the gap, its effect on response, t
 
 ## Finished-document contract
 
-- **Title:** Name the situation or response domain, using a title such as “Playbook: \[situation\].”
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope and response authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Name the situation or response domain, using a title such as "Playbook: <situation>."
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope and response authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State applicability and authority before assessment and response choices; put transition and record instructions after response paths. Heading wording may vary.
+- **Presentation:** Use crisp trigger criteria, decision tables, or branching checklists sized to the response scope so responders can act under pressure without wading through administrative boilerplate. Required roles may share sections while keeping triggers, authority limits, branches, and escalation visible.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Generic response playbook (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

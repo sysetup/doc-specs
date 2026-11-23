@@ -3,6 +3,8 @@ title: "Risk management policy specification"
 description: >-
   Defines the authoring contract for mandatory risk management policies governing how an organization, project, or service assesses, owns, treats, accepts, and reviews risks to stated objectives. Specifies required coverage of issuing authority, policy ownership, applicability and objectives, issuance state, mandatory risk directives, risk criteria and escalation rules, ownership and treatment obligations, authorized risk acceptance rules, review cadence, and exception handling. Ensures consistent accountability for risk decisions across teams.
 topics:
+  - "governance"
+  - "risk-and-safety"
   - "risk-management-policy"
   - "risk-governance"
   - "risk-criteria"
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POLICY@risk-management`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory direction for assessing, owning, treating, accepting, and reviewing risks to stated objectives.
 - **Intended readers:** People who identify or own risks, decide treatment or acceptance, oversee affected objectives, and issue or maintain the policy.
 - **Decision or action supported:** Readers can determine which risk criteria and authorities apply, when a risk requires escalation or treatment, and what constitutes an authorized acceptance decision.
 - **Use when:** An issuing authority needs common risk management obligations across a defined organization, project, or service boundary.
+- **Scope boundaries:** Establish mandatory risk management direction for risk criteria, ownership, treatment, acceptance, and review; exclude ongoing risk register entries, hazard logs, and project-specific assurance plans.
 
 ## Authoring inputs and unresolved facts
 
@@ -41,14 +43,19 @@ Normally all five named risk subjects are covered. A subject may be excluded onl
 ## Finished-document contract
 
 - **Title:** Identify the governed organization, project, or service where needed and name the document as a risk management policy.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, scope, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Authority, scope, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State authority, scope, and objectives before risk obligations; follow with decision rights and exceptions, then communication and policy review. Headings may use local wording if the roles below remain identifiable.
+- **Presentation:** Scale structure to organizational scope using concise prose, numbered directives, and focused tables where authority or exceptions benefit from comparison. Required roles may share sections while keeping issuing authority, applicability, directives, and exception rules independently retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Risk management policy (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Authority, purpose, and applicability | Required | Identify the real issuer or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, covered objectives, people and activities, organizational and time boundaries, exclusions, and effective date only when authorized. Explain the risk governance outcome and the project objectives or decisions that establish the obligations. |
-| Mandatory risk direction | Required; subject coverage follows the approved exclusions defined above | State separately identifiable obligations for **risk criteria**, **risk ownership**, **treatment**, **acceptance**, and **risk review** wherever each subject remains in scope. For those subjects, respectively govern when risks must be identified and assessed and how a consistent method and escalation thresholds are established for the covered objectives; how each risk receives an accountable owner; who selects and authorizes treatment; what residual exposure must be considered before acceptance; and what conditions require monitoring, reassessment, or escalation. State how cross-boundary risks or criteria conflicts within scope are resolved. |
+| Mandatory risk direction | Required | Subject coverage follows the approved whole-subject exclusions defined above. State separately identifiable obligations for **risk criteria**, **risk ownership**, **treatment**, **acceptance**, and **risk review** wherever each subject remains in scope. For those subjects, respectively govern when risks must be identified and assessed and how a consistent method and escalation thresholds are established for the covered objectives; how each risk receives an accountable owner; who selects and authorizes treatment; what residual exposure must be considered before acceptance; and what conditions require monitoring, reassessment, or escalation. State how cross-boundary risks or criteria conflicts within scope are resolved. |
 | Risk decisions and accountability | Required | For the subjects in scope, allocate authority for criteria, ownership, treatment, acceptance, and escalation, including decisions above a role's mandate. Distinguish the risk owner from an action performer and from the acceptance authority when their duties differ. Where acceptance is covered, define its minimum recorded basis, including the accepted scope, conditions, and review point. A proposed treatment, assessment, or silence MUST NOT be described as acceptance. |
 | Exceptions and noncompliance | Required | State whether exceptions to the policy are allowed. If allowed, define decision authority, request basis and risk consequence, scope, duration or review condition, how the decision is recorded, and interim treatment. If prohibited, state the conflict route. Explain escalation of failure to apply the policy. Accepting a risk MUST NOT silently waive an established project requirement or grant a policy exception. |
 | Communication, oversight, and policy review | Required | State how in-scope risk obligations, including criteria where covered, and policy changes reach affected roles, what risk and treatment information within scope reaches decision authorities, and the cadence or triggers and authority for changing the policy. Keep review of individual risks distinct from review of this policy. |

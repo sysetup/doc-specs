@@ -3,12 +3,14 @@ title: "Network design description specification"
 description: >-
   Defines the authoring contract for network design descriptions stating the intended topology, trust segmentation, routing and forwarding architecture, planned prefix and naming design, conditional wireless access design, and supporting network services for one enterprise or data-center network. Covers network boundaries, segments and security zones, route requirements, intended addressing plans, diagrams, service dependencies, and unresolved design decisions so implementers realize a controlled network baseline.
 topics:
+  - "specifications"
+  - "networking-and-infrastructure"
+  - "architecture-and-design"
   - "network-design"
   - "network-topology"
   - "segmentation"
   - "routing-design"
   - "addressing-plan"
-  - "wireless-design"
 use_when:
   - "An enterprise or data-center network requires a controlled design defining topology, segmentation, routing, addressing, and network services."
   - "A network architect is specifying trust zones, wireless coverage design, and supporting infrastructure dependencies for implementation."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `NETWORK-DESIGN-DESCRIPTION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State the required topology, segmentation, routing, intended addressing, wireless design, and network services for one enterprise or data-center network.
 - **Intended readers:** Network designers, systems engineers who allocate the network as a system element, implementers, and reviewers who must see what the network is required to be.
 - **Decision or action supported:** Realize the network from a controlled design with explicit intended configuration, design choices, and unresolved decisions.
@@ -40,9 +41,14 @@ If topology, a segment, a route, an address plan, a wireless parameter, or a ser
 ## Finished-document contract
 
 - **Title:** Identify the network and name the document as its network design description.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Network identity and design state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Network identity and design state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity and scope before topology and segmentation. State routing, intended addressing, wireless design, and network services before unresolved decisions. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Network design description (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -50,7 +56,7 @@ If topology, a segment, a route, an address plan, a wireless parameter, or a ser
 | Topology and segmentation | Required | State the required topology and the segments or zones, including what each segment is for and which trust boundary it represents. State which classes of traffic the design intends to keep apart and how the intended topology establishes those boundaries. |
 | Routing | Required | State the required routing relationships, including how segments reach one another, any default or external path, and the failure behavior the design requires. Leave an undecided path as a gap. Do not paste a device configuration as a substitute for the requirement. |
 | Intended addressing | Required | State the intended address plan: which prefixes or ranges serve which segments, and how names are intended to be assigned. Identify the decision state of intended allocations and label any cited current assignment by its actual record and configuration. Where the plan is unresolved, say so. |
-| Wireless design | Conditional: the network includes wireless access or a wireless segment | State the required wireless roles, coverage intent, separation from other segments, and the control or authentication approach the design requires. If wireless is out of scope, omit this section and record the scope reason under identity. Do not invent radios, channels, or controllers. |
+| Wireless design | Conditional when the network includes wireless access or a wireless segment | State the required wireless roles, coverage intent, separation from other segments, and the control or authentication approach the design requires. If wireless is out of scope, omit this section and record the scope reason under identity. Do not invent radios, channels, or controllers. |
 | Network services | Required | State the network services the design requires, such as name resolution, address assignment service, time, or load distribution, and which segments use them. For a service class that is out of scope, say so. An unresolved service remains a gap. |
 | Unresolved design decisions | Required | List material gaps and proposed choices with their effect on realization and the next action. A diagram, if used, illustrates these statements. It does not replace them. |
 

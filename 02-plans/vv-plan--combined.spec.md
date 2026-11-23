@@ -1,14 +1,16 @@
 ---
-title: "Verification and validation plan specification"
+title: "Combined verification and validation plan specification"
 description: >-
   Defines the authoring contract for combined verification and validation plans coordinating technical requirement conformance assessment and stakeholder intended-use fitness assessment within one bounded project scope. Requires separate verification and validation bases, mappings, criteria, and conclusions even when activities share a common event, alongside planned configurations, assessment levels, integrated execution readiness, evidence packaging, anomaly handling, and certification or acceptance interfaces before assessment begins.
 topics:
+  - "planning"
+  - "verification-and-validation"
+  - "systems-engineering"
   - "verification-and-validation-plan"
   - "combined-vv"
   - "conformance-planning"
   - "fitness-validation"
   - "evidence-packaging"
-  - "assurance-planning"
 use_when:
   - "One project needs a unified plan coordinating both technical verification and intended-use validation under a single program scope."
   - "A V&V lead is mapping both technical obligations and stakeholder needs while keeping criteria, bases, and conclusions distinct."
@@ -19,12 +21,11 @@ not_for:
   - "Defining reusable cross-project V&V workflows, which belong in a V&V lifecycle process."
 ---
 
-# Verification and validation plan specification
+# Combined verification and validation plan specification
 
 ## Identity and selection
 
 - **Specification ID:** `VV-PLAN@combined`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Coordinate verification of specified technical obligations and validation of stakeholder or intended-use needs in one bounded project plan, while preserving separate assessment bases, criteria, and conclusions.
 - **Intended readers:** V&V leads and performers, technical and stakeholder representatives, assurance reviewers, and people deciding readiness, disposition, or receipt of results.
 - **Decision or action supported:** Agree what will be assessed on each path, with which configuration, methods, resources, criteria, and evidence, and how the two paths will be coordinated and reported.
@@ -40,9 +41,14 @@ Mark an unavailable fact as unknown and an unmade choice as not established. For
 ## Finished-document contract
 
 - **Title:** Identify the system or project scope and name the document as its verification and validation plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, editions, and decision rules are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, editions, and decision rules are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish subject and both assessment bases before methods; place resources and sequence before evidence and result interfaces. Heading wording may vary. Keep the two mappings visibly distinct even when logistics are shared.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Combined verification and validation plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -52,8 +58,8 @@ Mark an unavailable fact as unknown and an unmade choice as not established. For
 | Validation strategy and need mapping | Required | For each in-scope stakeholder or intended-use need, give a representative scenario or use condition, actor or justified proxy, evaluation method, observable criterion, configuration, responsible role, and expected evidence when those facts are established. State fidelity and coverage limits, and leave a missing element as an explicit gap. A technical conformance row cannot answer a fitness question, and the mapping has no result. |
 | Integrated execution and readiness | Required | Coordinate sequence, dependencies, milestones or windows, facilities, data, tools and calibration when material, participants, competence, and entry, suspension, resumption, and exit rules. State the independence conclusion for each path: required, with the established project decision or justified risk and the role separation; not required, because neither applies; or not established, when that basis is unknown. State who decides readiness and how a change to either basis or configuration affects both paths. |
 | Evidence, anomalies, and reporting | Required | Define capture and review rules binding actual observations to subject and configuration, requirement or need and method editions, criteria, participants or tools, deviations, and review. Define event and attempt states for planned reporting: `not-run` applies only to an activity or scenario selected for a bounded event that received no assessment action; unselected planned work has no attempt state. An attempted assessment can receive `pass`, `fail`, or `inconclusive`. A missing observation or an invalidating condition on an attempt requires `inconclusive`; do not classify it as `not-run` or introduce a separate invalid result. Preserve each retest as a distinct later attempt linked to the earlier result. Define separate reporting of verification coverage and conclusions and validation coverage and conclusions, even when one event serves both paths, and identify how technical findings, document approval, and receiving-party decisions will be recorded and communicated. |
-| Certification or acceptance interfaces | Conditional: an actual planned project certification or receiving-party decision requires products | Name the established project delivery obligation, decision role and recipient, planned evidence package and handoff, and any review gate. State expected products, handoff criteria, and the decision to be supported. |
-| Terms and acronyms | Conditional: local terms could make a criterion or assessment path ambiguous | Define only terms needed to interpret this plan, especially any project-specific use of verification, validation, level, or result. An appendix is optional. |
+| Certification or acceptance interfaces | Conditional when an actual planned project certification or receiving-party decision requires products | Name the established project delivery obligation, decision role and recipient, planned evidence package and handoff, and any review gate. State expected products, handoff criteria, and the decision to be supported. |
+| Terms and acronyms | Conditional when local terms could make a criterion or assessment path ambiguous | Define only terms needed to interpret this plan, especially any project-specific use of verification, validation, level, or result. An appendix is optional. |
 
 ## Content definitions and forms
 

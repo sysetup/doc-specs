@@ -3,12 +3,14 @@ title: "Engineering effort and work-time record specification"
 description: >-
   Defines the authoring contract for engineering effort records preserving actual work time and effort consumed across a bounded period and purpose, including counting rules, duration units, work attribution, sources, reconciled totals, corrections, review status, and explicit interpretation limits. Supports proportionate planning and authorized accounting while strictly separating consumed effort from remaining estimates, functional completion, operational execution histories, and individual worker surveillance or productivity scoring.
 topics:
+  - "evidence"
+  - "commercial-and-supplier"
+  - "software-engineering"
   - "engineering-effort"
   - "work-time-record"
   - "effort-attribution"
   - "effort-reconciliation"
   - "planning-actuals"
-  - "accounting-evidence"
 use_when:
   - "An engineering activity has consumed effort that requires a proportionate, auditable record of actual time, units, and attribution."
   - "A coordinator or performer is reconciling effort totals, recording corrections, and stating counting rules for authorized accounting."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ENGINEERING-EFFORT-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record engineering effort actually consumed and its attribution, units, source, and correction basis.
 - **Intended readers:** Performers, engineering coordinators, project leads, and authorized cost or planning reviewers.
 - **Decision or action supported:** Reconcile consumed effort for planning or authorized accounting without inferring work completion or worker productivity.
@@ -40,9 +41,14 @@ Expose unknown duration, source, activity, attribution, overlap, or correction w
 ## Finished-document contract
 
 - **Title:** Identify the engineering scope and period and name its effort and work-time record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope, purpose, and counting rules before effort entries; put totals, reconciliation, and corrections after entries. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Engineering effort and work-time record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

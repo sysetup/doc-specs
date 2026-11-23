@@ -3,6 +3,7 @@ title: "Software engineering lifecycle process specification"
 description: >-
   Defines the authoring contract for a reusable software engineering lifecycle process covering how software is developed, integrated, assured, controlled, released, and maintained across projects or product lines. Specifies process authority and applicability, development and integration flows, assurance and configuration controls, controlled build expectations, release decision gates, post-delivery maintenance routes, tailoring rules, and process feedback mechanisms so teams coordinate work products, evidence, and handoffs consistently.
 topics:
+  - "processes"
   - "software-engineering"
   - "lifecycle-process"
   - "software-delivery"
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@software-engineering`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable process by which software work is developed, integrated, assured, controlled, released, and maintained.
 - **Intended readers:** Software engineers, technical leads, assurance and configuration roles, release authorities, and maintainers who use or govern the process.
 - **Decision or action supported:** A team can identify the required software workflow, work products, decision gates, evidence expectations, and handoffs for a software change or release.
@@ -40,9 +40,14 @@ For unknown facts, identify the gap, effect, resolving action, and owner if assi
 ## Finished-document contract
 
 - **Title:** Name the software engineering lifecycle process and applicable software or organization scope.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Process edition and applicability are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Process edition and applicability are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and authority before the activity flow, then cross-cutting controls and process evolution. Headings may use local wording.
+- **Presentation:** Use concise prose alongside activity or gate tables and brief flow diagrams sized to the lifecycle scope. Required roles may share sections while keeping roles, entry/exit gates, handoffs, and required records clearly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Software engineering lifecycle process (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

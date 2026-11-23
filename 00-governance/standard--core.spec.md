@@ -3,12 +3,14 @@ title: "Internal standard specification"
 description: >-
   Defines the authoring contract for internal standards establishing authorized, mandatory, assessable technical or practice criteria for a defined domain or artifact class. Requires explicit coverage of issuing authority, standard domain and applicability, issuance state, controlled terms and interpretation, individually identifiable mandatory requirements paired with concrete assessment bases, exception rules, and adoption, review, and transition procedures. Ensures every stated requirement is objectively assessable and separates normative obligations from descriptive definitions.
 topics:
+  - "governance"
+  - "quality-assurance"
+  - "software-engineering"
   - "internal-standard"
   - "normative-criteria"
   - "compliance-assessment"
   - "technical-standards"
   - "exception-governance"
-  - "standard-maintenance"
 use_when:
   - "An identified authority needs to publish binding, assessable technical or practice criteria for engineering, security, operations, data, testing, or documentation."
   - "An author is translating domain conventions into verifiable requirements with explicit assessment bases and exception rules."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `STANDARD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish authorized, mandatory, assessable criteria for a defined organizational or project practice or artifact.
 - **Intended readers:** People and teams subject to the criteria, assessors who check them, exception decision makers, and the standard's maintainer.
 - **Decision or action supported:** A reader can determine which criteria apply, how conformity is assessed, and how an exception or revision is handled.
@@ -39,10 +40,15 @@ If issuing authority, scope, or substantive criteria are not established, mark t
 
 ## Finished-document contract
 
-- **Title:** Name the governed subject and identify the document as a standard; “Internal Standard” alone is insufficient.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and effectivity are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Name the governed subject and identify the document as a standard; "Internal Standard" alone is insufficient.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Authority, applicability, and effectivity are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State authority and applicability before mandatory criteria; define terms before their first ambiguous use; put exception and maintenance rules after the criteria. Headings may use project wording if their semantic roles remain clear.
+- **Presentation:** Use numbered clauses or a compact criteria table pairing each obligation with its applicability and assessment basis, with short prose for authority, exceptions, and transitions. Required roles may share sections without obscuring individual assessable criteria.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Internal standard (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

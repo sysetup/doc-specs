@@ -3,12 +3,14 @@ title: "Service or system availability plan specification"
 description: >-
   Defines the authoring contract for availability plans specifying how a service or system measures, sustains, safely degrades, and improves availability against established service objectives. Covers availability scope and objectives, measurement methods and exclusions, dependency and single-point-of-failure analysis, resilience provisions and degraded-operation handling, monitoring and incident interfaces, and periodic review triggers so service owners, reliability engineers, and operators choose defensible reliability investments for real operating contexts.
 topics:
+  - "planning"
+  - "operations"
+  - "incident-and-continuity"
   - "availability-planning"
   - "service-reliability"
   - "degraded-operation"
   - "failure-analysis"
   - "resilience"
-  - "service-objectives"
 use_when:
   - "A service or system needs explicit availability objectives, measurement rules, dependency failure analysis, and resilience provisions."
   - "An architect or reliability engineer is planning degraded-operation behaviors and monitoring thresholds before sustained operation."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `AVAILABILITY-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a defined service's availability will be measured, sustained, degraded safely, and improved against established objectives.
 - **Intended readers:** Service and product owners, availability and reliability engineers, operators, support and incident roles, suppliers, and objective owners.
 - **Decision or action supported:** Choose defensible availability provisions, measurement, response thresholds, and review actions for the service's actual operating context.
@@ -40,9 +41,14 @@ If an objective, measurement definition, dependency behavior, or decision author
 ## Finished-document contract
 
 - **Title:** Identify the service or system and name its availability plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Objectives and scope belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Objectives and scope belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define the service and measurement basis before failure analysis and provisions; place assessment and improvement after the planned operating method. Exact heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Service or system availability plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

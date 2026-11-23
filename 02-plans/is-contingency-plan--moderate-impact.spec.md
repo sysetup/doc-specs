@@ -3,12 +3,14 @@ title: "Moderate-impact information-system contingency plan specification"
 description: >-
   Defines the authoring contract for contingency plans governing one classified moderate-impact information system requiring coordinated activation, prioritized recovery, reconstitution, exercises, and upkeep. Covers system impact classification and authority, recovery objectives, dependencies and roles, mandatory explicit dispositions for offsite data storage and alternate processing sites, activation and escalation rules, prioritized restoration sequences, return-to-normal verification, and training and maintenance while explicitly excluding concurrent processing.
 topics:
+  - "planning"
+  - "incident-and-continuity"
+  - "security"
   - "contingency-plan"
   - "moderate-impact-system"
   - "offsite-storage"
   - "alternate-processing"
   - "prioritized-recovery"
-  - "reconstitution"
 use_when:
   - "A responsible authority has classified an information system as moderate impact and requires a coordinated system contingency plan."
   - "A contingency coordinator is documenting explicit offsite storage and alternate processing dispositions with prioritized service restoration."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `IS-CONTINGENCY-PLAN@moderate-impact`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define coordinated activation, recovery, reconstitution, exercise, and maintenance for one classified moderate-impact information system, including the selected offsite data and alternate processing arrangements.
 - **Intended readers:** System and mission owners, contingency coordinator, recovery teams, storage and processing providers, and authorities responsible for activation and return to service.
 - **Decision or action supported:** Those roles can choose the recovery route, restore prioritized functions and data within established objectives, coordinate dependencies, and decide when normal operation may resume.
@@ -40,9 +41,14 @@ Mark missing evidence unknown and an undecided arrangement not established, with
 ## Finished-document contract
 
 - **Title:** Identify the system and the moderate-impact information-system contingency plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Plan control and operational authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Plan control and operational authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put system scope, objectives, and recovery strategy before activation; put reconstitution after recovery; end with readiness and maintenance. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Moderate-impact information-system contingency plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

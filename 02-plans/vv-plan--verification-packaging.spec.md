@@ -3,6 +3,8 @@ title: "Verification plan specification"
 description: >-
   Defines the authoring contract for standalone verification plans organizing how a bounded item will be assessed for technical conformity against specified requirements using traceable inspection, analysis, test, or demonstration methods. Covers verification scope and technical basis, verification levels and strategy, requirement-to-method coverage mappings, conformance criteria, exclusions or deviations, execution resources and readiness, evidence packaging, anomaly handling, and certification or review interfaces.
 topics:
+  - "planning"
+  - "verification-and-validation"
   - "verification-plan"
   - "technical-conformance"
   - "verification-methods"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VV-PLAN@verification-packaging`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a bounded item will be assessed for conformity to specified technical requirements, with traceable methods, criteria, and expected evidence.
 - **Intended readers:** Verification leads and performers, requirement owners, technical reviewers, assurance roles, and recipients of a verification evidence package.
 - **Decision or action supported:** Agree the conformance basis, coverage, resources, readiness, evidence package, and review route before verification work begins.
@@ -40,9 +41,14 @@ For an unknown requirement, configuration, method capability, criterion, indepen
 ## Finished-document contract
 
 - **Title:** Identify the item or effort and name the document as its verification plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The technical basis and coverage rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The technical basis and coverage rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State subject and requirements before method and coverage; place resources and readiness before evidence and review. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Verification plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -51,8 +57,8 @@ For an unknown requirement, configuration, method capability, criterion, indepen
 | Requirement verification mapping | Required | For each in-scope obligation or assessable facet, connect its source to method, level, target configuration, criterion, planned event or procedure, responsible role, and expected evidence when those facts are established. Show an uncovered, deferred, or excluded obligation and the basis for that treatment. Do not invent a missing element, and do not enter a result. |
 | Execution resources and readiness | Required | Define schedule and dependencies, articles, facilities, environment, data, tools or models and calibration when material, role assignments, and observable entry, suspension, resumption, and exit rules with decision authority. State how a requirement or baseline change triggers replanning. |
 | Evidence packaging, anomalies, and review | Required | Define capture and review rules retaining configuration, requirement and method editions, observations, criterion comparison, evidence locator, deviations, and reviewer. Define event and attempt states for planned reporting: `not-run` applies only to an activity selected for a bounded event that received no assessment action; unselected planned work has no attempt state. An attempted assessment can receive `pass`, `fail`, or `inconclusive`. A missing observation or an invalidating condition on an attempt requires `inconclusive`; do not classify it as `not-run` or introduce a separate invalid result. Preserve each retest as a distinct later attempt linked to the earlier result. Define how conformance coverage, findings, and unresolved items will reach the assigned project disposition role. |
-| Certification product interface | Conditional: an established project delivery obligation supports certification or evidence handoff | State expected verification products, contents, recipient, decision role, and explicit product and handoff criteria. |
-| Terms and acronyms | Conditional: terminology could change interpretation | Define project-specific terms inline or in a short section; no empty glossary or mandatory appendix. |
+| Certification product interface | Conditional when an established project delivery obligation supports certification or evidence handoff | State expected verification products, contents, recipient, decision role, and explicit product and handoff criteria. |
+| Terms and acronyms | Conditional when terminology could change interpretation | Define project-specific terms inline or in a short section; no empty glossary or mandatory appendix. |
 
 ## Content definitions and forms
 

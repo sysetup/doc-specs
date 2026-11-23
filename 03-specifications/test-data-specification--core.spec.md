@@ -3,6 +3,8 @@ title: "Test data specification"
 description: >-
   Defines the authoring contract for test data specifications defining logical datasets, reproducible selection or generation rules, schemas and validity constraints, expected statistical or structural properties, provenance and usage rights, privacy or security protection rules, retention lifecycle, and suitability checks for a bounded set of tests. Distinguishes logical data specifications from actual materialized snapshots and exposes dataset limitations affecting test coverage or result interpretation.
 topics:
+  - "specifications"
+  - "testing"
   - "test-data-specification"
   - "reproducible-datasets"
   - "data-provenance"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-DATA-SPECIFICATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define reproducible test inputs or datasets, their expected properties, provenance, allowed use, protection, and lifecycle for a bounded set of tests.
 - **Intended readers:** Test designers and operators, data owners and stewards, environment owners, security or privacy reviewers, and people interpreting test results.
 - **Decision or action supported:** Select or generate suitable data, prepare it safely for the intended tests, verify its properties, and identify limitations that affect coverage or result interpretation.
@@ -40,9 +41,14 @@ If a source, use right, sensitivity classification, schema, generation parameter
 ## Finished-document contract
 
 - **Title:** Name the test effort or data scope and the document as its test data specification; distinguish an applicable edition when needed.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Data definition, provenance, and use constraints are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Data definition, provenance, and use constraints are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State test need and selection rules before individual assets; state protection and lifecycle rules before any claim that data is ready for use. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test data specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

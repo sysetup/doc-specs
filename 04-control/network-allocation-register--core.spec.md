@@ -3,9 +3,11 @@ title: "Network allocation register specification"
 description: >-
   Defines the authoring contract for network allocation registers stating current in-force assignments of IP prefixes, VLAN identifiers, network names, and accountable owners across a defined allocation domain at an explicit as-of point. Explicitly separates live assignments in force from unassigned design proposals, highlights plan conflicts and allocation gaps, and excludes physical cabling connections, firewall traffic rules, raw equipment discovery scans, and configuration-execution logs.
 topics:
+  - "control-records"
+  - "networking-and-infrastructure"
   - "network-allocation"
-  - "IP-prefix-register"
-  - "VLAN-assignments"
+  - "ip-prefix-register"
+  - "vlan-assignments"
   - "network-naming"
   - "address-management"
   - "network-operations"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `NETWORK-ALLOCATION-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State the current assignment of prefixes, VLAN identifiers, names, and owners.
 - **Intended readers:** Network operators and the owners of assigned prefixes, VLAN identifiers, and names, who must use the assignment now in force.
 - **Decision or action supported:** Determine which prefix, VLAN identifier, or name is assigned now, to whom, and which intended design value is not the assignment in force.
@@ -40,9 +41,14 @@ If an assignment, owner, or identifier is unknown, record the gap. Do not invent
 ## Finished-document contract
 
 - **Title:** Identify the network or allocation domain and name the document as its network allocation register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The domain and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The domain and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the domain and as-of point before the assignments. State conflicts and gaps after or with the assignments. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Network allocation register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

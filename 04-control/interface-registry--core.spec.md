@@ -3,12 +3,14 @@ title: "Interface registry specification"
 description: >-
   Defines the authoring contract for interface registries maintaining one controlled inventory of interface identities, participating endpoints and owners, criticality classifications, registration states, pointers to authoritative interface requirement or control records, known consumers, change relationships, and open discrepancies. Keeps the registry strictly as metadata and authoritative pointers while excluding duplicated requirement wording, controlled protocol parameters, directed traceability graphs, and verification execution results.
 topics:
+  - "control-records"
+  - "architecture-and-design"
+  - "configuration-management"
   - "interface-registry"
   - "interface-inventory"
   - "endpoint-ownership"
   - "interface-criticality"
   - "boundary-catalog"
-  - "configuration-control"
 use_when:
   - "A system or program with multiple internal and external interfaces needs one controlled index of interface identities and owners."
   - "An interface steward is tracking registration status, criticality, known consumers, discrepancies, and pointers to controlling documents."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `INTERFACE-REGISTRY@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a controlled index of interface identities, participating parties, owners, registration status, criticality, definition references, and change relationships.
 - **Intended readers:** Interface stewards, parties on each side of a boundary, integration and verification planners, configuration managers, and suppliers who need to locate interfaces and their definition records.
 - **Decision or action supported:** Determine which interfaces are in scope, who owns each side, where a definition is controlled, and which consumers or changes are identified.
@@ -40,9 +41,14 @@ If an endpoint, owner, definition, agreement, criticality, or change relationshi
 ## Finished-document contract
 
 - **Title:** Identify the boundary and name the document as its interface registry.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, authority, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, authority, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State registration rules before the index; place unresolved identities, definitions, and change conflicts after the entries. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Interface registry (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

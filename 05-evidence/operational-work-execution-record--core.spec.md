@@ -3,6 +3,8 @@ title: "Operational work execution record specification"
 description: >-
   Defines the authoring contract for operational work execution records preserving one actual operational or maintenance attempt performed on a specific target—including interrupted, failed, unauthorized, or ad-hoc attempts without a procedure. Covers work identity, target selector, method and revision used, authorization evidence, timestamps, performers, as-found state, actions taken, observed results, deviations or problems encountered, as-left state, overall outcome, and conditional return-to-service disposition.
 topics:
+  - "evidence"
+  - "operations"
   - "operational-execution"
   - "maintenance-record"
   - "as-found-as-left"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `OPERATIONAL-WORK-EXECUTION-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record operational or maintenance work that was actually performed or attempted on a target, including the method and revision used, authorization, as-found state, actions, observed results, and return-to-service disposition when that disposition applies.
 - **Intended readers:** Operators, maintainers, supervisors, asset or service owners, and investigators who need to know what was done to the target and the state in which it was left.
 - **Decision or action supported:** Determine what work occurred, whether it stayed inside its authorization and method, what was observed before and after the actions, and whether the target was returned to service.
@@ -40,9 +41,14 @@ If a time, revision, observation, performer, or authorization is unknown, state 
 ## Finished-document contract
 
 - **Title:** Identify the target and the work, and call the document an operational work execution record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Target, method, authority, and result belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Target, method, authority, and result belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the target, method, and authority before the actions. Place the overall result and any return-to-service disposition after the observations. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Operational work execution record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

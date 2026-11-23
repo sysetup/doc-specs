@@ -3,12 +3,14 @@ title: "Engineering meeting record specification"
 description: >-
   Defines the authoring contract for ordinary engineering and coordination meeting records preserving one held meeting or coherent session series, including attendance and evidence basis, subjects addressed, factual discussion summaries, decisions reached during the session, unresolved open questions, assigned follow-up items, and explicit record limitations or corrections. Keeps ordinary session notes strictly separate from planned agendas, criteria-driven technical reviews, authoritative decision masters, and assumed consensus.
 topics:
+  - "evidence"
+  - "systems-engineering"
+  - "quality-assurance"
   - "meeting-record"
   - "meeting-minutes"
   - "discussion-summary"
   - "open-questions"
   - "assigned-follow-up"
-  - "coordination-evidence"
 use_when:
   - "An ordinary engineering or project coordination meeting took place and its discussion, open questions, and follow-ups must be preserved."
   - "A facilitator is capturing factual session outcomes and corrections without conflating meeting notes with formal approvals."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `MEETING-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Preserve an ordinary meeting's actual subjects, discussion, decisions, open questions, and assigned follow-up.
 - **Intended readers:** Participants, coordinating roles, affected owners, and authorized readers needing the meeting context.
 - **Decision or action supported:** Recover what was discussed and assigned without inferring technical-review disposition or approval.
@@ -40,9 +41,14 @@ Expose missing time, participants, source, decision authority, owner, or due dat
 ## Finished-document contract
 
 - **Title:** Identify the meeting subject and actual date or date gap and name its meeting record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State held-event identity and purpose before subjects and discussion; put actual decisions and open questions before follow-up and record limitations. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Engineering meeting record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

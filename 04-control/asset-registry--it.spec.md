@@ -3,12 +3,14 @@ title: "IT asset registry specification"
 description: >-
   Defines the authoring contract for IT asset registries maintaining the governed identity, asset classification, organizational ownership, physical or logical custody, lifecycle state, and authorizing provenance of managed IT assets within an established scope. Covers registration authority, asset classes, downstream consumer interfaces, reconciliation and open items, and explicit linkages to configuration items while keeping managed asset identities cleanly distinct from configuration item control states and point-in-time inventory observations.
 topics:
-  - "IT-asset-registry"
+  - "control-records"
+  - "networking-and-infrastructure"
+  - "configuration-management"
+  - "it-asset-registry"
   - "asset-management"
   - "asset-ownership"
   - "asset-custody"
   - "asset-lifecycle"
-  - "governance-register"
 use_when:
   - "An organization needs a governed registry tracking managed IT asset identities, classes, owners, custody, and lifecycle states."
   - "An asset manager is reconciling authoritative asset records with configuration items, maintenance, financial, or retirement consumers."
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ASSET-REGISTRY@it`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain the governed identity, classification, ownership, custody, and lifecycle state of managed assets, together with the authority for that identity.
 - **Intended readers:** Asset owners, custodians, configuration managers, and the inventory, maintenance, financial, or retirement processes that consume asset identity.
 - **Decision or action supported:** Determine which assets the organization governs, who owns and holds each one, which lifecycle state has been set, and which configuration items are related without treating those identities as the same object.
 - **Use when:** Managed assets need controlled identity, classification, ownership, custody, and lifecycle state.
+- **Scope boundaries:** Maintain governed identity, classification, ownership, custody, and lifecycle state of managed IT assets; exclude point-in-time raw discovery inventories, physical cabling schedules, and maintenance plans.
 
 ## Authoring inputs and unresolved facts
 
@@ -39,9 +41,14 @@ If an owner, custodian, location context, title, or lifecycle decision is unknow
 ## Finished-document contract
 
 - **Title:** Identify the organizational boundary and name the document as its IT asset registry.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Asset classes, authority, and lifecycle state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Asset classes, authority, and lifecycle state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope, classes, and authority before the asset index; place reconciliation exceptions after the assets. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| IT asset registry (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

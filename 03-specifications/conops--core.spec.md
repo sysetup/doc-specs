@@ -3,12 +3,14 @@ title: "Concept of operations specification"
 description: >-
   Defines the authoring contract for concepts of operations explaining how an envisioned system will be used, operated, and supported by human and technical participants to achieve stated mission or stakeholder outcomes across operating modes and environments. Covers operational context and boundaries, participant responsibilities, modes and conditions, conceptual operational scenarios, lifecycle support concepts, operational impacts, success indications, assumptions, and open issues while keeping detailed implementation parameters and operator commands out of scope.
 topics:
+  - "specifications"
+  - "systems-engineering"
+  - "requirements-engineering"
   - "concept-of-operations"
-  - "ConOps"
+  - "conops"
   - "operational-scenarios"
   - "operating-modes"
   - "stakeholder-operations"
-  - "lifecycle-support"
 use_when:
   - "Stakeholders and engineers need a shared conceptual account of how an envisioned system will operate across roles, modes, and scenarios."
   - "An author is documenting intended human-system interactions, support concepts, and operational impacts before locking detailed requirements."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CONOPS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Explain how an envisioned system will be used and supported to achieve a stated mission or stakeholder outcome across relevant operating conditions.
 - **Intended readers:** Stakeholders, users, operators, maintainers, system engineers, and people deciding whether the proposed operational concept meets their needs.
 - **Decision or action supported:** Agree on the intended operating model, expose gaps and constraints, and develop or assess subsequent requirements and architecture.
@@ -40,9 +41,14 @@ If a role, condition, operational response, success measure, or support assumpti
 ## Finished-document contract
 
 - **Title:** Identify the system or capability and the document as its concept of operations.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope and concept maturity belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope and concept maturity belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the need and boundary before describing the envisioned operation; present scenarios after roles, modes, and interactions; conclude with implications and unresolved issues. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Concept of operations (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

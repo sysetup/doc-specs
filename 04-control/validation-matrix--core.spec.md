@@ -3,12 +3,14 @@ title: "Needs and intended-use validation matrix specification"
 description: >-
   Defines the authoring contract for validation matrices tracking how in-scope stakeholder, business, mission, or intended-use needs map to representative validation scenarios, evaluation criteria, assessment methods, acquired validation evidence, acceptance references, and current fitness outcomes. Ensures every row evaluates a true desired outcome or intended-use question under representative conditions rather than a prescribed technical obligation, exposing uncovered, failed, or inconclusive needs clearly.
 topics:
+  - "control-records"
+  - "verification-and-validation"
+  - "requirements-engineering"
   - "validation-matrix"
   - "needs-validation"
   - "fitness-coverage"
   - "scenario-mapping"
   - "intended-use-accounting"
-  - "validation-status"
 use_when:
   - "A bounded set of stakeholder, business, or mission needs requires a consolidated tracking view of validation scenarios and fitness outcomes."
   - "A validation lead is monitoring which needs have credible validation paths and which remain uncovered, failed, or inconclusive."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VALIDATION-MATRIX@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Account for how in-scope stakeholder, business or mission, or intended-use needs map to validation scenarios, criteria, methods, evidence, and current outcomes.
 - **Intended readers:** Validation leads, stakeholder or user representatives, need owners, and reviewers judging whether fitness-for-use claims are supported.
 - **Decision or action supported:** See which needs have a credible validation path, what has actually been assessed under which conditions, and which needs remain uncovered, failed, or inconclusive.
@@ -40,9 +41,14 @@ If a need source, scenario, criterion, configuration, method, or responsible rol
 ## Finished-document contract
 
 - **Title:** Identify the solution or intended-use scope and name the document as its validation matrix.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Need basis, mappings, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Need basis, mappings, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and status rules before the mappings; place coverage and unresolved findings after them. Heading wording may vary.
+- **Presentation:** Use compact structured matrices or item-centered tables sized to the controlled scope without duplicating endpoint wording. Required roles may share sections while keeping relationship semantics, source editions, coverage accounting, and missing-link findings directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Needs and intended-use validation matrix (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

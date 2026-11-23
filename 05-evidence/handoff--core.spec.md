@@ -3,12 +3,14 @@ title: "Handoff and transfer record specification"
 description: >-
   Defines the authoring contract for handoff and transfer records preserving one begun or completed transfer of responsibility, custody, work products, knowledge, configuration baselines, or access between identified delivering and receiving parties. Covers transfer identity and scope, transferred items and packages, access changes, knowledge-transfer events, open items and continuing obligations, evidenced receipt, readiness assessment, receiving party response, and actual responsibility closure so sending material is never confused with accepted handover.
 topics:
+  - "evidence"
+  - "operations"
+  - "change-and-release"
   - "handoff-record"
   - "responsibility-transfer"
   - "custody-evidence"
   - "knowledge-transfer"
   - "receiving-response"
-  - "open-obligations"
 use_when:
   - "A bounded transfer of operational ownership, custody, access, deliverables, or knowledge has begun between identified parties."
   - "A delivering or receiving owner is recording transferred baselines, open obligations, receipt evidence, and formal receiving responses."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `HANDOFF@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual transfer of responsibility, custody, work, knowledge, configuration, or access between identified parties, including what moved, what remains open, and the receiving party's actual response.
 - **Intended readers:** Delivering and receiving owners, operations and support roles, project leads, and authorities responsible for unresolved obligations.
 - **Decision or action supported:** Determine who has which responsibility or custody now, what the receiver can use, what is pending, and whether further acceptance, access, training, or closure action is needed.
@@ -40,9 +41,14 @@ If a receiver, item revision, receipt, authority, or handoff response is unknown
 ## Finished-document contract
 
 - **Title:** Identify the transferred subject and the parties or boundary, and call the document a handoff or transfer record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Transfer scope, parties, and response belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Transfer scope, parties, and response belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define transfer scope and parties before the transferred items and actions; put receipt, response, responsibility effect, and closure after those actions. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Handoff and transfer record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

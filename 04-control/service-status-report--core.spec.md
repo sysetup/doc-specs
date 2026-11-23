@@ -3,6 +3,8 @@ title: "Service-period status report specification"
 description: >-
   Defines the authoring contract for service-period status reports providing a bounded view of observed production service results across an explicit reporting window—including incident-free periods. Covers service scope and objectives, telemetry sources and data coverage limits preventing missing metrics from appearing healthy, observed reliability and performance results, summarized incidents, changes, and maintenance, trends and forecasts, and requested follow-up decisions while excluding operating plans, alert catalogs, delivery progress, and contractual compliance claims.
 topics:
+  - "control-records"
+  - "operations"
   - "service-status-report"
   - "service-metrics"
   - "telemetry-coverage"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SERVICE-STATUS-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a bounded view of observed service-period results, data coverage, trends, and follow-up decisions.
 - **Intended readers:** Service owners, operators, support leads, security roles, and service decision makers.
 - **Decision or action supported:** Assess current service results and request follow-up without treating missing telemetry as healthy operation.
@@ -40,9 +41,14 @@ Expose unknown objective, denominator, telemetry interval, source, version, or d
 ## Finished-document contract
 
 - **Title:** Identify the service and period and name its service-period status report.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State service, period, and data coverage before results; place incidents and changes before trends, forecasts, and follow-up decisions. Heading wording may vary.
+- **Presentation:** Use concise executive summaries paired with compact metric, comparison, or scope tables sized to the reporting period or decision question. Required roles may share sections while keeping observed facts, forecasts or proposals, coverage limits, and pending decisions clearly separated.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Service-period status report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

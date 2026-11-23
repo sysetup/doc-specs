@@ -3,12 +3,13 @@ title: "Configuration baseline record specification"
 description: >-
   Defines the authoring contract for configuration baseline records identifying one actually established, controlled configuration snapshot with its baseline kind, boundary, establishment authority and state, exact controlled item revisions and locators, cryptographic or integrity bindings, configuration constraints, active deviations or waivers, predecessor baseline links, reproduction and comparison rules, and release relationships. Keeps established baseline definitions distinct from deployment conformity claims for live instances.
 topics:
+  - "evidence"
+  - "configuration-management"
   - "configuration-baseline"
   - "controlled-snapshot"
   - "item-revisions"
   - "integrity-binding"
   - "baseline-effectivity"
-  - "configuration-management"
 use_when:
   - "A functional, allocated, product, software, infrastructure, operational, or document configuration has been formally baselined."
   - "A configuration manager is fixing exact controlled item revisions, integrity bindings, active deviations, and effectivity for reproduction."
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CONFIGURATION-BASELINE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Identify one actually established, controlled configuration snapshot and the exact item revisions and effectivity it fixes.
 - **Intended readers:** Configuration managers, item owners, change and release authorities, builders, operators, and reviewers who need to know the controlled configuration.
 - **Decision or action supported:** Reproduce, compare with, change, or release the exact controlled definition for its established effectivity.
@@ -40,9 +40,14 @@ If establishment has not occurred, do not title a proposed collection an actual 
 ## Finished-document contract
 
 - **Title:** Identify the bounded configuration and call the document a configuration baseline record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Baseline identity, effectivity, and control state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Baseline identity, effectivity, and control state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the snapshot identity and authority before the item set; put relationships, integrity limits, and supersession after the item set. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Configuration baseline record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

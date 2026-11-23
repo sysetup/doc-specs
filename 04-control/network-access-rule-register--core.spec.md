@@ -3,12 +3,14 @@ title: "Network access rule register specification"
 description: >-
   Defines the authoring contract for network access rule registers recording active, proposed, disabled, or superseded ACL, firewall, and security-zone enforcement rules within a stated network enforcement boundary. Covers boundary identity and currency, individual rule specifications, accountable rule owners, stated operational or security intent, current enforcement status, and visibility of undocumented or orphaned rules while excluding secret values, credentials, and live verification test results.
 topics:
+  - "control-records"
+  - "networking-and-infrastructure"
+  - "security"
   - "network-access-rules"
   - "firewall-register"
-  - "ACL-rules"
+  - "acl-rules"
   - "zone-policies"
   - "rule-ownership"
-  - "network-security"
 use_when:
   - "A bounded network enforcement perimeter requires a controlled register of firewall, ACL, or zone rules with owners and intent."
   - "Network or security reviewers need to determine which traffic rules are proposed, active, disabled, or superseded and why each exists."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `NETWORK-ACCESS-RULE-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record ACL, firewall, or zone rules with owner, intent, and status.
 - **Intended readers:** Rule owners, network and security engineers, and reviewers who must see which access rule is in force and why it exists.
 - **Decision or action supported:** Determine the rule base now recorded, who owns each rule, what it is for, and whether it is proposed, in force, disabled, or superseded.
@@ -40,9 +41,14 @@ If an owner, intent, match, or status is unknown, record the gap. Do not invent 
 ## Finished-document contract
 
 - **Title:** Identify the network or enforcement boundary and name the document as its network access rule register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The boundary and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The boundary and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the boundary and status meanings before the rules. State gaps with or after the rules. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Network access rule register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

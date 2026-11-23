@@ -3,6 +3,8 @@ title: "General policy specification"
 description: >-
   Defines the authoring contract for general organizational or project policies setting authorized, mandatory, high-level direction outside specialized governance subjects. Requires explicit identification of issuing authority, policy ownership, applicability boundaries, issuance state and effective date, addressee-bound mandatory directives, accountability and conflict escalation, exception allowance or prohibition rules, and review cadence. Keeps policy text focused on high-level duties, decision rights, and outcomes without drifting into technical thresholds or detailed operational procedures.
 topics:
+  - "governance"
+  - "quality-assurance"
   - "general-policy"
   - "organizational-governance"
   - "mandatory-directives"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POLICY@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define authorized, mandatory, high-level direction for an organization's or project's stated general policy subject and scope.
 - **Intended readers:** People bound by the policy, managers who apply it, and the authority that issues and maintains it.
 - **Decision or action supported:** Readers can determine what direction applies to them, who owns it, and how an exception or change is handled.
@@ -39,10 +40,15 @@ If a fact is unknown, distinguish missing evidence from a decision that has not 
 
 ## Finished-document contract
 
-- **Title:** Name the policy subject and identify the document as a policy; a generic title such as “General Policy” alone is insufficient.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Policy authority and applicability are substantive content in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Name the policy subject and identify the document as a policy; a generic title such as "General Policy" alone is insufficient.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Policy authority and applicability are substantive content in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present authority and scope before directives, and directives before exception and maintenance rules. Headings may use project wording if their semantic roles remain clear.
+- **Presentation:** Scale structure to organizational scope using concise prose, numbered directives, and focused tables where authority or exceptions benefit from comparison. Required roles may share sections while keeping issuing authority, applicability, directives, and exception rules independently retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| General policy (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

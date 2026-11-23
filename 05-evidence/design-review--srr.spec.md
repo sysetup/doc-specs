@@ -3,12 +3,14 @@ title: "System requirements review record specification"
 description: >-
   Defines the authoring contract for System Requirements Review records preserving one held gate assessing whether a system's functional and performance requirements and planned technical work respond credibly to project needs and parent requirements within scope. Covers review identity and authority, examined requirement editions, adopted entrance and success criteria, credibility assessments, findings, actions, actual disposition, conditions, next activities, and separation from independent requirement approval.
 topics:
+  - "evidence"
+  - "systems-engineering"
+  - "requirements-engineering"
   - "system-requirements-review"
-  - "SRR"
+  - "srr"
   - "requirements-credibility"
   - "lifecycle-gate"
   - "review-disposition"
-  - "systems-engineering"
 use_when:
   - "A System Requirements Review has been held and requires a record of requirements credibility assessment, findings, actions, and disposition."
   - "A review chair is binding SRR entrance results and proceed conditions to exact examined requirement editions."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@srr`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one System Requirements Review that was actually held, including whether the system of interest's functional and performance requirements, and the planned technical work needed to satisfy them, are credible enough to proceed.
 - **Intended readers:** The review chair, reviewers, requirements authors, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed requirements are responsive to the project's needs and parent requirements, reflect the intended use, and are credible within the project scope, and what the review authority decided.
@@ -40,9 +41,14 @@ Account for every criterion in the supplied project criteria set and every autho
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as a System Requirements Review record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the requirements edition, and the authority before the criteria. Present entrance results before the requirements assessment. Present the disposition after the findings. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| System requirements review record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

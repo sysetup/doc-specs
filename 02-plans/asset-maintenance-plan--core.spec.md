@@ -3,12 +3,14 @@ title: "System, product, or asset maintenance plan specification"
 description: >-
   Defines the authoring contract for maintenance plans organizing upkeep of identified systems, products, or physical and infrastructure assets over their useful life. Covers asset scope and maintenance basis, selected preventive or corrective maintenance strategies, task programs, triggers, logistics and spares support, work initiation and safety controls, post-maintenance assessment, return-to-service criteria, performance review, and end-of-life coordination while excluding software modification campaigns.
 topics:
+  - "planning"
+  - "operations"
+  - "networking-and-infrastructure"
   - "asset-maintenance"
   - "maintenance-planning"
   - "return-to-service"
   - "preventive-maintenance"
   - "logistics-support"
-  - "work-controls"
 use_when:
   - "An owner needs to plan maintenance strategies, triggers, spares, and return-to-service criteria for physical, infrastructure, or system assets."
   - "A planner is defining work controls and assessment gates before recurring servicing or repair begins."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ASSET-MAINTENANCE-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan upkeep of identified systems, products, or assets through selected maintenance strategies, triggers, resources, work controls, and return-to-service criteria.
 - **Intended readers:** Asset owners, maintainers, operators, engineering and safety roles, suppliers, stores or logistics teams, and return-to-service decision makers.
 - **Decision or action supported:** Decide when and how maintenance is initiated, resourced, controlled, assessed, and escalated over the asset's useful life.
@@ -40,9 +41,14 @@ For an unknown interval, asset state, hazard, support right, return-to-service c
 ## Finished-document contract
 
 - **Title:** Identify the maintained system, product, asset, or asset class and name its maintenance plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Asset identity and plan scope belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Asset identity and plan scope belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish asset scope and obligations before strategy and tasks; give work controls before return-to-service and lifecycle review. Exact heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| System, product, or asset maintenance plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

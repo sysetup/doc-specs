@@ -3,6 +3,8 @@ title: "Research participant information specification"
 description: >-
   Defines the authoring contract for advance participant-facing notices explaining a planned research study, its activities, duration, recording choices, risks, benefits, voluntary participation and stopping rights, data collection, sharing, retention, deletion, reachable contacts, and withdrawal limits to prospective participants. Requires plain-language presentation, explicit notice edition binding, checked accessible equivalents where needed, and audience-appropriate retrieval and understanding assessment while keeping information delivery strictly distinct from consent evidence.
 topics:
+  - "specifications"
+  - "product-and-discovery"
   - "participant-information"
   - "research-ethics"
   - "informed-participation"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `RESEARCH-PARTICIPANT-INFORMATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Explain a planned study and its participation and data arrangements to prospective participants.
 - **Intended readers:** Prospective research participants and any representatives established for the study.
 - **Decision or action supported:** Decide whether to participate and how to ask questions, decline, or exercise established withdrawal options.
@@ -40,7 +41,7 @@ Expose missing activity, contact, recording, data-use, retention, withdrawal, ac
 ## Finished-document contract
 
 - **Title:** Name the study and identify the document as information for prospective research participants.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, edition, and readiness belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, edition, and readiness belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Explain study identity and activities before participation choices; put data and withdrawal information before contacts and edition applicability. Heading wording may vary.
 - **Presentation:** Use short participant-facing paragraphs, meaningful headings, and concise lists; combine roles where choices remain easy to find. Keep internal assessment details in their actual evidence record, with only the edition's use limits in the notice.

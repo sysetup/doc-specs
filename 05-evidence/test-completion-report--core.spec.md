@@ -3,12 +3,14 @@ title: "Test completion report specification"
 description: >-
   Defines the authoring contract for test completion reports summarizing one ended test campaign or phase—including campaigns stopped early with unmet exit criteria. Covers campaign closure and controlling source baseline, adopted completion criteria, citations to supporting execution runs, reconciled result counts, actual coverage achieved, deviations and retests, anomaly summaries, per-criterion completion assessments, residual risks and limitations, archive references, completion-review disposition, and recommendations for next testing.
 topics:
+  - "evidence"
+  - "testing"
+  - "verification-and-validation"
   - "test-completion-report"
   - "test-campaign-summary"
   - "exit-criteria-assessment"
   - "test-coverage"
   - "anomaly-reconciliation"
-  - "testing-evidence"
 use_when:
   - "A bounded test campaign or phase has ended and requires a reconciled summary against adopted exit criteria."
   - "A test lead is aggregating run outcomes, anomalies, coverage gaps, residual risks, and recommendations for stakeholders."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-COMPLETION-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Summarize one test campaign or phase that has ended: the scope actually covered, the reconciled results, anomalies, coverage, limitations, and what remains unresolved.
 - **Intended readers:** The test lead, the people who adopted the completion criteria, and anyone who must decide what testing, if any, happens next.
 - **Decision or action supported:** Judge the ended campaign against its completion criteria, see which criteria remain incomplete, and identify the further testing supported by the evidence.
@@ -40,9 +41,14 @@ The campaign must have ended. If a criterion, count, run, tested configuration, 
 ## Finished-document contract
 
 - **Title:** Name the test campaign or phase and identify the document as its test completion report.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, results, and the recommendation belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, results, and the recommendation belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the ended campaign and its sources before the results. State unresolved items before the recommendation. Place archive and disposition last. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test completion report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

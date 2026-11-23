@@ -3,6 +3,8 @@ title: "Contracted engineering work agreement specification"
 description: >-
   Defines the authoring contract for structured engineering work agreements controlling the parties, decision state, revisions, scoped work commitments, deliverables, mutual responsibilities, receiving and acceptance criteria, support obligations, commercial and intellectual-property rights terms, change, suspension, and termination provisions, and controlling execution or amendment sources. Distinguishes proposed drafts from executed commitments while excluding offers alone, internal execution plans, invented signatures, and legal-validity certification.
 topics:
+  - "control-records"
+  - "commercial-and-supplier"
   - "contracted-work-agreement"
   - "engineering-contract"
   - "deliverable-commitments"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CONTRACTED-WORK-AGREEMENT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Control the terms, parties, revisions, and decision state of contracted study, development, or maintenance commitments.
 - **Intended readers:** Authorized client and supplier representatives, contractual and legal reviewers, project leads, and receiving maintainers.
 - **Decision or action supported:** Determine which work, commercial terms, receiving criteria, and change rights are proposed or actually agreed.
@@ -40,9 +41,15 @@ Expose unresolved parties, authority, controlling revision, scope, price, rights
 ## Finished-document contract
 
 - **Title:** Identify the parties and work and name the document as its contracted engineering work agreement.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required on standalone GFM documents; omitted on signed non-Markdown native legal originals managed outside Markdown. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), excluding internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values, followed by the H1 title. Parties, agreement revision, decision state, controlling execution provenance, and terms belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify parties and authority before commitments; put deliverables and receiving criteria before commercial terms; place rights, change, ending, and execution state last. Heading wording may vary.
+- **Presentation:** Use concise prose and structured tables for deliverables, receiving criteria, commercial terms, and amendment rules sized to the engagement. Required roles may share sections while keeping proposed versus executed states and controlling-source precedence unambiguous.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Structured agreement document (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one H1 naming the parties, work, and agreement. Parties, revision, execution state, and controlling-source precedence remain body content. | Use GFM prose and commitment tables for drafting, review, or companion control views. Identify whether the GFM text is a draft, controlling executed text under an established mechanism, or a companion view; source amendments require reassessment. |
+| Signed native agreement (native) | A signed external legal instrument (such as PDF or paper original) owns its native title, pagination, and signature blocks without injected YAML frontmatter. The GFM control view references its exact revision and locator rather than duplicating signatures. | The controlling executed native instrument governs binding legal terms and precedence under its declared execution mechanism. A GFM companion view cannot silently alter agreed obligations or fabricate execution. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

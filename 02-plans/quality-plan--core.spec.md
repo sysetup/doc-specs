@@ -3,8 +3,9 @@ title: "Project or product quality plan specification"
 description: >-
   Defines the authoring contract for project or product quality plans establishing specific quality objectives, assurance activities, responsibilities, resources, realization and information controls, supplier quality oversight, quality measures, and planned nonconformity handling against an established quality basis. Guides teams on what quality checks must occur, which evidence reviewers will examine, and how deficient outputs are contained and dispositioned before delivery or continued use.
 topics:
-  - "quality-plan"
+  - "planning"
   - "quality-assurance"
+  - "quality-plan"
   - "quality-objectives"
   - "nonconformity-control"
   - "quality-measures"
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `QUALITY-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan project- or product-specific quality objectives, assurance work, resources, measures, and nonconformity decisions against an established quality basis.
 - **Intended readers:** Project and product leads, quality and assurance roles, engineers, suppliers, operations or service owners, and release or acceptance decision makers.
 - **Decision or action supported:** Decide what quality work must be performed, what evidence will be reviewed, and how a deficient output is contained and dispositioned before delivery or continued use.
@@ -40,9 +40,14 @@ State an unknown requirement, target, criterion, resource, or authority with its
 ## Finished-document contract
 
 - **Title:** Identify the project, product, or service and name its quality plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Quality scope and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Quality scope and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish quality basis and objectives before responsibilities and controls; place assessment before nonconformity and improvement routes. Exact headings may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Project or product quality plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,6 +3,8 @@ title: "Verification method register specification"
 description: >-
   Defines the authoring contract for verification method registers maintaining a shared, controlled index of reusable or proposed technical conformance assessment methods and variants across a project or item scope. Covers method-control rules, method categories, applicability and verification levels, capability limits and prerequisites, decision state and approval authority, links to planned procedures or verification events, and open methods awaiting decision while excluding step-by-step execution scripts and per-requirement result rows.
 topics:
+  - "control-records"
+  - "verification-and-validation"
   - "verification-methods"
   - "method-register"
   - "assessment-capabilities"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VERIFICATION-METHOD-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Control the project methods available or proposed for checking technical requirements, including their applicability, capability limits, decision state, and links to actual planned activities.
 - **Intended readers:** Verification planners, method owners, requirement owners, performers, and reviewers choosing or maintaining an assessment approach.
 - **Decision or action supported:** Select an adequate method for an obligation and level, identify the authority and conditions for its use, and find the procedures or events that apply it.
@@ -40,9 +41,14 @@ If method capability, applicability, level, owner, or approval is unknown, recor
 ## Finished-document contract
 
 - **Title:** Identify the project or item scope and name the document as its verification method register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Method authority and applicability belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Method authority and applicability belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define the project scope and method-state rules before the entries; place unresolved choices and maintenance information after them. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Verification method register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

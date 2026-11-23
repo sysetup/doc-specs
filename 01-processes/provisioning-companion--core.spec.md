@@ -3,12 +3,14 @@ title: "Provisioning governance companion specification"
 description: >-
   Defines the authoring contract for human-readable governance companions paired with authoritative infrastructure-as-code or automated provisioning codebases without duplicating executable desired state. Covers source binding, desired-state boundaries, target selectors, deployment authorization, state and secret protection, controlled provisioning stages, outcome verification, failure recovery, drift disposition, deprovisioning controls, and known check limitations. Ensures operators, maintainers, and reviewers govern automated provisioning safely while keeping versioned code authoritative.
 topics:
+  - "processes"
+  - "operations"
+  - "networking-and-infrastructure"
   - "infrastructure-provisioning"
   - "governance-companion"
   - "infrastructure-as-code"
   - "deployment-gates"
   - "drift-control"
-  - "deprovisioning"
 use_when:
   - "A team manages infrastructure with versioned provisioning code and needs a human-readable governance companion for targets, gates, and drift."
   - "An author is documenting deployment authorization, secret boundaries, verification checks, and teardown rules around provisioning artifacts."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PROVISIONING-COMPANION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the governance and operational controls around an authoritative provisioning codebase or machine artifact, without restating its executable desired state.
 - **Intended readers:** Provisioning maintainers, deployment operators, reviewers, security and change authorities, and people responsible for recovery or deprovisioning.
 - **Decision or action supported:** A reader can identify the authoritative source and permitted targets, assess readiness and approvals, follow controlled provisioning stages, verify intended outcomes, and route drift or failure.
@@ -40,9 +41,14 @@ For unknown or not-established facts, record the gap, effect, resolving action, 
 ## Finished-document contract
 
 - **Title:** Name the provisioning system or resource scope and identify the document as its governance companion.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Source and target binding belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Source and target binding belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the authoritative source and permitted targets before readiness and stages; put failure, drift, and deprovisioning after the deployment and verification paths. Heading wording may vary.
+- **Presentation:** Use ordered steps, concise checklists, or compact tables sized to the recurring task or control scope. Required roles may share sections while keeping prerequisites, hold points, tolerances, and required evidence records directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Provisioning governance companion (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

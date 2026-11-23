@@ -3,12 +3,14 @@ title: "Interface requirements document specification"
 description: >-
   Defines the authoring contract for interface requirements documents stating assessable interaction obligations, limiting conditions, side responsibilities, numerical conventions, and conformity assessment bases across identified boundaries between system elements, external systems, people, or organizations. Covers decision roles, project origins, requirement content states, coverage, open interface issues, and change rules while reserving concrete realization parameters strictly for constraints imposed by established project decisions.
 topics:
+  - "specifications"
+  - "requirements-engineering"
+  - "architecture-and-design"
   - "interface-requirements"
   - "boundary-obligations"
   - "external-interfaces"
   - "side-responsibility"
   - "conformance-basis"
-  - "requirements-engineering"
 use_when:
   - "Internal or external system boundaries need an authoritative statement of required interactions, limits, and responsibilities before realization."
   - "An engineer is documenting testable interface obligations, numerical conventions, and open boundary issues across participating sides."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `INTERFACE-REQUIREMENTS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State assessable obligations and limiting conditions at identified interfaces between system elements, external systems, people, or organizations.
 - **Intended readers:** Owners of both sides of each interface, systems and interface engineers, integrators, verification planners, and authorities that control interface requirements.
 - **Decision or action supported:** Each party can determine what it must provide or tolerate at the boundary, under which conditions, and what a later conformity check would have to observe.
@@ -40,9 +41,14 @@ If a boundary, responsible side, project origin or deciding role, quantitative l
 ## Finished-document contract
 
 - **Title:** Identify the interface or bounded group of interfaces and the document as its interface requirements document; include edition or scope where needed to distinguish it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Interface authority, precedence, and requirement state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Interface authority, precedence, and requirement state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope, decision roles, and project basis first; identify each boundary and responsibility before its requirements; place coverage, unresolved decisions, and change information after the obligations. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Interface requirements document (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

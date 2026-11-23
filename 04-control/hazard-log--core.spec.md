@@ -3,6 +3,8 @@ title: "Hazard log specification"
 description: >-
   Defines the authoring contract for safety hazard logs maintaining stable lifecycle identities for conditions capable of causing harm in a stated system configuration. Covers scope, safety assessment method, and disposition rules, individual hazard entries detailing condition basis, causes, mishap or harm, severity, likelihood or risk category, control disposition, verification disposition, residual exposure, entry state, explicit safety acceptance authority, accountability, links to related records, and review points.
 topics:
+  - "control-records"
+  - "risk-and-safety"
   - "hazard-log"
   - "system-safety"
   - "mishap-prevention"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `HAZARD-LOG@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a stable identity for each system hazard across development and operation, including its mishap, controls, verification status, residual exposure, and disposition.
 - **Intended readers:** Safety analysts, control owners, people assessing verification, and the authority that reviews closure or residual exposure.
 - **Decision or action supported:** Readers can see which hazards are open, which controls are credited, which verification is still planned or missing, and which residual exposure has not been accepted.
@@ -40,9 +41,14 @@ If the project safety need or requirement, method, condition, severity, owner, c
 ## Finished-document contract
 
 - **Title:** Identify the system or bounded configuration and the document as its hazard log.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, hazard state, and safety decisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, hazard state, and safety decisions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope, method, and disposition rules before the entries. Present open exposure and review with or after the entries. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Hazard log (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

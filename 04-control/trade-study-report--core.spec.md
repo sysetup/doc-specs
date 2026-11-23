@@ -3,12 +3,14 @@ title: "Trade study report specification"
 description: >-
   Defines the authoring contract for trade study reports systematically comparing credible alternatives for one bounded engineering or architectural question against mandatory pass/fail gates and explicit weighted or unweighted evaluation criteria. Covers decision question and constraints, declared method and measures, inputs, compared alternatives, observed or modeled results, uncertainty and sensitivity analysis, risk comparison, selection rule, a clearly labeled proposed recommendation, and separate citation to any actual authorized decision.
 topics:
+  - "control-records"
+  - "architecture-and-design"
+  - "systems-engineering"
   - "trade-study"
   - "alternatives-analysis"
   - "decision-criteria"
   - "sensitivity-analysis"
   - "selection-gates"
-  - "engineering-tradeoffs"
 use_when:
   - "An engineering choice requires structured comparison of credible alternatives against mandatory gates, explicit criteria, uncertainty, and risk."
   - "An analyst is performing sensitivity checks to verify whether a proposed recommendation stays robust before presenting to decision makers."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TRADE-STUDY-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Compare credible alternatives against mandatory gates and explicit criteria, and record the assumptions, evidence, sensitivity, risks, and recommendation or decision handoff.
 - **Intended readers:** The analyst, the decision authority, and later readers who need to see whether the comparison can support a choice.
 - **Decision or action supported:** Judge which alternatives remain viable and whether the stated recommendation is robust enough to take to the decision authority.
@@ -40,9 +41,14 @@ When a fact is unknown or not established, keep it unknown, state its consequenc
 ## Finished-document contract
 
 - **Title:** Name the decision question and identify the document as the trade study for that question.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The subject, criteria, results, and recommendation belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The subject, criteria, results, and recommendation belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the question and the gates before the measures. State the measures and method before the results. State screened and compared alternatives before the recommendation. Place the selection rule with the recommendation. Place the decision handoff after the recommendation. Heading wording may vary.
+- **Presentation:** Use concise executive summaries paired with compact metric, comparison, or scope tables sized to the reporting period or decision question. Required roles may share sections while keeping observed facts, forecasts or proposals, coverage limits, and pending decisions clearly separated.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Trade study report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

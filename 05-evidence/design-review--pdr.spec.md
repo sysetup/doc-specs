@@ -3,12 +3,14 @@ title: "Preliminary design review record specification"
 description: >-
   Defines the authoring contract for Preliminary Design Review records preserving one held lifecycle gate assessing whether a preliminary design satisfies parent requirements within project risk and constraints and provides an adequate basis to proceed into detailed design. Covers review identity and authority, preliminary-design and requirement editions, adopted criteria, entrance evidence, design-basis assessments, findings, assigned actions, actual disposition, conditions, and the boundary of approval effects.
 topics:
+  - "evidence"
+  - "systems-engineering"
+  - "architecture-and-design"
   - "preliminary-design-review"
-  - "PDR"
+  - "pdr"
   - "preliminary-design"
   - "detailed-design-readiness"
   - "lifecycle-gate"
-  - "systems-engineering"
 use_when:
   - "A Preliminary Design Review has been held and requires a record of design-basis assessment, entrance results, findings, and disposition."
   - "A review chair is binding PDR conditions, actions, and proceed decisions to exact preliminary-design and requirement editions."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@pdr`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one Preliminary Design Review that was actually held, including whether the board judges the preliminary design consistent with the system of interest requirements at preliminary-design maturity, with the risk and constraints the project applies, and whether that design is an adequate basis for detailed design.
 - **Intended readers:** The review chair, reviewers, design leads, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed preliminary design is a sufficient basis to proceed into detailed design, under the requirements, risk, and constraints the review applied, and what the review authority decided.
@@ -40,9 +41,14 @@ State each established entrance and success criterion explicitly, including the 
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as a Preliminary Design Review record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the preliminary-design edition, and the authority before the criteria. Present entrance results before the design assessment. Present the disposition after the findings. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Preliminary design review record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

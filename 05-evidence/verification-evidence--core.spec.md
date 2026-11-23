@@ -3,6 +3,8 @@ title: "Verification evidence record specification"
 description: >-
   Defines the authoring contract for verification evidence records preserving actual observations showing whether identified technical requirements or specifications were satisfied at a stated assessed configuration. Covers package conformance questions, configuration baselines, independence and retention rules, per-item technical subjects, methods actually used, artifact locators and cryptographic digests, execution identities, evidence states keeping planned work distinct from executed results, criteria comparisons, reviews, acceptance citations, demonstrated coverage, and limitations.
 topics:
+  - "evidence"
+  - "verification-and-validation"
   - "verification-evidence"
   - "technical-conformance"
   - "assessed-configuration"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VERIFICATION-EVIDENCE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record actual observations showing whether identified technical requirements or specifications were met at a stated configuration.
 - **Intended readers:** Verification leads, requirement owners, reviewers, and anyone who later relies on a conformance result.
 - **Decision or action supported:** See which conformance subjects were observed, under which configuration and method, what the comparison showed, and which facets remain undemonstrated.
@@ -40,9 +41,14 @@ If a subject, configuration, criterion, observation, digest, or time is unknown,
 ## Finished-document contract
 
 - **Title:** Name the item or requirement set and identify the document as a verification evidence record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Subjects, configuration, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Subjects, configuration, and results belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the package boundary before the evidence items. State sufficiency and limitations after the items. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Verification evidence record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

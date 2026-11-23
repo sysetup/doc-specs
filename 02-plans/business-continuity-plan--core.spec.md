@@ -3,12 +3,14 @@ title: "Business continuity plan specification"
 description: >-
   Defines the authoring contract for business continuity plans specifying how prioritized business or service capabilities continue or recover across severe disruptions involving people, sites, suppliers, information, or manual workarounds. Covers continuity scope and ownership, prioritized activities, recovery objectives, disruption assumptions, activation and communication authority, continuity strategies, business restoration and return-to-normal decisions, and exercise, evaluation, and plan upkeep schedules so authorities decide activation and stand-down safely.
 topics:
+  - "planning"
+  - "incident-and-continuity"
+  - "operations"
   - "business-continuity"
   - "disruption-recovery"
   - "recovery-objectives"
   - "continuity-strategies"
   - "return-to-normal"
-  - "continuity-exercises"
 use_when:
   - "An organization needs to prioritize critical business or service capabilities and plan workarounds across people, sites, and suppliers."
   - "A continuity planner is defining activation authority, recovery objectives, communication routes, and return-to-normal criteria."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `BUSINESS-CONTINUITY-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan how prioritized business or service capabilities continue or are restored through disruption, including impact, dependencies, authority, strategies, return, and exercise.
 - **Intended readers:** Continuity owners, business and service owners, recovery teams, suppliers, communications roles, and the authorities for activation and return to normal operation.
 - **Decision or action supported:** Decide which capabilities take priority, how they will be sustained, who may activate and stand down continuity response, and when normal operation may resume.
@@ -40,9 +41,14 @@ If a priority, dependency, objective, trigger, strategy, or authority is unknown
 ## Finished-document contract
 
 - **Title:** Identify the organization, mission, or service set and name its business continuity plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, authority, and priorities belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, authority, and priorities belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish priorities and disruption assumptions before activation and strategies; describe restoration and return before exercise and maintenance. Exact heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Business continuity plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

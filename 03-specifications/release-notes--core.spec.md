@@ -3,12 +3,14 @@ title: "Release notes specification"
 description: >-
   Defines the authoring contract for recipient-facing release notes communicating the material changes, required user or operator actions, compatibility effects, known limitations, and unresolved items associated with one identified release. Connects recipient-visible facts to an underlying release record when present while keeping internal deployment execution logs, multi-release cumulative histories, internal engineering details, and unverified release or upgrade claims out of the recipient notice.
 topics:
+  - "specifications"
+  - "change-and-release"
+  - "product-and-discovery"
   - "release-notes"
   - "release-communication"
   - "compatibility-effects"
   - "recipient-actions"
   - "known-limits"
-  - "change-notice"
 use_when:
   - "A specific product or service release needs a concise notice informing recipients of changes, upgrade actions, compatibility, and limits."
   - "A release coordinator is authoring user-facing upgrade instructions and breaking-change warnings for one release."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `RELEASE-NOTES@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State the changes in one release that a recipient must know.
 - **Intended readers:** Recipients of that release, and the people who support them, who need its changes and their recipient effects.
 - **Decision or action supported:** A recipient can tell what changed, what action the change requires, and which limits still apply.
@@ -40,16 +41,21 @@ If a change, its recipient effect, or the release identity is unknown, say so. D
 ## Finished-document contract
 
 - **Title:** Identify the product or system and the release, and name the document as its release notes.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Release identity belongs in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Release identity belongs in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the release before the changes. State recipient actions and known limits with or after the changes. Heading wording may vary.
+- **Presentation:** Use concise recipient-facing prose, task lists, or compact reference tables proportional to the product or release scope. Required roles may share sections while keeping supported versions, prerequisites, expected outcomes, routing paths, and known limits immediately scannable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Release notes (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Identity and scope | Required | Identify the product or system, the one release these notes cover, the recipients, and any actual release-event record cited. Include the client or receiving-party element from this contract when applicable. |
 | Changes the recipient must know | Required | For each change the recipient must know, state what changed and why it matters to that recipient. If no such change is established, say so rather than filling the section with an unowned commit list. |
 | Actions, compatibility, and known limits | Required | State the action a recipient must take, any compatibility or upgrade effect, and any known limit that changes how the release should be taken. An unknown effect stays unresolved. |
-| Unresolved items | Conditional: a change or its recipient effect is not established | State the gap, its consequence for the recipient, and the next resolving action. Omit this section only when no such gap exists. |
+| Unresolved items | Conditional when a change or its recipient effect is not established | State the gap, its consequence for the recipient, and the next resolving action. Omit this section only when no such gap exists. |
 
 ## Content definitions and forms
 

@@ -3,12 +3,14 @@ title: "Code review record specification"
 description: >-
   Defines the authoring contract for code review records preserving one actual inspection of an immutable source revision, including reviewers, review mechanism, focus areas, applied criteria, inspected automation outputs, classified findings with severities and dispositions, explicit review outcomes including inconclusive status when review cannot finish, re-review conditions, outcome scope limits, and retained evidence. Ensures planned checks are never reported as performed and verdicts stay bound to the reviewed snapshot.
 topics:
+  - "evidence"
+  - "software-engineering"
+  - "quality-assurance"
   - "code-review-record"
   - "source-inspection"
   - "immutable-snapshot"
   - "review-findings"
   - "re-review-criteria"
-  - "software-assurance"
 use_when:
   - "A code review has occurred and requires a durable record of the reviewed immutable snapshot, applied criteria, findings, and dispositions."
   - "A reviewer is recording inspected automated checks, finding resolutions, re-review triggers, and outcome limits."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CODE-REVIEW-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual review of a source revision, including the criteria applied, the findings and their dispositions, the re-review state, and the review evidence retained.
 - **Intended readers:** The reviewers, the author of the change, and anyone who later needs to know which snapshot was reviewed and what remained open.
 - **Decision or action supported:** See whether the identified snapshot was reviewed, what was found, how each finding was disposed, and whether the recorded project review conditions require another review.
@@ -40,9 +41,14 @@ If the snapshot, the reviewers, or the focus cannot be established, state that g
 ## Finished-document contract
 
 - **Title:** Name the component and identify the document as a code review record of the reviewed snapshot.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The snapshot, findings, and outcome belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The snapshot, findings, and outcome belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the snapshot and the reviewers before the criteria. Present findings before the outcome. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Code review record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

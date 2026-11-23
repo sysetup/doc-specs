@@ -3,12 +3,14 @@ title: "System requirements specification"
 description: >-
   Defines the authoring contract for system requirements specifications stating individually assessable whole-system technical obligations across functional behavior, performance, external interactions, quality attributes, lifecycle support, and imposed constraints. Covers system boundaries and operating context, origins and control authority, requirement content states, assessment and verification conditions, priority, rationale, allocation and interface relationships, deferred or conflicting concerns, and change control before allocating lower-level element obligations.
 topics:
+  - "specifications"
+  - "requirements-engineering"
+  - "systems-engineering"
   - "system-requirements"
   - "technical-obligations"
   - "system-performance"
   - "verification-basis"
   - "requirement-allocation"
-  - "systems-engineering"
 use_when:
   - "Stakeholder expectations or project decisions must be translated into controlled, assessable whole-system technical obligations."
   - "A systems engineer is defining system behavior, performance, external interactions, and verification conditions prior to subsystem allocation."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SYSTEM-REQUIREMENTS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State assessable technical obligations of a defined system of interest, including its behavior, performance, external interactions, qualities, lifecycle support, and imposed constraints.
 - **Intended readers:** System owners, architects, element and interface owners, safety and security specialists, verification planners, and authorities that control the system requirements.
 - **Decision or action supported:** Readers can determine what the whole system must satisfy, under which conditions, why each obligation exists, and how conformity will be assessed before allocating lower-level work.
@@ -40,9 +41,14 @@ For an unknown source, threshold, mode, interface boundary, constraint, or decis
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as its system requirements specification; add edition or configuration where needed to disambiguate it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). System scope, content state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. System scope, content state, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish system boundary and derivation context before the authoritative requirements; put coverage, assessment, and control information after them. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| System requirements specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

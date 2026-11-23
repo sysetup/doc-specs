@@ -3,9 +3,10 @@ title: "Quality policy specification"
 description: >-
   Defines the authoring contract for mandatory quality policies governing product or service quality expectations, impartial assurance independence, and control of nonconforming outputs across a defined scope. Specifies required coverage of issuing authority, policy ownership, applicability and quality basis, issuance state, mandatory quality directives, assurance independence and disposition decision rules, nonconforming-output containment, exception governance, and policy review. Establishes clear quality accountability for builders, assessors, and release authorities.
 topics:
+  - "governance"
+  - "quality-assurance"
   - "quality-policy"
   - "quality-governance"
-  - "quality-assurance"
   - "assurance-independence"
   - "nonconforming-outputs"
   - "disposition-authority"
@@ -24,11 +25,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POLICY@quality`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory direction for product or service quality, impartial assurance, and the control of nonconforming outputs.
 - **Intended readers:** People who create, assess, release, deliver, or oversee the covered products or services, and the policy's issuing authority.
 - **Decision or action supported:** Readers can determine the quality obligations that apply, who may make assurance and disposition decisions, and how a suspected nonconforming output is controlled and escalated.
 - **Use when:** An issuing authority needs organization or project-wide quality obligations for a defined product or service scope.
+- **Scope boundaries:** Establish mandatory quality direction for product or service quality, impartial assurance, and nonconforming output control; exclude project quality plans, test procedures, and audit evidence records.
 
 ## Authoring inputs and unresolved facts
 
@@ -41,14 +42,19 @@ Normally all three named quality subjects are covered. A subject may be excluded
 ## Finished-document contract
 
 - **Title:** Identify the covered organization, project, product, or service as needed and name the document as a quality policy.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Authority, applicability, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish authority and applicability before quality obligations, then decision rights and exception rules, then communication and review. Headings may use local wording if these roles remain clear.
+- **Presentation:** Scale structure to organizational scope using concise prose, numbered directives, and focused tables where authority or exceptions benefit from comparison. Required roles may share sections while keeping issuing authority, applicability, directives, and exception rules independently retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Quality policy (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Authority, purpose, and applicability | Required | Identify the real issuing authority or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), unambiguous edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, covered outputs and people, organizational and lifecycle boundaries, material exclusions, and effective date only when decided. State the desired quality outcome and the established project basis for the obligations. |
-| Mandatory quality direction | Required; subject coverage follows the approved exclusions defined above | State separately identifiable obligations for **product or service quality**, **assurance independence**, and **nonconforming outputs** wherever each subject remains in scope. For those subjects, respectively govern how supplied project requirements and quality objectives are established or used before conformance or release decisions; what impartiality or independence is required for consequential assessment and approval; and how a suspected or confirmed nonconforming output is identified, controlled against unintended use or delivery, evaluated, dispositioned, and escalated. When nonconforming outputs are covered, require treatment after delivery when the scope can encounter it. |
+| Mandatory quality direction | Required | Subject coverage follows the approved whole-subject exclusions defined above. State separately identifiable obligations for **product or service quality**, **assurance independence**, and **nonconforming outputs** wherever each subject remains in scope. For those subjects, respectively govern how supplied project requirements and quality objectives are established or used before conformance or release decisions; what impartiality or independence is required for consequential assessment and approval; and how a suspected or confirmed nonconforming output is identified, controlled against unintended use or delivery, evaluated, dispositioned, and escalated. When nonconforming outputs are covered, require treatment after delivery when the scope can encounter it. |
 | Quality authority and decisions | Required | For the subjects in scope, identify who applies quality obligations, who assesses or provides assurance, who may authorize release or disposition, and how conflicts of interest or disagreements are escalated. Where assessment, concession, or release decisions are covered, define how an assurance recommendation informs the decision, who may make it, and what evidence is required to determine whether the output meets its stated requirements and quality objectives. |
 | Exceptions and noncompliance | Required | State whether policy exceptions are permitted. If permitted, define decision authority, request basis and quality consequence, scope and duration or review condition, how the decision is recorded, and treatment while pending. If prohibited, state the conflict route. Explain how suspected failure to follow the policy is reported and addressed; a product concession MUST NOT silently waive a policy obligation or established project requirement. |
 | Communication, oversight, and policy review | Required | State how obligations and changes reach affected roles, what assurance or nonconformity information within scope the responsible authority receives, how material trends or failures are escalated, and when and by whom the policy is reviewed and changed. |

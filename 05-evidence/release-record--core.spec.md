@@ -3,12 +3,14 @@ title: "Release record specification"
 description: >-
   Defines the authoring contract for release records preserving one begun or completed release attempt or distribution event—including interrupted, rolled-back, or unauthorized attempts. Covers release event identity and scope, exact targeted artifacts and baseline references, release authorization and eligibility evidence, actual distribution or deployment actions and observed checks per channel, resulting availability state, exceptions or restrictions, and recovery or retention details.
 topics:
+  - "evidence"
+  - "change-and-release"
+  - "configuration-management"
   - "release-record"
   - "release-evidence"
   - "artifact-distribution"
   - "release-authorization"
   - "deployment-outcome"
-  - "configuration-traceability"
 use_when:
   - "A software, system, or documentation release attempt has started or completed and requires an accountable factual record."
   - "A release manager is documenting exact released artifacts, baseline links, authorization evidence, channel outcomes, and restrictions."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `RELEASE-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual release attempt or event, including the exact configuration targeted and any part offered, authority, distribution or deployment actions, observed checks, exceptions, and resulting state.
 - **Intended readers:** Release and configuration managers, operators, support teams, recipients, and authorities who must determine what was made available and under what conditions.
 - **Decision or action supported:** Identify the target configuration and any bytes or items actually made available, establish what happened at each channel or recipient, and decide whether further delivery, recovery, notification, or investigation is needed.
@@ -40,9 +41,14 @@ If a version, recipient, event result, authority, or check is unknown, state wha
 ## Finished-document contract
 
 - **Title:** Identify the release or attempted release and call the document a release record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Release identity and state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Release identity and state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the event and exact configuration before reporting authority and checks; place the observed outcome after the actions. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Release record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

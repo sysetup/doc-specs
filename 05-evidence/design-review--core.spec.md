@@ -3,12 +3,14 @@ title: "Project-defined technical review record specification"
 description: >-
   Defines the authoring contract for records of held technical or lifecycle peer reviews conducted under criteria defined specifically by a project outside named formal milestones, code inspection, and assurance-baseline audits. Covers review identity and decision authority, examined subject revision by edition and locator, adopted criteria set, entrance and criterion assessments, findings, follow-up actions, explicit review disposition including conditional or undecided outcomes, and separation from independent formal approvals.
 topics:
+  - "evidence"
+  - "systems-engineering"
+  - "quality-assurance"
   - "technical-review"
   - "peer-review"
   - "review-criteria"
   - "review-disposition"
   - "lifecycle-review"
-  - "review-evidence"
 use_when:
   - "A project-defined technical, design, or lifecycle peer review has been held under custom review questions and criteria."
   - "A review chair is recording examined subject editions, criterion assessments, findings, follow-up actions, and board disposition."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one technical or lifecycle review that was actually held under criteria the project defined for that review, including the question decided, the evidence examined, the findings and actions, and the review authority's disposition.
 - **Intended readers:** The review chair, reviewers, technical authority, project leads, and anyone who later relies on what this review examined and decided.
 - **Decision or action supported:** Readers can tell whether the reviewed subject met the criteria this review adopted and what the review authority decided: proceed, proceed with conditions, repeat the review, stop, or leave the matter undecided.
@@ -40,9 +41,14 @@ If the review was not held, do not write this record. If it was held but the cri
 ## Finished-document contract
 
 - **Title:** Name the reviewed subject and identify the document as a project-defined technical or lifecycle review record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review and its authority before the criteria. Present entrance results before the technical assessment. Present the disposition after the findings. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Project-defined technical review record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

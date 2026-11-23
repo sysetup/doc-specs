@@ -3,12 +3,14 @@ title: "Transition and deployment plan specification"
 description: >-
   Defines the authoring contract for transition and deployment plans organizing controlled movement of a defined capability from a source or pre-service state into a receiving operating environment. Covers transition objectives, source and target states, decision authority, readiness criteria and dependencies, stakeholder communications, staged deployment or migration sequences, stop, recovery, and reversal routes, operational verification and acceptance interfaces, handover, stabilization, and closure at planning depth.
 topics:
+  - "planning"
+  - "change-and-release"
+  - "operations"
   - "transition-plan"
   - "deployment-planning"
   - "cutover-sequence"
   - "migration-readiness"
   - "rollback-planning"
-  - "operational-handover"
 use_when:
   - "A capability is entering live operations through deployment, migration, cutover, or service transfer and needs coordinated readiness planning."
   - "A transition lead is sequencing cutover stages, stop and reversal conditions, operational checks, and stabilization handover."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TRANSITION-PLAN@conditional`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan the controlled movement of a defined capability from a source or pre-service state into a receiving operating environment, including deployment, migration, handover, and stabilization.
 - **Intended readers:** Transition and release leads, operators, receiving service owners, change and security roles, data owners, support teams, affected stakeholder representatives, and decision authorities.
 - **Decision or action supported:** Determine whether the receiving environment and parties are ready, how cutover will be sequenced, how later outcomes will be checked, and what happens if transition cannot continue safely.
@@ -40,9 +41,14 @@ Identify unknown facts, unconfirmed availability, and unmade approvals with thei
 ## Finished-document contract
 
 - **Title:** Identify the capability and receiving environment or service, and name its transition or deployment plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Source/target states and decision rights are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Source/target states and decision rights are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the source/target boundary and readiness criteria before the cutover; place planned checks of the new operating state before handover and stabilization closure. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Transition and deployment plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

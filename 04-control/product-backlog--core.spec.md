@@ -3,12 +3,14 @@ title: "Ordered product backlog specification"
 description: >-
   Defines the authoring contract for ordered product backlogs maintaining an emergent, prioritized inventory of candidate product work and its refinement basis across standalone Markdown or native board surfaces. Covers product goal and control rules, immutable item identities, relative ordering and rationale, refinement readiness, mission-selected sizing dimensions, authoritative native work states preserved alongside optional versioned normalization mappings, dependencies, and clear separation among selection, supported completion, commitment, and acceptance.
 topics:
+  - "control-records"
+  - "product-and-discovery"
+  - "software-engineering"
   - "product-backlog"
   - "work-prioritization"
   - "backlog-refinement"
   - "native-work-states"
   - "sizing-dimensions"
-  - "product-delivery"
 use_when:
   - "A product team needs an ordered, emergent inventory of candidate work items with explicit refinement states, sizing, and dependencies."
   - "A product owner is documenting native board work states and optional normalized views without conflating selection with commitment."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PRODUCT-BACKLOG@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain an emergent, ordered inventory of possible product work and its refinement basis.
 - **Intended readers:** Product owners, developers, designers, stakeholders, and those coordinating product delivery.
 - **Decision or action supported:** Order and refine possible work against the product goal and select work without confusing it with approved requirements.
@@ -40,7 +41,7 @@ Expose unknown goal, value, order, native state, mapping, sizing, dependency, ow
 ## Finished-document contract
 
 - **Title:** Identify the product and name its ordered product backlog; a standalone document owns its H1, while a native board view follows the declared host title rule.
-- **Frontmatter:** Required on standalone GFM documents; omitted on native board views whose host manages metadata externally. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), complying with Rule 13 (no internal IDs, versions, hashes, paths, build metadata, or unresolved template delimiters), followed by the H1 title. A native board view follows the host title and metadata rules without injecting YAML frontmatter. Put product scope, as-of basis, and client context in the body, with host-owned facts referenced rather than copied as a second master. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0) and this type's projection policy.
+- **Frontmatter:** Required on standalone GFM documents; omitted on native board views whose host manages metadata externally. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), excluding internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values, followed by the H1 title. A native board view follows the host title and metadata rules without injecting YAML frontmatter. Put product scope, as-of basis, and client context in the body, with host-owned facts referenced rather than copied as a second master. Governing source: Collection Semantic-Discovery Frontmatter contract and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State product goal, controlling source, state and sizing rules before the ordered inventory; follow it with selection, completion, disposition, refinement gaps, and upkeep. Heading wording may vary.
 - **Presentation:** Use a compact control account and an ordered table, item blocks, or linked board view sized to the actual inventory. Required roles may share paragraphs or sections; native states, mapping limits, gaps, and source locators must remain retrievable without duplicate editable masters.

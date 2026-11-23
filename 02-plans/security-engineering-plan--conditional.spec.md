@@ -3,12 +3,14 @@ title: "Security engineering plan specification"
 description: >-
   Defines the authoring contract for security engineering plans coordinating technical security work across a project lifecycle from protection needs and threat or risk analysis through security requirements, secure design, verification and assurance strategies, vulnerability handling, operational handoff, and change control. Aligns developers, security engineers, operators, suppliers, and authorization authorities around established protection objectives, planned security assessments, risk-decision interfaces, and receiving-party security obligations.
 topics:
+  - "planning"
+  - "security"
+  - "systems-engineering"
   - "security-engineering"
   - "threat-analysis"
   - "secure-design"
   - "security-assurance"
   - "vulnerability-handling"
-  - "security-handoff"
 use_when:
   - "A project has an established technical security-engineering responsibility requiring coordinated threat analysis, design controls, and assessments."
   - "A security engineer is planning security requirements work, assurance activities, vulnerability routing, and operational security handoff."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SECURITY-ENGINEERING-PLAN@conditional`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan a project's technical security work from protection needs and threat or risk analysis through requirements, design, implementation, assessment, vulnerability handling, and operational handoff.
 - **Intended readers:** Security and system engineers, developers, operators, supplier and assurance roles, project decision makers, and any actual security authorization authority.
 - **Decision or action supported:** Coordinate security design and assessment against an established protection basis and assign work, evidence, and risk-decision interfaces through the project lifecycle.
@@ -40,9 +41,14 @@ Mark unavailable facts unknown and unmade choices not established, with effect, 
 ## Finished-document contract
 
 - **Title:** Identify the system or item and name its security engineering plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Security scope, obligations, and decision rights belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Security scope, obligations, and decision rights belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish protection context, project obligations, and criteria before design work; place planned assessment before operational handoff and change control. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Security engineering plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

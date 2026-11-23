@@ -3,12 +3,14 @@ title: "Technical debt register specification"
 description: >-
   Defines the authoring contract for technical debt registers tracking known, observed engineering compromises, their concrete carrying effects on maintainability or delivery, candidate treatment options, explicit disposition states, accountable owners, revisit triggers, and treatment verification evidence. Keeps documented compromises grounded in observed engineering costs while explicitly excluding uncertain future risks, active defect closure workflows, and unsupported financial valuations or developer productivity inferences.
 topics:
+  - "control-records"
+  - "software-engineering"
+  - "architecture-and-design"
   - "technical-debt"
   - "engineering-compromises"
   - "carrying-effects"
   - "debt-remediation"
   - "maintainability-control"
-  - "reassessment-triggers"
 use_when:
   - "Known engineering or architectural compromises create ongoing carrying costs that need transparent prioritization or deferred tracking."
   - "An architect or maintainer is comparing treatment options, assigning owners, and recording revisit triggers for technical debt."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-DEBT-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Track known engineering compromises, their carrying effects, treatment choices, and reassessment.
 - **Intended readers:** Architects, developers, maintainers, product owners, and engineering investment decision makers.
 - **Decision or action supported:** Prioritize or defer treatment of known maintainability compromises using sourced consequences and explicit decision state.
@@ -40,9 +41,14 @@ Expose unknown location, effect, cause, effort estimate, owner, or disposition w
 ## Finished-document contract
 
 - **Title:** Identify the engineering scope and name its technical debt register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State scope and evaluation rules before debt entries; follow consequences with treatment, disposition, and upkeep. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Technical debt register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,12 +3,14 @@ title: "Approval and acceptance decision record specification"
 description: >-
   Defines the authoring contract for authoritative records preserving one actual authorized decision—approval, acceptance, authorization, rejection, conditional decision, or withdrawal—bound to a specific subject and revision. Covers decision kind, decision maker and authority basis, criteria and evidence examined, explicit outcome, decision timestamp, attached conditions or effectivity limits, independence notes, and follow-through evidence while ensuring pending requests, recommendations, attendance, or delivery alone never masquerade as an actual decision.
 topics:
+  - "evidence"
+  - "quality-assurance"
+  - "governance"
   - "approval-record"
   - "acceptance-decision"
   - "decision-authority"
   - "effectivity-conditions"
   - "formal-signoff"
-  - "decision-evidence"
 use_when:
   - "An authorized person or governance body has made an approval, acceptance, authorization, rejection, or withdrawal decision requiring a durable record."
   - "An author is binding a formal decision outcome, authority basis, conditions, and effectivity limits to an exact subject revision."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `APPROVAL-ACCEPTANCE-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual authorized decision about a defined subject and revision, preserving the kind of decision, authority, basis, outcome, conditions, and effectivity.
 - **Intended readers:** The deciding authority, affected owner or recipient, configuration and release roles, and anyone who must rely on or challenge the decision.
 - **Decision or action supported:** Determine precisely what was approved, accepted, authorized, rejected, conditionally decided, or withdrawn and whether the decision applies to the present subject and time.
@@ -40,9 +41,14 @@ If the decision has not happened, do not write a finished decision record. If a 
 ## Finished-document contract
 
 - **Title:** Name the subject and decision kind, and identify the document as a decision record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The decision and its authority are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The decision and its authority are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the subject and authority before the assessed basis; state the decision after that basis, followed by effectivity and obligations. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Approval and acceptance decision record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

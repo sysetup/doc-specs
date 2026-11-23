@@ -3,6 +3,8 @@ title: "Technical and commercial proposal specification"
 description: >-
   Defines the authoring contract for bounded technical and commercial engineering proposals presenting an explicit offer to a prospective client or receiving party before an agreement creates commitments. Covers offer identity, revision, and decision state, scoped technical approach and offered deliverables, milestones and transparent estimate bases, itemized quotation and totals, proposed commercial terms and response mechanisms, and negotiation or supersession routes while excluding internal work plans, executed agreements, and invented legal terms.
 topics:
+  - "control-records"
+  - "commercial-and-supplier"
   - "commercial-proposal"
   - "engineering-offer"
   - "deliverable-scope"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-COMMERCIAL-PROPOSAL@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Present a bounded engineering offer with scope, deliverables, estimates, price, and proposed terms.
 - **Intended readers:** Prospective clients, technical and commercial leads, procurement reviewers, and authorized negotiators.
 - **Decision or action supported:** Assess or negotiate an engineering offer before an agreement establishes commitments.
@@ -40,9 +41,14 @@ Expose unresolved scope, authority, estimate, currency, tax treatment, validity,
 ## Finished-document contract
 
 - **Title:** Identify the offered work and name its technical and commercial proposal.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State offer identity and need before scope and approach; establish assumptions before milestones and quotation; place proposed conditions and response route last. Heading wording may vary.
+- **Presentation:** Use concise executive summaries paired with compact metric, comparison, or scope tables sized to the reporting period or decision question. Required roles may share sections while keeping observed facts, forecasts or proposals, coverage limits, and pending decisions clearly separated.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Technical and commercial proposal (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

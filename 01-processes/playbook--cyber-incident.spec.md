@@ -3,12 +3,14 @@ title: "Cybersecurity incident response playbook specification"
 description: >-
   Defines the authoring contract for branching cybersecurity incident response playbooks coordinating triage, declaration thresholds, evidence preservation, containment decisions, eradication, recovery gates, stakeholder notifications, and deactivation under real incident-response authority. Covers activation readiness, disruptive-action controls, communication routing, and post-response learning handoffs while explicitly excluding routine pre-exploitation vulnerability intake. Enables security and operations responders to select authorized actions dynamically as incident indicators and blast radius evolve.
 topics:
+  - "processes"
+  - "security"
+  - "incident-and-continuity"
   - "cybersecurity-incident"
   - "response-playbook"
   - "incident-triage"
   - "containment"
   - "eradication"
-  - "evidence-preservation"
 use_when:
   - "A security team needs a branching playbook for suspected or confirmed cybersecurity incidents requiring coordinated triage and containment."
   - "An author is defining incident declaration thresholds, evidence preservation duties, disruptive-action approvals, and recovery gates."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PLAYBOOK@cyber-incident`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Coordinate conditional response to a suspected or confirmed cybersecurity incident under the organization's actual incident-response authority.
 - **Intended readers:** Incident lead, security and operations responders, service owners, communications and legal roles when applicable, and receiving recovery teams.
 - **Decision or action supported:** Responders can triage a report, determine escalation and response authority, choose containment and recovery paths, protect evidence, and decide when to transition or close response work.
@@ -39,10 +40,15 @@ If facts are unknown or not established, state the gap, its operational conseque
 
 ## Finished-document contract
 
-- **Title:** Identify the covered incident scenario or incident class, such as “Cybersecurity incident playbook: \[scenario\].”
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Classification, scope, and authority rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Identify the covered incident scenario or incident class, such as "Cybersecurity incident playbook: <scenario>."
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Classification, scope, and authority rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put scope and activation before investigative or disruptive actions; put recovery and closure criteria after response branches. Heading wording may vary.
+- **Presentation:** Use crisp trigger criteria, decision tables, or branching checklists sized to the response scope so responders can act under pressure without wading through administrative boilerplate. Required roles may share sections while keeping triggers, authority limits, branches, and escalation visible.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Cybersecurity incident response playbook (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

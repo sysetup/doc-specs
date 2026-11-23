@@ -3,12 +3,14 @@ title: "Test anomaly reference specification"
 description: >-
   Defines the authoring contract for test anomaly references providing one controlled linking view across test anomalies within a declared test scope. Links each observed anomaly to its originating test execution record, any authoritative problem or defect record, resulting testing impact and constraints, disposition derived strictly from the cited problem revision, and linked retest or closure evidence so test leads track blocked testing and retest selections without creating a second defect master.
 topics:
+  - "control-records"
+  - "testing"
+  - "quality-assurance"
   - "test-anomaly-reference"
   - "anomaly-linking"
   - "test-impact"
   - "retest-tracking"
   - "derived-disposition"
-  - "test-control"
 use_when:
   - "A test effort needs one unified view linking observed test anomalies to runs, problem records, testing constraints, and retests."
   - "A test lead is tracking which anomalies block active testing or require retest while keeping dispositions anchored in problem masters."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-ANOMALY-REFERENCE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Provide a controlled linking view of the test anomalies in one stated test scope, including each anomaly's observation source, any authoritative problem record, test impact, derived disposition, and any retest or closure evidence.
 - **Intended readers:** The test lead and anyone who must see which runs, problem records, retests, and testing constraints belong together.
 - **Decision or action supported:** See which anomalies affect this test scope, which testing is blocked or selected for retest, and whether each linked disposition is authorized in its problem record.
@@ -40,9 +41,14 @@ If the scope was assessed and no anomaly belongs in it, say so. If a run, proble
 ## Finished-document contract
 
 - **Title:** Name the test scope and identify the document as its test anomaly reference.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, links, and derived disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, links, and derived disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the scope before the links. Keep each anomaly's links together. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test anomaly reference (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

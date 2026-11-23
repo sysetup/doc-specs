@@ -3,6 +3,8 @@ title: "Verification procedure specification"
 description: >-
   Defines the authoring contract for verification procedures specifying repeatable inspection, analysis, test, or demonstration methods and decision criteria to assess whether a bounded item conforms to identified technical requirements or specifications. Covers technical obligations and target configurations, explicit obligation-to-criterion mappings, tool, model, or measurement bases, preconditions and capability requirements, ordered assessment steps, and evidence, review, and disposition rules before execution.
 topics:
+  - "specifications"
+  - "verification-and-validation"
   - "verification-procedure"
   - "conformance-method"
   - "inspection-analysis-test"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VERIFICATION-PROCEDURE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable method and decision criteria for assessing whether a bounded item conforms to identified technical requirements or specifications.
 - **Intended readers:** Verification engineers and operators, requirement owners, technical reviewers, and people deciding how conformance evidence will be assessed.
 - **Decision or action supported:** Select and prepare an appropriate inspection, analysis, test, or demonstration; perform it repeatably; and determine what observations could support or limit a conformance conclusion.
@@ -40,9 +41,14 @@ If a requirement, configuration, criterion, method capability, sample basis, or 
 ## Finished-document contract
 
 - **Title:** Identify the bounded item or verification scope and name the document as its verification procedure; distinguish the method or procedure edition when results will cite it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Technical basis, configuration, and decision rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Technical basis, configuration, and decision rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State subject and method before criteria; place prerequisites before steps and evidence and disposition after the actions that produce them. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Verification procedure (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

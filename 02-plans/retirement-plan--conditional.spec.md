@@ -3,12 +3,14 @@ title: "Retirement and disposal plan specification"
 description: >-
   Defines the authoring contract for retirement and disposal plans organizing the controlled withdrawal, decommissioning, transfer, reuse, or disposal of an existing system, service, product, or asset. Covers retirement boundaries and decision authority, stakeholder dependencies and continuing obligations, data, record, and access disposition, staged withdrawal sequences and gates, asset and supplier closure, support and configuration closure, and verification criteria required before declaring retirement complete.
 topics:
+  - "planning"
+  - "systems-engineering"
+  - "change-and-release"
   - "retirement-plan"
   - "decommissioning"
   - "asset-disposal"
   - "data-disposition"
   - "access-revocation"
-  - "withdrawal-gates"
 use_when:
   - "An existing system, service, product, or asset is slated for decommissioning, transfer, reuse, disposal, or end-of-support withdrawal."
   - "A planner is coordinating data retention, access revocation, supplier contract closure, and dependent-service continuity during retirement."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `RETIREMENT-PLAN@conditional`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan the controlled withdrawal of a defined system, service, product, or asset from its current role, including dependent capability, data, access, support, records, and disposition.
 - **Intended readers:** System and service owners, operators, asset and configuration managers, data and records owners, security and safety roles, receiving parties, suppliers, and retirement decision makers.
 - **Decision or action supported:** Determine what may be withdrawn, under whose authority, in what order, with which retained obligations and proof needed for closure.
@@ -40,9 +41,14 @@ State an unknown inventory item, dependency, obligation, authority, or disposal 
 ## Finished-document contract
 
 - **Title:** Identify the system, service, product, or asset and name its retirement or disposal plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, authority, and retained obligations belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, authority, and retained obligations belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope, dependencies, and authority before irreversible withdrawal; describe disposition before closure evidence. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Retirement and disposal plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -50,7 +56,7 @@ State an unknown inventory item, dependency, obligation, authority, or disposal 
 | Dependencies and stakeholder continuity | Required | Identify users, downstream systems, interfaces, contracts, support functions, and other dependencies affected by withdrawal. Define notice, replacement or alternate service, migration or transfer interface, and hold conditions where an obligation would otherwise be stranded. |
 | Data, records, and access disposition | Required | Define data owners, classes or sensitivity where relevant, retention periods and checks for active preservation holds with their supplied project decision or agreement locators, archive or transfer destination, access and credential revocation, external connectivity removal, and planned evidence. State who may authorize deletion or sanitization and when retained copies remain necessary. |
 | Withdrawal sequence and gates | Required | Give ordered isolation, service termination, dependency removal, data and configuration actions, physical handling if any, roles, prerequisites, holds, safe-state or recovery response, and criteria for progressing through irreversible steps. State the planned authorization rule for each irreversible step and the safe-state or recovery action when a step cannot continue. |
-| Asset and supplier disposition | Conditional: physical assets, supplier property, transfer, reuse, recycling, or destruction is in scope | Define the chosen route, ownership and custody, return or reuse conditions, physical handling hazards and protective measures, environmental containment and disposal controls, required sanitization or inspection, expected evidence, and the supplied recipient or contractor terms. Identify audit or disposal rights only when established by an actual agreement. |
+| Asset and supplier disposition | Conditional when physical assets, supplier property, transfer, reuse, recycling, or destruction is in scope | Define the chosen route, ownership and custody, return or reuse conditions, physical handling hazards and protective measures, environmental containment and disposal controls, required sanitization or inspection, expected evidence, and the supplied recipient or contractor terms. Identify audit or disposal rights only when established by an actual agreement. |
 | Support and configuration closure | Required | Define how maintenance, licensing, subscriptions, accounts, monitoring, documentation, registries, baselines, and support obligations will be ended or transferred without losing needed history. Specify the records to preserve and their custodian. |
 | Verification and closure decision | Required | Define criteria and methods for checking service absence, dependency removal, access revocation, data or asset disposition, retained records, and residual obligations. Name expected evidence, responsible reviewer, open-item handling, and the role authorized to declare closure or receive transfer, with the prerequisites for that decision. |
 

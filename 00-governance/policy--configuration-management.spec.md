@@ -3,6 +3,7 @@ title: "Configuration management policy specification"
 description: >-
   Defines the authoring contract for mandatory configuration management policies governing controlled item identification, baseline establishment, change authority, status accounting, and configuration integrity across an organization or project. Specifies required coverage of issuing authority, policy ownership, controlled-item boundaries, issuance state, mandatory directives, baseline and change decision rules, exception governance, noncompliance handling, and policy review. Enables readers to determine what must stay under configuration control and who authorizes baseline changes.
 topics:
+  - "governance"
   - "configuration-management"
   - "governance-policy"
   - "baselines"
@@ -24,11 +25,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POLICY@configuration-management`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory direction for identifying controlled configuration items, governing baselines and changes, and maintaining configuration integrity.
 - **Intended readers:** People who create, change, release, use, or oversee controlled configurations, and the authority that issues the policy.
 - **Decision or action supported:** Readers can determine what must be controlled, who can establish or change an approved baseline, and how unauthorized or exceptional changes are handled.
 - **Use when:** An issuing authority needs organization or project-wide configuration management obligations for a defined scope.
+- **Scope boundaries:** Establish mandatory organizational or project direction for configuration identification, baselining, change control, and integrity; exclude detailed operational procedures, project-specific plans, and baseline records.
 
 ## Authoring inputs and unresolved facts
 
@@ -39,9 +40,14 @@ If an input is unknown, distinguish a missing project fact from a decision not y
 ## Finished-document contract
 
 - **Title:** Identify the governed subject as a configuration management policy and, when needed, the organization or project it covers.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and policy state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Authority, applicability, and policy state are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish authority and applicability before obligations; state obligations before exception and maintenance rules. Headings may use local wording if the roles below remain clear.
+- **Presentation:** Scale structure to organizational scope using concise prose, numbered directives, and focused tables where authority or exceptions benefit from comparison. Required roles may share sections while keeping issuing authority, applicability, directives, and exception rules independently retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Configuration management policy (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

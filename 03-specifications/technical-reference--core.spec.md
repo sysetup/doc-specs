@@ -3,12 +3,14 @@ title: "Technical lookup reference specification"
 description: >-
   Defines the authoring contract for version-bound technical lookup references indexing inspectable APIs, SDK symbols, CLI commands, configuration settings, exposed protocol behaviors, and schema fields without requiring task narratives. Requires bidirectional reconciliation between source inventories, indexes, and item definitions, explicit accounting of sourced, absent, unknown, or inapplicable attributes, conditional specialized sections for callables, protocol behaviors, CLI grammar, and settings, native schema or generation bindings, and drift reassessment.
 topics:
+  - "specifications"
+  - "software-engineering"
+  - "architecture-and-design"
   - "technical-reference"
-  - "API-reference"
-  - "CLI-reference"
+  - "api-reference"
+  - "cli-reference"
   - "configuration-reference"
   - "schema-lookup"
-  - "inventory-reconciliation"
 use_when:
   - "A product, library, CLI, or schema needs a version-bound lookup reference detailing exact syntax, types, defaults, errors, and limits."
   - "An author is reconciling generated or hand-authored reference definitions against controlling source code or native schemas."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TECHNICAL-REFERENCE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Provide version-bound lookup information for technical interfaces, symbols, commands, or settings.
 - **Intended readers:** Developers, integrators, operators, and consumers looking up precise technical behavior.
 - **Decision or action supported:** Find an item's syntax, constraints, behavior, errors, and applicability without reconstructing a task narrative.
@@ -40,7 +41,7 @@ Expose unknown version, inventory, source authority, subject-kind applicability 
 ## Finished-document contract
 
 - **Title:** Identify the product, reference subject, and covered version or range.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Put identity, scope, sources and state in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Put identity, scope, sources and state in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity, applicability and source authority before the inventory and lookup index; put common and applicable subject-specific definitions before examples, lifecycle and consistency results.
 - **Presentation:** Required roles may share item blocks, tables, paragraphs or sections when their facts, conditions, source locators and gaps remain retrievable. Group by actual subject taxonomy; a compact reference needs no separate administrative chapter per role. This specification contains every selected obligation and requires no supporting override.

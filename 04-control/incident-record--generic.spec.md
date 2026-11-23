@@ -3,12 +3,14 @@ title: "Operational incident record specification"
 description: >-
   Defines the authoring contract for contemporaneous operational incident records tracking one suspected or confirmed non-cybersecurity service or operational incident from declaration through containment, recovery, and closure—retaining the record even if later reclassified or found not to be an incident. Covers declaration and command, accountable roles, affected scope, auditable timeline events corrected without erasing history, evidence accounts, containment and recovery status, and closure while excluding cybersecurity-specific eradication and retrospective causal reviews.
 topics:
+  - "control-records"
+  - "operations"
+  - "incident-and-continuity"
   - "operational-incident-record"
   - "incident-chronology"
   - "service-disruption"
   - "containment-and-recovery"
   - "incident-command"
-  - "operational-control"
 use_when:
   - "A suspected or confirmed operational outage or non-cybersecurity disruption requires a contemporaneous timeline and status record."
   - "An incident lead is tracking command handoffs, affected scope, containment, service restoration, and reclassification history."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `INCIDENT-RECORD@generic`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record the facts, chronology, impact, response actions, evidence handling, current status, and closure of one suspected or confirmed operational incident that is not being handled as a cybersecurity incident.
 - **Intended readers:** The incident lead, authorized responders, affected service owners, and anyone who must act on the current account or preserve it for later review.
 - **Decision or action supported:** Direct the response, see what is contained or restored, and decide whether the incident remains open, using a chronology that can be corrected without rewriting history.
@@ -40,9 +41,14 @@ If a fact, time, actor, authority, or impact is unknown or not established, stat
 ## Finished-document contract
 
 - **Title:** Name the incident and identify the document as its operational incident record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Incident identity, declaration, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Incident identity, declaration, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State declaration and command before the chronology. Place evidence handling before current status. Place closure last. Heading wording may vary.
+- **Presentation:** Use concise structured blocks, chronologies, or compact tables proportional to the single controlled item's complexity. Required roles may share sections while keeping current state, controlling authority, evidence links, and unresolved gaps immediately retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Operational incident record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,6 +3,8 @@ title: "Test status report specification"
 description: >-
   Defines the authoring contract for periodic test status reports summarizing one reporting period of an active test campaign or bounded test effort. Covers reporting period and controlling sources, actual progress counts and coverage to date, active anomalies and blocking impediments, current risks, explicitly labeled prospective forecasts, pending management or technical decisions, next-period planned work, and linked action citations so stakeholders distinguish observed testing progress from forward forecasts.
 topics:
+  - "control-records"
+  - "testing"
   - "test-status-report"
   - "test-progress"
   - "test-blockers"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-STATUS-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Report one period of an active test effort: actual progress, results to date, coverage, anomalies, blockers, risks, and forecast.
 - **Intended readers:** The test lead and the people who decide what the effort does next.
 - **Decision or action supported:** See what progressed in the period, what is blocked now, what is only a forecast, and which decisions are still needed.
@@ -40,9 +41,14 @@ If a count, baseline, plan, master, owner, or decision is unknown, state the gap
 ## Finished-document contract
 
 - **Title:** Name the test effort and the reporting period, and identify the document as its test status report.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Period, progress, and forecast belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Period, progress, and forecast belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the period and sources before the counts. Place anomalies and blockers before forecast. Place the next period last. Heading wording may vary.
+- **Presentation:** Use concise executive summaries paired with compact metric, comparison, or scope tables sized to the reporting period or decision question. Required roles may share sections while keeping observed facts, forecasts or proposals, coverage limits, and pending decisions clearly separated.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test status report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,6 +3,8 @@ title: "User and context research findings specification"
 description: >-
   Defines the authoring contract for user and context research findings reports presenting supported discovery observations, themes, interpretations, participant disagreements, and implications derived from exploratory research actually performed. Covers research questions and round boundaries, actual methods and achieved participant coverage, source-grounded observations, transparent interpretation limits, open questions, confidence levels, and sharing constraints while excluding unperformed work, raw source masters, approved requirements, and formal solution validation.
 topics:
+  - "evidence"
+  - "product-and-discovery"
   - "user-research-findings"
   - "discovery-evidence"
   - "qualitative-synthesis"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `USER-RESEARCH-FINDINGS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Report supported discovery observations, interpretations, disagreements, and implications from research actually performed.
 - **Intended readers:** Researchers, analysts, product owners, designers, requirements stewards, and authorized stakeholder readers.
 - **Decision or action supported:** Use discovery evidence to revisit needs or product work while retaining sample, context, and interpretation limits.
@@ -40,9 +41,14 @@ Expose unknown selection, participation, context, method edition, observation, o
 ## Finished-document contract
 
 - **Title:** Identify the research subject and round and name the document as user and context research findings.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State questions, actual context, and method before observations; place interpretation and implications after the evidence, followed by open questions and sharing limits. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| User and context research findings (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

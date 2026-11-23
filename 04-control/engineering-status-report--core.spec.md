@@ -3,12 +3,14 @@ title: "Engineering delivery status report specification"
 description: >-
   Defines the authoring contract for engineering delivery status reports providing a bounded period or as-of view of development and engineering progress against plan, resource facts, active impediments, blockers, dependencies, prospective schedule or scope forecasts with explicit assumptions, requested decisions, and next-period work. Keeps observed progress distinct from forecasts and avoids test-only accounting, live production service health reporting, unsupported productivity claims, or delivery acceptance decisions.
 topics:
+  - "control-records"
+  - "software-engineering"
+  - "systems-engineering"
   - "engineering-status-report"
   - "delivery-progress"
   - "impediments-and-blockers"
   - "delivery-forecast"
   - "resource-facts"
-  - "project-reporting"
 use_when:
   - "An active engineering or software delivery effort needs a periodic status snapshot of progress, blockers, resources, and forecast."
   - "A project or engineering lead is surfacing decision requests and replanning options grounded in sourced progress measures."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ENGINEERING-STATUS-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Report bounded engineering delivery progress, impediments, resource facts, and forecast.
 - **Intended readers:** Project leads, engineering coordinators, product owners, delivery decision makers, and receiving stakeholders.
 - **Decision or action supported:** Replan delivery or resolve impediments using sourced progress and explicit forecast assumptions.
@@ -40,9 +41,14 @@ Expose unknown baseline, count, completion criterion, source, forecast premise, 
 ## Finished-document contract
 
 - **Title:** Identify the delivery effort and reporting period and name its engineering delivery status report.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State period and source basis before progress; put impediments before forecast, decisions, and next-period work. Heading wording may vary.
+- **Presentation:** Use concise executive summaries paired with compact metric, comparison, or scope tables sized to the reporting period or decision question. Required roles may share sections while keeping observed facts, forecasts or proposals, coverage limits, and pending decisions clearly separated.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Engineering delivery status report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

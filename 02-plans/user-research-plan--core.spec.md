@@ -3,6 +3,8 @@ title: "User research and discovery plan specification"
 description: >-
   Defines the authoring contract for exploratory user research and discovery plans investigating unknown user needs, behaviors, and operating contexts before solution obligations are settled. Covers research purpose, scope, and core questions, target population and recruitment sampling, selected qualitative or quantitative methods and instruments, access, ethics, privacy, and data protection arrangements, research rounds and readiness gates, and planned analysis and communication routes.
 topics:
+  - "planning"
+  - "product-and-discovery"
   - "user-research-plan"
   - "exploratory-discovery"
   - "research-methods"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `USER-RESEARCH-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan exploratory research into unknown user needs, behavior, and operating contexts.
 - **Intended readers:** Researchers, analysts, product owners, designers, research operations, and privacy or ethics reviewers.
 - **Decision or action supported:** Decide which questions to investigate, how to recruit and collect information, and whether a research round is ready.
@@ -40,9 +41,14 @@ Expose each unknown population, permission, data arrangement, method, or decisio
 ## Finished-document contract
 
 - **Title:** Identify the discovery subject and name its user research and discovery plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the decision and questions before population and methods; establish access and protection before scheduling collection; put analysis, sharing, and replanning last. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| User research and discovery plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

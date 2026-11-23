@@ -3,12 +3,14 @@ title: "Software requirements specification"
 description: >-
   Defines the authoring contract for software requirements specifications stating traceable, individually assessable obligations allocated to one identified software item across behavior, interfaces, data, quality attributes, operations, and justified constraints. Covers software boundaries and context, source origins, decision authority, rationale, priority, explicit requirement states, verification conditions, allocation links, deferred obligations, and change control while restricting implementation prescriptions strictly to imposed project decisions.
 topics:
+  - "specifications"
+  - "requirements-engineering"
+  - "software-engineering"
   - "software-requirements"
   - "functional-requirements"
   - "quality-attributes"
   - "verification-basis"
   - "requirement-traceability"
-  - "software-engineering"
 use_when:
   - "A bounded software item needs controlled, traceable, and assessable functional, interface, data, and quality obligations."
   - "A software engineer or analyst is defining software requirements with verification conditions and explicit authorization states."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-REQUIREMENTS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** State the obligations allocated to a defined software item, including its behavior, interfaces, data, quality, operation, and justified constraints.
 - **Intended readers:** Software engineers, affected system and interface owners, testers, reviewers, and the authority that controls the software requirements.
 - **Decision or action supported:** Readers can determine what the software must do under which conditions, why each obligation exists, and how conformity can be assessed.
@@ -40,9 +41,14 @@ For an unknown fact, state the gap, its effect on the affected requirement, the 
 ## Finished-document contract
 
 - **Title:** Identify the software item and document as its software requirements specification; include the applicable edition or configuration where needed to disambiguate it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Software scope, requirement status, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Software scope, requirement status, and authority are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish software scope and context before the requirements; place coverage and change information after the authoritative requirement statements. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Software requirements specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,12 +3,14 @@ title: "Test plan specification"
 description: >-
   Defines the authoring contract for test plans organizing scope, objectives, inspectable test basis, test levels, techniques, coverage rules, responsibilities, environments, data dependencies, schedules, measurable entry, exit, suspension, and resumption gates, anomaly triage, and evidence reporting for a bounded test effort prior to execution. Keeps planning at campaign or level coordination depth while referencing detailed test designs, cases, and execution procedures as explicit planning dependencies.
 topics:
+  - "planning"
+  - "testing"
+  - "verification-and-validation"
   - "test-plan"
   - "test-strategy"
   - "coverage-rules"
   - "entry-exit-criteria"
   - "test-resources"
-  - "anomaly-reporting"
 use_when:
   - "A test campaign, test level, or release requires an agreed scope, strategy, schedule, resources, and gate criteria before testing starts."
   - "A test lead is aligning stakeholders on test basis coverage, environment dependencies, and evidence expectations."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the scope, objectives, strategy, resources, control points, and evidence for a bounded test effort before its execution.
 - **Intended readers:** Test lead and team, product or system owners, reviewers, and people who decide readiness or completion.
 - **Decision or action supported:** Stakeholders can agree what will be tested, why and how, what resources are needed, and what evidence will support readiness and completion decisions.
@@ -39,10 +40,15 @@ Mark missing evidence as unknown and undecided planning choices as not establish
 
 ## Finished-document contract
 
-- **Title:** Identify the test effort and the document as its test plan; “Test Plan” alone is insufficient when several efforts may exist.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Test scope and decision rules are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Identify the test effort and the document as its test plan; "Test Plan" alone is insufficient when several efforts may exist.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Test scope and decision rules are substantive body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before strategy; define resources and controls before evidence and reporting. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

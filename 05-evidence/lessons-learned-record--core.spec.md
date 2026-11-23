@@ -3,12 +3,14 @@ title: "Lessons learned record specification"
 description: >-
   Defines the authoring contract for lessons learned records retaining evidence-based insights from bounded non-incident engineering, delivery, operations, maintenance, or project activities. Covers activity context, examined evidence, participant or source attribution, factual observations separated cleanly from bounded interpretations, reusable recommendations labeled explicitly as retained practices or proposed controlled changes, applicability limits, derived improvement actions, target knowledge-reuse destinations, related references, and review triggers.
 topics:
+  - "evidence"
+  - "quality-assurance"
+  - "operations"
   - "lessons-learned"
   - "retrospective-evidence"
   - "knowledge-reuse"
   - "improvement-actions"
   - "practice-retention"
-  - "non-incident-learning"
 use_when:
   - "Non-incident project, engineering, delivery, or maintenance work produced evidence-based insights worth preserving for future teams."
   - "A team is documenting factual observations, applicability bounds, proposed improvements, and target knowledge destinations."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `LESSONS-LEARNED-RECORD@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Retain evidence-based lessons from non-incident engineering, delivery, operations, maintenance, or project work, including the observation, its interpretation, the reusable recommendation, and any improvement action actually derived from it.
 - **Intended readers:** People who may repeat the work, practice or process owners, and anyone deciding whether to adopt a recommended practice or improvement.
 - **Decision or action supported:** See what was observed, how far the interpretation goes, where the lesson is believed to apply, and which follow-up actions were proposed or taken. Decide whether a separate controlled change is needed.
@@ -40,9 +41,14 @@ If evidence, an observation source, a cause, an owner, or a publication location
 ## Finished-document contract
 
 - **Title:** Identify the activity and call the document a lessons learned record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The activity, lessons, and action state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The activity, lessons, and action state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give the activity and its evidence before the lessons. Place derived actions and reuse after the lessons they depend on. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Lessons learned record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

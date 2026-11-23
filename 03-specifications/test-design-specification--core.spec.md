@@ -3,6 +3,8 @@ title: "Test design specification"
 description: >-
   Defines the authoring contract for test design specifications translating a bounded test basis and risk profile into structured test conditions, justified test design techniques or models, derived planned cases or case classes, environment, data, and sequencing dependencies, and explicit coverage assessments. Bridges campaign-level test planning and detailed case authoring so teams verify basis coverage and feasibility before investing in detailed test scripts.
 topics:
+  - "specifications"
+  - "testing"
   - "test-design-specification"
   - "test-conditions"
   - "test-techniques"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-DESIGN-SPECIFICATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Translate a bounded test basis into test conditions, a justified design approach, planned cases, and assessable coverage.
 - **Intended readers:** Test designers, implementers of cases and procedures, test leads, product or system owners, and reviewers of coverage.
 - **Decision or action supported:** Select the cases and test conditions to develop, identify the environment and data they need, and decide whether the proposed design covers its stated basis and risks.
@@ -40,9 +41,14 @@ When the basis, expected behavior, feasibility, or coverage decision is unknown 
 ## Finished-document contract
 
 - **Title:** Identify the test item or bounded effort and name the document as its test design specification; distinguish the applicable configuration or edition when it changes the design.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Item identity, basis, and design state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Item identity, basis, and design state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before conditions and technique; show case derivation before coverage assessment and unresolved design limits. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test design specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,8 +3,10 @@ title: "Architecture decision record specification"
 description: >-
   Defines the authoring contract for architecture decision records preserving one bounded architecture or technical choice together with its decision question, technical and operational context, credible considered alternatives and comparison, selected decision statement, explicit authority evidence, positive and negative consequences, implementation follow-through, revisit triggers, explicit decision state, and supersession links to prior or successor records. Enables architects and implementers to know why a choice was made and when it must be reconsidered.
 topics:
+  - "control-records"
+  - "architecture-and-design"
   - "architecture-decision-record"
-  - "ADR"
+  - "adr"
   - "technical-decisions"
   - "design-rationale"
   - "decision-consequences"
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ADR@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one architecture or technical decision, including its question, context, alternatives, rationale, state, consequences, and follow-through.
 - **Intended readers:** The decision authority, the architects and implementers who must apply the choice, and later readers who need to know whether it still stands.
 - **Decision or action supported:** See whether an option has been selected, why the other considered options were set aside, what the choice requires, and when it must be reconsidered.
 - **Use when:** One architecture or technical choice needs a durable record of context, alternatives, rationale, status, consequences, and follow-through.
+- **Scope boundaries:** Preserve one bounded architecture or technical decision with its context, alternatives, rationale, state, consequences, and follow-through; exclude multi-decision status indexes, quantitative trade studies, and formal approval records.
 
 ## Authoring inputs and unresolved facts
 
@@ -39,9 +41,14 @@ When a fact is unknown or not established, state that, its consequence, the reso
 ## Finished-document contract
 
 - **Title:** Name the decision question or the selected option and identify the document as an architecture decision record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, state, and relationships belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, state, and relationships belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the question and context before the alternatives. State the alternatives and comparison before the rationale treats one option as selected. Place consequences with the decision. Place follow-through after the decision statement. Place the decision state where a reader can find it without inferring it from tone. Heading wording may vary.
+- **Presentation:** Use concise structured blocks, chronologies, or compact tables proportional to the single controlled item's complexity. Required roles may share sections while keeping current state, controlling authority, evidence links, and unresolved gaps immediately retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Architecture decision record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

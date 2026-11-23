@@ -3,12 +3,14 @@ title: "Repository overview specification"
 description: >-
   Defines the authoring contract for concise development repository overviews providing prospective users, contributors, maintainers, integrators, and automated readers with an accurate entrypoint to the codebase and its authoritative documentation. Covers repository purpose, audience, maturity state, audience-specific starting routes, repository layout and documentation navigation maps, direct setup examples, collaboration and support routes, and explicit limits while excluding full product manuals, contributor rulebooks, and unsupported maturity claims.
 topics:
+  - "specifications"
+  - "software-engineering"
+  - "product-and-discovery"
   - "repository-overview"
   - "documentation-entrypoint"
   - "repository-navigation"
   - "quickstart"
   - "maturity-state"
-  - "collaboration-routes"
 use_when:
   - "A development repository needs a clear top-level overview guiding users, contributors, and automated readers to authoritative resources."
   - "A maintainer is documenting repository scope, maturity state, directory layout, setup examples, and support entrypoints."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `REPOSITORY-OVERVIEW@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Provide a concise entrypoint to a development repository and its authoritative documentation.
 - **Intended readers:** Prospective users, contributors, maintainers, integrators, and automated readers discovering the repository.
 - **Decision or action supported:** Identify the repository's purpose, maturity, starting route, and actual collaboration and support resources.
@@ -40,9 +41,14 @@ Expose unknown setup, platform support, maturity, resource, or license with its 
 ## Finished-document contract
 
 - **Title:** Identify the repository or project as the H1; a README filename is permitted but not required.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Explain purpose and audience before starting routes; present layout before documentation and collaboration navigation; place material limits and upkeep last. Heading wording may vary.
+- **Presentation:** Use concise recipient-facing prose, task lists, or compact reference tables proportional to the product or release scope. Required roles may share sections while keeping supported versions, prerequisites, expected outcomes, routing paths, and known limits immediately scannable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Repository overview (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

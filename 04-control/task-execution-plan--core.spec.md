@@ -3,12 +3,14 @@ title: "Task execution plan specification"
 description: >-
   Defines the authoring contract for living task execution plans maintaining the current execution state of one bounded task for durable tracking, recovery, and cross-session handoff. Covers objective, acceptance criteria, workspace boundaries, explicit authorization provenance separating user authorization from runtime permissions, maintenance currency, identifiable steps with strict lifecycle state values and completion bases, material decisions and sources, separated planned versus executed checks, active blockers with release conditions, and concrete next-action continuation while excluding formal record masters.
 topics:
+  - "control-records"
+  - "operations"
+  - "software-engineering"
   - "task-execution-plan"
   - "task-state-tracking"
   - "session-handoff"
   - "recovery-checkpoint"
   - "authorization-provenance"
-  - "blocker-tracking"
 use_when:
   - "A bounded multi-step task needs durable state tracking, recovery checkpoints, or cross-session handoff without an existing formal plan."
   - "An operator or agent is recording completed versus deferred steps, decisions, executed verification checks, and concrete blockers."
@@ -24,12 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TASK-EXECUTION-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain the current execution state of one bounded task for continuation, recovery, and handoff.
 - **Intended readers:** The task maintainer, the operator, and an authorized receiving agent or role.
 - **Decision or action supported:** Determine what remains, why decisions apply, what evidence exists, and whether the next action is ready and authorized.
 - **Use when:** A task needs durable tracking, recovery, or handoff and no existing project plan or task record adequately covers it.
-- **Scope boundaries:** Control living task state, including remaining work; exclude project-wide delivery planning, formal action or decision masters, execution logs, and acceptance or authorization grants. Classify by ongoing state control in `04-control`, regardless of the filename `PLAN.md`.
+- **Scope boundaries:** Control living task state, including remaining work; exclude project-wide delivery planning, formal action or decision masters, execution logs, and acceptance or authorization grants. Classify by ongoing state control regardless of the filename or storage location selected by the owning workspace.
 
 ## Authoring inputs and unresolved facts
 
@@ -40,14 +41,14 @@ For a missing fact, record the gap, its consequence, the resolving action, and t
 ## Finished-document contract
 
 - **Title:** Identify the bounded task and name its execution plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Keep metadata in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Keep metadata in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present the five content groups below in order; heading wording may vary.
 - **Presentation:** Use short paragraphs, lists, or a compact step table. An explicit `none` is sufficient for assessed absence; do not add sample entries or empty templates.
 
 | Projection | Title and metadata ownership | Syntax and source authority |
 | --- | --- | --- |
-| Workspace plan (standalone) | Mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task-specific H1. In Objective and scope, identify local edition (or controlling corpus/VCS revision when governed at corpus level), maintenance responsibility (or declared catalog/corpus default), and currency; specification provenance may be bound externally in build or layout metadata rather than repeated inline. | GFM at workspace `PLAN.md` unless an existing project record is selected. Task instructions and cited source records remain authoritative; the plan neither grants access nor guarantees runtime loading or retention. |
+| Workspace plan (standalone) | Mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task-specific H1. In Objective and scope, identify local edition (or controlling corpus/VCS revision when governed at corpus level), maintenance responsibility (or declared catalog/corpus default), and currency; specification provenance may be bound externally in build or layout metadata rather than repeated inline. | GFM at the workspace location selected by the owning project or environment unless an existing project record is used. Task instructions and cited source records remain authoritative; the plan neither grants access nor guarantees runtime loading or retention. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ For a missing fact, record the gap, its consequence, the resolving action, and t
 | Maintenance and currency | One accountable role (or declared catalog/corpus default) and one last-reviewed indicator for the task state. | Use a date or timestamp with timezone when needed, tied to the reviewed workspace revision or relevant source snapshot. Update after material changes; local edition or controlling corpus/VCS revision identifies the plan, while currency identifies the state reviewed. Neither proves unchanged external state. |
 | Authorization provenance | One account of the controlling request or decision, its scope, limits, and current gaps. | Use a retrievable locator or concise description when no stable identifier exists. Distinguish user authorization from runtime permissions. A past grant, plan entry, completion claim, or passing check does not expand authority. |
 | Step | One or more stable identifiers with an observable outcome and dependencies. | Do not reuse an identifier for different work. Identify unresolved predecessors and reject self-dependencies or cycles. |
-| Step state | Exactly one of `in_progress`, `completed`, `canceled`, or `deferred` per step, following host `AGENTS.md` Task Planning. | `in_progress` identifies active work. `completed` requires the stated outcome and a cited completion basis. `canceled` gives the reason and decision provenance for abandoned work. `deferred` covers unstarted, postponed, or held work and gives a reason and resumption condition, including an unmet predecessor or blocker. Do not introduce `pending` or `blocked` as step states. |
+| Step state | Exactly one of `in_progress`, `completed`, `canceled`, or `deferred` per step. | `in_progress` identifies active work. `completed` requires the stated outcome and a cited completion basis. `canceled` gives the reason and decision provenance for abandoned work. `deferred` covers unstarted, postponed, or held work and gives a reason and resumption condition, including an unmet predecessor or blocker. Do not introduce `pending` or `blocked` as step states. |
 | Completion basis | One basis for each completed step. | Distinguish an implementer's claim, observed completion evidence, actual verification, and authorized acceptance. Missing or failed checks required by that step's outcome prevent completion; completion does not itself establish verification or authorization. |
 | Decision and source | Zero or more material decisions, unresolved choices, and supporting references. | State rationale and relevant source locators; expose unavailable sources and uncertain revisions. Cite formal decision, action, change, approval, or evidence records when they exist; do not duplicate their full contents. |
 | Check and blocker | Zero or more planned or executed checks and zero or more actual blockers. | Planned checks are not results. Actual results remain bound to their checked scope or revision. A held step uses `deferred` and links its blocker and observable release condition. |
@@ -75,7 +76,7 @@ Keep only state needed to continue safely. Exclude full documents, raw transcrip
 ## Quality criteria
 
 - A reader can retrieve all five groups, maintenance responsibility, currency, scope, acceptance criteria, and authorization limits without a transcript.
-- Every step uses the host vocabulary, has meaningful dependencies, and supports its completion or disposition; blockers have release conditions.
+- Every step uses the defined four-state vocabulary, has meaningful dependencies, and supports its completion or disposition; blockers have release conditions.
 - Decisions, unresolved choices, source revisions, and formal record relationships are sufficient to reassess applicability after context loss.
 - Planned checks, actual results, completion claims, and authority remain distinct; unavailable evidence is visible.
 - The next action is concrete and conditional on relevant prerequisites; task completion does not hide required unfinished work.

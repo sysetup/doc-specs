@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.csv -text diff
+*.md text eol=lf
+*.json text eol=lf
+llms.txt text eol=lf
+LICENSE text eol=lf

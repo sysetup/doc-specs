@@ -3,12 +3,14 @@ title: "Business or mission needs specification"
 description: >-
   Defines the authoring contract for business or mission needs statements establishing a sourced problem or opportunity, affected stakeholder perspectives, and desired outcomes before fixing solution obligations. Covers decision framing, current conditions and sourced need statements, stakeholder groups, desired outcomes with effectiveness measures and targets, boundaries, constraints, assumptions, high-level candidate solution options with actual evaluation states, and unresolved confirmation items so sponsors decide whether and how to proceed.
 topics:
+  - "specifications"
+  - "requirements-engineering"
+  - "product-and-discovery"
   - "business-needs"
   - "mission-needs"
   - "problem-framing"
   - "stakeholder-perspectives"
   - "desired-outcomes"
-  - "effectiveness-measures"
 use_when:
   - "A sponsor or analyst must establish a sourced business or mission problem and desired outcomes before committing to solution requirements."
   - "A team is capturing stakeholder perspectives, effectiveness measures, and constraints to frame downstream option analysis."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `BUSINESS-NEEDS@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish a sourced account of a business or mission problem or opportunity, the affected stakeholders, and the outcomes sought before solution obligations are fixed.
 - **Intended readers:** The business or mission sponsor, affected stakeholder representatives, analysts, and decision makers who will decide whether and how to address the need.
 - **Decision or action supported:** Readers can judge the need's basis, importance, and boundaries, decide what remains to be learned, and use the established outcomes to frame later requirements or option analysis.
@@ -39,10 +40,15 @@ For an unknown baseline, stakeholder position, measure, target, source, or autho
 
 ## Finished-document contract
 
-- **Title:** Name the business or mission subject and identify the document as a statement of needs; a generic “Business Needs” title is insufficient.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The scope, source, and decision state of the need belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Name the business or mission subject and identify the document as a statement of needs; a generic "Business Needs" title is insufficient.
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The scope, source, and decision state of the need belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish purpose and current condition before desired outcomes; present any options after the needs they might address. Put unresolved decisions and confirmation state after the substantive analysis. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Business or mission needs (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

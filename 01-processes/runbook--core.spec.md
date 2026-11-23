@@ -3,6 +3,8 @@ title: "Operational runbook specification"
 description: >-
   Defines the authoring contract for operational runbooks giving authorized operators a repeatable, ordered sequence for a specific service or system operation, troubleshooting procedure, maintenance action, or recovery task. Requires explicit invocation triggers, bounded target selectors, authority and preflight checks, execution context, ordered steps with expected observations and deviation branches, wait or retry bounds, recovery and rollback paths, completion checks, and evidence capture rules.
 topics:
+  - "processes"
+  - "operations"
   - "operational-runbook"
   - "service-operations"
   - "preflight-checks"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `RUNBOOK@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Give operators a repeatable sequence for a specific service or system operation, troubleshooting task, maintenance action, or recovery task.
 - **Intended readers:** Authorized operators and the people who review or support the operation, including anyone the procedure names as a later handoff recipient.
 - **Decision or action supported:** An operator can decide whether the runbook applies, prepare safely, follow the steps, respond to deviations, and check the final state.
@@ -39,10 +40,15 @@ For an unknown or not-established fact, identify the gap, reason, resolving acti
 
 ## Finished-document contract
 
-- **Title:** Identify the operation and service or system, for example by the semantic form “Runbook: operation on target.”
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Operational target and authority rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Title:** Identify the operation and service or system, for example by the semantic form "Runbook: operation on target."
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Operational target and authority rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put applicability and preflight controls before any action; put recovery and completion checks after the ordered procedure. Heading wording may vary.
+- **Presentation:** Use compact preflight checklists, ordered steps with expected observations and deviation branches, and explicit rollback blocks sized to the operation. Required roles may share sections while keeping target selectors, preflight checks, and recovery paths immediately retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Operational runbook (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

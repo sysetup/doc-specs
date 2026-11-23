@@ -3,12 +3,14 @@ title: "Change request specification"
 description: >-
   Defines the authoring contract for change requests proposing and controlling one modification to a governed product, service, configuration item, or baseline. Covers request identity, change state, triggering defect or problem links, affected configurations, considered alternatives, impact and risk analysis, implementation and rollback intent, explicit authorization decision and authority, actual implementation outcome, resulting baseline reference, closure conditions, and verified closure evidence.
 topics:
+  - "control-records"
+  - "configuration-management"
+  - "change-and-release"
   - "change-request"
   - "change-control"
   - "impact-analysis"
   - "rollback-intent"
   - "change-authorization"
-  - "baseline-change"
 use_when:
   - "A controlled product, service, configuration item, or baseline requires a formal proposal, impact assessment, and authorized change lifecycle."
   - "A change coordinator is tracking authorization, implementation results, resulting baseline updates, and verified closure in one record."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CHANGE-REQUEST@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Propose one change to a controlled product, service, or baseline and track its reason, impact, risk, affected configuration, implementation and rollback intent, authorization, implementation, and closure.
 - **Intended readers:** The requester, impact assessors, the change authority, implementers, and the role that verifies closure.
 - **Decision or action supported:** Decide whether the stated change should proceed and, after an actual decision, see whether implementation, baseline update, and verified closure have occurred.
@@ -40,9 +41,14 @@ If a fact is unknown or not yet decided, state that status, its consequence, the
 ## Finished-document contract
 
 - **Title:** Identify the controlled product or service and name the document as the change request for one stated change.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, proposal, impacts, and change state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, proposal, impacts, and change state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the request and proposal before impact; place authorization and implementation after impact; place verification and closure last. Heading wording may vary.
+- **Presentation:** Use concise structured blocks, chronologies, or compact tables proportional to the single controlled item's complexity. Required roles may share sections while keeping current state, controlling authority, evidence links, and unresolved gaps immediately retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Change request (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

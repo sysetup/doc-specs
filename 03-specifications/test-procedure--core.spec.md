@@ -3,6 +3,8 @@ title: "Test procedure specification"
 description: >-
   Defines the authoring contract for test procedure specifications specifying a repeatable, bounded test execution sequence with test basis, target configuration, authorization and setup prerequisites, controlled asset handling, ordered execution steps and checkpoints, abnormal handling, failure and retry bounds, end-state restoration, and evidence capture rules. Ensures test operators and automation implementers execute runs reproducibly and stop or recover safely on anomalies.
 topics:
+  - "specifications"
+  - "testing"
   - "test-procedure"
   - "execution-sequence"
   - "test-checkpoints"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TEST-PROCEDURE@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable, bounded test execution sequence with prerequisites, actions, expected checkpoints, evidence capture, failure branches, and restoration.
 - **Intended readers:** Test operators and automation implementers, environment owners, test leads, and reviewers of execution readiness and reproducibility.
 - **Decision or action supported:** Prepare an authorized run, follow the correct sequence, stop or recover safely when conditions fail, and capture evidence sufficient to interpret the result.
@@ -40,9 +41,14 @@ If a target, authority, prerequisite, script edition, expected checkpoint, failu
 ## Finished-document contract
 
 - **Title:** Identify the test item or effort and name the document as its test procedure; distinguish the procedure edition when later runs must cite it.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Target, revision, and execution limits belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Target, revision, and execution limits belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope and prerequisites before the ordered sequence; put recording and restoration rules after the actions they govern, with critical stop rules visible at the point of use. Heading wording may vary.
+- **Presentation:** Use compact structured definitions, parameter or oracle tables, and ordered steps sized to the assessment scope. Required roles may share sections while keeping basis links, preconditions, expected observations, and criteria unambiguously retrievable without embedding execution outcomes.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Test procedure (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -58,7 +64,7 @@ If a target, authority, prerequisite, script edition, expected checkpoint, failu
 | --- | --- | --- |
 | Procedure objective and basis | One bounded purpose and one or more inspectable expected-behavior sources. | State the objective and pass/fail criteria with their established project basis. Identify supplied cases and their editions and locators where they contribute to the sequence or criteria. |
 | Test target and configuration | One defined test item or coherent set, with applicable configuration and environment rule. | Give edition, range, or selection method at the precision needed for a reproducible run. This is the intended target. An environment reference alone does not establish actual readiness, authorization, or the configuration a run used. |
-| Prerequisite and setup check | One or more checks sufficient to establish safe, interpretable starting conditions. | Include personnel competence, permission, calibration, isolation, and data checks only where they matter. State the observable check and failed-check branch, not just the word “ready.” |
+| Prerequisite and setup check | One or more checks sufficient to establish safe, interpretable starting conditions. | Include personnel competence, permission, calibration, isolation, and data checks only where they matter. State the observable check and failed-check branch, not just the word "ready." |
 | Controlled asset | Zero or more scripts, harnesses, simulators, datasets, or tools used by the method. | Identify a real edition or controlled selection rule and the configuration parameters needed for repeatability. Never include secret values. |
 | Step | One or more ordered actions, each with a stable local label. | State actor or tool, target, action, inputs, expected checkpoint, and planned observation or evidence. A step label need only be unique within the procedure. Make branches explicit and avoid an implicit continue after a failed gate. |
 | Failure and retry rule | One rule for each material abnormal condition or branch class. | Say whether to stop, hold, investigate, retry within a bounded condition, or restore; identify when retesting requires a fresh attempt identity. A retry MUST NOT overwrite a failed attempt or repeat a state-changing action blindly. |

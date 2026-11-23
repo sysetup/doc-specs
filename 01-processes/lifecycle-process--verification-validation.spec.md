@@ -3,6 +3,7 @@ title: "Verification and validation lifecycle process specification"
 description: >-
   Defines the authoring contract for a reusable verification and validation lifecycle process governing how assessments are planned, designed, executed, traced, and reported across projects while keeping technical conformance strictly separate from intended-use fitness. Specifies purpose and responsibility, distinct verification and validation paths, method and independence rules, traceability links, evidence and result classification, anomaly routing, and tailoring controls so teams prevent conflating conformity with validation.
 topics:
+  - "processes"
   - "verification-and-validation"
   - "lifecycle-process"
   - "conformance-assessment"
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@verification-validation`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable process for planning, performing, controlling, and reporting verification and validation while keeping their different assessment questions explicit.
 - **Intended readers:** V&V leads and performers, requirements and stakeholder representatives, assurance roles, technical authorities, and recipients of assessment results.
 - **Decision or action supported:** A team can select the right assessment basis and method, protect evidence and independence where needed, and apply anomaly and reporting rules without conflating conformity with fitness for use.
@@ -40,9 +40,14 @@ For an unknown or unestablished rule, identify the gap, consequence, resolving a
 ## Finished-document contract
 
 - **Title:** Name the verification and validation lifecycle process and its organizational or product scope.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Process edition and applicability belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Process edition and applicability belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State basis and authority before methods; describe performance and evidence before result reporting and feedback. Headings may use local wording.
+- **Presentation:** Use concise prose alongside activity or gate tables and brief flow diagrams sized to the lifecycle scope. Required roles may share sections while keeping roles, entry/exit gates, handoffs, and required records clearly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Verification and validation lifecycle process (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

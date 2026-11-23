@@ -3,12 +3,14 @@ title: "Operational readiness review record specification"
 description: >-
   Defines the authoring contract for Operational Readiness Review records preserving one held gate evaluating whether a deployed system configuration and all required support elements—hardware, software, personnel, procedures, supporting capabilities, and user documentation—are operationally ready under applied verification results, constraints, and residual risk. Covers review authority, adopted criteria, entrance evidence, operational-readiness assessments, findings, actions, explicit disposition, conditions, and separation from independent operational authorization.
 topics:
+  - "evidence"
+  - "systems-engineering"
+  - "operations"
   - "operational-readiness-review"
-  - "ORR"
+  - "orr"
   - "operational-readiness"
   - "deployed-configuration"
   - "support-elements"
-  - "lifecycle-gate"
 use_when:
   - "An Operational Readiness Review has been held and requires a record of deployed-state readiness, support elements, findings, and disposition."
   - "A review chair is documenting operational readiness criteria, residual risks, open conditions, and transition go-ahead decisions."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `DESIGN-REVIEW@orr`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one Operational Readiness Review that was actually held, including whether the system and its support elements reflect the deployed state under review and are operationally ready. Support elements include the hardware, software, personnel, procedures, supporting capabilities, and user documentation the operation requires.
 - **Intended readers:** The review chair, reviewers, operations leads, technical authority, project leads, and anyone who later relies on this gate's evidence and disposition.
 - **Decision or action supported:** Readers can tell whether the reviewed system and its support organization were operationally ready under the constraints and residual risk the review applied, and what the review authority decided.
@@ -40,9 +41,14 @@ State the complete criteria supplied in the project data for this review and acc
 ## Finished-document contract
 
 - **Title:** Name the system of interest and identify the document as an Operational Readiness Review record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Review identity, criteria, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the held review, the deployed configuration, and the authority before the criteria. Present entrance results before the operational-readiness assessment. Present the disposition after the findings. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Operational readiness review record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

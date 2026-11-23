@@ -3,12 +3,14 @@ title: "Software design description specification"
 description: >-
   Defines the authoring contract for software design descriptions specifying how a bounded software item realizes its allocated requirements across components, responsibility allocations, internal and external interface contracts, data definitions and ownership, behaviors and algorithms, runtime and deployment configurations, failure handling, rationale, assurance hooks, and open design issues. Explicitly states boundaries with hardware, people, and external services at the declared design maturity.
 topics:
+  - "specifications"
+  - "architecture-and-design"
+  - "software-engineering"
   - "software-design"
   - "component-design"
   - "interface-contracts"
   - "data-modeling"
   - "algorithms"
-  - "runtime-design"
 use_when:
   - "Software designers and implementers need a detailed design covering modules, interfaces, data models, algorithms, and runtime configuration."
   - "A team is translating allocated software requirements and architecture into concrete build-to component responsibilities."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-DESIGN-DESCRIPTION@software`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the design of a bounded software item so implementers can realize its responsibilities, interfaces, data, behavior, deployment, and failure handling against its allocated project obligations.
 - **Intended readers:** Software designers and implementers, integration and operations engineers, security and test reviewers, and maintainers.
 - **Decision or action supported:** Implement or review the software item, coordinate module and interface contracts, and assess design coverage and change impact.
@@ -40,9 +41,14 @@ If an interface contract, data rule, algorithm, dependency version, operational 
 ## Finished-document contract
 
 - **Title:** Name the software item and identify the document as its software design description.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Design maturity and applicable versions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Design maturity and applicable versions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and basis before module detail; describe interfaces, data, and behavior before deployment and change implications. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Software design description (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -50,7 +56,7 @@ If an interface contract, data rule, algorithm, dependency version, operational 
 | Components and responsibility allocation | Required | Define significant modules, services, processes, or other software elements, their responsibilities and dependencies, and how they collectively carry the allocated project obligations. Cite each supplied obligation by identity and edition without duplicating its wording. Identify ownership of cross-cutting behavior rather than assigning the same responsibility ambiguously to several components. |
 | Interfaces and data | Required | Define provided and required interfaces, inputs and outputs, data meaning and ownership, relevant schemas or formats, input checks, persistence and lifecycle, and compatibility rules. Include identity, trust, authorization, and error semantics where they affect a boundary. For supplied project interface or error definitions used, give identity and edition and state which definition controls each affected design choice; identify conflicting definitions as unresolved. Describe the software item's intended interface behavior. |
 | Behavior and algorithms | Required | Explain significant processing flows, state and mode transitions, concurrency, timing, resource use, and error or recovery behavior. Describe algorithms and decision rules at the detail needed for consistent implementation; omit trivial algorithm narration. Show how abnormal inputs or dependency failures are handled where material. Describe intended behavior and expected effects. |
-| Runtime and deployment design | Conditional — when execution depends on deployment topology, configuration, platform services, or external dependencies | State process or service placement, dependency and configuration assumptions, version compatibility, startup or shutdown behavior, data migration or rollback implications, and operational observability relevant to the software item. Label assumptions as intended deployment conditions and cite the actual project environment configuration used as their basis when available. |
+| Runtime and deployment design | Conditional when execution depends on deployment topology, configuration, platform services, or external dependencies | State process or service placement, dependency and configuration assumptions, version compatibility, startup or shutdown behavior, data migration or rollback implications, and operational observability relevant to the software item. Label assumptions as intended deployment conditions and cite the actual project environment configuration used as their basis when available. |
 | Rationale, assurance, and open design issues | Required | Explain consequential choices and tradeoffs; address relevant performance, security, reliability, maintainability, and testability implications; identify uncovered obligations, unresolved contracts, assumptions, and change impacts. Link actual analysis or test evidence only when available, and distinguish it from intended checks. |
 
 ## Content definitions and forms

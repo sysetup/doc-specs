@@ -3,6 +3,8 @@ title: "Cumulative changelog specification"
 description: >-
   Defines the authoring contract for cumulative changelogs maintaining a meaningful, human-readable chronological history of notable changes across established releases alongside a clearly separated pending unreleased section for one identified subject. Covers history boundaries, categorized change entries, handling of exceptional history such as yanked releases or backports, supporting references, and explicit coverage limits while excluding raw commit dumps, single-release recipient notices, and release execution or authorization evidence.
 topics:
+  - "control-records"
+  - "change-and-release"
   - "cumulative-changelog"
   - "version-history"
   - "unreleased-changes"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `CHANGELOG@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain a meaningful history of changes across established versions and separately identified pending work.
 - **Intended readers:** Product recipients, developers, maintainers, release coordinators, and readers comparing versions.
 - **Decision or action supported:** Identify what changed across versions, what remains pending, and which material effects need further guidance.
@@ -40,9 +41,14 @@ Expose unknown version, date, consequence, release state, or historical coverage
 ## Finished-document contract
 
 - **Title:** Begin with the GFM H1 Changelog and a short subject and coverage introduction.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify subject and history boundary first; put pending changes before established releases, list established releases most recent first within explicitly scoped release lines, and put exception or coverage notes after the affected entries. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Cumulative changelog (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

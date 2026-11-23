@@ -3,12 +3,14 @@ title: "Runtime environment specification"
 description: >-
   Defines the authoring contract for runtime environment specifications establishing the required platform state, dependencies, tooling, network zones, access controls, data rules, capacity, and readiness criteria for a bounded development, integration, staging, or production enabling environment. Allows recording an actual bounded readiness assessment for a named environment instance when performed, while keeping readiness observations clearly separate from target requirements and excluding specialized test instrumentation.
 topics:
+  - "specifications"
+  - "networking-and-infrastructure"
+  - "operations"
   - "runtime-environment"
   - "enabling-environment"
   - "environment-readiness"
   - "platform-requirements"
   - "access-boundaries"
-  - "deployment-target"
 use_when:
   - "A development, integration, staging, or production environment needs a controlled target specification of platform state and readiness criteria."
   - "An environment owner is specifying required tooling, connectivity, access rules, data constraints, and readiness gates."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `RUNTIME-ENVIRONMENT-SPECIFICATION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the required state and readiness criteria for a bounded development, integration, staging, or production enabling environment.
 - **Intended readers:** Environment owners, software and system engineers, operators, security and data stewards, integrators, and readiness reviewers.
 - **Decision or action supported:** Configure or procure the intended environment, check whether a particular instance meets its requirements, and identify gaps that prevent its intended use.
@@ -40,16 +41,21 @@ If a required target parameter, threshold, dependency, access rule, or readiness
 ## Finished-document contract
 
 - **Title:** Identify the target environment and its class as a runtime environment specification; include an edition or configuration identifier when needed to distinguish the target.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Environment class, target configuration, and any actual readiness state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Environment class, target configuration, and any actual readiness state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Define scope and intended use before required state; place readiness criteria after the requirements and any actual assessment after its criteria. Heading wording may vary.
+- **Presentation:** Scale prose, tables, schemas, or diagrams to the subject's complexity and declared maturity without forcing empty administrative chapters. Required roles may share sections while keeping authoritative identifiers, obligations, constraints, interfaces, and explicit gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Runtime environment specification (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Subject identity, applicable version or maturity, scope boundaries, and ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, diagrams, or code blocks grounded in controlling project sources and inspected editions. External native models, schemas, or artifacts remain authoritative for their own formats; source or baseline changes require reconciliation before retaining current applicability. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Environment identity and scope | Required | Identify one bounded target environment, its class, intended use, supported system or software, users, lifecycle context, applicable edition, responsible decision boundary, and material exclusions or assumptions. Distinguish a class-level target from a named deployed instance. |
 | Required environment state | Required | State applicable compute, operating-system, runtime, storage, network, and platform characteristics; required versions or capabilities; data sources and handling; capacity, quotas, and scaling limits; access roles and paths; and dependencies or interfaces. Include tooling, distinct deployment or trust zones, monitoring, backup, or secret-management mechanisms when the intended use or supplied project requirements and decisions require them. Specify capabilities and configuration conditions required for readiness, with precise values, ranges, or compatibility rules where they affect readiness. |
 | Readiness criteria and use limits | Required | Give assessable criteria for the required state, the configuration to which each applies, the intended check or evidence source, and conditions or limitations on use. State the decision authority for declaring the environment usable. Planned checks specify expected conditions; only actual observations support an assessment. |
-| Current readiness assessment | Conditional: include only when the document reports an actual assessment | Identify the assessed instance and configuration, observation time, each criterion actually checked, the evidence, unresolved gaps, conditions, and the actual readiness decision. State for each criterion whether the required condition was met, not met, or not assessed. If no assessment has occurred, omit this section; do not imply one through a preset status. Limit the assessment to the named instance, assessed configuration, and observation time. |
+| Current readiness assessment | Conditional when the document reports an actual readiness assessment | Identify the assessed instance and configuration, observation time, each criterion actually checked, the evidence, unresolved gaps, conditions, and the actual readiness decision. State for each criterion whether the required condition was met, not met, or not assessed. If no assessment has occurred, omit this section; do not imply one through a preset status. Limit the assessment to the named instance, assessed configuration, and observation time. |
 | Change and effectivity | Required | Identify how the applicable target edition is distinguished and how consequential changes to platform, tools, data, capacity, access, or dependencies affect readiness and the parties using the environment. State unresolved decisions and their resolution route. |
 
 ## Content definitions and forms

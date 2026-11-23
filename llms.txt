@@ -1,25 +1,26 @@
 # SYSETUP document specifications
 
-> A collection of 144 Markdown document authoring specifications for governance, processes, plans, technical specifications, control records, and evidence. Each specification carries standardized 5-key Semantic-Discovery YAML frontmatter and defines a document's purpose, use boundary, content obligations, mandatory frontmatter contract, and quality criteria.
+> Version 3.1.0 collection of 144 Markdown document authoring specifications for governance, processes, plans, technical specifications, control records, and evidence. Each specification carries standardized 5-key Semantic-Discovery YAML frontmatter and defines a document's purpose, scope boundaries, authoring inputs, finished-document contract, projections, content definitions, and quality criteria.
 
-The latest declared collection release, [2026-11-23](CHANGELOG.md#release-2026-11-23), includes all 144 specifications upgraded to authoring standard `3.0.0`, the compact RFC 4180 catalog [INDEX.csv](INDEX.csv), both authoring templates, and the family registry. Authoring standard `3.0.0` was adopted and took effect with that release.
+This collection is governed by a single project version, [3.1.0](CHANGELOG.md#310), covering all 144 specifications, [INDEX.csv](INDEX.csv), [CATALOG.json](CATALOG.json), [CONTRIBUTING.md](CONTRIBUTING.md), both authoring templates, and the family registry.
 
 The collection supports engineering, operations, security, and project documentation. Its files are authoring contracts rather than completed project documents, executable procedures, or evidence of approval or conformity.
 
-Use [INDEX.csv](INDEX.csv) (`family,type,title,path,summary`) as the sole production catalog with three-tier progressive disclosure: (1) scan `INDEX.csv` to shortlist candidate paths, (2) inspect only the leading 5-key Semantic-Discovery YAML frontmatter (`title`, `description`, `topics`, `use_when`, `not_for`) of shortlisted candidates to confirm relevance and exclusions, and (3) read the full specification body only for confirmed matches. Each specification identifies authoring inputs, treatment of unresolved facts, the finished-document contract (requiring 5-key Semantic-Discovery YAML frontmatter and Rule 13 semantic purity on standalone Markdown outputs), content definitions, and quality criteria. Ground finished documents in authorized project facts and actual evidence; place them in their owning project's authorized documentation location.
+Use progressive disclosure for discovery: (1) scan [INDEX.csv](INDEX.csv) (`family,type,title,path,summary`) to shortlist candidate paths, (2) inspect Tier-2 metadata (`topics`, `use_when`, `not_for`, `projections`) in [CATALOG.json](CATALOG.json) or inspect full 5-key YAML frontmatter (including `description`) on shortlisted candidates to confirm applicability and exclusions, and (3) read the full specification body only for confirmed matches. Each specification defines authoring inputs, unresolved-fact handling, the finished-document contract (requiring 5-key Semantic-Discovery YAML frontmatter and semantic purity on standalone Markdown outputs, plus explicit native-surface rules where applicable), content definitions, and quality criteria. Ground finished documents in authorized project facts and actual evidence; place them in their owning project's authorized documentation location.
 
-For specification maintenance, read released [CONTRIBUTING.md](CONTRIBUTING.md) version `3.0.0` in full. Establish reader tasks, subject boundaries, sources, exclusions, unknowns, and observable cases before classification and literal composition. The family registry alone defines responsibilities and order for validation, placement, and counts; six families remain defaults with controlled extension. The request declares specification frontmatter, catalog summary, finished-document frontmatter rules, standalone and native projections, proportionate presentation, and controlled supporting content. Evaluate ordinary, incomplete, and boundary finished instances before readiness. Exact rendering follows settled design. Historical `1.0.0` and `2.x` requests remain preserved at their recorded Git revisions. Templates and registry are maintenance material outside the catalog; no installed renderer or validator is supplied. The owning project or environment defines operational agent instructions, finished-document locations, and review and publication workflows. The collection prescribes neither fixed installation paths nor a separate directory for proposed documentation.
+For specification authoring and maintenance, read [CONTRIBUTING.md](CONTRIBUTING.md) (`3.1.0`) in full. Establish reader tasks, subject boundaries, sources, exclusions, unknowns, and observable cases before classification and literal composition. [authoring/families.json](authoring/families.json) defines family responsibilities and order for validation, placement, and counts. Evaluate ordinary, incomplete, and boundary finished instances before settling literal wording, and keep [INDEX.csv](INDEX.csv), [CATALOG.json](CATALOG.json), counts, version references, and overlapping sibling specifications synchronized.
 
-Links are relative to this repository revision so the file can accompany clones and publications on different providers. For remote retrieval, resolve them against the provider's raw-file base URL for the same revision. The specification links below are representative examples; [INDEX.csv](INDEX.csv) lists all 144 specifications, including variants.
+Links are relative to this repository revision so the file can accompany clones and publications on different providers. For remote retrieval, resolve them against the provider's raw-file base URL for the same revision. The specification links below are representative examples; [INDEX.csv](INDEX.csv) and [CATALOG.json](CATALOG.json) index all 144 specifications, including variants.
 
 ## Start here
 
-- [Public overview](README.md): Purpose, audience, directory organization, three-tier usage, and documentation scope.
-- [Complete CSV document catalog](INDEX.csv): Compact RFC 4180 catalog (`family,type,title,path,summary`) indexing all 144 authoring specifications.
-- [Specification authoring standard](CONTRIBUTING.md): Released version `3.0.0` rules for 5-key Semantic-Discovery frontmatter, Rule 13 purity, `INDEX.csv` integration, deterministic composition, and acceptance gates.
-- [Authoritative family registry](authoring/families.json): Shared family definitions and order; extension requires the standard's controlled decision and transition.
-- [Structured request template](authoring/request.template.json): Version `3.0.0` mission design, source bindings, specification frontmatter, coverage, evaluated cases, representation decisions, and literal wording.
-- [Specification template](authoring/specification.template.md): Leading 5-key Semantic-Discovery YAML frontmatter plus five-section spine with finished-document frontmatter, projection, presentation, and controlled supporting blocks under version `3.0.0`.
+- [Public overview](README.md): Purpose, directory organization, progressive-disclosure usage, and documentation scope.
+- [Tier-1 CSV catalog](INDEX.csv): Compact RFC 4180 catalog (`family,type,title,path,summary`) indexing all 144 authoring specifications.
+- [Tier-2 JSON catalog](CATALOG.json): Derived JSON index containing family metadata, summaries, faceted `topics`, `use_when`, `not_for`, and projection kinds for single-read filtering.
+- [Specification authoring standard](CONTRIBUTING.md): Version `3.1.0` rules for 5-key Semantic-Discovery frontmatter, semantic purity, projections, deterministic composition, and catalog integration.
+- [Authoritative family registry](authoring/families.json): Shared family definitions and order.
+- [Structured request template](authoring/request.template.json): Version `3.1.0` mission design, source bindings, specification frontmatter, coverage, evaluated cases, representation decisions, and literal wording.
+- [Specification template](authoring/specification.template.md): Leading 5-key Semantic-Discovery YAML frontmatter plus five-section spine with finished-document frontmatter, presentation, projection, role, element, and quality blocks.
 
 ## Specification families
 
@@ -36,5 +37,5 @@ Links are relative to this repository revision so the file can accompany clones 
 
 ## Optional
 
-- [Changelog](CHANGELOG.md): Notable changes and changes awaiting release.
+- [Changelog](CHANGELOG.md): Version history of notable collection changes.
 - [License](LICENSE): Terms governing use of the collection.

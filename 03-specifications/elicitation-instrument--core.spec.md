@@ -3,12 +3,14 @@ title: "Elicitation instrument specification"
 description: >-
   Defines the authoring contract for reusable, versioned information-collection instruments such as questionnaires, interview guides, and observation guides used in bounded elicitation activities. Covers instrument identity, collection purpose, readiness disposition, administration and participant safeguards, uniquely labeled literal prompts or cues, response representations, decidable branching and nonresponse routes, capture and provenance rules distinguishing observation from inference, and method- and risk-bound review or pilot evidence.
 topics:
+  - "specifications"
+  - "product-and-discovery"
+  - "requirements-engineering"
   - "elicitation-instrument"
   - "questionnaire-design"
   - "interview-guide"
   - "observation-guide"
   - "response-routing"
-  - "collection-readiness"
 use_when:
   - "A researcher or analyst needs a reusable questionnaire, interview guide, or observation guide with literal prompts and capture rules."
   - "An author is defining response vocabularies, branching and skip logic, participant safeguards, and pilot or review readiness criteria."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `ELICITATION-INSTRUMENT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the questions, prompts, observation cues, and capture rules used to collect information.
 - **Intended readers:** Researchers, requirements analysts, facilitators, observers, and reviewers of collection methods.
 - **Decision or action supported:** Prepare and consistently administer a questionnaire, interview guide, or observation guide within its declared scope.
@@ -40,7 +41,7 @@ Expose unresolved wording, answerability, population, response representation, r
 ## Finished-document contract
 
 - **Title:** Identify the elicitation subject and instrument kind.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, edition, and readiness belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, edition, and readiness belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State identity and collection purpose before administration; make prerequisites and the readiness disposition visible before use, put items in administration order, then explain capture and review. Heading wording may vary.
 - **Presentation:** Combine semantic roles in short prose, item lists, or routing tables when every prompt, choice, prerequisite, and readiness limit remains retrievable; headings need not repeat every role.

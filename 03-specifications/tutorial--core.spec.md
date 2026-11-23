@@ -3,6 +3,8 @@ title: "Learning tutorial specification"
 description: >-
   Defines the authoring contract for hands-on learning tutorials guiding learners through a safe, bounded practice exercise toward an explicit learning objective with observable checkpoints and reflection. Covers audience prerequisites, reproducible isolated practice environments and permitted targets, version-accurate incremental steps with checkpoints and recovery routes, expected practice outcomes, bounded cleanup of exercise-created resources, and explicit draft versus learner-ready applicability backed by complete walkthrough evidence.
 topics:
+  - "specifications"
+  - "product-and-discovery"
   - "learning-tutorial"
   - "hands-on-exercise"
   - "learning-checkpoints"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `TUTORIAL@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Guide a learner through a bounded practice exercise with a learning objective and observable checkpoints.
 - **Intended readers:** Learners and instructors responsible for the stated prerequisites and practice environment.
 - **Decision or action supported:** Complete a supported learning progression and recognize its practice outcome.
@@ -40,7 +41,7 @@ Expose unknown version, environment, target, prerequisite, action, expected obse
 ## Finished-document contract
 
 - **Title:** Name the learning outcome and identify the product or concept when needed.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Put editions, scope, readiness and actual check state in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Put editions, scope, readiness and actual check state in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State learning goal and prerequisites before environment preparation; present practice steps and checkpoints in dependency order; put outcome reflection and cleanup last. Heading wording may vary.
 - **Presentation:** Required roles may share concise paragraphs, lists or sections when prerequisites, actions, checkpoints, gaps and readiness remain retrievable in dependency order. Use local step locators for recovery; a compact tutorial needs no separate administrative chapter per role.

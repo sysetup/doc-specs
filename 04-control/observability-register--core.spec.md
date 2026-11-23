@@ -3,6 +3,8 @@ title: "Observability register specification"
 description: >-
   Defines the authoring contract for observability registers maintaining a controlled catalog of watched operational signals, alerting or action thresholds, accountable signal owners, and attached response instructions for a defined service or system at a stated as-of point. Surfaces monitoring blind spots and unowned signals clearly while excluding on-call duty scheduling decisions, detailed step-by-step remediation commands, active incident chronologies, and historical threshold-crossing or alert-firing telemetry results.
 topics:
+  - "control-records"
+  - "operations"
   - "observability-register"
   - "monitored-signals"
   - "alert-thresholds"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `OBSERVABILITY-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record the watched signals, their thresholds, their owners, and the response each signal calls for.
 - **Intended readers:** The owners of those signals and the people who must know which signal is watched, at what threshold, and what response applies.
 - **Decision or action supported:** Determine the controlled list of watched signals and the threshold, owner, and response for each.
@@ -40,9 +41,14 @@ If a signal, threshold, owner, or response is unknown, record the gap. Do not in
 ## Finished-document contract
 
 - **Title:** Identify the service or system and name the document as its observability register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). The service and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. The service and as-of point belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Identify the service before the signal list. State gaps with or after the list. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Observability register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

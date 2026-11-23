@@ -3,6 +3,8 @@ title: "Cybersecurity policy specification"
 description: >-
   Defines the authoring contract for mandatory cybersecurity policies governing protection objectives, secure development expectations, incident response duties, and supply-chain security across an authorized organizational or project scope. Requires explicit coverage of issuing authority, policy ownership, applicability, issuance state, security directives, accountability and security escalation paths, risk and exception decision rules, noncompliance handling, and oversight review. Enables builders, operators, and overseers to identify binding security duties and escalation channels clearly.
 topics:
+  - "governance"
+  - "security"
   - "cybersecurity-policy"
   - "information-security"
   - "secure-development"
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POLICY@cybersecurity`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory security direction for protection objectives, secure development, incident response, and supply-chain security within an authorized scope.
 - **Intended readers:** People who design, build, acquire, operate, or oversee the covered systems and information, and the policy's issuing authority.
 - **Decision or action supported:** Readers can identify the security duties that apply, where to report or escalate a security concern, and who may decide a policy exception.
 - **Use when:** An issuing authority needs a subject-specific policy governing cybersecurity responsibilities and outcomes across a defined organization or project.
+- **Scope boundaries:** Establish mandatory cybersecurity direction for protection objectives, secure development, incident response, and supply-chain security; exclude detailed technical standards, incident playbooks, and threat-analysis records.
 
 ## Authoring inputs and unresolved facts
 
@@ -39,9 +41,14 @@ If a protection objective, threat assumption, project security duty, or role is 
 ## Finished-document contract
 
 - **Title:** Identify the covered subject as a cybersecurity policy and name the organization, project, or system boundary where ambiguity would result.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Authority, applicability, and policy state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State authority and scope before security obligations; place responsibility and exception routes after the obligations they govern. Headings may use project wording if their roles remain clear.
+- **Presentation:** Scale structure to organizational scope using concise prose, numbered directives, and focused tables where authority or exceptions benefit from comparison. Required roles may share sections while keeping issuing authority, applicability, directives, and exception rules independently retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Cybersecurity policy (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

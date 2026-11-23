@@ -3,12 +3,14 @@ title: "Operational post-incident review specification"
 description: >-
   Defines the authoring contract for retrospective reviews of one stabilized operational incident not handled as a cybersecurity incident. Covers review scope and evidence cutoff, supported causes and contributing conditions, response and recovery effectiveness findings, evidence-bounded lessons and recommendations, concrete improvement actions with tracking references, dissemination boundaries, and review disposition so operational owners decide justified changes with clear visibility of analytical limits.
 topics:
+  - "evidence"
+  - "operations"
+  - "incident-and-continuity"
   - "post-incident-review"
   - "operational-retrospective"
   - "root-cause-analysis"
   - "recovery-effectiveness"
   - "incident-lessons"
-  - "service-improvement"
 use_when:
   - "A non-cybersecurity operational incident has stabilized and a retrospective analysis of causes, response, and recovery has been performed."
   - "A service owner is capturing contributing conditions, recovery effectiveness, and concrete improvement actions backed by evidence."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POST-INCIDENT-REVIEW@generic`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Review one stabilized operational incident for supported causes, contributing conditions, response and recovery effectiveness, lessons, and improvement actions.
 - **Intended readers:** Incident responders, affected service or operational owners, and people responsible for deciding and tracking improvements.
 - **Decision or action supported:** Understand what the incident reveals and decide what should change, with evidence and limits visible.
@@ -40,9 +41,14 @@ When a fact, cause, objective, assignment, or decision is unknown or not establi
 ## Finished-document contract
 
 - **Title:** Identify the incident and call the document an operational post-incident review.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Incident and review facts belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Incident and review facts belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and evidence before analysis; place lessons and follow-through after the analysis. Heading wording may vary.
+- **Presentation:** Use concise factual prose paired with structured evidence tables, chronologies, or finding lists sized to the performed activity. Required roles may share sections while keeping assessed configuration, criteria, actual observations, dispositions, and coverage limits strictly traceable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Operational post-incident review (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one event- or assessment-specific H1. Activity identity, assessed configuration, actual timing, authority, and observed outcomes remain body content; external specification provenance and corpus-level default maintenance metadata apply where governed in a unified corpus. | Use GFM prose, tables, or logs bound to immutable inspected snapshots, artifact revisions, and real execution or review records. Historical observations remain tied to their recorded scope and time; later retests, changes, or approvals create distinct records rather than rewriting prior evidence. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

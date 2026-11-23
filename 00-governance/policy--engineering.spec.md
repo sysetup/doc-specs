@@ -3,12 +3,14 @@ title: "Engineering policy specification"
 description: >-
   Defines the authoring contract for mandatory engineering policies governing lifecycle responsibilities, requirements discipline, interface control expectations, and technical decision rigor across an organizational or project scope. Specifies required coverage of issuing authority, policy ownership, applicability, issuance state, mandatory engineering directives, requirements and interface governance rules, technical authority and coordination, exception handling, nonconformance escalation, and oversight review. Clarifies who owns technical conclusions and what basis is required before accepting technical changes.
 topics:
+  - "governance"
+  - "systems-engineering"
+  - "software-engineering"
   - "engineering-policy"
   - "technical-governance"
   - "lifecycle-accountability"
   - "requirements-governance"
   - "interface-governance"
-  - "technical-decisions"
 use_when:
   - "An issuing authority needs broad mandatory engineering obligations covering lifecycle duties, requirements, interfaces, and technical decisions."
   - "An author is defining organizational engineering decision rights, coordination rules, and nonconformance escalation routes."
@@ -24,11 +26,11 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `POLICY@engineering`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Establish mandatory engineering direction for lifecycle responsibility, requirements, interfaces, and the quality of technical decisions.
 - **Intended readers:** Engineering roles, project and technical decision authorities, and people who depend on engineering outputs across lifecycle boundaries.
 - **Decision or action supported:** Readers can identify who owns technical work and decisions, how requirements and interfaces are governed, and what basis is needed before a technical conclusion or change is accepted.
 - **Use when:** An issuing authority needs broad engineering obligations for a defined organizational or project scope.
+- **Scope boundaries:** Establish mandatory engineering direction for lifecycle accountability, requirements, interfaces, and technical decision rigor; exclude recurring lifecycle processes, project plans, and granular technical standards.
 
 ## Authoring inputs and unresolved facts
 
@@ -41,14 +43,19 @@ Normally all four named engineering subjects are covered. A subject may be exclu
 ## Finished-document contract
 
 - **Title:** Name the organization or project subject where needed and identify the document as an engineering policy.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Authority, applicability, and state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Authority, applicability, and state are body content. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Present authority and boundaries before mandatory direction, then responsibility and exception rules, then communication and review. Headings may use local wording if the roles remain identifiable.
+- **Presentation:** Scale structure to organizational scope using concise prose, numbered directives, and focused tables where authority or exceptions benefit from comparison. Required roles may share sections while keeping issuing authority, applicability, directives, and exception rules independently retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Engineering policy (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one subject-specific H1. Authority, applicability, issuance state, and ownership stay in the body, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, lists, or tables. Bind criteria, rationales, and references to actual organizational authorities and source editions; changes to governing mandates or scope require review before retaining active status. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Authority, purpose, and scope | Required | Identify the real issuing authority or mark it proposed; policy owner (or inherit an explicit corpus/catalog default when not overridden per document), edition (per document or unified corpus version in `CHANGELOG.md` plus Git revision), truthful issuance state, affected disciplines and people, systems or products, lifecycle boundary, exclusions, and effective date only when established. State the engineering outcome and the project needs, allocations or decisions that establish the obligations. |
-| Mandatory engineering direction | Required; subject coverage follows the approved exclusions defined above | State identifiable obligations for **lifecycle responsibility**, **requirements**, **interfaces**, and **decision quality** wherever each subject remains in scope. For those subjects, respectively govern continuity of technical accountability through the covered lifecycle; source, allocation, change, and evaluation of requirements; ownership and coordinated change of interfaces; and proportionate rationale, assumptions, risks, alternatives, and evidence for consequential technical decisions. Specify how claims of conformity to requirements and fitness for intended use are to be supported where those claims are within scope. State the required review, verification, validation, or acceptance practices where needed. |
+| Mandatory engineering direction | Required | Subject coverage follows the approved whole-subject exclusions defined above. State identifiable obligations for **lifecycle responsibility**, **requirements**, **interfaces**, and **decision quality** wherever each subject remains in scope. For those subjects, respectively govern continuity of technical accountability through the covered lifecycle; source, allocation, change, and evaluation of requirements; ownership and coordinated change of interfaces; and proportionate rationale, assumptions, risks, alternatives, and evidence for consequential technical decisions. Specify how claims of conformity to requirements and fitness for intended use are to be supported where those claims are within scope. State the required review, verification, validation, or acceptance practices where needed. |
 | Technical authority and coordination | Required | For the subjects in scope, allocate responsibility and decision rights for engineering outputs, requirements and interface changes, cross-discipline conflicts, and acceptance of technical evidence. Define an escalation route when authorities or baselines conflict. State the coordination and handoff rules needed to apply these obligations. |
 | Exceptions and nonconformance | Required | State whether policy exceptions are allowed. If allowed, identify decision authority, request basis, consequences, how the decision is recorded, and expiry or review rule; state what applies while a request is pending. Define routing for departures from engineering obligations. If exceptions are prohibited, state that rule and the conflict route. |
 | Communication, oversight, and review | Required | State how obligations and revisions reach affected disciplines, what information is used to oversee adherence, and who reviews and changes the policy and when. |

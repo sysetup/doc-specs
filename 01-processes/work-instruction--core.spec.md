@@ -3,12 +3,14 @@ title: "Work instruction specification"
 description: >-
   Defines the authoring contract for work instructions giving a qualified worker an executable, detailed method for one bounded repeatable task, including required competence, work-item selection, tools, technical references, tolerances, hold points, quality checks, deviation routes, and handoff outputs. Keeps instructions tightly scoped to one task or station with explicit authority context and acceptance conditions so workers can detect nonconforming output immediately.
 topics:
+  - "processes"
+  - "operations"
+  - "quality-assurance"
   - "work-instruction"
   - "task-execution"
   - "quality-checks"
   - "hold-points"
   - "deviation-handling"
-  - "station-method"
 use_when:
   - "A qualified worker needs exact technique, tools, tolerances, checks, and acceptance criteria for one repeatable task."
   - "An author is writing station-level or task-level instructions nested under a broader procedure or work order."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `WORK-INSTRUCTION@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Give a qualified worker an executable method for one bounded, repeatable task, including controls, checks, and the required output.
 - **Intended readers:** Workers who perform the task, supervisors or checkers who release hold points, and the next process recipient.
 - **Decision or action supported:** A worker can confirm the task applies, prepare the right item and resources, perform the method, identify nonconforming work, and hand off the expected result.
@@ -40,9 +41,14 @@ For an unknown or not-established fact, state the gap, its consequence, the reso
 ## Finished-document contract
 
 - **Title:** Identify the single task and the item, station, or work context it applies to.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Task scope and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Task scope and authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Put applicability, authority, and preparation before the work steps; put acceptance and handoff after them. Heading wording may vary.
+- **Presentation:** Use ordered steps, concise checklists, or compact tables sized to the recurring task or control scope. Required roles may share sections while keeping prerequisites, hold points, tolerances, and required evidence records directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Work instruction (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

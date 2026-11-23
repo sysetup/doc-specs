@@ -3,6 +3,8 @@ title: "Discovery input and product feedback register specification"
 description: >-
   Defines the authoring contract for discovery input and product feedback registers capturing raw sourced feedback, suggestions, support observations, and field notes through structured intake, deduplication, theme linking, triage state tracking, and downstream routing to authoritative records. Preserves source provenance and context while clearly separating untriaged feedback from approved requirements, prioritized delivery backlogs, defect closure tracking, and ordinary customer service-request fulfillment.
 topics:
+  - "control-records"
+  - "product-and-discovery"
   - "product-feedback"
   - "discovery-intake"
   - "feedback-triage"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PRODUCT-FEEDBACK-REGISTER@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Maintain sourced discovery inputs and feedback through triage and routing to authoritative downstream records.
 - **Intended readers:** Researchers, analysts, product owners, support personnel, and requirements or defect stewards.
 - **Decision or action supported:** Identify untriaged inputs, duplicates, themes, and disposition without treating feedback as approved work.
@@ -40,9 +41,14 @@ Expose unknown source, time, context, owner, classification, or disposition with
 ## Finished-document contract
 
 - **Title:** Identify the discovery or product boundary and name its input and feedback register.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, scope, and state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State intake scope and handling rules before entries; follow entries with triage, routing, and reconciliation. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Discovery input and product feedback register (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

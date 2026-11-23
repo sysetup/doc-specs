@@ -3,12 +3,14 @@ title: "Problem or defect report specification"
 description: >-
   Defines the authoring contract for problem and defect reports controlling one observed departure from expected behavior or specified obligations from initial capture through reproduction, affected-scope bounding, root-cause triage, formal disposition, optional correcting changes or accepted limitations, effectiveness verification, recurrence tracking, and authorized closure. Keeps observed departures strictly separate from speculative future risks, active incident chronologies, anomaly-linking indexes, and general execution status reports.
 topics:
+  - "control-records"
+  - "quality-assurance"
+  - "testing"
   - "problem-report"
   - "defect-tracking"
   - "nonconformance"
   - "reproduction-evidence"
   - "defect-disposition"
-  - "effectiveness-check"
 use_when:
   - "An observed software bug, hardware fault, or specification nonconformance requires structured analysis, disposition, and verified closure."
   - "An engineer or quality lead is recording reproduction results, affected configurations, correction links, and effectiveness checks."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `PROBLEM-DEFECT-REPORT@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Control one observed defect, problem, or nonconformance from its description through analysis, disposition, any correction, effectiveness check, and closure.
 - **Intended readers:** The owner who must disposition the departure, the people who investigate or correct it, and anyone who must confirm that closure is supported.
 - **Decision or action supported:** Decide whether the departure remains open, which disposition applies, and whether closure has authority and, when a correction was implemented, an effectiveness check.
@@ -40,9 +41,14 @@ If a fact, time, subject, owner, authority, or check result is unknown or not es
 ## Finished-document contract
 
 - **Title:** Name the departure and identify the document as its problem or defect report.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, state, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Identity, state, and disposition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State the observation before analysis. Place disposition and effectiveness after analysis. Place history and closure last. Heading wording may vary.
+- **Presentation:** Use concise structured blocks, chronologies, or compact tables proportional to the single controlled item's complexity. Required roles may share sections while keeping current state, controlling authority, evidence links, and unresolved gaps immediately retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Problem or defect report (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

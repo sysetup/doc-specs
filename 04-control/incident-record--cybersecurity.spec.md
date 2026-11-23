@@ -3,12 +3,14 @@ title: "Cybersecurity incident record specification"
 description: >-
   Defines the authoring contract for contemporaneous cybersecurity incident records tracking one suspected or confirmed security incident from declaration through active response and closure. Covers incident command and declaration, detection details, affected resources, technical indicators, append-only or corrected chronology, containment actions and status, eradication work, notification duties, evidence handling, recovery status, and closure while excluding routine pre-exploitation vulnerability cases and retrospective causal or dwell-time analysis.
 topics:
+  - "control-records"
+  - "security"
+  - "incident-and-continuity"
   - "cybersecurity-incident-record"
   - "incident-chronology"
   - "containment-tracking"
   - "eradication-status"
   - "indicators-of-compromise"
-  - "incident-evidence"
 use_when:
   - "A suspected or confirmed cybersecurity incident is active and requires a contemporaneous factual record of detection, scope, and response."
   - "An incident lead is tracking containment actions, eradication progress, indicators, notification duties, and evidence handling."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `INCIDENT-RECORD@cybersecurity`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Record one actual or suspected cybersecurity incident: its detection, affected resources, indicators, containment, eradication, and notification duties, together with its chronology, evidence handling, recovery status, and closure.
 - **Intended readers:** The incident lead, security responders, affected resource owners, and the roles that decide containment, eradication, notification, and closure.
 - **Decision or action supported:** Direct containment and eradication, account for notification duties, and decide whether the incident remains open using its actual response history and evidence.
@@ -40,9 +41,14 @@ For each notification duty, use the supplied project assignment or decision that
 ## Finished-document contract
 
 - **Title:** Name the incident and identify the document as its cybersecurity incident record.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Detection, scope, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Detection, scope, and status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State declaration, then detection and affected scope, then the chronology. Place containment and eradication before notification. Place evidence handling before recovery and closure. Heading wording may vary. These roles are record content.
+- **Presentation:** Use concise structured blocks, chronologies, or compact tables proportional to the single controlled item's complexity. Required roles may share sections while keeping current state, controlling authority, evidence links, and unresolved gaps immediately retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Cybersecurity incident record (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

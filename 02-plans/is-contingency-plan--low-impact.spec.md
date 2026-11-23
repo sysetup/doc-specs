@@ -3,12 +3,14 @@ title: "Low-impact information-system contingency plan specification"
 description: >-
   Defines the authoring contract for contingency plans governing one classified low-impact information system through proportionate disruption detection, activation, bounded recovery, reconstitution, exercises, and upkeep. Covers system identity and impact classification decision, recovery objectives, contingency roles and responsibilities, activation and notification triggers, service and data recovery actions, return-to-routine checks, and conditional alternate location or storage provisions included only when selected by the strategy.
 topics:
+  - "planning"
+  - "incident-and-continuity"
+  - "operations"
   - "contingency-plan"
   - "low-impact-system"
   - "service-recovery"
   - "reconstitution"
   - "disruption-activation"
-  - "contingency-exercises"
 use_when:
   - "A responsible authority has classified an information system as low impact and requires a proportionate system-specific contingency plan."
   - "A system owner is planning activation rules, bounded recovery steps, reconstitution checks, and plan upkeep without heavy failover overhead."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `IS-CONTINGENCY-PLAN@low-impact`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define how one classified low-impact information system will activate contingency arrangements, recover service and data, return to routine operation, exercise the approach, and keep the plan usable.
 - **Intended readers:** System owner, contingency coordinator, recovery personnel, supporting providers, and authorities who decide activation or return to service.
 - **Decision or action supported:** Those roles can recognize a disruption, decide whether to activate the plan, carry out a bounded recovery, and assess readiness against established recovery objectives.
@@ -40,9 +41,14 @@ Mark a missing fact as unknown and an undecided strategy or objective as not est
 ## Finished-document contract
 
 - **Title:** Identify the system and the low-impact information-system contingency plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). System identity, plan edition, classification, and authority are operational content in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. System identity, plan edition, classification, and authority are operational content in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and objectives before activation; describe recovery before reconstitution; put readiness and maintenance after the operational phases. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Low-impact information-system contingency plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

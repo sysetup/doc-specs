@@ -3,12 +3,14 @@ title: "Concept-oriented glossary specification"
 description: >-
   Defines the authoring contract for concept-oriented glossaries controlling shared meanings of project or domain concepts across documentation sets. Covers glossary scope and stewardship, unique concept entries, preferred designations, permitted aliases, explicitly deprecated designations, substantive conceptual definitions beyond acronym expansion alone, subject context, definition origin distinguishing adopted, adapted, or project-authored terms, source provenance and rights, usage notes, related concepts, and unresolved terminology disputes.
 topics:
+  - "control-records"
+  - "requirements-engineering"
+  - "systems-engineering"
   - "glossary"
   - "terminology-control"
   - "concept-definitions"
   - "preferred-terms"
   - "controlled-vocabulary"
-  - "domain-semantics"
 use_when:
   - "A project or domain needs one controlled vocabulary unifying concept meanings, preferred terms, aliases, and deprecated labels."
   - "A terminology steward is documenting definition origins, semantic distinctions, and unresolved term disputes across documents."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `GLOSSARY@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Control the shared meanings of project or domain concepts, including each concept's preferred designations, permitted and deprecated aliases, sources, and distinctions.
 - **Intended readers:** Authors and reviewers who must use the same meanings across project documents, and the role that stewards the vocabulary.
 - **Decision or action supported:** A reader can tell which designation to use, what the concept means in this subject field, which designations are deprecated, and whether the definition was adopted, adapted, or written for the project.
@@ -40,9 +41,14 @@ If the subject field or language is unknown, say so and leave it unresolved. If 
 ## Finished-document contract
 
 - **Title:** Name the subject field and identify the document as its concept glossary.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Scope, designations, and definitions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Scope, designations, and definitions belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Give scope and stewardship before the entries. Present unresolved disputes with or after the entries. Heading wording may vary.
+- **Presentation:** Use compact registers, structured item tables, or grouped lists sized to the controlled inventory without placeholder rows. Required roles may share sections while keeping stable identities, owners, states, source locators, and reconciliation gaps directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Concept-oriented glossary (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Control scope, as-of point, state, ownership, and authority references remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, tables, or structured lists bound to controlling masters and inspected snapshots. Referenced systems, trackers, or baselines remain authoritative for their native records; changes to controlling sources require reconciliation rather than silent overwrite. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

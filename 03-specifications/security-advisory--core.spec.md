@@ -3,12 +3,14 @@ title: "Recipient security advisory specification"
 description: >-
   Defines the authoring contract for recipient-facing security advisories communicating verified vulnerability applicability across affected, not-affected, and unknown product versions or configurations, separate fixed-release availability, recipient impact, independent context-bound severity assessments without composite substitutes, established update or mitigation routes, disclosure authority, revision history, and conditional bindings to checked machine-readable advisory exports. Prohibits procedural attack instructions, unverified remediation promises, and conflating advisory publication with internal vulnerability case closure.
 topics:
+  - "specifications"
+  - "security"
+  - "change-and-release"
   - "security-advisory"
   - "vulnerability-disclosure"
   - "affected-versions"
   - "severity-assessment"
   - "remediation-guidance"
-  - "advisory-exports"
 use_when:
   - "A product security issue requires controlled recipient communication covering affected versions, impact, severity basis, and remediation."
   - "A security coordinator is publishing or revising an advisory while keeping unknown applicability distinct from not-affected status."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SECURITY-ADVISORY@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Communicate supported vulnerability applicability and recipient actions across affected and fixed product versions.
 - **Intended readers:** Affected recipients, administrators, integrators, support teams, and release or security coordinators.
 - **Decision or action supported:** Determine whether the published issue applies and what established update or mitigation to take.
@@ -40,7 +41,7 @@ Expose unknown identity, range, fix, impact, assessment input, export check or p
 ## Finished-document contract
 
 - **Title:** Identify the product and security issue and name its recipient security advisory.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Identity, scope, publication state and native check status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required on standalone GFM documents; omitted on selected machine-readable native advisory exports whose schemas manage metadata natively. Begin standalone GFM documents with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), excluding internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values, followed by the H1 title. Identity, scope, publication state, and native check status belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract and this type's projection policy.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State issue identity and applicability before impact and each independent assessment. Place recipient action and limits before publication history. Place each selected native binding after the human statements it maps. Heading wording may vary.
 - **Presentation:** Required roles may share concise paragraphs, tables or lists when every range, assessment, action and selected export remains separately retrievable. Use one applicability table and one account per assessment or export. Do not add an administrative chapter for each scheme.

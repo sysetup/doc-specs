@@ -3,6 +3,7 @@ title: "Systems engineering lifecycle process specification"
 description: >-
   Defines the authoring contract for a reusable cross-discipline systems engineering lifecycle process spanning stakeholder needs, requirements, architecture, design, integration, verification, validation, transition, and technical decision gates. Covers system boundary definition, technical authority, technical management and definition activities, realization and assessment flows, lifecycle review criteria, transition handoffs, and process feedback. Enables multi-discipline teams to coordinate technical information flows and gate readiness consistently across systems.
 topics:
+  - "processes"
   - "systems-engineering"
   - "lifecycle-process"
   - "cross-discipline-coordination"
@@ -24,7 +25,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `LIFECYCLE-PROCESS@systems-engineering`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define the reusable system-level technical process from stakeholder need through requirements, architecture, integration, verification, validation, transition, and technical decisions.
 - **Intended readers:** Systems engineers, discipline leads, technical and review authorities, integrators, and transition recipients.
 - **Decision or action supported:** Teams can coordinate technical work across disciplines and know what information and criteria are needed before a lifecycle decision or handoff.
@@ -40,9 +40,14 @@ For an unknown fact, state what is missing, why it matters, the resolving action
 ## Finished-document contract
 
 - **Title:** Name the systems engineering lifecycle process and its system or organizational scope.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicability and process edition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Applicability and process edition belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish the system boundary and authority before the lifecycle flow; place gate rules after the work that supplies their inputs; end with transition and process feedback. Exact heading wording is flexible.
+- **Presentation:** Use concise prose alongside activity or gate tables and brief flow diagrams sized to the lifecycle scope. Required roles may share sections while keeping roles, entry/exit gates, handoffs, and required records clearly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Systems engineering lifecycle process (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

@@ -3,12 +3,14 @@ title: "Integration plan specification"
 description: >-
   Defines the authoring contract for integration plans organizing staged assembly and interface bring-up of components, subsystems, or increments into a target assembly. Covers integration objectives and boundaries, controlling configuration and interface baselines, integration strategy and sequence, per-stage prerequisites, support equipment and environments, stage verification checks, handling of missed or unsafe checks, and handoff of the integrated assembly prior to operational deployment.
 topics:
+  - "planning"
+  - "systems-engineering"
+  - "architecture-and-design"
   - "integration-plan"
   - "staged-assembly"
   - "interface-bring-up"
   - "integration-gates"
   - "configuration-selection"
-  - "systems-integration"
 use_when:
   - "A project must coordinate staged assembly and interface bring-up across multiple components, subsystems, or software increments."
   - "An integration lead is specifying per-stage prerequisites, support environments, readiness gates, and safe stop criteria before integration starts."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `INTEGRATION-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan how identified components, subsystems, or increments will be combined into a defined assembly or system and checked at each integration boundary.
 - **Intended readers:** Integration leads and performers, component and interface owners, configuration and assurance roles, test leads, suppliers, and gate decision makers.
 - **Decision or action supported:** Coordinate the integration sequence, prerequisites, responsibilities, environment, checks, and the response when a step does not meet its criterion or is unsafe, before work begins.
@@ -40,16 +41,21 @@ For an unavailable item, unresolved interface, unselected configuration, or unco
 ## Finished-document contract
 
 - **Title:** Identify the target system or assembly and name its integration plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Configurations, locations, and gate authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Configurations, locations, and gate authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and configuration basis before the sequence; give each stage's readiness, activities, checks, and response route before final handoff. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Integration plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
 | Integration objective and boundaries | Required | Identify target assembly or system, incoming items and existing receiving assembly, lifecycle stage, included and excluded interfaces, intended integrated capability, and the role responsible for the plan. Explain the integration effort's dependencies and milestones within the larger project. |
 | Configuration, interface, and planning basis | Required | Identify component and interface identities, candidate revisions or selection rules, supplied project technical requirements and their versions, compatibility assumptions, dependencies, and configuration control. State how changes to any basis are assessed before continuing. |
 | Strategy and sequence | Required | Explain incremental build or other chosen assembly order, dependency and risk rationale, enabling products, planned locations or environments, responsible parties, and schedule or readiness windows. Show where tests or inspections influence the next stage. |
-| Integration stages | Required: one or more stages | For each stage, identify the items and versions or selection rule, receiving assembly, interface or behavior being established, facility and equipment needs, entry prerequisites, ordered integration work at planning depth, hold points, checks and exit criteria, owner and decision role, expected evidence, and the next-stage dependency. Identify existing detailed procedures and environment records by location and version when used. If a necessary method or environment capability is not established, state the gap and its readiness consequence. |
+| Integration stages | Required | Define one or more integration stages. For each stage, identify the items and versions or selection rule, receiving assembly, interface or behavior being established, facility and equipment needs, entry prerequisites, ordered integration work at planning depth, hold points, checks and exit criteria, owner and decision role, expected evidence, and the next-stage dependency. Identify existing detailed procedures and environment records by location and version when used. If a necessary method or environment capability is not established, state the gap and its readiness consequence. |
 | Missed criteria, unfinished checks, and unsafe work | Required | Define the planned response when a check does not meet its criterion, cannot be concluded, or is unsafe: stop or hold triggers, anomaly and configuration capture, containment or safe-state route, rework and reassessment authority, and how a later attempt is distinguished from the earlier attempt. State rollback constraints; where reversal is impossible, plan isolation, repair, or another justified safe disposition. |
 | Integrated-result and handoff interface | Required | Define what configuration and evidence will be offered to downstream verification, validation, transition, or acceptance, who reviews integration exit criteria, and how open defects or constraints travel with the assembly. State the planned handoff prerequisites and the receiving decision role. |
 

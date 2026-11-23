@@ -3,6 +3,8 @@ title: "Validation plan specification"
 description: >-
   Defines the authoring contract for standalone validation plans organizing how a bounded solution will be assessed for fitness against stakeholder, user, mission, or intended-use needs under representative operating conditions. Covers validation scope and need basis, use context and validation strategy, need-to-scenario traceability mappings, evaluation criteria, representative participant or actor roles, execution resources and readiness, evidence packaging, anomaly interpretation, and acceptance or certification interfaces.
 topics:
+  - "planning"
+  - "verification-and-validation"
   - "validation-plan"
   - "intended-use-fitness"
   - "representative-scenarios"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `VV-PLAN@validation-packaging`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan how a bounded solution will be assessed for fitness against stakeholder needs or intended use in representative conditions, with traceable scenarios, criteria, and expected evidence.
 - **Intended readers:** Validation leads and facilitators, stakeholder and user representatives, operators, product owners, assurance reviewers, and recipients of validation evidence.
 - **Decision or action supported:** Agree which needs and use conditions will be examined, by whom and how, what observations will matter, and what the assessment can support.
@@ -40,9 +41,14 @@ For an unknown need, operating condition, representative actor, configuration, c
 ## Finished-document contract
 
 - **Title:** Identify the solution or intended-use scope and name the document as its validation plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Need basis, context, and decision rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Need basis, context, and decision rules belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** State needs and intended use before scenarios and criteria; place resources and readiness before evidence and decision interfaces. Heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Validation plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
@@ -51,8 +57,8 @@ For an unknown need, operating condition, representative actor, configuration, c
 | Need and scenario mapping | Required | For each in-scope need or distinct use question, give scenario, participant or actor, configuration, conditions, method, observable evaluation criterion, responsible role, planned event, and expected evidence when those facts are established. Show an uncovered need or exclusion and its consequence. Do not invent a missing scenario, actor, or criterion, and do not enter a result. |
 | Execution resources and readiness | Required | Define schedule and dependencies, representative products or services, environments and data, participants and competence, access or consent and safety rules when applicable, and observable entry, suspension, resumption, and exit rules with decision authority. State the independence conclusion: required, with the established project decision or justified risk and the role separation; not required, because neither applies; or not established, when that basis is unknown. State how a changed need or use condition triggers replanning. |
 | Evidence packaging, anomalies, and interpretation | Required | Define capture and review rules retaining actual configuration, use context, participant or proxy, observations and feedback origins, criteria, deviations, limits, and review. Define event and attempt states for planned reporting: `not-run` applies only to a scenario selected for a bounded event that received no validation action; unselected planned work has no attempt state. An attempted assessment can receive `pass`, `fail`, or `inconclusive`. A missing observation or an invalidating condition on an attempt requires `inconclusive`; do not classify it as `not-run` or introduce a separate invalid result. Preserve each retest as a distinct later attempt linked to the earlier result. Define how fitness findings, limitations, and unresolved items will reach stakeholders and identify the receiving-party decision role and review or handoff gates. |
-| Acceptance or certification interface | Conditional: an established project delivery obligation supports a receiving-party or certification decision | State expected validation products, recipient, decision role, explicit product and handoff criteria, and how findings will support the planned decision. |
-| Terms and acronyms | Conditional: terminology could change interpretation | Define only terms needed to read the use context and evaluation criteria; no empty glossary or mandatory appendix. |
+| Acceptance or certification interface | Conditional when an established project delivery obligation supports a receiving-party or certification decision | State expected validation products, recipient, decision role, explicit product and handoff criteria, and how findings will support the planned decision. |
+| Terms and acronyms | Conditional when terminology could change interpretation | Define only terms needed to read the use context and evaluation criteria; no empty glossary or mandatory appendix. |
 
 ## Content definitions and forms
 

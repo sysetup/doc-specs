@@ -3,12 +3,14 @@ title: "Standard operating procedure specification"
 description: >-
   Defines the authoring contract for standard operating procedures governing recurring organizational or operational classes of work across roles, inputs, decision points, holds, controls, handoffs, and required records. Specifies trigger and applicability boundaries, role and decision authority, readiness inputs, ordered workflow steps and handoffs, abnormal routing, record retention, and periodic procedure review. Applies to recurring work classes even when performed by a single role.
 topics:
+  - "processes"
+  - "operations"
+  - "quality-assurance"
   - "standard-operating-procedure"
   - "recurring-workflow"
   - "role-handoffs"
   - "hold-points"
   - "operational-controls"
-  - "work-records"
 use_when:
   - "A recurring organizational or operational class of work needs standardized roles, readiness inputs, decision holds, and handoff rules."
   - "An author is documenting a repeatable multi-step process with abnormal routing and required completion records."
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SOP@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Define a repeatable organizational or operational procedure that coordinates roles, inputs, decisions, controls, handoffs, and required records.
 - **Intended readers:** Process participants, the process owner, supervisors, and people responsible for a hold, escalation, or receiving handoff.
 - **Decision or action supported:** A participant can decide whether the procedure applies, perform their assigned activities in order, obtain required release decisions, and route abnormal work.
@@ -40,9 +41,14 @@ For an unknown or not-established fact, state the gap, its effect, the resolving
 ## Finished-document contract
 
 - **Title:** Name the recurring procedure and its organizational or operational scope.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Applicability and process authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Applicability and process authority belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish scope and responsibility before prerequisites and activities; state abnormal routes before completion and record instructions. Heading wording may vary.
+- **Presentation:** Use ordered steps, concise checklists, or compact tables sized to the recurring task or control scope. Required roles may share sections while keeping prerequisites, hold points, tolerances, and required evidence records directly retrievable.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Standard operating procedure (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one task- or process-specific H1. Triggers, authority, scope, and maintenance ownership remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM lists, tables, or fenced commands grounded in inspected target configurations and policies. Reassess commands, parameters, and decision branches whenever target systems, tools, or controlling procedures change; written steps confer no execution authority. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |

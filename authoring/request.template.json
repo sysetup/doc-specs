@@ -4,6 +4,7 @@
     {
       "authoring": {
         "inputs": "{{REQUIRED_AUTHORING_INPUTS_PARAGRAPH}}",
+        "notes": [],
         "unresolved": "{{GAP_CONSEQUENCE_ACTION_OWNER_AND_BLOCKING_RULE_PARAGRAPH}}"
       },
       "comparisons": [
@@ -15,31 +16,9 @@
       "contract": {
         "frontmatter": {
           "condition": null,
-          "fields": [
-            {
-              "name": "title",
-              "rule": "Required string (3 to 160 characters). Source-grounded document title free of internal IDs, versions, hashes, paths, build metadata, and unresolved template delimiters (Rule 13)."
-            },
-            {
-              "name": "description",
-              "rule": "Required string (60 to 140 neutral retrieval words). Compact semantic summary covering purpose, subjects, decisions, and boundaries; Rule 13 compliant."
-            },
-            {
-              "name": "topics",
-              "rule": "Required array of 3 to 12 unique strings (2 to 80 characters each). Concrete domain subjects, methods, or artifacts materially covered; Rule 13 compliant."
-            },
-            {
-              "name": "use_when",
-              "rule": "Required array of 2 to 6 unique strings (at least 10 characters each). Neutral task or intent conditions where consulting the document is relevant; Rule 13 compliant."
-            },
-            {
-              "name": "not_for",
-              "rule": "Conditional array of 1 to 5 unique strings (at least 10 characters each). Grounded exclusions for unsuitable neighboring intents; omit the key entirely when empty; Rule 13 compliant."
-            }
-          ],
-          "governing_source": "Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).",
+          "governing_source": "Collection Semantic-Discovery Frontmatter contract.",
           "policy": "required",
-          "rule": "{{BODY_BOUNDARY_AND_PROJECTION_FRONTMATTER_RULE}}"
+          "rule": "{{BODY_BOUNDARY_AND_PROJECTION_METADATA_RULE}}"
         },
         "order": "{{SEMANTIC_ORDER_AGREEING_WITH_SECTION_ARRAY}}",
         "presentation": "{{PROPORTIONATE_GROUPING_WITHOUT_LOSING_OBLIGATIONS}}",
@@ -151,10 +130,14 @@
       "family_extension": null,
       "forms": "{{RECOMMENDED_FORMS_AND_AUTHORITATIVE_CONTENT_PARAGRAPH}}",
       "frontmatter": {
-        "description": "{{SPEC_FRONTMATTER_DESCRIPTION_60_TO_140_WORDS_RULE_13_COMPLIANT}}",
+        "description": "{{SPEC_FRONTMATTER_DESCRIPTION_60_TO_140_WORDS_FM_02_COMPLIANT}}",
         "not_for": ["{{SPEC_GROUNDED_EXCLUSION_1}}"],
-        "title": "{{HUMAN_DOCUMENT_TYPE_NAME}} specification",
-        "topics": ["{{SPEC_TOPIC_1}}", "{{SPEC_TOPIC_2}}", "{{SPEC_TOPIC_3}}"],
+        "title": "{{DERIVED_SPECIFICATION_TITLE}}",
+        "topics": [
+          "{{SHARED_DOMAIN_TOPIC_1}}",
+          "{{SHARED_DOMAIN_TOPIC_2}}",
+          "{{SPEC_SPECIFIC_TOPIC_1}}"
+        ],
         "use_when": [
           "{{SPEC_NEUTRAL_USE_WHEN_1}}",
           "{{SPEC_NEUTRAL_USE_WHEN_2}}"
@@ -164,7 +147,6 @@
         "catalog_name": "{{HUMAN_DOCUMENT_TYPE_NAME}}",
         "catalog_summary": "{{CONCISE_ONE_LINE_INDEX_CSV_SUMMARY_8_TO_18_WORDS}}",
         "decision": "{{SUPPORTED_DECISION_SENTENCE}}",
-        "edition": "1.0",
         "purpose": "{{PURPOSE_SENTENCE}}",
         "readers": "{{READER_ROLES}}",
         "scope": "{{INCLUSIONS_AND_EXCLUSIONS_SENTENCE}}",
@@ -183,7 +165,6 @@
       "supporting": []
     }
   ],
-  "registry_version": "1.0.0",
   "source_bindings": [
     {
       "path": "CONTRIBUTING.md",
@@ -210,6 +191,6 @@
       "sha256": "{{INSPECTED_SHA256}}"
     }
   ],
-  "standard_version": "3.0.0",
-  "state": "draft"
+  "state": "draft",
+  "version": "3.1.0"
 }

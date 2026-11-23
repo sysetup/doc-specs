@@ -3,6 +3,8 @@ title: "Software development plan specification"
 description: >-
   Defines the authoring contract for software development plans coordinating work organization, schedules, delivery increments, development environments, configuration controls, secure development practices, third-party component obligations, assessment and quality gates, release preparation, plan change response, and transition to maintenance support. Equips software leads, developers, security and quality roles, suppliers, and release decision makers to coordinate project-specific software development and readiness before controlled release execution.
 topics:
+  - "planning"
+  - "software-engineering"
   - "software-development-plan"
   - "delivery-increments"
   - "secure-development"
@@ -24,7 +26,6 @@ not_for:
 ## Identity and selection
 
 - **Specification ID:** `SOFTWARE-DEVELOPMENT-PLAN@core`.
-- **Specification edition:** `1.0`.
 - **Purpose:** Plan the work, resources, controls, and evidence needed to develop and deliver defined software, including secure development practices.
 - **Intended readers:** Software and system leads, developers, security and quality roles, configuration managers, suppliers, release decision makers, and receiving maintainers.
 - **Decision or action supported:** Coordinate project-specific development increments and determine what must be ready for a controlled software release and support handoff.
@@ -40,9 +41,14 @@ Identify an unknown fact or undecided choice with its effect, resolving action, 
 ## Finished-document contract
 
 - **Title:** Identify the project or software item and name its software development plan.
-- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values (Rule 13). Project boundary and plan state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract (standard 3.0.0).
+- **Frontmatter:** Required. Begin with a YAML 1.2 Semantic-Discovery frontmatter block delimited by `---` lines containing `title`, `description` (60 to 140 neutral retrieval words), `topics` (3 to 12 concrete lowercase kebab-case terms), `use_when` (2 to 6 neutral task conditions), and conditional `not_for` (1 to 5 grounded exclusions, omitted when empty), followed by the GFM H1 title. Exclude internal IDs, version strings, hashes, filesystem paths, build metadata, and unresolved template delimiters from frontmatter values. Project boundary and plan state belong in the body. Governing source: Collection Semantic-Discovery Frontmatter contract.
 - **Client or receiving party:** Conditional body element in the identity or scope section. Include it only when a named external party commissions or receives the work; then state that party's established name and relationship, such as client or receiving organization. Omit it for internal documents unless a specific project policy requires explicit negative attestation. Do not invent a party. Do not put the party in the specification ID, filename, or type name.
 - **Order:** Establish delivery scope and authority before the work strategy; present build and assurance controls before release and handoff. Exact heading wording may vary.
+- **Presentation:** Scale sections, tables, and schedules to the bounded effort without adding empty chapters for inapplicable concerns. Required roles may share paragraphs, lists, or compact tables while keeping planned scope, responsibilities, criteria, dependencies, and open gaps clearly separated from completed results.
+
+| Projection | Title and metadata ownership | Syntax and source authority |
+| --- | --- | --- |
+| Software development plan (standalone) | Begin with the mandatory 5-key Semantic-Discovery YAML frontmatter followed by one scope-specific H1. Plan scope, baseline assumptions, ownership, and readiness criteria remain body content, inheriting corpus-level changelog/VCS versioning, declared default maintainer, and external specification provenance when governed in a unified operational corpus. | Use GFM prose, structured tables, or dependency diagrams referencing controlling requirements, baselines, and schedules by edition and locator. Planned commitments remain distinct from execution evidence; baseline or scope changes require plan reassessment. |
 
 | Section role | Status and inclusion condition | Content obligation |
 | --- | --- | --- |
