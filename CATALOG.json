@@ -1819,7 +1819,8 @@
       ],
       "path": "03-specifications/repository-overview--core.spec.md",
       "projections": [
-        "standalone"
+        "standalone",
+        "native"
       ],
       "summary": "Concise development repository entrypoint covering purpose, maturity, layout, setup, and documentation map",
       "title": "Repository overview",
@@ -2670,7 +2671,8 @@
       ],
       "path": "04-control/changelog--core.spec.md",
       "projections": [
-        "standalone"
+        "standalone",
+        "native"
       ],
       "summary": "Maintain meaningful multi-version change history and separated pending changes for one subject",
       "title": "Cumulative changelog",
@@ -4661,5 +4663,5 @@
       ]
     }
   ],
-  "version": "3.2.0"
+  "version": "3.3.0"
 }

@@ -13,7 +13,7 @@
 
 ## Overview
 
-This collection (version [3.2.0](CHANGELOG.md#320)) provides **153 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Every specification carries standardized 5-key Semantic-Discovery YAML frontmatter and defines a document's purpose, scope boundaries, authoring inputs, finished-document contract, supported projections, content definitions, and quality criteria.
+This collection (version [3.3.0](CHANGELOG.md#330)) provides **153 Markdown document specifications** across governance, processes, plans, specifications, control records, and evidence. Every specification carries standardized 5-key Semantic-Discovery YAML frontmatter and defines a document's purpose, scope boundaries, authoring inputs, finished-document contract, supported projections, content definitions, and quality criteria.
 
 The collection helps engineers, project owners, operators, reviewers, and automated agents develop documentation grounded in their project's facts and evidence. It supports both manual authoring and automated compilation workflows.
 
@@ -49,7 +49,7 @@ Finished documents belong with their owning project or in its authorized documen
 
 ## Reading a specification
 
-Every specification follows one uniform structure governed by the single collection version `3.2.0`:
+Every specification follows one uniform structure governed by the single collection version `3.3.0`:
 
 - **Required** content appears in every document of that type.
 - **Conditional** content applies when the stated predicate is met.
@@ -62,7 +62,7 @@ When a finished document belongs to a unified operational corpus governed by one
 
 ## Adding and maintaining specifications
 
-[CONTRIBUTING.md](CONTRIBUTING.md) (`3.2.0`) defines mission and source discovery, task-to-content-to-case coverage, standardized 5-key Semantic-Discovery YAML frontmatter and semantic purity, projection and presentation rules, representative finished-instance evaluation, deterministic composition, and catalog integration. Use [authoring/request.template.json](authoring/request.template.json), [authoring/specification.template.md](authoring/specification.template.md), and [authoring/families.json](authoring/families.json) when adding or revising specifications, and review overlapping sibling specifications for any needed refactoring.
+[CONTRIBUTING.md](CONTRIBUTING.md) (`3.3.0`) defines mission and source discovery, task-to-content-to-case coverage, standardized 5-key Semantic-Discovery YAML frontmatter and semantic purity, projection and presentation rules, representative finished-instance evaluation, deterministic composition, and catalog integration. Use [authoring/request.template.json](authoring/request.template.json), [authoring/specification.template.md](authoring/specification.template.md), and [authoring/families.json](authoring/families.json) when adding or revising specifications, and review overlapping sibling specifications for any needed refactoring.
 
 ## Documentation scope
 

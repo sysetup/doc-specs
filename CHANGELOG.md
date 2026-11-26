@@ -4,6 +4,16 @@ Notable changes to this collection are recorded here, following
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 One project version governs the entire collection.
 
+## 3.3.0
+
+Released 2026-11-26. Added dual-surface `native` projections and conditional frontmatter policies to `REPOSITORY-OVERVIEW@core` and `CHANGELOG@core` so standard public repository root `README.md` and `CHANGELOG.md` files omit YAML frontmatter while standalone non-native GFM documents retain mandatory 5-key Semantic-Discovery YAML frontmatter.
+
+### Changed
+
+- Updated `REPOSITORY-OVERVIEW@core` (`03-specifications/repository-overview--core.spec.md`) to set `Frontmatter` to conditional (omitted on native public repository root `README.md` files), add the `Public repository README (native)` projection, and add a quality criterion verifying both native and standalone surfaces.
+- Updated `CHANGELOG@core` (`04-control/changelog--core.spec.md`) to set `Frontmatter` to conditional (omitted on native public repository root `CHANGELOG.md` files), add the `Public repository CHANGELOG (native)` projection, and add a quality criterion verifying both native and standalone surfaces.
+- Updated the single project version to `3.3.0` and synchronized `CATALOG.json` projections (`["standalone", "native"]` for `REPOSITORY-OVERVIEW@core` and `CHANGELOG@core`) across `CONTRIBUTING.md`, `authoring/families.json`, `authoring/request.template.json`, `CATALOG.json`, `README.md`, `llms.txt`, and `CHANGELOG.md`.
+
 ## 3.2.0
 
 Released 2026-11-23. Expanded the collection to 153 specifications by adding 9 modern engineering, reliability, data, privacy, and AI document specifications, refactoring adjacent sibling boundaries, and extending the controlled domain topic taxonomy compatibly.

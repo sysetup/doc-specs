@@ -1,6 +1,6 @@
 # Specification authoring standard
 
-Version: `3.2.0`. Status: active repository standard governing all catalog specifications, discovery catalogs, authoring templates, and the family registry.
+Version: `3.3.0`. Status: active repository standard governing all catalog specifications, discovery catalogs, authoring templates, and the family registry.
 
 This standard governs the creation of new document-type specifications and the revision of existing specifications across the collection. Every specification in the live collection conforms uniformly to this edition.
 
@@ -114,7 +114,7 @@ The registry in [families.json](authoring/families.json) is UTF-8 JSON with sort
 
 | Object | Keys and types |
 | --- | --- |
-| Request | `base_revision`: full library HEAD object ID; `items`: array of item objects; `source_bindings`: array of binding objects; `state`: `draft` or `ready`; `version`: current project version string (`3.2.0`). |
+| Request | `base_revision`: full library HEAD object ID; `items`: array of item objects; `source_bindings`: array of binding objects; `state`: `draft` or `ready`; `version`: current project version string (`3.3.0`). |
 | Binding | `path`: library-relative file path; `sha256`: lowercase 64-hex digest of its inspected working-tree bytes. Paths are unique and resolve, including symlinks, inside the authorized library. |
 | Item | `authoring`: authoring object; `comparisons`: array of comparison objects; `contract`: contract object; `definitions`: array of definition objects; `design`: design object; `family`: registered directory; `family_extension`: null or extension object; `forms`: string; `frontmatter`: specification-frontmatter object; `identity`: identity object; `operation`: `add` or `revise`; `previous_sha256`: null for add, inspected prior digest for revise; `quality`: array of criterion objects; `supporting`: array of support objects, possibly empty. |
 | Extension | `alternatives`, `boundary`, `directory`, `migration_impact`, `responsibility`, `unmet_mission`: strings; `decision`: null while pending, otherwise the actual decision locator and authority; `source_ids`: array of design-source IDs; `status`: `pending`, `authorized`, or `rejected`. A draft may name an unregistered proposed directory only through this object. |
