@@ -64,13 +64,9 @@ This declared breaking major release includes all 144 catalog specifications upg
 
 ### Changed
 
-- Released and adopted breaking major specification authoring standard `3.0.0` (`CONTRIBUTING.md`, `authoring/specification.template.md`, `authoring/request.template.json`): mandated 5-key Semantic-Discovery YAML frontmatter and semantic purity on every specification file and standalone Markdown finished document, replaced Markdown catalog maintenance rules with `INDEX.csv`, decoupled inline specification provenance when bound externally, sorted JSON request template keys lexicographically, and standardized compact GFM table delimiters (`| --- |`).
+- Released and adopted breaking major specification authoring standard `3.0.0` (`CONTRIBUTING.md`, `authoring/specification.template.md`, `authoring/request.template.json`): mandated 5-key Semantic-Discovery YAML frontmatter and semantic purity on every specification file and standalone Markdown finished document, defined maintenance rules for `INDEX.csv`, decoupled inline specification provenance when bound externally, sorted JSON request template keys lexicographically, and standardized compact GFM table delimiters (`| --- |`).
 - Updated all 144 catalog specifications to replace every legacy no-frontmatter finished-document directive with the mandatory 5-key Semantic-Discovery YAML frontmatter requirement (preserving native-surface metadata rules for dual-surface types), align standalone projection rows, decouple inline provenance in `TASK-EXECUTION-PLAN@core`, and normalize compact GFM table delimiters.
 - Updated `README.md` and `llms.txt` to reflect Release `2026-11-23`, authoring standard `3.0.0`, `INDEX.csv`, three-tier progressive disclosure, and repository Markdown conventions.
-
-### Removed
-
-- Retired `INDEX.md` in favor of `INDEX.csv` as the sole production discovery catalog.
 
 ## Release 2026-11-21
 
